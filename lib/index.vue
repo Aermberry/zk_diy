@@ -1,5 +1,5 @@
 <template>
-    <page style="height:100v" :componentClasses="componentClasses"></page>
+  <page  style="height:650px" :componentClasses="componentClasses"></page>
 </template>
 
 <script>
@@ -32,4 +32,5 @@ export default {
 </script>
 
 <style>
+
 </style>

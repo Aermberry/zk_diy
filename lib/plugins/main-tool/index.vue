@@ -7,7 +7,7 @@
             <TabPane label="属性" name="property" >
                 <component   :is="item" v-for="(item,index) in applicationState.pluginsBelongKeys['mainToolEditor']" :key="index"></component>
             </TabPane>
-            <TabPane label="树图" name="componentTree">
+            <TabPane label="组件树" name="componentTree">
                 <component  :is="item" v-for="(item,index) in applicationState.pluginsBelongKeys['mainToolTree']" :key="index"></component>
             </TabPane>
         </Tabs>
