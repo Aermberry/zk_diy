@@ -39,7 +39,7 @@ export const constantRouterMap = [
       {
         path: 'dashboard',
         // component: () => import('@/views/dashboard/index')
-        component: () => import('@/lib/page/index/index.vue')
+        component: () => import('../../editor/index.vue')
       }
     ]
   },
