@@ -1,51 +1,71 @@
-# gaea-editor-vue
+# vueAdmin-template
 
-## demo
->  [demo](https://charlielau.github.io/gaea-editor-vue)
+> A minimal vue admin template with Element UI & axios & iconfont & permission control & lint
 
-## Installation
+**Live demo:** http://panjiachen.github.io/vueAdmin-template
 
-Install with yarn:
+[中文文档](https://github.com/PanJiaChen/vueAdmin-template/blob/master/README-zh.md)
 
-```sh
-$ yarn  add   gaea-editor-vue
-# or with npm:
-$ npm install gaea-editor-vue
+## Build Setup
+
+``` bash
+
+# Clone project
+git clone https://github.com/PanJiaChen/vueAdmin-template.git
+
+# Install dependencies
+npm install
+
+# serve with hot reload at localhost:9528
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
 ```
 
-## Usage:
+## Demo
+![demo](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/demo.gif)
 
-Main.js:
+## Extra
+If you want router permission && generate menu by user roles , you can use this branch [permission-control](https://github.com/PanJiaChen/vueAdmin-template/tree/permission-control)
 
-```javascript
-//依赖vuex
-import store from './store/index';
-import GaeaEditor from 'gaea-editor-vue';
+## Related Project
+ [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
 
-Vue.use(GaeaEditor, {store});
+ [electron-vue-admin](https://github.com/PanJiaChen/electron-vue-admin)
+
+### Element-Ui using cdn tutorial
+First find `index.html`([root directory](https://github.com/PanJiaChen/vueAdmin-template/blob/element-ui-cdn/index.html))
+
+Import css and js of `Element`, and then import vue. Because `Element` is vue-dependent, vue must be import before it.
+
+Then find [webpack.base.conf.js](https://github.com/PanJiaChen/vueAdmin-template/blob/element-ui-cdn/build/webpack.base.conf.js)
+Add `externals` to make webpack not package vue and element.
 
 ```
-
-component.vue:
-
-```vue
-<template>
-  <div id="app">
-     <gaea-editor style="height:600px" />
-  </div>
-</template>
-<script>
-</script>
-
-<style>
-</style>
-```
-## 扩展开发
-
-```sh
-$ yarn run build 
+externals: {
+  vue: 'Vue',
+  'element-ui':'ELEMENT'
+}
 ```
 
-## Refrence
+Finally there is a small detail to pay attention to that if you import vue in global, you don't need to manually `Vue.use(Vuex)`, it will be automatically mounted, see
+ [issue](https://github.com/vuejs/vuex/issues/731)
 
->  [gaea-editor](https://github.com/ascoders/gaea-editor)
+And you can use `npm run build --report` to see the effect
+
+Pictured:
+![demo](https://panjiachen.github.io/images/element-cdn.png)
+
+**[Detailed code](https://github.com/PanJiaChen/vueAdmin-template/commit/746aff560932704ae821f82f10b8b2a9681d5177)**
+
+**[Branch](https://github.com/PanJiaChen/vueAdmin-template/tree/element-ui-cdn)**
+
+
+## License
+[MIT](https://github.com/PanJiaChen/vueAdmin-template/blob/master/LICENSE) license.
+
+Copyright (c) 2017-present PanJiaChen
