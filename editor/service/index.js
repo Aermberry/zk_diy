@@ -1,5 +1,5 @@
 const builtInPlugins = []
-let sortedPlugins = {}
+const sortedPlugins = {}
 const pluginsBelongKeys = {}
 let parseInputToOutRange = null
 
