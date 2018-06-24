@@ -1,7 +1,4 @@
 
-
-
-
 <script>
 import { ButtonGroup, Tooltip, Button, Switch, Input } from 'iview';
 import { Container, DisplayContainer, FlexContainer, FlexRow } from './style';
@@ -306,5 +303,4 @@ export default {
 </script>
 
 <style>
-
 </style>

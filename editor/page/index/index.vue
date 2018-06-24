@@ -1,6 +1,6 @@
 <template>
   <div id="gaea-editor-vue">
-    <!-- <Container>
+    <Container>
       <LeftContainer>
         <NavbarContainer>
           <NavbarContainerLeft :style="{height:`${applicationState.navbarHeight}px`}">
@@ -44,49 +44,48 @@
       <RightContainer :theme="{hidden:applicationState.isPreview}">
         <component :is="item" v-for="(item,index) in pluginsBelongKeys['mainTool']" :key="index"></component>
       </RightContainer>
-    </Container> -->
+    </Container>
   </div>
 </template>
 
  <script>
-// // 加载基本布局组件
-//  import * as components from 'editor/page/index/index.style'
-
+// 加载基本布局组件
+ import * as components from 'editor/page/index/index.style'
 // 加载内置插件及每个区块对应的key
-//  import {SVC} from 'editor/service'
+ import {SVC} from 'editor/service'
 // 加载组件库
 // 加载viewport
-// import Viewport from 'editor/viewport';
-// export default {
-//     components: {
-//         Viewport,
-//         ...components
-//         // ...sortedPlugins
-//     },
-//     props: {
-//         componentClasses: {
-//             default () {
-//                 return [];
-//             }
-//         }
-//     },
-//     data () {
-//         return {
-//             pluginsBelongKeys: SVC.pluginsBelongKeys
-//         };
-//     },
-//     computed: {
-//         applicationState () {
-//             return this.$store.state.application;
-//         }
-//     },
-//     created () {
-//         // 初始化布局组件
-//         this.$store.commit('viewport/initViewport');
-//     },
-//     mounted () {
+// import Viewport from 'editor/page/viewport';
+export default {
+    components: {
+        Viewport,
+        ...components
+        // ...sortedPlugins
+    },
+    props: {
+        componentClasses: {
+            default () {
+                return [];
+            }
+        }
+    },
+    data () {
+        return {
+            pluginsBelongKeys: SVC.pluginsBelongKeys
+        };
+    },
+    computed: {
+        applicationState () {
+            return this.$store.state.application;
+        }
+    },
+    created () {
+        // 初始化布局组件
+       // this.$store.commit('viewport/initViewport');
+    },
+    mounted () {
 
-//     }
-//}
+    }
+}
  </script>
 
