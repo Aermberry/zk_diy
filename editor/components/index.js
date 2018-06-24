@@ -1,6 +1,6 @@
-import Button from './button';
-import Container from './container';
+// import Button from './button'
+import Container from './container'
 
-import Card from './card';
+// import Card from './card'
 
-export default [Button, Container, Card];
+export default [Container]

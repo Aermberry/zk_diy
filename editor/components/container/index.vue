@@ -1,5 +1,5 @@
 <template>
-  <div :style="{minWidth: '100px',minHeight: '100px',...styles}"  class="gaea-slot" data-slot-name='default' >
+  <div :style="{minWidth: '100px',minHeight: '100px',...styles}" class="gaea-slot" data-slot-name='default'>
     <slot></slot>
   </div>
 </template>
@@ -22,5 +22,4 @@ export default {
 </script>
 
 <style>
-
 </style>

@@ -1,10 +1,10 @@
 <template>
-    <Card :style="{...styles}">
-        <p slot="title" v-if="title">{{title}}</p>
-         <div  class="gaea-slot" style="min-height:50px;width:100%" data-slot-name='default' >
-            <slot></slot>
-         </div>
-    </Card>
+  <Card :style="{...styles}">
+    <p slot="title" v-if="title">{{title}}</p>
+    <div class="gaea-slot" style="min-height:50px;width:100%" data-slot-name='default'>
+      <slot></slot>
+    </div>
+  </Card>
 </template>
 
 <script>
@@ -22,5 +22,4 @@ export default {
 </script>
 
 <style>
-
 </style>
