@@ -3,14 +3,14 @@
 </template>
 
 <script>
-// import Page from './page/index/index.vue';
-// // 加载内置插件及每个区块对应的key
-// import {SVC} from './service';
+import Page from 'editor/page/index/index.vue'
+// 加载内置插件及每个区块对应的key
+ // import {SVC} from 'editor/service'
 // // 加载组件库
-// import defaultComponentClass from './components';
+// import defaultComponentClass from 'editor/components'
 
-// const pluginsBelongKeys = SVC.pluginsBelongKeys;
-// const sortedPlugins = SVC.sortedPlugins;
+// const pluginsBelongKeys = SVC.pluginsBelongKeys
+// const sortedPlugins = SVC.sortedPlugins
 // export default {
 //     components: {
 //         Page
@@ -18,15 +18,15 @@
 //     props: {
 //         componentClasses: {
 //             default () {
-//                 return [];
+//                 return []
 //             }
 //         }
 //     },
 //     created () {
-//         this.$store.commit('application/loadBuiltInPlugins', {pluginsBelongKeys, sortedPlugins});
+//         this.$store.commit('application/loadBuiltInPlugins', {pluginsBelongKeys, sortedPlugins})
 //         this.componentClasses.concat(defaultComponentClass).forEach(item => {
-//             this.$store.commit('application/addComponentClass', item);
-//         });
+//             this.$store.commit('application/addComponentClass', item)
+//         })
 //     }
-// };
+// }
  </script>
