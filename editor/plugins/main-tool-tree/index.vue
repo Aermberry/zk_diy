@@ -11,7 +11,7 @@
 
 <script>
 import * as components from './style';
-import eventbus from '../../service/eventbus';
+import eventbus from 'editor/service/eventbus';
 export default {
     components: {
         ...components

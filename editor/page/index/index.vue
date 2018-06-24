@@ -50,12 +50,12 @@
 
  <script>
 // // 加载基本布局组件
- import * as components from 'editor/page/index/index.style';
+//  import * as components from 'editor/page/index/index.style'
 
-// // 加载内置插件及每个区块对应的key
-// import {SVC} from 'editor/service';
-// // 加载组件库
-// // 加载viewport
+// 加载内置插件及每个区块对应的key
+//  import {SVC} from 'editor/service'
+// 加载组件库
+// 加载viewport
 // import Viewport from 'editor/viewport';
 // export default {
 //     components: {
@@ -87,6 +87,6 @@
 //     mounted () {
 
 //     }
-// };
+//}
  </script>
 

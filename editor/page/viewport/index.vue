@@ -7,7 +7,7 @@
 <script>
 import * as components from './style';
 import EditHelper from './edit-helper';
-import eventbus from '../../service/eventbus';
+import eventbus from 'editor/service/eventbus';
 export default {
     components: {
         ...components,

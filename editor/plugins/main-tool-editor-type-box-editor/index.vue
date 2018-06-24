@@ -6,7 +6,7 @@
 import * as _ from 'lodash';
 import {Container} from './style';
 import BoxEdit from './box-editor';
-import {getStyle} from '../../service/dom';
+import {getStyle} from 'editor/service/dom';
 export default {
     props: {
         instanceInfo: Object,

@@ -6,7 +6,7 @@
 
 <script>
 import * as components from './style';
-import {PropertyMixin} from '../../service/main-tool-editor-type-mixin';
+import {PropertyMixin} from 'editor/service/main-tool-editor-type-mixin';
 export default {
     components: {
         ...components

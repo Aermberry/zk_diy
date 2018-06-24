@@ -21,7 +21,7 @@
 
 <script>
 import * as components from './style';
-import { SVC } from '../../service';
+import { SVC } from 'editor/service';
 import * as _ from 'lodash';
 
 export default {

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import eventbus from '../../service/eventbus';
+import eventbus from 'editor/service/eventbus';
 export default {
     position: 'viewport',
     name: 'viewport-guideline',

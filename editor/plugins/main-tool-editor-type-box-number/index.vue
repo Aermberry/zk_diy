@@ -18,8 +18,8 @@
 
 import * as components from './style';
 import * as _ from 'lodash';
-import {SVC} from '../../service';
-import {getStyle} from '../../service/dom';
+import {SVC} from 'editor/service';
+import {getStyle} from 'editor/service/dom';
 export default {
     components: {
         ...components

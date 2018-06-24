@@ -1,4 +1,4 @@
-import styled, { css } from 'vue-styled-components';
+import styled, { css } from 'vue-styled-components'
 
 const NavbarContainerLeftAndNavbarContainerRight = css`
     & > div:not(.no-style) {
@@ -15,7 +15,7 @@ const NavbarContainerLeftAndNavbarContainerRight = css`
             color: #333;
         }
     }
-`;
+`
 
 const ViewportContainerBoxAndPreviewContainer = css`
     display: flex;
@@ -25,22 +25,19 @@ const ViewportContainerBoxAndPreviewContainer = css`
     ${(props) => props.theme.hidden && `
         display: none;
     `}
-`;
-
+`
 export const Container = styled('div', { componentId: 'Container' })`
     display: flex;
     width: 100%;
     height: 100%;
     overflow: hidden;
-`;
-
+`
 export const LeftContainer = styled('div', { componentId: 'LeftContainer' })`
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     width: 0;
-`;
-
+`
 export const RightContainer = styled('div', { componentId: 'RightContainer', theme: Object })`
     display: flex;
     width: 300px;
@@ -52,14 +49,14 @@ export const RightContainer = styled('div', { componentId: 'RightContainer', the
     ${(props) => props.theme.hidden && `
         display: none;
     `}
-`;
+`
 
 export const NavbarContainer = styled.div`
     display: flex;
     justify-content: space-between;
     background-color: whitesmoke;
     border-bottom: 1px solid #ddd;
-`;
+`
 
 export const NavbarContainerLeft = styled.div`
     display: flex;
@@ -67,7 +64,7 @@ export const NavbarContainerLeft = styled.div`
         border-right: 1px solid #ddd;
     }
     ${NavbarContainerLeftAndNavbarContainerRight}
-`;
+`
 
 export const NavbarContainerRight = styled.div`
     display: flex;
@@ -76,13 +73,13 @@ export const NavbarContainerRight = styled.div`
         border-left: 1px solid #ddd;
     }
     ${NavbarContainerLeftAndNavbarContainerRight}
-`;
+`
 
 export const ViewportContainer = styled.div`
     display: flex;
     flex-grow: 1;
     height: 0;
-`;
+`
 
 export const ViewportContainerLeft = styled('div', {theme: Object})`
     display: flex;
@@ -96,7 +93,7 @@ export const ViewportContainerLeft = styled('div', {theme: Object})`
     ${(props) => props.theme.hidden && `
         display: none;
     `}
-`;
+`
 
 export const ViewportContainerLeftTop = styled.div`
     width: 100%;
@@ -114,7 +111,7 @@ export const ViewportContainerLeftTop = styled.div`
             background-color: white;
         }
     }
-`;
+`
 
 export const ViewportContainerLeftBottom = styled.div`
     width: 100%;
@@ -130,7 +127,7 @@ export const ViewportContainerLeftBottom = styled.div`
             background-color: #eaeaea;
         }
     }
-`;
+`
 
 export const ViewportContainerRight = styled('div', {theme: Object})`
     display: flex;
@@ -144,14 +141,14 @@ export const ViewportContainerRight = styled('div', {theme: Object})`
     ${(props) => props.theme.showLeft && `
         margin-left: 0;
     `}
-`;
+`
 
 export const FooterContainer = styled.div`
     display: flex;
     height: 30px;
     border-top: 1px solid #ddd;
     background-color: whitesmoke;
-`;
+`
 
 export const ToolsContainer = styled('div', {theme: Object})`
     display: flex;
@@ -162,14 +159,14 @@ export const ToolsContainer = styled('div', {theme: Object})`
     ${(props) => props.theme.fullScreen && `
        width: 100%;
     `}
-`;
+`
 
 export const ToolsContainerLeft = styled.div`
     display: flex;
     flex-direction: column;
     width: 300px;
     border-right: 1px solid #ddd;
-`;
+`
 
 export const ToolsContainerRight = styled('div', {theme: Object})`
     display: flex;
@@ -180,17 +177,17 @@ export const ToolsContainerRight = styled('div', {theme: Object})`
     ${(props) => props.theme.show && `
        display: block;
     `}
-`;
+`
 
 export const ViewportContainerBox = styled('div', {theme: Object})`
     ${ViewportContainerBoxAndPreviewContainer}
     overflow-x: hidden;
-`;
+`
 
 export const PreviewContainer = styled('div', {theme: Object})`
     ${ViewportContainerBoxAndPreviewContainer}
     overflow-y: auto;
-`;
+`
 
 export const ModalTitleContainer = styled.div`
     display: flex;
@@ -199,7 +196,7 @@ export const ModalTitleContainer = styled.div`
     height: 45px;
     padding: 0 15px;
     border-bottom: 1px solid #ddd;
-`;
+`
 
 export const ModalTitle = styled.div`
     display: flex;
@@ -207,7 +204,7 @@ export const ModalTitle = styled.div`
     font-size: 18px;
     color: #666;
     font-weight: bold;
-`;
+`
 
 export const ModalTitleClose = styled.div`
     display: flex;
@@ -217,4 +214,4 @@ export const ModalTitleClose = styled.div`
     &:hover {
         fill: #333;
     }
-`;
+`
