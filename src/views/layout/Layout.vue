@@ -95,7 +95,7 @@
             </li>
             <li class="right-item">
               <div class="item-sumbit">
-                  提交
+                  发布
               </div>
             </li>
           </ul>
