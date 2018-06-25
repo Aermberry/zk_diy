@@ -23,9 +23,12 @@
     "js-cookie": "2.2.0",
     "normalize.css": "7.0.0",
     "nprogress": "0.2.0",
+    "nuxt": "^1.4.1",
     "sortablejs": "^1.7.0",
     "vue": "2.5.10",
+    "vue-easy-renderer": "^1.2.0",
     "vue-router": "3.0.1",
+    "vue-server-renderer": "^2.5.16",
     "vue-styled-components": "^1.2.3",
     "vuex": "3.0.1"
   },

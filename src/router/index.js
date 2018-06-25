@@ -38,8 +38,8 @@ export const constantRouterMap = [
     children: [
       {
         path: 'dashboard',
-        // component: () => import('@/views/dashboard/index')
-        component: () => import('editor/index.vue')
+        component: () => import('@/views/dashboard/index')
+        // component: () => import('editor/index.vue')
       }
     ]
   },
