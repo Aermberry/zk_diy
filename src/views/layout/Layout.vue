@@ -1,7 +1,5 @@
 <template>
   <div class="app-wrapper" :class="classObj">
-    <!-- <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside"></div>
-    <sidebar class="sidebar-container"></sidebar> -->
     <div class="layout-left">
       <div class="layout-logo-box">
         <router-link to="" class="layout-logo">
@@ -11,7 +9,7 @@
       <div class="layout-left-nav">
         <ul class="layout-left-item-box">
           <li class="left-item">
-            <div to="" @click="ceshi()">
+            <div @click="ceshi()">
               <i class="left-item-icon">
 
               </i>
@@ -21,7 +19,14 @@
             </div>
           </li>
           <li class="left-item">
+            <div  @click="dialogTableVisible = true">
+              <i class="left-item-icon">
 
+              </i>
+              <span class="left-item-text"  >
+                  添加模块
+              </span>
+            </div>
           </li>
         </ul>
         <div>
@@ -100,7 +105,178 @@
             </li>
           </ul>
         </div>
+        <div class="layout-right-tab-box">
+          <ul class="tab-top-item">
+                  <li class="active" @click="tabRight=1">
+                    <div>属性</div>
+                  </li>
+                  <li @click="tabRight=2">
+                    <div>树图</div>
+                  </li>
+                  <li @click="tabRight=3">
+                    <div>历史</div>
+                  </li>
+          </ul>
+          <div class="right-tab-content" v-if="tabRight===1">
+            <div class="right-tab-top">
+                <div class="tab-top-content-box">
+                  <ul class="tab-top-content">
+                    <li>Nemwwewewewewe</li>
+                    <li>yuyuyuyuyuyuyuyu</li>
+                  </ul>
+                </div>
+            </div>
+            <div class="right-tab-center">
+              <div class="tab-title">
+                biaotititititittititi
+              </div>
+              <div class="tab-top-content-box">
+                  <ul class="tab-top-content">
+                    <li>Nemwwewewewewe</li>
+                    <li>yuyuyuyuyuyuyuyu</li>
+                  </ul>
+                </div>
+            </div>
+            <div class="right-tab-bottom">
+              <div class="tab-title">
+                biaotititititittititi
+              </div>
+              <div class="tab-top-content-box">
+                  <ul class="tab-top-content">
+                    <li>Nemwwewewewewe</li>
+                    <li>yuyuyuyuyuyuyuyu</li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+          <div class="right-tab-content" v-if="tabRight===2">
+            <div class="right-tab-top">
+                <div class="tab-top-content-box">
+                  <ul class="tab-top-content">
+                    <li>Nemwwewewewewe</li>
+                    <li>yuyuyuyuyuyuyuyu</li>
+                  </ul>
+                </div>
+            </div>
+            <div class="right-tab-center">
+              <div class="tab-title">
+                biaotititititittititi
+              </div>
+              <div class="tab-top-content-box">
+                  <ul class="tab-top-content">
+                    <li>Nemwwewewewewe</li>
+                    <li>yuyuyuyuyuyuyuyu</li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+          <div class="right-tab-content" v-if="tabRight===3">
+            <div class="right-tab-top">
+                <div class="tab-top-content-box">
+                  <ul class="tab-top-content">
+                    <li>Nemwwewewewewe</li>
+                    <li>yuyuyuyuyuyuyuyu</li>
+                  </ul>
+                </div>
+            </div>
+            <div class="right-tab-center">
+              <div class="tab-title">
+                biaotititititittititi
+              </div>
+              <div class="tab-top-content-box">
+                  <ul class="tab-top-content">
+                    <li>Nemwwewewewewe</li>
+                    <li>yuyuyuyuyuyuyuyu</li>
+                  </ul>
+                </div>
+            </div>
+            <div class="right-tab-bottom">
+              <div class="tab-title">
+                74+8949849849849849848
+              </div>
+              <div class="tab-top-content-box">
+                  <ul class="tab-top-content">
+                    <li>Nemwwewewewewe</li>
+                    <li>yuyuyuyuyuyuyuyu</li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+        </div>
     </div>
+    <div class="layout-bottom">
+      <div class="bottom-p"></div>
+      <div class="bottom-right">
+      <div class="layout-bottom-left">
+        20178484448444849
+      </div>
+      <div class="layout-bottom-right">
+        <ul>
+          <li>qwe</li>
+          <li>wqe</li>
+          <li>ewq</li>
+          <li>ewq</li>
+        </ul>
+        </div>
+      </div>
+    </div>
+
+    <el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="qweqweqwewq" :visible.sync="dialogTableVisible" class="popup-module">
+      <!-- <div class="module-title">
+        qweqweqwewq
+      </div> -->
+      <div class="module-nav">
+        <ul>
+          <li>
+              qwe
+          </li>
+          <li class="active">
+            asd
+          </li>
+        </ul>
+      </div>
+      <div class="module-search">
+        <div class="search-left">
+          qweqweqweqe
+        </div>
+        <div class="search-right">
+          <el-input style='width:222px;' placeholder="搜索" prefix-icon="el-icon-search" v-model="moduleSearch"></el-input>
+          <el-button style='' type="primary" icon="search"> 搜索</el-button>
+        </div>
+      </div>
+      <div class="module-content">
+        <div class="content-left">
+          <ul>
+            <li class="active">789</li>
+            <li>456</li>
+          </ul>
+        </div>
+        <div class="content-right">
+          <ul class="content-box">
+            <li>
+              <img src="" alt="">
+              <div class="content-text">
+                <p>基础</p>
+                <span>1111111111111111</span>
+              </div>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+      <div class="module-bottom">
+        <div class="bottom-sumbit">
+          <el-button style='' type="primary" > 提交</el-button>
+        </div>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -108,17 +284,24 @@
 import { Navbar, Sidebar, AppMain } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 import Screenfull from '@/components/Screenfull'
+import ErrorLog from '@/components/ErrorLog'
+import elDragDialog from '@/directive/el-dragDialog' // base on element-ui
 export default {
   name: 'layout',
+  directives: { elDragDialog },
   components: {
     Navbar,
     Sidebar,
     AppMain,
-    Screenfull
+    Screenfull,
+    ErrorLog
   },
   data() {
     return {
-      eject:false
+      eject: false,
+      tabRight: 1,
+      dialogTableVisible: false,
+      moduleSearch: ''
     }
   },
   mixins: [ResizeMixin],
@@ -138,12 +321,15 @@ export default {
     }
   },
   methods: {
-    ceshi(){
-      this.eject=!this.eject
-      console.log('this.eject',this.eject)
+    ceshi() {
+      this.eject = !this.eject
     },
     handleClickOutside() {
       this.$store.dispatch('CloseSideBar', { withoutAnimation: false })
+    },
+    // v-el-drag-dialog onDrag callback function
+    handleDrag() {
+      this.$refs.select.blur()
     }
   }
 }
@@ -184,9 +370,10 @@ export default {
     height:100vh;
     display: flex;
     flex-flow: column;
+    z-index: 9999;
     .layout-logo-box{
       width:80px;
-      height:80px;
+      height:70px;
       background: #282a3c;
       position: relative;
       a.layout-logo{
@@ -247,11 +434,11 @@ export default {
     }
     .popup-page-box{
       position: absolute;
-      top:80px;
+      top:70px;
       left:-220px;
       width:300px;
       height:100vh;
-      background: #f5f5f5;
+      background: #fff;
       z-index:9998;
       border:1px solid #e5e5e5;
       transition: all .5s ease;
@@ -261,7 +448,7 @@ export default {
         padding:0 5px;
         .page-top-left{
           font-size:16px;
-          color:black;
+          color:#666c7a;
           height:100%;
           line-height: 40px;
           font-weight: bold;
@@ -357,11 +544,13 @@ export default {
   }
   .layout-center{
     flex:1;
+    background: #f3f4f9;
     .layout-center-navbar{
-      height:80px;
+      height:70px;
       display: flex;
       align-items:center;
       border-bottom:1px solid #e5e5e5;
+      background: white;
       .center-navbar-left{
           width:200px;
           height:100%;
@@ -388,12 +577,14 @@ export default {
     }
   }
   .layout-right{
-    width:400px;
+    width:300px;
+    display: flex;
+    flex-flow: column;
     .layout-right-navbar{
-      height:80px;
+      height:70px;
       display: flex;
       .right-item-box{
-        height:80px;
+        height:70px;
         display: flex;
         width:100%;
         border-top:1px solid #e5e5e5;
@@ -403,7 +594,7 @@ export default {
         flex:1;
         align-items:center;
         justify-content:center;
-        height:80px;
+        height:70px;
         border-left:2px solid #f0f9ff;
         cursor:pointer;
         span{
@@ -420,5 +611,263 @@ export default {
         }
       }
     }
+    .layout-right-tab-box{
+      padding-left:10px;
+      height:100vh;
+      padding-bottom:45px;
+      border-left:1px solid #e5e5e5;
+      flex:1;
+      .tab-top-item{
+        height:50px;
+        display: flex;
+        padding-right:100px;
+        border-bottom:1px solid #e5e5e5;
+        margin-bottom:20px;
+        li{
+          flex:1;
+          div{
+            width:30px;
+            height:50px;
+            margin:0 auto;
+            line-height: 50px;
+            text-align: center;
+            font-size:15px;
+            color:#666c7a;
+            cursor: pointer;
+          }
+        }
+        li.active{
+          div{
+            color:#716aca;
+            border-bottom:1px solid #716aca
+          }
+        }
+      }
+      .right-tab-content{
+      .tab-top-content-box{
+        .tab-top-content{
+          li{
+            height:40px;
+            line-height: 40px;
+            color:#666c7a;
+            padding-left:40px;
+            position: relative;
+          }
+          li:first-child::before{
+            content:none;
+          }
+          li:after{
+            content:'';
+            position: absolute;
+            width:10px;
+            height:10px;
+            border-radius: 50%;
+            background: #ecedf2;
+            top:15px;
+            left:15px;
+          }
+          li:before{
+            content:'';
+            position: absolute;
+            width:2px;
+            height:40px;
+            background: #ecedf2;
+            top:-25px;
+            left:19px;
+          }
+        }
+      }
+      .tab-title{
+        height:60px;
+        line-height: 80px;
+        font-weight: bold;
+        font-size:18px;
+        padding-left:20px;
+      }
+      }
+
+    }
+  }
+  .layout-bottom{
+    width:100%;
+    height:45px;
+    position: fixed;
+    left:0;
+    bottom:0;
+    border-top:2px solid #e5e5e5;
+    z-index: 9998;
+    background: white;
+    display: flex;
+    .bottom-p{
+      width:80px;
+      height:45px;
+    }
+    .bottom-right{
+      flex: 1;
+      display: flex;
+    }
+    .layout-bottom-left{
+      height:45px;
+      line-height: 55px;
+      color:#666c7a;
+      padding-left:30px;
+    }
+    .layout-bottom-right{
+      flex:1;
+      height:45px;
+      ul{
+        display: flex;
+        height:45px;
+        justify-content:flex-end ;
+        align-items:center;
+        padding-right:200px;
+        li{
+          height:45px;
+          padding: 0 20px;
+          line-height: 45px;
+          color:#666c7a;
+        }
+      }
+    }
+  }
+  .popup-module{
+    padding:0;
+    .module-title{
+      height:50px;
+      line-height: 50px;
+      color: #3899ed;
+      padding-left:20px;
+      font-size:18px;
+    }
+    .module-nav{
+      height:50px;
+      border-top:1px solid #d4ecfe;
+      border-bottom:1px solid #d4ecfe;
+      background: #ebf7ff;
+      ul{
+        li{
+          float: left;
+          height:50px;
+          line-height: 50px;
+          color:#0b5672;
+          padding:0 40px;
+          border-right:1px solid #dae1e8
+        }
+        li.active{
+          background: #fff;
+        }
+      }
+    }
+    .module-search{
+      margin-top:1px;
+      height:50px;
+      display: flex;
+      border-bottom:1px solid #dae1e8;
+      .search-left{
+        height:50px;
+        flex:1;
+        line-height: 50px;
+        color:#7d94a6;
+        padding-left:20px;
+      }
+      .search-right{
+        height:50px;
+        display: flex;
+        align-items:center;
+        padding-right:50px;
+        .el-button{
+          margin-left:10px;
+        }
+      }
+    }
+    .module-content{
+      height:500px;
+      display: flex;
+      .content-left{
+        width:140px;
+        height:500px;
+        border-right:1px solid #dae1e8;
+        ul{
+          height:500px;
+          overflow: auto;
+          li{
+            height:40px;
+            line-height: 40px;
+            padding-left:30px;
+            color:#29292a;
+          }
+          li.active{
+            background: #3899ed;
+            color:#fff;
+          }
+        }
+      }
+      .content-right{
+        padding:12px;
+        height:500px;
+        flex:1;
+        ul.content-box{
+          width:100%;
+          height:500px;
+          overflow: auto;
+          li{
+            float: left;
+            width:260px;
+            height:200px;
+            border-radius: 5px;
+            border:1px solid #f3f3f3;
+            margin-right:10px;
+            margin-bottom:10px;
+            img{
+              width:100%;
+              height:150px;
+              border-bottom:2px solid #f1f1f1
+            }
+            .content-text{
+              padding:5px 10px;
+              p{
+                color:#808581;
+                font-size:16px;
+              }
+              span{
+                margin-top:5px;
+                color:#808581;
+                font-size:15px;
+              }
+            }
+          }
+        }
+        ul:after{
+          content:'';
+          display: block;
+          clear: both;
+        }
+      }
+    }
+    .module-bottom{
+      height:50px;
+      border-top:1px solid #d7d7d7;
+      position: relative;
+      .bottom-sumbit{
+        position: absolute;
+        top:50%;
+        right:50px;
+        transform: translateY(-50%);
+      }
+    }
+  }
+  .popup-module /deep/ .el-dialog{
+    width:1600px;
+  }
+  .popup-module /deep/ .el-dialog__header{
+    // padding:0;
+  }
+  .popup-module /deep/ .el-dialog__body{
+    padding:0;
+    width:1600px;
+  }
+  .errLog-container {
+    display: inline-block;
+    vertical-align: top;
   }
 </style>
