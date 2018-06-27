@@ -19,7 +19,7 @@
             </div>
           </li>
           <li class="left-item">
-            <div  @click="dialogTableVisible = true">
+            <div  @click="dialogTableVisible = true,eject = false">
               <i class="left-item-icon">
 
               </i>
@@ -220,7 +220,6 @@
         </div>
       </div>
     </div>
-
     <el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="qweqweqwewq" :visible.sync="dialogTableVisible" class="popup-module">
       <!-- <div class="module-title">
         qweqweqwewq
@@ -247,17 +246,34 @@
       <div class="module-content">
         <div class="content-left">
           <ul>
-            <li class="active">789</li>
-            <li>456</li>
+            <li :class="{'active':showContent===1}"  @click="showContent=1">789</li>
+            <li :class="{'active':showContent===2}"  @click="showContent=2">456</li>
           </ul>
         </div>
         <div class="content-right">
-          <ul class="content-box">
+          <ul class="content-box" v-if="showContent===1">
             <li>
               <img src="" alt="">
               <div class="content-text">
                 <p>基础</p>
                 <span>1111111111111111</span>
+              </div>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <ul class="content-box" v-if="showContent===2">
+            <li>
+              <img src="" alt="">
+              <div class="content-text">
+                <p>基础</p>
+                <span>2222222222222222222</span>
               </div>
             </li>
             <li></li>
@@ -301,7 +317,8 @@ export default {
       eject: false,
       tabRight: 1,
       dialogTableVisible: false,
-      moduleSearch: ''
+      moduleSearch: '',
+      showContent: 1
     }
   },
   mixins: [ResizeMixin],
@@ -438,7 +455,7 @@ export default {
       left:-220px;
       width:300px;
       height:100vh;
-      background: #fff;
+      background: white;
       z-index:9998;
       border:1px solid #e5e5e5;
       transition: all .5s ease;
@@ -858,6 +875,7 @@ export default {
   }
   .popup-module /deep/ .el-dialog{
     width:1600px;
+    z-index: 9999;
   }
   .popup-module /deep/ .el-dialog__header{
     // padding:0;
