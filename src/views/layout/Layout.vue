@@ -11,7 +11,6 @@
           <li class="left-item">
             <div @click="ceshi()">
               <i class="left-item-icon">
-
               </i>
               <span class="left-item-text"  >
                   首页
