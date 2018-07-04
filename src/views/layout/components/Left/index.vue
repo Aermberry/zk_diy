@@ -114,8 +114,8 @@
 </template>
 
 <script>
-	import ResizeMixin from '../../mixin/ResizeHandler'
 	import elDragDialog from '@/directive/el-dragDialog'
+	import { DIY_GETLINK_GET } from '@/service/api/apiUrl' // 引入Api接口常量
 	export default {
 		directives: { elDragDialog },
 		data () {
@@ -123,34 +123,22 @@
 				eject: false,
 				dialogTableVisible: false,
 				moduleSearch: '',
+				viewModel: '',
 				showContent: 1
 			}
 		},
-		mixins: [ResizeMixin],
-		computed: {
-			sidebar () {
-				return this.$store.state.app.sidebar
-			},
-			device () {
-				return this.$store.state.app.device
-			},
-			classObj () {
-				return {
-					hideSidebar: !this.sidebar.opened,
-					withoutAnimation: this.sidebar.withoutAnimation,
-					mobile: this.device === 'mobile'
-				}
-			}
+		mounted () {
+			this.init()
 		},
 		methods: {
-			ceshin () {
+			async ceshin () {
 				this.eject = !this.eject
 			},
-			handleClickOutside () {
-				this.$store.dispatch('CloseSideBar', { withoutAnimation: false })
-			},
-			handleDrag () {
-				this.$refs.select.blur()
+			async  init () {
+				const para = {
+					diyKey: 'grid_index'
+				}
+				this.viewModel = await this.$api.get(DIY_GETLINK_GET, para)
 			}
 		}
 	}
