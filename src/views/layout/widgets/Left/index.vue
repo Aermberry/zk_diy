@@ -8,7 +8,7 @@
     <div class="layout-left-nav">
       <ul class="layout-left-item-box">
         <li class="left-item">
-          <div @click="ceshi()">
+          <div @click="pageBox()">
             <x-icon src='table.svg'></x-icon>
             <span class="left-item-text">
               页面
@@ -32,7 +32,7 @@
       <div class="page-top">
         <div class="page-top-left">
           页面设置
-          <i class="page-box-close" @click="ceshi()">×</i>
+          <i class="page-box-close" @click="pageBox()">×</i>
         </div>
         <div class="page-top-right">
           <ul>
@@ -132,7 +132,7 @@
       this.init()
     },
     methods: {
-      async ceshin () {
+      async pageBox () {
         this.eject = !this.eject
       },
       async  init () {
@@ -154,7 +154,6 @@
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   @import 'src/assets/styles/mixin.scss';
-
   .layout-left {
     position: fixed;
     top: 0;
