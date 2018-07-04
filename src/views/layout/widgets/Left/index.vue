@@ -37,10 +37,10 @@
         <div class="page-top-right">
           <ul>
             <li class="top-right-item">
-              <svg-icon icon-class="table" />
+              <x-icon src='tree.svg'></x-icon>
             </li>
             <li class="top-right-item">
-              <svg-icon icon-class="table" />
+              <x-icon src='tree.svg'></x-icon>
             </li>
           </ul>
         </div>
@@ -54,7 +54,7 @@
             <div class="title-right-btn">
               使用
             </div>
-            <svg-icon icon-class="table" />
+            <x-icon src='tree.svg'></x-icon>
           </div>
         </div>
         <div class="page-show">
@@ -135,12 +135,12 @@
       async pageBox () {
         this.eject = !this.eject
       },
-      async  init () {
+      async init () {
         const para = {
           diyKey: 'grid_index'
         }
         this.viewModel = await this.$api.get(DIY_GETLINK_GET, para)
-        console.info('数据', this.viewModel)
+        console.info('widet数据', this.viewModel)
       },
       handleClickOutside () {
         this.$store.dispatch('CloseSideBar', { withoutAnimation: false })

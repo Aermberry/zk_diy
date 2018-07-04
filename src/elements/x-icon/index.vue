@@ -29,7 +29,7 @@
       init () {
         if (this.src.indexOf('/') <= 0) {
           this.imageUrl = 'src/assets/svg/' + this.src
-          console.info('icon', this.imageUrl)
+          // console.info('icon', this.imageUrl)
         }
       },
       onClick () {
