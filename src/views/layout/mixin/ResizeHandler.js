@@ -1,3 +1,5 @@
+// eslint-disable-next-line
+/* eslint-disable */
 import store from '@/store'
 
 const { body } = document

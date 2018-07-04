@@ -1,3 +1,4 @@
+
 <template>
   <div :ref="id" :action="url" class="dropzone" :id="id">
     <input type="file" name="file">
@@ -5,6 +6,8 @@
 </template>
 
 <script>
+// eslint-disable-next-line
+/* eslint-disable */
 import Dropzone from 'dropzone'
 import 'dropzone/dist/dropzone.css'
 // import { getToken } from 'api/qiniu';
