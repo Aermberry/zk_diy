@@ -154,7 +154,6 @@
   import Footer from './components/Footer'
   import Right from './components/Right'
   import Top from './components/Top'
-	import Screenfull from '@/components/Screenfull'
 	import ErrorLog from '@/components/ErrorLog'
 	import elDragDialog from '@/directive/el-dragDialog' // base on element-ui
 	export default {
@@ -167,7 +166,6 @@
       Top,
 			Sidebar,
 			AppMain,
-			Screenfull,
 			ErrorLog
 		},
 		data () {
