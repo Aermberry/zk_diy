@@ -13,15 +13,15 @@ import '@/styles/index.scss' // global css
 import App from './App'
 import router from './router'
 import store from './store'
+import XIcon from '@/elements/x-icon'
 
-import '@/icons' // icon
 import '@/permission' // permission control
 
 Vue.prototype.$api = api
 Vue.use(ElementUI, {
   locale
 })
-
+Vue.use('x-icon', XIcon)
 Vue.config.productionTip = false
 // eslint-disable-next-line
 new Vue({
