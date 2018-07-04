@@ -1,7 +1,6 @@
 <template>
     <section>
-     		<div class="layout-center">
-			<!-- <navbar></navbar> -->
+    <div class="layout-center">
 			<div class="layout-center-navbar">
 				<div class="center-navbar-left">
 					<svg-icon icon-class="component" />
@@ -13,127 +12,8 @@
 					</el-tooltip>
 				</div>
 			</div>
-			<!-- <app-main></app-main> -->
 		</div>
-		<div class="layout-right">
-			<div class="layout-right-navbar">
-				<ul class="right-item-box">
-					<li class="right-item">
-						<svg-icon icon-class="example" />
-						<span>手机</span>
-					</li>
-					<li class="right-item">
-						<span>保存</span>
-					</li>
-					<li class="right-item">
-						<span>预览</span>
-					</li>
-					<li class="right-item">
-						<div class="item-sumbit">
-							发布
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div class="layout-right-tab-box">
-				<ul class="tab-top-item">
-					<li class="active" @click="tabRight=1">
-						<div>属性</div>
-					</li>
-					<li @click="tabRight=2">
-						<div>树图</div>
-					</li>
-					<li @click="tabRight=3">
-						<div>历史</div>
-					</li>
-				</ul>
-				<div class="right-tab-content" v-if="tabRight===1">
-					<div class="right-tab-top">
-						<div class="tab-top-content-box">
-							<ul class="tab-top-content">
-								<li>Nemwwewewewewe</li>
-								<li>yuyuyuyuyuyuyuyu</li>
-							</ul>
-						</div>
-					</div>
-					<div class="right-tab-center">
-						<div class="tab-title">
-							biaotititititittititi
-						</div>
-						<div class="tab-top-content-box">
-							<ul class="tab-top-content">
-								<li>Nemwwewewewewe</li>
-								<li>yuyuyuyuyuyuyuyu</li>
-							</ul>
-						</div>
-					</div>
-					<div class="right-tab-bottom">
-						<div class="tab-title">
-							biaotititititittititi
-						</div>
-						<div class="tab-top-content-box">
-							<ul class="tab-top-content">
-								<li>Nemwwewewewewe</li>
-								<li>yuyuyuyuyuyuyuyu</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="right-tab-content" v-if="tabRight===2">
-					<div class="right-tab-top">
-						<div class="tab-top-content-box">
-							<ul class="tab-top-content">
-								<li>Nemwwewewewewe</li>
-								<li>yuyuyuyuyuyuyuyu</li>
-							</ul>
-						</div>
-					</div>
-					<div class="right-tab-center">
-						<div class="tab-title">
-							biaotititititittititi
-						</div>
-						<div class="tab-top-content-box">
-							<ul class="tab-top-content">
-								<li>Nemwwewewewewe</li>
-								<li>yuyuyuyuyuyuyuyu</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="right-tab-content" v-if="tabRight===3">
-					<div class="right-tab-top">
-						<div class="tab-top-content-box">
-							<ul class="tab-top-content">
-								<li>Nemwwewewewewe</li>
-								<li>yuyuyuyuyuyuyuyu</li>
-							</ul>
-						</div>
-					</div>
-					<div class="right-tab-center">
-						<div class="tab-title">
-							biaotititititittititi
-						</div>
-						<div class="tab-top-content-box">
-							<ul class="tab-top-content">
-								<li>Nemwwewewewewe</li>
-								<li>yuyuyuyuyuyuyuyu</li>
-							</ul>
-						</div>
-					</div>
-					<div class="right-tab-bottom">
-						<div class="tab-title">
-							74+8949849849849849848
-						</div>
-						<div class="tab-top-content-box">
-							<ul class="tab-top-content">
-								<li>Nemwwewewewewe</li>
-								<li>yuyuyuyuyuyuyuyu</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+
     </section>
 </template>
 
