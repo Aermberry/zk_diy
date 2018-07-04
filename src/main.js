@@ -14,6 +14,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 import XIcon from '@/elements/x-icon'
+import XScreenfull from '@/elements/x-screenfull'
 
 import '@/permission' // permission control
 
@@ -22,6 +23,7 @@ Vue.use(ElementUI, {
   locale
 })
 Vue.use('x-icon', XIcon)
+Vue.use('x-screenfull', XScreenfull)
 Vue.config.productionTip = false
 // eslint-disable-next-line
 new Vue({
