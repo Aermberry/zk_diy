@@ -5,7 +5,7 @@ import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en' // lang i18n
-import '_style/index.scss' // global css
+import '@/assets/styles/index.scss' // global css
 
 import global from '@/service/core/global' // 公共函数,全局函数
 import App from './App'
