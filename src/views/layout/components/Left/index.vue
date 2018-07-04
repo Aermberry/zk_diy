@@ -65,87 +65,68 @@
 					</div>
 				</div>
 			</div>
-
-      		<el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="qweqweqwewq" :visible.sync="dialogTableVisible" class="popup-module">
-			<!-- <div class="module-title">
+       <el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="qweqweqwewq" :visible.sync="dialogTableVisible" class="popup-module">
+      <!-- <div class="module-title">
         qweqweqwewq
       </div> -->
-			<div class="module-nav">
-				<ul>
-					<li>
-						qwe
-					</li>
-					<li class="active">
-						asd
-					</li>
-				</ul>
-			</div>
-			<div class="module-search">
-				<div class="search-left">
-					qweqweqweqe
-				</div>
-				<div class="search-right">
-					<el-input style='width:222px;' placeholder="搜索" prefix-icon="el-icon-search" v-model="moduleSearch"></el-input>
-					<el-button style='' type="primary" icon="search"> 搜索</el-button>
-				</div>
-			</div>
-			<div class="module-content">
-				<div class="content-left">
-					<ul>
-						<li :class="{'active':showContent===1}" @click="showContent=1">789</li>
-						<li :class="{'active':showContent===2}" @click="showContent=2">456</li>
-					</ul>
-				</div>
-				<div class="content-right">
-					<ul class="content-box" v-if="showContent===1">
-						<li>
-							<img src="" alt="">
-							<div class="content-text">
-								<p>基础</p>
-								<span>1111111111111111</span>
-							</div>
-						</li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-					<ul class="content-box" v-if="showContent===2">
-						<li>
-							<img src="" alt="">
-							<div class="content-text">
-								<p>基础</p>
-								<span>2222222222222222222</span>
-							</div>
-						</li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</div>
-			</div>
-			<div class="module-bottom">
-				<div class="bottom-sumbit">
-					<el-button style='' type="primary"> 提交</el-button>
-				</div>
-			</div>
-		</el-dialog>
+      <div class="module-nav">
+        <ul>
+          <li>
+              qwe
+          </li>
+          <li class="active">
+            asd
+          </li>
+        </ul>
+      </div>
+      <div class="module-search">
+        <div class="search-left">
+          qweqweqweqe
+        </div>
+        <div class="search-right">
+          <el-input style='width:222px;' placeholder="搜索" prefix-icon="el-icon-search" v-model="moduleSearch"></el-input>
+          <el-button style='' type="primary" icon="search"> 搜索</el-button>
+        </div>
+      </div>
+      <div class="module-content">
+        <div class="content-left">
+          <ul>
+            <li class="active">789</li>
+            <li>456</li>
+          </ul>
+        </div>
+        <div class="content-right">
+          <ul class="content-box">
+            <li>
+              <img src="" alt="">
+              <div class="content-text">
+                <p>基础</p>
+                <span>1111111111111111</span>
+              </div>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+      <div class="module-bottom">
+        <div class="bottom-sumbit">
+          <el-button style='' type="primary" > 提交</el-button>
+        </div>
+      </div>
+    </el-dialog>
 		</div>
 </template>
 
 <script>
 	// eslint-disable-next-line
 	/* eslint-disable */
-	import { Navbar, Sidebar, AppMain } from '../../components'
 	import ResizeMixin from '../../mixin/ResizeHandler'
 	import ErrorLog from '@/components/ErrorLog'
 	import elDragDialog from '@/directive/el-dragDialog' // base on element-ui
@@ -153,9 +134,6 @@
 		name: 'layout',
 		directives: { elDragDialog },
 		components: {
-			Navbar,
-			Sidebar,
-			AppMain,
 			ErrorLog
 		},
 		data () {
