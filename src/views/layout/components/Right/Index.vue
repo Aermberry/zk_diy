@@ -122,15 +122,15 @@
 
 <script>
 	export default {
-	  components: {
-	  },
-	  data () {
-	    return {
-	      tabRight: 1
-	    }
-	  },
-	  computed: {},
-	  methods: {}
+		components: {
+		},
+		data () {
+			return {
+				tabRight: 1
+			}
+		},
+		computed: {},
+		methods: {}
 	}
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>

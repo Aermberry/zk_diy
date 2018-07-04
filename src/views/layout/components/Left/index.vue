@@ -65,17 +65,14 @@
 				</div>
 			</div>
 		</div>
-		<el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="qweqweqwewq" :visible.sync="dialogTableVisible" class="popup-module">
-			<!-- <div class="module-title">
-        qweqweqwewq
-      </div> -->
+		<el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="模块管理" :visible.sync="dialogTableVisible" class="popup-module">
 			<div class="module-nav">
 				<ul>
-					<li>
-						qwe
-					</li>
 					<li class="active">
-						asd
+						我的模块
+					</li>
+					<li>
+						模块市场
 					</li>
 				</ul>
 			</div>
@@ -129,45 +126,45 @@
 	import ErrorLog from '@/components/ErrorLog'
 	import elDragDialog from '@/directive/el-dragDialog'
 	export default {
-	  directives: { elDragDialog },
-	  components: {
-	    ErrorLog
-	  },
-	  data () {
-	    return {
-	      eject: false,
-	      dialogTableVisible: false,
-	      moduleSearch: '',
-	      showContent: 1
-	    }
-	  },
-	  mixins: [ResizeMixin],
-	  computed: {
-	    sidebar () {
-	      return this.$store.state.app.sidebar
-	    },
-	    device () {
-	      return this.$store.state.app.device
-	    },
-	    classObj () {
-	      return {
-	        hideSidebar: !this.sidebar.opened,
-	        withoutAnimation: this.sidebar.withoutAnimation,
-	        mobile: this.device === 'mobile'
-	      }
-	    }
-	  },
-	  methods: {
-	    ceshin () {
-	      this.eject = !this.eject
-	    },
-	    handleClickOutside () {
-	      this.$store.dispatch('CloseSideBar', { withoutAnimation: false })
-	    },
-	    handleDrag () {
-	      this.$refs.select.blur()
-	    }
-	  }
+		directives: { elDragDialog },
+		components: {
+			ErrorLog
+		},
+		data () {
+			return {
+				eject: false,
+				dialogTableVisible: false,
+				moduleSearch: '',
+				showContent: 1
+			}
+		},
+		mixins: [ResizeMixin],
+		computed: {
+			sidebar () {
+				return this.$store.state.app.sidebar
+			},
+			device () {
+				return this.$store.state.app.device
+			},
+			classObj () {
+				return {
+					hideSidebar: !this.sidebar.opened,
+					withoutAnimation: this.sidebar.withoutAnimation,
+					mobile: this.device === 'mobile'
+				}
+			}
+		},
+		methods: {
+			ceshin () {
+				this.eject = !this.eject
+			},
+			handleClickOutside () {
+				this.$store.dispatch('CloseSideBar', { withoutAnimation: false })
+			},
+			handleDrag () {
+				this.$refs.select.blur()
+			}
+		}
 	}
 </script>
 
