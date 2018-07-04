@@ -1,9 +1,9 @@
 <template>
   <div class="app-wrapper">
+    <layout-top></layout-top>
     <layout-left></layout-left>
-    <Top></Top>
-    <!-- <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl"></iframe> -->
-    <Right></Right>
+    <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl"></iframe>
+    <layout-right></layout-right>
     <layout-footer></layout-footer>
   </div>
 </template>
@@ -19,9 +19,8 @@
     components: {
       'layout-footer': Footer,
       'layout-left': Left,
-      Right,
-      Left,
-      Top,
+      'layout-top': Top,
+      'layout-right': Right,
       AppMain
     },
     data () {

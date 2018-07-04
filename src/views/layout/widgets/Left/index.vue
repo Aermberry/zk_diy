@@ -17,7 +17,7 @@
         </li>
         <li class="left-item">
           <div @click="dialogTableVisible = true,eject = false">
-            <svg-icon icon-class="tab" class="left-item-icon" />
+            <x-icon src='tree.svg'></x-icon>
             <span class="left-item-text">
               添加模块
             </span>
