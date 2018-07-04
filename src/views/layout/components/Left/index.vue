@@ -125,6 +125,8 @@
 </template>
 
 <script>
+// eslint-disable-next-line
+/* eslint-disable */
   import ResizeMixin from '../../mixin/ResizeHandler'
   import ErrorLog from '@/components/ErrorLog'
   import elDragDialog from '@/directive/el-dragDialog'
