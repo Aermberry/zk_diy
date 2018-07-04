@@ -340,38 +340,7 @@
 
 <style rel="stylesheet/scss" lang="scss" scoped>
 	@import 'src/styles/mixin.scss';
-	body,
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	ul,
-	li,
-	dl,
-	dt,
-	dd,
-	form,
-	img,
-	ol,
-	p,
-	div,
-	dl,
-	dd,
-	dt,
-	hr,
-	label,
-	em,
-	i,
-	textarea {
-		margin: 0;
-		padding: 0;
-		border: none;
-		list-style: none;
-		font-style: normal;
-		word-break: break-all;
-	}
+
 	.app-wrapper {
 		@include clearfix;
 		position: relative;
