@@ -35,7 +35,7 @@ module.exports = {
     alias: {
       '@': resolve('src'),
       flyio: 'flyio/dist/npm/fly',
-      // '_style': resolve('src/assets/style/h5'),
+      // '_style': resolve('src/assets/styles'),
       wx: resolve('src/utils/wx')
     }
   },
