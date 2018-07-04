@@ -201,22 +201,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="layout-bottom">
-			<div class="bottom-p"></div>
-			<div class="bottom-right">
-				<div class="layout-bottom-left">
-					20178484448444849
-				</div>
-				<div class="layout-bottom-right">
-					<ul>
-						<li>qwe</li>
-						<li>wqe</li>
-						<li>ewq</li>
-						<li>ewq</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		<Footer></Footer>
 		<el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="qweqweqwewq" :visible.sync="dialogTableVisible" class="popup-module">
 			<!-- <div class="module-title">
         qweqweqwewq
@@ -298,6 +283,7 @@
 	/* eslint-disable */
 	import { Navbar, Sidebar, AppMain } from './components'
 	import ResizeMixin from './mixin/ResizeHandler'
+	import Footer from './components/Footer'
 	import Screenfull from '@/components/Screenfull'
 	import ErrorLog from '@/components/ErrorLog'
 	import elDragDialog from '@/directive/el-dragDialog' // base on element-ui
@@ -306,6 +292,7 @@
 		directives: { elDragDialog },
 		components: {
 			Navbar,
+			Footer,
 			Sidebar,
 			AppMain,
 			Screenfull,
@@ -727,48 +714,7 @@
 			}
 		}
 	}
-	.layout-bottom {
-		width: 100%;
-		height: 45px;
-		position: fixed;
-		left: 0;
-		bottom: 0;
-		border-top: 2px solid #e5e5e5;
-		z-index: 9998;
-		background: white;
-		display: flex;
-		.bottom-p {
-			width: 80px;
-			height: 45px;
-		}
-		.bottom-right {
-			flex: 1;
-			display: flex;
-		}
-		.layout-bottom-left {
-			height: 45px;
-			line-height: 55px;
-			color: #666c7a;
-			padding-left: 30px;
-		}
-		.layout-bottom-right {
-			flex: 1;
-			height: 45px;
-			ul {
-				display: flex;
-				height: 45px;
-				justify-content: flex-end;
-				align-items: center;
-				padding-right: 200px;
-				li {
-					height: 45px;
-					padding: 0 20px;
-					line-height: 45px;
-					color: #666c7a;
-				}
-			}
-		}
-	}
+
 	.popup-module {
 		padding: 0;
 		.module-title {
