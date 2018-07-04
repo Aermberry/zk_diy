@@ -1,5 +1,6 @@
 <template>
   <div class="app-wrapper" :class="classObj">
+<<<<<<< HEAD
     <div class="layout-left">
       <div class="layout-logo-box">
         <router-link to="" class="layout-logo">
@@ -290,10 +291,17 @@
         </div>
       </div>
     </el-dialog>
+=======
+    <Left></Left>
+    <Top></Top>
+    <Right></Right>
+    <Footer></Footer>
+>>>>>>> ff64a0b2fe5e5da3a0de0b2df50f50660550b575
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { Navbar, Sidebar, AppMain } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 import Screenfull from '@/components/Screenfull'
@@ -387,22 +395,45 @@ export default {
     },
     device() {
       return this.$store.state.app.device
+=======
+  import { AppMain } from './components'
+  import ResizeMixin from './mixin/ResizeHandler'
+  import Footer from './components/Footer'
+  import Left from './components/Left'
+  import Right from './components/Right'
+  import Top from './components/Top'
+  export default {
+    name: 'layout',
+    components: {
+      Footer,
+      Right,
+      Left,
+      Top,
+      AppMain
+>>>>>>> ff64a0b2fe5e5da3a0de0b2df50f50660550b575
     },
-    classObj() {
+    data () {
       return {
-        hideSidebar: !this.sidebar.opened,
-        withoutAnimation: this.sidebar.withoutAnimation,
-        mobile: this.device === 'mobile'
+
       }
-    }
-  },
-  methods: {
-    ceshi() {
-      this.eject = !this.eject
     },
-    handleClickOutside() {
-      this.$store.dispatch('CloseSideBar', { withoutAnimation: false })
+    mixins: [ResizeMixin],
+    computed: {
+      sidebar () {
+        return this.$store.state.app.sidebar
+      },
+      device () {
+        return this.$store.state.app.device
+      },
+      classObj () {
+        return {
+          hideSidebar: !this.sidebar.opened,
+          withoutAnimation: this.sidebar.withoutAnimation,
+          mobile: this.device === 'mobile'
+        }
+      }
     },
+<<<<<<< HEAD
     // v-el-drag-dialog onDrag callback function
     handleDrag() {
       this.$refs.select.blur()
@@ -421,22 +452,18 @@ export default {
         this.myArray.push(this.currentCompent)
         this.dialogTableVisible = false
       }
+=======
+    methods: {
+
+>>>>>>> ff64a0b2fe5e5da3a0de0b2df50f50660550b575
     }
   }
-}
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  @import "src/styles/mixin.scss";
-  body, h1, h2, h3, h4, h5, h6, ul, li, dl, dt, dd, form, img, ol, p, div, dl, dd, dt, hr, label, em, i, textarea {
-    margin: 0;
-    padding: 0;
-    border: none;
-    list-style: none;
-    font-style: normal;
-    word-break: break-all;
-}
+  @import 'src/styles/mixin.scss';
   .app-wrapper {
+<<<<<<< HEAD
     @include clearfix;
     position: relative;
     height: 100%;
@@ -965,5 +992,13 @@ export default {
   .errLog-container {
     display: inline-block;
     vertical-align: top;
+=======
+  	@include clearfix;
+  	position: relative;
+  	height: 100%;
+  	width: 100%;
+  	padding-left: 80px;
+  	display: flex;
+>>>>>>> ff64a0b2fe5e5da3a0de0b2df50f50660550b575
   }
 </style>
