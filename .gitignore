@@ -18,3 +18,5 @@ selenium-debug.log
 *.sln
 
 package-lock.json
+/.vs/slnx.sqlite
+/.vs/slnx.sqlite-journal

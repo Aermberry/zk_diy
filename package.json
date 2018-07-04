@@ -1,6 +1,6 @@
 {
-  "name": "vue-element-admin",
-  "version": "3.7.0",
+  "name": "zkopen_diy",
+  "version": "1.7.0",
   "description": "A magical vue admin. Typical templates for enterprise applications. Newest development stack of vue. Lots of awesome features",
   "author": "Pan <panfree23@gmail.com>",
   "license": "MIT",
@@ -21,9 +21,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PanJiaChen/vue-element-admin.git"
-  },
-  "bugs": {
-    "url": "https://github.com/PanJiaChen/vue-element-admin/issues"
   },
   "dependencies": {
     "axios": "0.17.1",
