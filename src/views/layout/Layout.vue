@@ -1,6 +1,5 @@
 <template>
   <div class="app-wrapper" :class="classObj">
-<<<<<<< HEAD
     <div class="layout-left">
       <div class="layout-logo-box">
         <router-link to="" class="layout-logo">
@@ -291,17 +290,10 @@
         </div>
       </div>
     </el-dialog>
-=======
-    <Left></Left>
-    <Top></Top>
-    <Right></Right>
-    <Footer></Footer>
->>>>>>> ff64a0b2fe5e5da3a0de0b2df50f50660550b575
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
 import { Navbar, Sidebar, AppMain } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 import Screenfull from '@/components/Screenfull'
@@ -395,22 +387,6 @@ export default {
     },
     device() {
       return this.$store.state.app.device
-=======
-  import { AppMain } from './components'
-  import ResizeMixin from './mixin/ResizeHandler'
-  import Footer from './components/Footer'
-  import Left from './components/Left'
-  import Right from './components/Right'
-  import Top from './components/Top'
-  export default {
-    name: 'layout',
-    components: {
-      Footer,
-      Right,
-      Left,
-      Top,
-      AppMain
->>>>>>> ff64a0b2fe5e5da3a0de0b2df50f50660550b575
     },
     data () {
       return {
@@ -433,7 +409,6 @@ export default {
         }
       }
     },
-<<<<<<< HEAD
     // v-el-drag-dialog onDrag callback function
     handleDrag() {
       this.$refs.select.blur()
@@ -452,18 +427,14 @@ export default {
         this.myArray.push(this.currentCompent)
         this.dialogTableVisible = false
       }
-=======
-    methods: {
-
->>>>>>> ff64a0b2fe5e5da3a0de0b2df50f50660550b575
     }
   }
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   @import 'src/styles/mixin.scss';
   .app-wrapper {
-<<<<<<< HEAD
     @include clearfix;
     position: relative;
     height: 100%;
@@ -992,13 +963,5 @@ export default {
   .errLog-container {
     display: inline-block;
     vertical-align: top;
-=======
-  	@include clearfix;
-  	position: relative;
-  	height: 100%;
-  	width: 100%;
-  	padding-left: 80px;
-  	display: flex;
->>>>>>> ff64a0b2fe5e5da3a0de0b2df50f50660550b575
   }
 </style>
