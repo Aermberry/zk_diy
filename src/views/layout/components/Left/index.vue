@@ -78,7 +78,7 @@
 			</div>
 			<div class="module-search">
 				<div class="search-left">
-					qweqweqweqe
+					双击模块，拖动到可视化区域
 				</div>
 				<div class="search-right">
 					<el-input style='width:222px;' placeholder="搜索" prefix-icon="el-icon-search" v-model="moduleSearch"></el-input>
@@ -101,14 +101,6 @@
 								<span>1111111111111111</span>
 							</div>
 						</li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
 					</ul>
 				</div>
 			</div>
@@ -123,13 +115,9 @@
 
 <script>
 	import ResizeMixin from '../../mixin/ResizeHandler'
-	import ErrorLog from '@/components/ErrorLog'
 	import elDragDialog from '@/directive/el-dragDialog'
 	export default {
 		directives: { elDragDialog },
-		components: {
-			ErrorLog
-		},
 		data () {
 			return {
 				eject: false,
