@@ -2,6 +2,7 @@
   <div class="app-wrapper" :class="classObj">
     <Left></Left>
     <Top></Top>
+    <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl"></iframe>
     <Right></Right>
     <Footer></Footer>
   </div>
@@ -25,26 +26,17 @@
     },
     data () {
       return {
-
+        diyUrl: ''
       }
     },
     mixins: [ResizeMixin],
-    computed: {
-      sidebar () {
-        return this.$store.state.app.sidebar
-      },
-      device () {
-        return this.$store.state.app.device
-      },
-      classObj () {
-        return {
-          hideSidebar: !this.sidebar.opened,
-          withoutAnimation: this.sidebar.withoutAnimation,
-          mobile: this.device === 'mobile'
-        }
-      }
+    mounted () {
+      this.init()
     },
     methods: {
+      async  init () {
+        this.diyUrl = 'http://www.yiqipingou.com/'
+      }
 
     }
   }
