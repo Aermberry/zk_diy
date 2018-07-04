@@ -36,7 +36,7 @@ module.exports = {
       '@': resolve('src'),
       flyio: 'flyio/dist/npm/fly',
       // '_style': resolve('src/assets/styles'),
-      wx: resolve('src/utils/wx')
+      wx: resolve('src/service/api/wx')
     }
   },
   module: {

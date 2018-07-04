@@ -16,8 +16,8 @@ Vue.use(global)
 Vue.use(ElementUI, {
   locale
 })
-Vue.use('x-icon', XIcon)
-Vue.use('x-screenfull', XScreenfull)
+Vue.component('x-icon', XIcon)
+Vue.component('x-screenfull', XScreenfull)
 Vue.config.productionTip = false
 
 // eslint-disable-next-line
