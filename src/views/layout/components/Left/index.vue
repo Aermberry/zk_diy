@@ -1,22 +1,152 @@
 <template>
-	<div class="app-wrapper" :class="classObj">
-  <Left></Left>
-    <Top></Top>
-    <Right></Right>
-		<Footer></Footer>
+  	<div class="layout-left">
+			<div class="layout-logo-box">
+				<router-link to="" class="layout-logo">
+					<img src="" alt="">
+				</router-link>
+			</div>
+			<div class="layout-left-nav">
+				<ul class="layout-left-item-box">
+					<li class="left-item">
+						<div @click="ceshi()">
+							<svg-icon icon-class="example" />
+							<span class="left-item-text">
+								首页
+							</span>
+						</div>
+					</li>
+					<li class="left-item">
+						<div @click="dialogTableVisible = true,eject = false">
+							<svg-icon icon-class="example" />
+							<span class="left-item-text">
+								添加模块
+							</span>
+						</div>
+					</li>
+				</ul>
+				<div>
 
-	</div>
+				</div>
+			</div>
+			<div class="popup-page-box" :class="{'eject':eject}">
+				<div class="page-top">
+					<div class="page-top-left">
+						页面设置
+						<i class="page-box-close" @click="ceshi()">×</i>
+					</div>
+					<div class="page-top-right">
+						<ul>
+							<li class="top-right-item">
+								<svg-icon icon-class="table" />
+							</li>
+							<li class="top-right-item">
+								<svg-icon icon-class="table" />
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="page-center">
+					<div class="page-center-title">
+						<div class="title-left">
+							首页
+						</div>
+						<div class="title-right">
+							<div class="title-right-btn">
+								使用
+							</div>
+							<svg-icon icon-class="table" />
+						</div>
+					</div>
+					<div class="page-show">
+						添加新页面
+					</div>
+					<div class="page-hint">
+						点击右上角的按钮,创建一个文件夹或页面。
+					</div>
+				</div>
+			</div>
+
+      		<el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="qweqweqwewq" :visible.sync="dialogTableVisible" class="popup-module">
+			<!-- <div class="module-title">
+        qweqweqwewq
+      </div> -->
+			<div class="module-nav">
+				<ul>
+					<li>
+						qwe
+					</li>
+					<li class="active">
+						asd
+					</li>
+				</ul>
+			</div>
+			<div class="module-search">
+				<div class="search-left">
+					qweqweqweqe
+				</div>
+				<div class="search-right">
+					<el-input style='width:222px;' placeholder="搜索" prefix-icon="el-icon-search" v-model="moduleSearch"></el-input>
+					<el-button style='' type="primary" icon="search"> 搜索</el-button>
+				</div>
+			</div>
+			<div class="module-content">
+				<div class="content-left">
+					<ul>
+						<li :class="{'active':showContent===1}" @click="showContent=1">789</li>
+						<li :class="{'active':showContent===2}" @click="showContent=2">456</li>
+					</ul>
+				</div>
+				<div class="content-right">
+					<ul class="content-box" v-if="showContent===1">
+						<li>
+							<img src="" alt="">
+							<div class="content-text">
+								<p>基础</p>
+								<span>1111111111111111</span>
+							</div>
+						</li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+					<ul class="content-box" v-if="showContent===2">
+						<li>
+							<img src="" alt="">
+							<div class="content-text">
+								<p>基础</p>
+								<span>2222222222222222222</span>
+							</div>
+						</li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+			</div>
+			<div class="module-bottom">
+				<div class="bottom-sumbit">
+					<el-button style='' type="primary"> 提交</el-button>
+				</div>
+			</div>
+		</el-dialog>
+		</div>
 </template>
 
 <script>
 	// eslint-disable-next-line
 	/* eslint-disable */
-	import { Navbar, Sidebar, AppMain } from './components'
-	import ResizeMixin from './mixin/ResizeHandler'
-  import Footer from './components/Footer'
-  import Left from './components/Left'
-  import Right from './components/Right'
-  import Top from './components/Top'
+	import { Navbar, Sidebar, AppMain } from '../../components'
+	import ResizeMixin from '../../mixin/ResizeHandler'
 	import ErrorLog from '@/components/ErrorLog'
 	import elDragDialog from '@/directive/el-dragDialog' // base on element-ui
 	export default {
@@ -24,10 +154,6 @@
 		directives: { elDragDialog },
 		components: {
 			Navbar,
-      Footer,
-      Right,
-      Left,
-      Top,
 			Sidebar,
 			AppMain,
 			ErrorLog
