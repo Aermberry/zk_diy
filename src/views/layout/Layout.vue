@@ -79,11 +79,24 @@
         </div>
         <div class="center-navbar-right">
            <el-tooltip effect="dark" :content="$t('navbar.screenfull')" placement="bottom">
+             <el-button v-on:click="createpage">新建页面</el-button>
         <screenfull class="screenfull right-menu-item"></screenfull>
       </el-tooltip>
         </div>
       </div>
       <!-- <app-main></app-main> -->
+      <draggable class="dragArea" v-model="myArray" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+   <div v-for="element in myArray" :key="element.id" style="border: 2px solid #FFCCCC;margin:10px;" @click="loadProperty(element)"> 
+     <img src="" alt="" style="width: 100%;
+    height: 150px;
+    border-bottom: 2px solid #f1f1f1;
+">
+              <div class="content-text">
+                <p>{{element.name}}</p>
+                <span>{{element.desc}}</span>
+              </div>
+   </div>
+</draggable>
     </div>
     <div class="layout-right">
         <div class="layout-right-navbar">
@@ -252,44 +265,28 @@
         </div>
         <div class="content-right">
           <ul class="content-box" v-if="showContent===1">
-            <li>
+            <li v-for="item in comps" v-bind:key="item.key" @click="selectitem(item)">
               <img src="" alt="">
               <div class="content-text">
-                <p>基础</p>
-                <span>1111111111111111</span>
+                <p>{{item.name}}</p>
+                <span>{{item.desc}}</span>
               </div>
-            </li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            </li>  
           </ul>
           <ul class="content-box" v-if="showContent===2">
-            <li>
+            <li v-for="item in comps" v-bind:key="item.key" @click="selectitem(item)">
               <img src="" alt="">
               <div class="content-text">
-                <p>基础</p>
-                <span>2222222222222222222</span>
+                <p>{{item.name}}</p>
+                <span>{{item.desc}}</span>
               </div>
-            </li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            </li>  
           </ul>
         </div>
       </div>
       <div class="module-bottom">
         <div class="bottom-sumbit">
-          <el-button style='' type="primary" > 提交</el-button>
+          <el-button style='' @click="addcomponenttoplate" type="primary" > 提交</el-button>
         </div>
       </div>
     </el-dialog>
@@ -302,6 +299,8 @@ import ResizeMixin from './mixin/ResizeHandler'
 import Screenfull from '@/components/Screenfull'
 import ErrorLog from '@/components/ErrorLog'
 import elDragDialog from '@/directive/el-dragDialog' // base on element-ui
+import draggable from 'vuedraggable'
+
 export default {
   name: 'layout',
   directives: { elDragDialog },
@@ -310,15 +309,75 @@ export default {
     Sidebar,
     AppMain,
     Screenfull,
-    ErrorLog
+    ErrorLog,
+    draggable
   },
   data() {
     return {
+      myArray: [],
       eject: false,
       tabRight: 1,
       dialogTableVisible: false,
       moduleSearch: '',
-      showContent: 1
+      showContent: 1,
+      newpage: '',
+      comps: [
+        {
+          key: 'BackToTop/index.vue',
+          name: '回到顶部',
+          desc: '',
+          category: ''
+        },
+        {
+          key: 'Breadcrumb/index.vue',
+          name: '面包屑',
+          desc: '',
+          category: ''
+        },
+        {
+          key: 'Charts/mixChart.vue',
+          name: '图表',
+          desc: '',
+          category: ''
+        },
+        {
+          key: 'DndList/index.vue',
+          name: 'DndList',
+          desc: '',
+          category: ''
+        },
+        {
+          key: 'Dropzone/index.vue',
+          name: 'Dropzone',
+          desc: '',
+          category: ''
+        },
+        {
+          key: 'ErrorLog/index.vue',
+          name: '错误日志',
+          desc: '',
+          category: ''
+        },
+        {
+          key: 'GithubCorner/index.vue',
+          name: 'GithubCorner',
+          desc: '',
+          category: ''
+        },
+        {
+          key: 'Hamburger/index.vue',
+          name: 'Hamburger',
+          desc: '',
+          category: ''
+        },
+        {
+          key: 'ImageCropper/index.vue',
+          name: 'ImageCropper',
+          desc: '',
+          category: ''
+        }
+      ],
+      currentCompent: ''
     }
   },
   mixins: [ResizeMixin],
@@ -347,6 +406,21 @@ export default {
     // v-el-drag-dialog onDrag callback function
     handleDrag() {
       this.$refs.select.blur()
+    },
+    createpage() {
+      this.newpage = draggable
+    },
+    selectitem(si) {
+      this.currentCompent = si
+    },
+    loadProperty() {
+
+    },
+    addcomponenttoplate() {
+      if (this.currentCompent !== null && this.currentCompent !== '') {
+        this.myArray.push(this.currentCompent)
+        this.dialogTableVisible = false
+      }
     }
   }
 }
@@ -558,6 +632,10 @@ export default {
     .eject {
       left:80px;
     }
+  }
+  .dragArea{
+    width:100%;height:100%;
+    background: #ccc;
   }
   .layout-center{
     flex:1;
