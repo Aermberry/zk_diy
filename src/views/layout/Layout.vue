@@ -9,11 +9,11 @@
 </template>
 
 <script>
-  import { AppMain } from './components'
-  import Footer from './components/Footer'
-  import Left from './components/Left'
-  import Right from './components/Right'
-  import Top from './components/Top'
+  import { AppMain } from './widgets'
+  import Footer from './widgets/Footer'
+  import Left from './widgets/Left'
+  import Right from './widgets/Right'
+  import Top from './widgets/Top'
   export default {
     name: 'layout',
     components: {
@@ -33,7 +33,7 @@
       this.init()
     },
     methods: {
-      async  init () {
+      async init () {
         this.diyUrl = 'http://www.yiqipingou.com/'
       }
 
@@ -44,11 +44,11 @@
 <style rel="stylesheet/scss" lang="scss" scoped>
   @import 'src/assets/styles/mixin.scss';
   .app-wrapper {
-  	@include clearfix;
-  	position: relative;
-  	height: 100%;
-  	width: 100%;
-  	padding-left: 80px;
-  	display: flex;
+    @include clearfix;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding-left: 80px;
+    display: flex;
   }
 </style>
