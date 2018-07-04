@@ -44,11 +44,18 @@
     flex: 1;
     background: url(./../../../../assets/img/iphonex.png) no-repeat fixed center;
     background-size: 380px;
+    position: relative;
     .layout-center-navbar {
+      z-index: 99;
       height: 70px;
+      width: 1033px;
       display: flex;
+      position: absolute;
+      top: 0;
+      left: -12px;
       align-items: center;
       border-bottom: 1px solid #e5e5e5;
+      // box-shadow: 0 0 10px 10px #e5e5e5;
       background: white;
       .center-navbar-left {
         width: 200px;

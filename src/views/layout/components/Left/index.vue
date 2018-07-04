@@ -2,14 +2,14 @@
   <div class="layout-left">
     <div class="layout-logo-box">
       <router-link to="" class="layout-logo">
-        <img src="" alt="">
+        <img src="../../../../assets/img/logo.png" alt="">
       </router-link>
     </div>
     <div class="layout-left-nav">
       <ul class="layout-left-item-box">
         <li class="left-item">
           <div @click="ceshi()">
-            <svg-icon icon-class="nested" />
+            <svg-icon icon-class="nested"/>
             <span class="left-item-text">
               首页
             </span>
