@@ -73,15 +73,15 @@
 	      height: 100%;
 	      // background-color: #ff80c0;
 	      .logo {
-					display:block;
+	        display: block;
 	        padding: 14px 27px;
-					text-align: center;
+	        text-align: center;
 
-					.logo-icon{
-						width: 40px;
-						height: 40px;
-						vertical-align:bottom;
-					}
+	        .logo-icon {
+	          width: 40px;
+	          height: 40px;
+	          vertical-align: bottom;
+	        }
 	      }
 	    }
 	    .right-item-box {
@@ -115,19 +115,42 @@
 	        .el-tooltip {
 	          margin-top: -3px;
 	        }
-					&:last-child {
-						position: relative;
-						background-color: #0080c0;
-					}
-					.item-sumbit::before{
-						content:'';
-						position: absolute;
-						width: 72px;
-						height: 23px;
-						background: #0080c0;
-						top: -22px;
-						left: 0px;
-					}
+
+	        &:nth-child(3) {
+	          position: relative;
+	        }
+
+	        &:nth-child(3)::before {
+	          content: '';
+	          border: 2px solid #f0f9ff;
+	          height: 120px;
+	          position: absolute;
+	          top: -30px;
+	          left: 0;
+	        }
+
+					&:nth-child(3)::after {
+	          content: '';
+	          border: 2px solid #f0f9ff;
+	          height: 120px;
+	          position: absolute;
+	          top: -30px;
+	          right: 0;
+	        }
+	        &:last-child {
+	          color: #fff;
+	          position: relative;
+	          background-color: #3898ec;
+	        }
+	        .item-sumbit::before {
+	          content: '';
+	          position: absolute;
+	          width: 72px;
+	          height: 23px;
+	          background: #3898ec;
+	          top: -22px;
+	          left: 0px;
+	        }
 	      }
 	    }
 	    .center-navbar-left {
