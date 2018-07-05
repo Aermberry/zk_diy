@@ -4,6 +4,32 @@
     <el-aside width="60px" class="app-left">
       <div class="nav-logo">
         <img src="../../assets/img/logo.png" alt="匠芯云DIY平台" class="logo-icon">
+        <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
+          <li class="m-menu__item  m-menu__item--active" aria-haspopup="true">
+            <a href="/Admin/Index" class="m-menu__link ">
+              <span class="m-menu__item-here"></span>
+              <i class="m-menu__link-icon flaticon-line-graph"></i>
+              <span class="m-menu__link-text">
+                首页
+              </span>
+            </a>
+          </li>
+
+          <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" data-menu-submenu-toggle="hover">
+            <a href="/Admin/App" class="m-menu__link " title="应用">
+              <span class="m-menu__item-here"></span>
+              <i class="m-menu__link-icon fa fa-th"></i>
+              <span class="m-menu__link-title">
+                <span class="m-menu__link-wrap">
+                  <span class="m-menu__link-text">
+                    应用
+                  </span>
+                </span>
+              </span>
+              <i class="m-menu__ver-arrow la la-angle-right"></i>
+            </a>
+          </li>
+        </ul>
       </div>
     </el-aside>
     <el-container>
