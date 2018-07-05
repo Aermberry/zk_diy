@@ -1,32 +1,64 @@
 <template>
 
   <el-container class="app-wrapper">
-    <el-aside width="60px" class="app-left">
+    <el-aside width="60px" class="app-left m-aside-menu">
       <div class="nav-logo">
         <img src="../../assets/img/logo.png" alt="匠芯云DIY平台" class="logo-icon">
         <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
-          <li class="m-menu__item  m-menu__item--active" aria-haspopup="true">
-            <a href="/Admin/Index" class="m-menu__link ">
-              <span class="m-menu__item-here"></span>
+          <li class="m-menu__item  m-menu__item--active">
+            <a href="/" class="m-menu__link ">
               <i class="m-menu__link-icon flaticon-line-graph"></i>
               <span class="m-menu__link-text">
-                首页
+                页面
               </span>
             </a>
           </li>
-
-          <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" data-menu-submenu-toggle="hover">
-            <a href="/Admin/App" class="m-menu__link " title="应用">
-              <span class="m-menu__item-here"></span>
-              <i class="m-menu__link-icon fa fa-th"></i>
+          <li class="m-menu__item">
+            <a href="/" class="m-menu__link " title="添加模块">
+              <i class="m-menu__link-icon flaticon-app "></i>
               <span class="m-menu__link-title">
                 <span class="m-menu__link-wrap">
-                  <span class="m-menu__link-text">
-                    应用
+                  <span class="m-menu__link-text" title="添加模块">
+                    添加
                   </span>
                 </span>
               </span>
-              <i class="m-menu__ver-arrow la la-angle-right"></i>
+            </a>
+          </li>
+          <li class="m-menu__item">
+            <a href="/" class="m-menu__link " title="Api接口">
+              <i class="m-menu__link-icon flaticon-more-v2  "></i>
+              <span class="m-menu__link-title">
+                <span class="m-menu__link-wrap">
+                  <span class="m-menu__link-text" title="添加模块">
+                    Api
+                  </span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="m-menu__item">
+            <a href="/" class="m-menu__link " title="添加模块">
+              <i class="m-menu__link-icon flaticon-file-1  "></i>
+              <span class="m-menu__link-title">
+                <span class="m-menu__link-wrap">
+                  <span class="m-menu__link-text" title="添加模块">
+                    文件
+                  </span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="m-menu__item">
+            <a href="/" class="m-menu__link " title="添加模块">
+              <i class="m-menu__link-icon flaticon-info "></i>
+              <span class="m-menu__link-title">
+                <span class="m-menu__link-wrap">
+                  <span class="m-menu__link-text" title="添加模块">
+                    帮助
+                  </span>
+                </span>
+              </span>
             </a>
           </li>
         </ul>
