@@ -44,10 +44,9 @@
   @import 'src/assets/styles/mixin.scss';
   .app-wrapper {
     // @include clearfix;
-    // position: relative;
+    // positi  on: relative;
     height: 100%;
     width: 100%;
-    // padding-left: 80px;
-    // display: flex;
+    display: flex;
   }
 </style>
