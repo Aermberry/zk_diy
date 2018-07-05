@@ -139,6 +139,7 @@
 					diyKey: 'grid_index'
 				}
 				this.viewModel = await this.$api.get(DIY_GETLINK_GET, para)
+				console.info('数据', this.viewModel)
 			}
 		}
 	}

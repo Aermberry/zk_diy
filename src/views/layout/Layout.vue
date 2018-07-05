@@ -2,7 +2,7 @@
   <div class="app-wrapper" :class="classObj">
     <Left></Left>
     <Top></Top>
-    <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl"></iframe>
+    <!-- <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl"></iframe> -->
     <Right></Right>
     <Footer></Footer>
   </div>
@@ -10,7 +10,6 @@
 
 <script>
   import { AppMain } from './components'
-  import ResizeMixin from './mixin/ResizeHandler'
   import Footer from './components/Footer'
   import Left from './components/Left'
   import Right from './components/Right'
@@ -29,7 +28,6 @@
         diyUrl: ''
       }
     },
-    mixins: [ResizeMixin],
     mounted () {
       this.init()
     },
