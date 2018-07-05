@@ -14,7 +14,7 @@
 
               </i>
               <span class="left-item-text"  >
-                  Ê×Ò³
+                 é¦–é¡µ
               </span>
             </div>
           </li>
@@ -24,7 +24,7 @@
 
               </i>
               <span class="left-item-text"  >
-                  Ìí¼ÓÄ£¿é
+                  æ·»åŠ æ¨¡å—
               </span>
             </div>
           </li>
@@ -36,7 +36,7 @@
       <div class="popup-page-box" :class="{'eject':eject}">
         <div class="page-top">
           <div class="page-top-left">
-            Ò³ÃæÉèÖÃ <i class="page-box-close" @click="ceshi()">¡Á</i>
+            é¡µé¢è®¾ç½® <i class="page-box-close" @click="ceshi()">Ã—</i>
           </div>
           <div class="page-top-right">
            <ul>
@@ -52,20 +52,20 @@
         <div class="page-center">
           <div class="page-center-title">
               <div class="title-left">
-                Ê×Ò³
+                é¦–é¡µ
               </div>
               <div class="title-right">
                 <div class="title-right-btn">
-                  Ê¹ÓÃ
+                 ä½¿ç”¨
                 </div>
                 <svg-icon icon-class="table" />
               </div>
           </div>
           <div class="page-show">
-            Ìí¼ÓĞÂÒ³Ãæ
+            æ·»åŠ æ–°é¡µé¢
           </div>
           <div class="page-hint">
-            µã»÷ÓÒÉÏ½ÇµÄ°´Å¥,´´½¨Ò»¸öÎÄ¼ş¼Ğ»òÒ³Ãæ¡£
+            ç‚¹å‡»å³ä¸Šè§’çš„æŒ‰é’®,åˆ›å»ºä¸€ä¸ªæ–‡ä»¶å¤¹æˆ–é¡µé¢ã€‚
           </div>
         </div>
       </div>
@@ -75,11 +75,11 @@
       <div class="layout-center-navbar">
         <div class="center-navbar-left">
           <svg-icon icon-class="component" />
-          <span>Ä£¿éÖĞĞÄ</span>
+          <span>æ¨¡å—ä¸­å¿ƒ</span>
         </div>
         <div class="center-navbar-right">
            <el-tooltip effect="dark" :content="$t('navbar.screenfull')" placement="bottom">
-             <el-button v-on:click="createpage">ĞÂ½¨Ò³Ãæ</el-button>
+             <el-button v-on:click="createpage">æ–°å»ºé¡µé¢</el-button>
         <screenfull class="screenfull right-menu-item"></screenfull>
       </el-tooltip>
         </div>
@@ -103,17 +103,17 @@
           <ul class="right-item-box">
             <li class="right-item">
               <svg-icon icon-class="example" />
-              <span>ÊÖ»ú</span>
+              <span>æ‰‹æœº</span>
             </li>
             <li class="right-item">
-              <span>±£´æ</span>
+              <span>ä¿å­˜</span>
             </li>
             <li class="right-item">
-              <span>Ô¤ÀÀ</span>
+              <span>é¢„è§ˆ</span>
             </li>
             <li class="right-item">
               <div class="item-sumbit">
-                  ·¢²¼
+                 å‘å¸ƒ
               </div>
             </li>
           </ul>
@@ -121,13 +121,13 @@
         <div class="layout-right-tab-box">
           <ul class="tab-top-item">
                   <li class="active" @click="tabRight=1">
-                    <div>ÊôĞÔ</div>
+                    <div>å±æ€§</div>
                   </li>
                   <li @click="tabRight=2">
-                    <div>Ê÷Í¼</div>
+                    <div>æ ‘å›¾</div>
                   </li>
                   <li @click="tabRight=3">
-                    <div>ÀúÊ·</div>
+                    <div>å†å²</div>
                   </li>
           </ul>
           <div class="right-tab-content" v-if="tabRight===1">
@@ -252,8 +252,8 @@
           qweqweqweqe
         </div>
         <div class="search-right">
-          <el-input style='width:222px;' placeholder="ËÑË÷" prefix-icon="el-icon-search" v-model="moduleSearch"></el-input>
-          <el-button style='' type="primary" icon="search"> ËÑË÷</el-button>
+          <el-input style='width:222px;' placeholder="æœç´¢" prefix-icon="el-icon-search" v-model="moduleSearch"></el-input>
+          <el-button style='' type="primary" icon="search"> æœç´¢</el-button>
         </div>
       </div>
       <div class="module-content">
@@ -286,7 +286,7 @@
       </div>
       <div class="module-bottom">
         <div class="bottom-sumbit">
-          <el-button style='' @click="addcomponenttoplate" type="primary" > Ìá½»</el-button>
+          <el-button style='' @click="addcomponenttoplate" type="primary" > ï¿½á½»</el-button>
         </div>
       </div>
     </el-dialog>
@@ -324,19 +324,19 @@ export default {
       comps: [
         {
           key: 'BackToTop/index.vue',
-          name: '»Øµ½¶¥²¿',
+          name: 'å›åˆ°é¡¶éƒ¨',
           desc: '',
           category: ''
         },
         {
           key: 'Breadcrumb/index.vue',
-          name: 'Ãæ°üĞ¼',
+          name: 'é¢åŒ…å±‘',
           desc: '',
           category: ''
         },
         {
           key: 'Charts/mixChart.vue',
-          name: 'Í¼±í',
+          name: 'å›¾è¡¨',
           desc: '',
           category: ''
         },
@@ -354,7 +354,7 @@ export default {
         },
         {
           key: 'ErrorLog/index.vue',
-          name: '´íÎóÈÕÖ¾',
+          name: 'é”™è¯¯æ—¥å¿—',
           desc: '',
           category: ''
         },
