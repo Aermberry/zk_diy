@@ -17,7 +17,7 @@
         </li>
         <li class="left-item">
           <div @click="dialogTableVisible = true,eject = false">
-            <x-icon src='modules.svg'></x-icon>
+            <x-icon src='new.svg'></x-icon>
             <span class="left-item-text">
               添加模块
             </span>
@@ -156,7 +156,7 @@
   @import 'src/assets/styles/mixin.scss';
   .layout-left {
     position: fixed;
-    top: 0;
+    top: 70px;
     left: 0;
     width: 69px;
     height: 100vh;

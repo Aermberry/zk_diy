@@ -43,11 +43,11 @@
 <style rel="stylesheet/scss" lang="scss" scoped>
   @import 'src/assets/styles/mixin.scss';
   .app-wrapper {
-    @include clearfix;
-    position: relative;
+    // @include clearfix;
+    // position: relative;
     height: 100%;
     width: 100%;
-    padding-left: 80px;
-    display: flex;
+    // padding-left: 80px;
+    // display: flex;
   }
 </style>
