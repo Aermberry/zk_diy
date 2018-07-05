@@ -1,13 +1,30 @@
 <template>
-  <div class="app-wrapper">
-    <layout-top></layout-top>
-    <layout-left></layout-left>
-    <div class="iphone-x">
-      <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl" class="show-iframe"></iframe>
+
+  <el-container class="app-wrapper">
+    <el-aside width="60px" class="app-left">left</el-aside>
+    <el-container>
+      <el-header class="app-header">
+        <el-row>
+          <el-col :span="20"></el-col>
+          <el-col :span="4">
+            <div class="grid-content bg-purple-light"></div>
+          </el-col>
+        </el-row>
+      </el-header>
+      <el-main>
+        <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl" class="iphone-x show-iframe"></iframe>
+      </el-main>
+      <el-footer>Pie de página</el-footer>
+    </el-container>
+  </el-container>
+  <!-- <el-container style="height: 500px; border: 1px solid #eee">
+    <header class="el-header" style="height: 60px;">Header</header>
+    <div class="app-wrapper">
+      <layout-right></layout-right>
+      <layout-footer></layout-footer>
     </div>
-    <layout-right></layout-right>
-    <layout-footer></layout-footer>
-  </div>
+  </el-container> -->
+
 </template>
 <script>
   import { AppMain } from './widgets'
@@ -34,39 +51,13 @@
     },
     methods: {
       async init () {
-        // this.diyUrl = 'http://www.yiqipingou.com/'
-        this.diyUrl = 'http://localhost:2000/pages/index'
+        this.diyUrl = 'http://www.yiqipingou.com/'
+        // this.diyUrl = 'http://localhost:2000/pages/index'
       }
     }
   }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  @import 'src/assets/styles/mixin.scss';
-  .app-wrapper {
-  	@include clearfix;
-  	position: relative;
-  	height: 100%;
-  	width: 100%;
-  	padding-left: 80px;
-  	display: flex;
-  	.iphone-x {
-  		// background: url(./../../assets/img/iphonex.png) no-repeat;
-  		border: 10xp solid red;
-  		border-top-width: 30px;
-  		border-image: url(./../../assets/img/iphonex.png);
-  		transform: translate(-250%, 15%);
-  		display: flex;
-  		width: 490px;
-  		border-radius: 30px;
-  		overflow: hidden;
-  		height: 726px;
-  		position: relative;
-  		.show-iframe {
-  			width: 480px;
-  			overflow-x: hidden;
-  			overflow-y: auto;
-  		}
-  	}
-  }
+  @import './Layout.scss'; // 便于调试，css写到layout.css中
 </style>
