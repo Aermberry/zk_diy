@@ -14,6 +14,16 @@
 				<div class="center-navbar-right">
 					<ul class="right-item-box">
 						<el-button-group>
+							<el-dropdown split-button type="primary" @click="handleClick">
+								更多菜单
+								<el-dropdown-menu slot="dropdown">
+									<el-dropdown-item>黄金糕</el-dropdown-item>
+									<el-dropdown-item>狮子头</el-dropdown-item>
+									<el-dropdown-item>螺蛳粉</el-dropdown-item>
+									<el-dropdown-item>双皮奶</el-dropdown-item>
+									<el-dropdown-item>蚵仔煎</el-dropdown-item>
+								</el-dropdown-menu>
+							</el-dropdown>
 							<el-button> 预览
 								<i class="el-icon-view el-icon--right"></i>
 							</el-button>
