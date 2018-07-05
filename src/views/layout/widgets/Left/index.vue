@@ -1,5 +1,70 @@
 <template>
-	<div class="layout-left">
+
+	<el-aside width="60px" class="app-left m-aside-menu">
+		<div class="nav-logo">
+			<img src="../../../../assets/img/logo.png" alt="匠芯云DIY平台" class="logo-icon">
+			<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
+				<li class="m-menu__item  m-menu__item--active">
+					<a href="/" class="m-menu__link ">
+						<span class="m-menu__item-here"></span>
+						<i class="m-menu__link-icon flaticon-line-graph"></i>
+						<span class="m-menu__link-text">
+							页面
+						</span>
+					</a>
+				</li>
+				<li class="m-menu__item">
+					<a href="/" class="m-menu__link " title="添加模块">
+						<i class="m-menu__link-icon flaticon-app "></i>
+						<span class="m-menu__link-title">
+							<span class="m-menu__link-wrap">
+								<span class="m-menu__link-text" title="添加模块">
+									添加
+								</span>
+							</span>
+						</span>
+					</a>
+				</li>
+				<li class="m-menu__item">
+					<a href="/" class="m-menu__link " title="Api接口">
+						<i class="m-menu__link-icon flaticon-more-v2  "></i>
+						<span class="m-menu__link-title">
+							<span class="m-menu__link-wrap">
+								<span class="m-menu__link-text" title="添加模块">
+									Api
+								</span>
+							</span>
+						</span>
+					</a>
+				</li>
+				<li class="m-menu__item">
+					<a href="/" class="m-menu__link " title="添加模块">
+						<i class="m-menu__link-icon flaticon-file-1  "></i>
+						<span class="m-menu__link-title">
+							<span class="m-menu__link-wrap">
+								<span class="m-menu__link-text" title="添加模块">
+									文件
+								</span>
+							</span>
+						</span>
+					</a>
+				</li>
+				<li class="m-menu__item">
+					<a href="/" class="m-menu__link " title="添加模块">
+						<i class="m-menu__link-icon flaticon-info "></i>
+						<span class="m-menu__link-title">
+							<span class="m-menu__link-wrap">
+								<span class="m-menu__link-text" title="添加模块">
+									帮助
+								</span>
+							</span>
+						</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</el-aside>
+	<!-- <div class="layout-left">
 		<div class="layout-left-nav">
 			<ul class="layout-left-item-box">
 				<li class="left-item">
@@ -83,7 +148,6 @@
 			<div class="module-content">
 				<div class="content-left">
 					<ul>
-						<!-- class="active" -->
 						<li v-for="(item, index) in widgetClass" :key="index">{{item.value}}</li>
 					</ul>
 				</div>
@@ -102,10 +166,10 @@
 			<div class="module-bottom">
 				<div class="bottom-sumbit">
 					<!-- <el-button style='' type="primary"> 提交</el-button> -->
-				</div>
+	<!-- </div>
 			</div>
 		</el-dialog>
-	</div>
+	</div> -->
 </template>
 
 <script>
