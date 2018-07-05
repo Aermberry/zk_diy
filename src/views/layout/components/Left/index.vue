@@ -9,7 +9,7 @@
 			<ul class="layout-left-item-box">
 				<li class="left-item">
 					<div @click="ceshi()">
-						<svg-icon icon-class="nested" />
+						<x-icon src='../../../../assets/svg/table.svg'></x-icon>
 						<span class="left-item-text">
 							页面
 						</span>
@@ -117,7 +117,7 @@
 	import elDragDialog from '@/directive/el-dragDialog'
 	import { DIY_GETLINK_GET } from '@/service/api/apiUrl' // 引入Api接口常量
 	export default {
-		name: 'layout-footer',
+		name: 'layout-left',
 		directives: { elDragDialog },
 		data () {
 			return {
@@ -141,6 +141,12 @@
 				}
 				this.viewModel = await this.$api.get(DIY_GETLINK_GET, para)
 				console.info('数据', this.viewModel)
+			},
+			handleClickOutside () {
+				this.$store.dispatch('CloseSideBar', { withoutAnimation: false })
+			},
+			handleDrag () {
+				this.$refs.select.blur()
 			}
 		}
 	}

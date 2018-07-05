@@ -1,6 +1,6 @@
 <template>
-  <div class="app-wrapper" :class="classObj">
-    <Left></Left>
+  <div class="app-wrapper">
+    <layout-left></layout-left>
     <Top></Top>
     <!-- <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl"></iframe> -->
     <Right></Right>
@@ -18,6 +18,7 @@
     name: 'layout',
     components: {
       'layout-footer': Footer,
+      'layout-left': Left,
       Right,
       Left,
       Top,
