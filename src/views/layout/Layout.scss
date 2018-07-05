@@ -1,6 +1,7 @@
  @import 'src/assets/styles/mixin.scss';
  .app-wrapper {
    @include clearfix;
+   $HeadHeight: 60px; // 左边和头部高度
    position: relative;
    height: 100%;
    width: 100%;
@@ -11,6 +12,7 @@
      top: 0;
      bottom: 0;
      position: fixed;
+     width: $HeadHeight;
      height: auto !important;
      left: 0;
      z-index: 100;
@@ -21,9 +23,18 @@
      -ms-transition: all 0.3s ease;
      -o-transition: all 0.3s ease;
      transition: all 0.3s ease;
+     .nav-logo {
+       width: $HeadHeight;
+       height: $HeadHeight;
+       text-align: center;
+       vertical-align: middle;
+       img {
+         margin-top: 15px;
+       }
+     }
    } // 头部
    .app-header {
-     height: 60px;
+     height: $HeadHeight;
      background-color: #ffffff;
      -webkit-transition: all 0.3s ease;
      -moz-transition: all 0.3s ease;

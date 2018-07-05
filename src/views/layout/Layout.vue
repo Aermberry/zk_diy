@@ -1,7 +1,11 @@
 <template>
 
   <el-container class="app-wrapper">
-    <el-aside width="60px" class="app-left">left</el-aside>
+    <el-aside width="60px" class="app-left">
+      <div class="nav-logo">
+        <img src="../../assets/img/logo.png" alt="匠芯云DIY平台" class="logo-icon">
+      </div>
+    </el-aside>
     <el-container>
       <el-header class="app-header">
         <el-row>
