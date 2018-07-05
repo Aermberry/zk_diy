@@ -4,7 +4,7 @@
 			<div class="layout-top-navbar">
 				<div class="nav-logo">
 					<span class="logo">
-						<img src="../../../../assets/img/logo.png" alt="" class="logo-icon">
+						<img src="../../../../assets/img/logo.png" alt="" @click="onClick" class="logo-icon">
 					</span>
 				</div>
 				<div class="center-navbar-left">
@@ -13,6 +13,17 @@
 				</div>
 				<div class="center-navbar-right">
 					<ul class="right-item-box">
+						<el-button-group>
+							<el-button> 预览
+								<i class="el-icon-view el-icon--right"></i>
+							</el-button>
+							<el-button style='' type="success"> 保存
+								<i class="el-icon-check el-icon--right"></i>
+							</el-button>
+							<el-button type="primary">发布
+								<i class="el-icon-upload el-icon--right"></i>
+							</el-button>
+						</el-button-group>
 						<li class="right-item">
 							<x-screenfull class="screenfull right-menu-item"> </x-screenfull>
 						</li>
@@ -22,24 +33,30 @@
 							</span>
 							<span>手机</span>
 						</li>
-						<li class="right-item">
-							<span>保存</span>
-						</li>
-						<li class="right-item">
-							<span>预览</span>
-						</li>
-						<li class="right-item">
-							<div class="item-sumbit">
-								发布
-							</div>
-						</li>
+
 					</ul>
 				</div>
 			</div>
 		</div>
 	</section>
 </template>
-
+<script>
+	export default {
+		name: 'layout-top',
+		data () {
+			return {
+			}
+		},
+		mounted () {
+		},
+		methods: {
+			onClick () {
+				window.location.href = 'http://www.baidu.com'
+				console.info('保存', '')
+			}
+		}
+	}
+</script>
 <style rel="stylesheet/scss" lang="scss" scoped>
 	@import 'src/assets/styles/mixin.scss';
 	section {
@@ -130,12 +147,11 @@
 						position: relative;
 						background-color: #3898ec;
 					}
-					.item-sumbit::before {
+					.item-sumbit button::before {
 						content: '';
 						position: absolute;
 						width: 72px;
 						height: 23px;
-						background: #3898ec;
 						top: -22px;
 						left: 0px;
 					}

@@ -37,7 +37,6 @@
         // this.diyUrl = 'http://www.yiqipingou.com/'
         this.diyUrl = 'http://localhost:2000/pages/index'
       }
-
     }
   }
 </script>
