@@ -88,8 +88,7 @@
       <div class="module-content">
         <div class="content-left">
           <ul>
-            <li class="active">789</li>
-            <li>456</li>
+            <li class="active" v-for="(item, index) in widgetClass" :key="index">{{item.value}}</li>
           </ul>
         </div>
         <div class="content-right">
@@ -115,7 +114,7 @@
 
 <script>
   import elDragDialog from '@/directive/el-dragDialog'
-  import { DIY_GETLINK_GET } from '@/service/api/apiUrl' // 引入Api接口常量
+  import { DIY_GETLINK_GET, WIDGET_CLASS_GET } from '@/service/api/apiUrl' // 引入Api接口常量
   export default {
     name: 'layout-left',
     directives: { elDragDialog },
@@ -125,6 +124,7 @@
         dialogTableVisible: false,
         moduleSearch: '',
         viewModel: '',
+        widgetClass: '',
         showContent: 1
       }
     },
@@ -140,7 +140,8 @@
           diyKey: 'grid_index'
         }
         this.viewModel = await this.$api.get(DIY_GETLINK_GET, para)
-        console.info('widet数据', this.viewModel)
+        // console.info('widet数据', this.viewModel)
+        this.widgetClass = await this.$api.get(WIDGET_CLASS_GET, para)
       },
       handleClickOutside () {
         this.$store.dispatch('CloseSideBar', { withoutAnimation: false })
