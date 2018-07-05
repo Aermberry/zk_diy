@@ -117,6 +117,7 @@
 	import elDragDialog from '@/directive/el-dragDialog'
 	import { DIY_GETLINK_GET } from '@/service/api/apiUrl' // 引入Api接口常量
 	export default {
+		name: 'layout-footer',
 		directives: { elDragDialog },
 		data () {
 			return {

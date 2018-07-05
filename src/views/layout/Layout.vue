@@ -4,7 +4,7 @@
     <Top></Top>
     <!-- <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl"></iframe> -->
     <Right></Right>
-    <Footer></Footer>
+    <layout-footer></layout-footer>
   </div>
 </template>
 
@@ -17,7 +17,7 @@
   export default {
     name: 'layout',
     components: {
-      Footer,
+      'layout-footer': Footer,
       Right,
       Left,
       Top,
