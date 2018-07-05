@@ -2,22 +2,22 @@
   <div class="layout-left">
     <div class="layout-logo-box">
       <router-link to="" class="layout-logo">
-        <img src="../../../../assets/img/logo.png" alt="">
+        <img src="../../../../assets/img/logo.png" alt="" class="logo-icon">
       </router-link>
     </div>
     <div class="layout-left-nav">
       <ul class="layout-left-item-box">
         <li class="left-item">
           <div @click="pageBox()">
-            <x-icon src='table.svg'></x-icon>
-            <span class="left-item-text">
+            <x-icon src='pages.svg'></x-icon>
+            <span class="left-item-text zk-active">
               页面
             </span>
           </div>
         </li>
         <li class="left-item">
           <div @click="dialogTableVisible = true,eject = false">
-            <x-icon src='tree.svg'></x-icon>
+            <x-icon src='modules.svg'></x-icon>
             <span class="left-item-text">
               添加模块
             </span>
@@ -165,7 +165,7 @@
     z-index: 9999;
     .layout-logo-box {
       width: 69px;
-      height: 100px;
+      height: 130px;
       background: #282a3c;
       position: relative;
       z-index: 9999;
@@ -175,12 +175,13 @@
         height: 30px;
         position: absolute;
         top: 50%;
-        left: 50%;
+        left: 44%;
         transform: translate(-50%, -50%);
         img {
           display: block;
-          width: 100%;
-          height: 100%;
+          margin: 0 auto;
+          width: 40px;
+          height: 40px;
         }
       }
     }
@@ -219,16 +220,21 @@
               margin-top: 10px;
               font-size: 12px;
               font-weight: 1000;
-              color: white;
+              color: #515151;
               display: block;
               text-align: center;
             }
 
+             span.left-item-text.zk-active {
+               color:white;
+             }
+
             .svg-icon {
-              color: #fff;
+              width: 30px !important;
+              height: 30px !important;
               position: absolute;
-              top: -2px;
-              left: 26px;
+              top: -14px;
+              left: 20px;
             }
           }
         }
