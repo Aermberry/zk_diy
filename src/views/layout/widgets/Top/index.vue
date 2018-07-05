@@ -46,25 +46,23 @@
 	@import 'src/assets/styles/mixin.scss';
 	section {
 	  @include clearfix;
-	  position: relative;
 	  height: 100%;
 	  width: 100%;
 	  display: flex;
 	}
 	.layout-center {
 	  flex: 1;
-	  background: url(./../../../../assets/img/iphonex.png) no-repeat fixed center;
-	  background-size: 380px;
-	  position: relative;
+	  // background: url(./../../../../assets/img/iphonex.png) no-repeat fixed center;
+	  // background-size: 380px;
 	  .layout-center-navbar {
 	    z-index: -1;
 	    height: 70px;
-	    width: 102%;
+	    width: 100%;
 	    display: flex;
 	    position: absolute;
 	    overflow: hidden;
 	    top: 0;
-	    left: -12px;
+	    left:0;
 	    align-items: center;
 	    border-bottom: 1px solid #ceced0;
 	    box-shadow: 0 0 130px 0px #e5e5e5;
@@ -74,7 +72,7 @@
 	      // background-color: #ff80c0;
 	      .logo {
 	        display: block;
-	        padding: 14px 27px;
+	        padding: 14px 15px;
 	        text-align: center;
 
 	        .logo-icon {
