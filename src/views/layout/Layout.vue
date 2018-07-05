@@ -14,7 +14,7 @@
       <el-main>
         <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl" class="iphone-x show-iframe"></iframe>
       </el-main>
-      <el-footer>Pie de página</el-footer>
+      <layout-footer></layout-footer>
     </el-container>
   </el-container>
   <!-- <el-container style="height: 500px; border: 1px solid #eee">
