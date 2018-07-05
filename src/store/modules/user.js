@@ -1,6 +1,11 @@
 // eslint-disable-next-line
 /* eslint-disable */
 import {
+  login,
+  logout,
+  getInfo
+} from '@/api/login'
+import {
   getToken,
   setToken,
   removeToken

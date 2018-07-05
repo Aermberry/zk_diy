@@ -14,7 +14,7 @@ import store from './store'
 import XIcon from '@/elements/x-icon'
 import XScreenfull from '@/elements/x-screenfull'
 
-import '@/permission' // permission control
+// import '@/permission' // permission control
 Vue.use(global)
 
 Vue.use(ElementUI, {
