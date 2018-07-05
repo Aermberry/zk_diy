@@ -2,6 +2,11 @@
 	<section>
 		<div class="layout-center">
 			<div class="layout-center-navbar">
+				<div class="nav-logo">
+					<span class="logo">
+						<img src="../../../../assets/img/logo.png" alt="" class="logo-icon">
+					</span>
+				</div>
 				<div class="center-navbar-left">
 					<x-icon src='tree.svg'></x-icon>
 					<span>模版中心</span>
@@ -64,9 +69,24 @@
 	    border-bottom: 1px solid #ceced0;
 	    box-shadow: 0 0 130px 0px #e5e5e5;
 	    // background: white;
+	    .nav-logo {
+	      height: 100%;
+	      // background-color: #ff80c0;
+	      .logo {
+					display:block;
+	        padding: 14px 27px;
+					text-align: center;
+
+					.logo-icon{
+						width: 40px;
+						height: 40px;
+						vertical-align:bottom;
+					}
+	      }
+	    }
 	    .right-item-box {
 	      //   background-color: red;
-				padding-right: 50px;
+	      padding-right: 50px;
 	      width: auto;
 	      height: 100%;
 	      display: flex;
