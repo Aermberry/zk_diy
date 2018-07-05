@@ -51,6 +51,7 @@
 	</section>
 </template>
 <script>
+	import { SITEPAGE_SAVE_POST } from '@/service/api/apiUrl' // 引入Api接口常量
 	export default {
 		name: 'layout-top',
 		data () {
@@ -60,9 +61,13 @@
 		mounted () {
 		},
 		methods: {
-			onClick () {
-				window.location.href = 'http://www.baidu.com'
-				console.info('保存', '')
+			// 保存模块
+			async save () {
+				const para = {
+					query: '' // 保存数据
+				}
+				var response = await this.$api.post(SITEPAGE_SAVE_POST, para)
+				console.info('保存结果', response)
 			}
 		}
 	}
