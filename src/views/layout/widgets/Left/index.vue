@@ -91,15 +91,20 @@
 					</ul>
 				</div>
 				<div class="content-right">
-					<ul class="content-box">
-						<li v-for="(item ,index) in viewModel" :key="index">
-							<img src="https://img.alicdn.com/tfs/TB1oT8pAuOSBuNjy0FdXXbDnVXa-730-350.png" :alt="item.name">
-							<div class="content-text" :compent-id="item.componentId">
-								<p>{{item.name}}</p>
-								<span>{{item.intro}}</span>
-							</div>
-						</li>
-					</ul>
+					<el-row>
+						<el-col :span="4" v-for="(item ,index) in viewModel" :key="index" class="content-box">
+							<el-card :body-style="{ padding: '2px' }">
+								<img src="https://img.alicdn.com/tfs/TB1oT8pAuOSBuNjy0FdXXbDnVXa-730-350.png">
+								<div style="padding: 5px;">
+									<span>{{item.name}}</span>
+									<div class="bottom clearfix">
+										<time class="time">{{ item.intro }}</time>
+										<el-button type="text" class="button">添加</el-button>
+									</div>
+								</div>
+							</el-card>
+						</el-col>
+					</el-row>
 				</div>
 			</div>
 			<div class="module-bottom">
@@ -126,23 +131,36 @@
 				</div>
 			</div>
 			<div class="page-center">
-				<div class="page-center-title">
-					<div class="title-left">
-						首页
-					</div>
-					<div class="title-right">
-						<div class="title-right-btn">
-							使用
-						</div>
-						<x-icon src='tree.svg'></x-icon>
-					</div>
-				</div>
-				<div class="page-show">
-					添加新页面
-				</div>
-				<div class="page-hint">
-					点击右上角的按钮,创建一个文件夹或页面。
-				</div>
+				<el-menu :default-openeds="['1']">
+					<el-submenu index="1">
+						<template slot="title">
+							<i class="el-icon-message"></i>导航一</template>
+						<el-menu-item-group>
+							<template slot="title">分组一</template>
+							<el-menu-item index="1-1">选项1</el-menu-item>
+							<el-menu-item index="1-2">选项2</el-menu-item>
+						</el-menu-item-group>
+						<el-menu-item-group title="分组2">
+							<el-menu-item index="1-3">选项3</el-menu-item>
+						</el-menu-item-group>
+					</el-submenu>
+					<el-submenu index="2">
+						<template slot="title">
+							<i class="el-icon-menu"></i>导航二</template>
+						<el-menu-item-group>
+							<template slot="title">分组一</template>
+							<el-menu-item index="2-1">选项1</el-menu-item>
+							<el-menu-item index="2-2">选项2</el-menu-item>
+						</el-menu-item-group>
+						<el-menu-item-group title="分组2">
+							<el-menu-item index="2-3">选项3</el-menu-item>
+						</el-menu-item-group>
+						<el-submenu index="2-4">
+							<template slot="title">选项4</template>
+							<el-menu-item index="2-4-1">选项4-1</el-menu-item>
+						</el-submenu>
+					</el-submenu>
+				</el-menu>
 			</div>
 		</div>
 	</div>
@@ -156,7 +174,7 @@
 		directives: { elDragDialog },
 		data () {
 			return {
-				pageBaxVisible: false, // 页面窗口是否显示
+				pageBaxVisible: true, // 页面窗口是否显示
 				dialogTableVisible: false, // 模块弹出窗口
 				moduleSearch: '',
 				viewModel: '',
@@ -453,11 +471,11 @@
 				padding: 12px;
 				height: 500px;
 				flex: 1;
-				ul.content-box {
-					width: 100%;
-					height: 500px;
-					overflow: auto;
-					li {
+				.content-box {
+					padding: 4px;
+					height: 228px;
+					overflow: hidden;
+					.el-card__body {
 						float: left;
 						width: 260px;
 						height: 200px;
@@ -465,29 +483,33 @@
 						border: 1px solid #f3f3f3;
 						margin-right: 10px;
 						margin-bottom: 10px;
-						img {
-							width: 100%;
-							height: 150px;
-							border-bottom: 2px solid #f1f1f1;
-						}
-						.content-text {
-							padding: 5px 10px;
-							p {
-								color: #808581;
-								font-size: 16px;
-							}
-							span {
-								margin-top: 5px;
-								color: #808581;
-								font-size: 15px;
-							}
-						}
+						width: 100%;
+						height: 500px;
+						overflow: auto;
 					}
-				}
-				ul:after {
-					content: '';
-					display: block;
-					clear: both;
+					img {
+						width: 100%;
+						height: 150px;
+						border-bottom: 2px solid #f1f1f1;
+					}
+					.time {
+						font-size: 13px;
+						color: #999;
+					}
+					.bottom {
+						margin-top: 13px;
+						line-height: 12px;
+						padding: 0;
+						float: right;
+					}
+					.clearfix:before,
+					.clearfix:after {
+						display: table;
+						content: '';
+					}
+					.clearfix:after {
+						clear: both;
+					}
 				}
 			}
 		}
