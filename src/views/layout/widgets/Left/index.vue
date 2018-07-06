@@ -153,7 +153,7 @@
 		directives: { elDragDialog },
 		data () {
 			return {
-				pageBaxVisible: true, // 页面窗口是否显示
+				pageBaxVisible: false, // 页面窗口是否显示
 				dialogTableVisible: false, // 模块弹出窗口
 				moduleSearch: '',
 				viewModel: '',
