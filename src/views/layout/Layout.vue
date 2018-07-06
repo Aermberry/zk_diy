@@ -29,6 +29,7 @@
                 <el-menu-item index="10-1">
                   <x-screenfull></x-screenfull>
                 </el-menu-item>
+                <el-menu-item index="10-2">web安全色</el-menu-item>
               </el-submenu>
             </el-menu>
           </el-col>

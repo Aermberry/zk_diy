@@ -5,6 +5,7 @@
 @import './sidebar.scss';
 @import './flaticon/css/flaticon.css';
 @import '/side-bar.scss';
+$--color-primary:red; // 主题颜色
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
