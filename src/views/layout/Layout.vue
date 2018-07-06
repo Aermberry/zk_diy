@@ -30,7 +30,6 @@
                   <x-screenfull></x-screenfull>
                 </el-menu-item>
               </el-submenu>
-
             </el-menu>
           </el-col>
           <el-col :span="8">
@@ -59,13 +58,14 @@
               </div>
             </div>
           </div>
+          <div class="content-right">
+            <layout-right class="right-box"></layout-right>
+          </div>
         </div>
       </el-main>
       <layout-footer></layout-footer>
     </el-container>
-    <div class="content-right">
-      <layout-right class="right-box"></layout-right>
-    </div>
+
   </el-container>
 </template>
 <script>

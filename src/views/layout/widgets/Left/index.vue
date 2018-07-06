@@ -125,11 +125,11 @@
 				</div>
 			</div>
 			<div class="page-center">
-				<el-menu :default-openeds="[0]">
-					<el-submenu :index="index" v-for="(item ,index) in sitePageModel" :key="index">
+				<el-menu :default-openeds="['_0']">
+					<el-submenu :index="'_'+index" v-for="(item ,index) in sitePageModel" :key="index">
 						<template slot="title">
 							<i class="el-icon-menu"></i>{{item.title}}</template>
-						<el-menu-item :index="'index'-'pageIndex'" v-for="(page ,pageIndex) in item.pages" :key="pageIndex">
+						<el-menu-item :index="'_'+index+'_'+pageIndex" v-for="(page ,pageIndex) in item.pages" :key="pageIndex">
 							<i class="flaticon-more-v4"></i>{{page.title}}
 							<i class="flaticon-settings-1 icon-right" :title="item.url"></i>
 						</el-menu-item>
@@ -180,7 +180,6 @@
 					clientType: '2'
 				}
 				this.sitePageModel = await this.$api.get(SITEPAGE_GETSITEPAGELIST_GET, sitePageInput)
-				console.info('页面数据', this.sitePageModel)
 			},
 			handleDrag () {
 				this.$refs.select.blur()
