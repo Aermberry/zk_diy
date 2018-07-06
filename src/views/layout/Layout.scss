@@ -1,88 +1,97 @@
      @import 'src/assets/styles/variables.scss';
      @import 'src/assets/styles/mixin.scss';
      .app-wrapper {
-         @include clearfix;
-         position: relative;
-         height: 100%;
-         width: 100%;
-         display: flex;
-         overflow: hidden;
-         background-color: #f2f3f8; // 左边
-         .app-nav {
-             width: 101.1%;
+       @include clearfix;
+       position: relative;
+       height: 100%;
+       width: 100%;
+       display: flex;
+       overflow: hidden;
+       background-color: #f2f3f8; // 左边
+       .app-nav {
+         width: 101.1%;
+       }
+       .top-button {
+         float: right;
+         right: 0px;
+         text-align: right;
+         width: 270px;
+         margin-right: 0px;
+         button {
+           height: 56px;
+           width: 90px;
+           border-radius: 0px;
          }
-         .top-button {
-             float: right;
-             right: 0px;
-             text-align: right;
-             width: 270px;
-             margin-right: 0px;
-             button {
-                 height: 56px;
-                 width: 90px;
-                 border-radius: 0px;
-             }
-         }
+       }
      }
-     
+
      .zk-main {
-         position: relative;
-         padding: 0;
-         overflow: hidden;
-         //  padding-top: 10px;
-         .content-right {
-             width: 280px;
-             position: absolute;
-             top: 1px;
-             right: -4px;
-         }
+       position: relative;
+       padding: 0;
+       overflow: hidden; //  padding-top: 10px;
+       .content-right {
+         width: 280px;
+         position: absolute;
+         top: 1px;
+         right: -4px;
+       }
      }
-     
+
      .main-content {
-         width: 100%;
-         height: 100%;
-         .content-left {
-             float: left;
-             text-align: center;
-             padding-left: 30%;
-             .content-phone {
-                 border-top-width: 30px;
-                 background-position: center top;
-                 background: url(../../../static/img/iphone8_black.png) no-repeat;
-                 width: 555px;
-                 background-color: #F2F3F8;
-                 background-origin: content-box;
-                 background-position: center;
-                 background-size: 427px 798px; //  overflow: hidden;
-                 height: 790px;
-                 position: relative;
-                 .innerbox-phone {
-                     //  overflow: hidden;
-                     //  width: 95px;
-                     .show-iframe {
-                         width: 340px;
-                         overflow-x: hidden;
-                         margin-top: 104px;
-                         height: 581px;
-                         margin-right: -1px;
-                         overflow-y: auto;
-                     }
-                 }
+       width: 100%;
+       height: 100%;
+       .content-left {
+         float: left;
+         text-align: center;
+         .content-phone {
+           border-top-width: 30px;
+           background-position: center top;
+           background: url(../../../static/img/iphone8_black.png) no-repeat;
+           background-color: #F2F3F8;
+           background-origin: content-box;
+           background-position: center;
+           background-size: 427px 798px;
+           height: 790px;
+           width: 427px;
+           position: relative;
+           .innerbox-phone {
+             .show-iframe {
+               width: 340px;
+               overflow-x: hidden;
+               margin-top: 104px;
+               height: 581px;
+               margin-right: -1px;
+               overflow-y: auto;
              }
+           }
          }
-         .content-right {
-             position: absolute;
-             top: 10px;
-             margin-left: -1px;
-             border-left: 1px solid rgb(220, 223, 230);
-             position: relative;
-             z-index: 10;
-             float: right;
-             background: #ffffff;
-             width: 280px;
-             .right-box {
-                 margin-top: 0;
-                 overflow: hidden;
-             }
+       }
+       .content-right {
+         position: absolute;
+         top: 2px;
+         margin-left: -1px;
+         border-left: 1px solid rgb(220, 223, 230);
+         background-color: #ffffff;
+         -webkit-transition: all 0.3s ease;
+         -moz-transition: all 0.3s ease;
+         -ms-transition: all 0.3s ease;
+         -o-transition: all 0.3s ease;
+         transition: all 0.3s ease;
+         -webkit-transform: translateY(0);
+         -moz-transform: translateY(0);
+         -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+         transform: translateY(0);
+         -webkit-box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+         -moz-box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+         box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+         position: relative;
+         z-index: 10;
+         float: right;
+         background: #ffffff;
+         .right-box {
+           margin-top: 0;
+           overflow: hidden;
          }
+       }
      }

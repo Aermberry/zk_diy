@@ -51,14 +51,14 @@
       </el-header>
       <el-main class="zk-main">
         <div class="main-content">
-          <div class="content-left">
+          <div class="content-left" :style="'width:'+(screenWidth-273-55)+'px; padding-left:'+((screenWidth-273-55-427)/2)+'px'">
             <div class="content-phone">
               <div class="innerbox-phone">
                 <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl" class=" show-iframe"></iframe>
               </div>
             </div>
           </div>
-          <div class="content-right">
+          <div class="content-right" style="width:273px">
             <layout-right class="right-box"></layout-right>
           </div>
         </div>
@@ -83,7 +83,8 @@
     },
     data () {
       return {
-        diyUrl: ''
+        diyUrl: '', // 需要diy的网址
+        screenWidth: '1100' // 屏幕宽度
       }
     },
     mounted () {
@@ -92,6 +93,7 @@
     methods: {
       async init () {
         this.diyUrl = 'http://www.yiqipingou.com/'
+        this.screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
         // this.diyUrl = 'http://localhost:2000/pages/index'
       }
     }
