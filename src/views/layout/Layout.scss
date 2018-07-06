@@ -18,10 +18,23 @@
              width: 270px;
              margin-right: 0px;
              button {
-                 height: 55px;
+                 height: 56px;
                  width: 90px;
                  border-radius: 0px;
              }
+         }
+     }
+     
+     .zk-main {
+         position: relative;
+         padding: 0;
+         overflow: hidden;
+         //  padding-top: 10px;
+         .content-right {
+             width: 280px;
+             position: absolute;
+             top: 1px;
+             right: -4px;
          }
      }
      
@@ -58,8 +71,16 @@
              }
          }
          .content-right {
+             margin-left: -1px;
+             border-left: 1px solid rgb(220, 223, 230);
+             position: relative;
+             z-index: 10;
              float: right;
              background: #ffffff;
-             width: 270px;
+             width: 280px;
+             .right-box {
+                 margin-top: 0;
+                 overflow: hidden;
+             }
          }
      }

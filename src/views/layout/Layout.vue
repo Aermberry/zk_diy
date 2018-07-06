@@ -34,7 +34,6 @@
             </el-menu>
           </el-col>
           <el-col :span="8">
-            <div class="top-hear"></div>
             <div class="top-button">
               <el-button-group>
                 <el-button> 预览
@@ -51,7 +50,7 @@
           </el-col>
         </el-row>
       </el-header>
-      <el-main>
+      <el-main class="zk-main">
         <div class="main-content">
           <div class="content-left">
             <div class="content-phone">
@@ -61,7 +60,7 @@
             </div>
           </div>
           <div class="content-right">
-            <layout-right></layout-right>
+            <layout-right  class="right-box"></layout-right>
           </div>
         </div>
       </el-main>
