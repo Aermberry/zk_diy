@@ -1,24 +1,5 @@
 <template>
   <div class="layout-right">
-    <!-- <div class="layout-right-navbar">
-      <ul class="right-item-box">
-        <li class="right-item">
-          <x-icon src='table.svg'></x-icon>
-          <span>手机</span>
-        </li>
-        <li class="right-item">
-          <span>保存</span>
-        </li>
-        <li class="right-item">
-          <span>预览</span>
-        </li>
-        <li class="right-item">
-          <div class="item-sumbit">
-            发布
-          </div>
-        </li>
-      </ul>
-    </div> -->
     <div class="layout-right-tab-box">
       <ul class="tab-top-item">
         <li class="active" @click="tabRight=1">
@@ -136,7 +117,7 @@
 <style rel="stylesheet/scss" lang="scss" scoped>
   @import 'src/assets/styles/mixin.scss';
   .layout-right {
-  	width: 300px;
+  	width: 270px;
   	display: flex;
   	margin-top: 80px;
   	flex-flow: column;

@@ -49,12 +49,21 @@
                 </el-button>
               </el-button-group>
             </div>
-
           </el-col>
         </el-row>
       </el-header>
       <el-main>
-        <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl" class="iphone-x show-iframe"></iframe>
+        <div class="main-content">
+          <div class="content-left">
+            <div class="content-phone">
+              <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl" class=" show-iframe"></iframe>
+            </div>
+
+          </div>
+          <div class="content-right">
+            <layout-right></layout-right>
+          </div>
+        </div>
       </el-main>
       <layout-footer></layout-footer>
     </el-container>
@@ -73,13 +82,11 @@
   import Footer from './widgets/Footer'
   import Left from './widgets/Left'
   import Right from './widgets/Right'
-  import Top from './widgets/Top'
   export default {
     name: 'layout',
     components: {
       'layout-footer': Footer,
       'layout-left': Left,
-      'layout-top': Top,
       'layout-right': Right,
       AppMain
     },
