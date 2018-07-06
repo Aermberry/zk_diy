@@ -60,17 +60,19 @@
                      //  overflow: hidden;
                      //  width: 95px;
                      .show-iframe {
-                         width: 343px;
+                         width: 340px;
                          overflow-x: hidden;
                          margin-top: 104px;
                          height: 581px;
-                         margin-right: -5px;
+                         margin-right: -1px;
                          overflow-y: auto;
                      }
                  }
              }
          }
          .content-right {
+             position: absolute;
+             top: 10px;
              margin-left: -1px;
              border-left: 1px solid rgb(220, 223, 230);
              position: relative;
