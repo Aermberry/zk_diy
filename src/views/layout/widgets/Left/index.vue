@@ -125,20 +125,13 @@
 				</div>
 			</div>
 			<div class="page-center">
-				<el-menu :default-openeds="['1']">
-					<el-submenu index="1">
+				<el-menu :default-openeds="['0']">
+					<el-submenu :index="index" v-for="(item ,index) in sitePageModel" :key="index">
 						<template slot="title">
-							<i class="el-icon-menu"></i>导航一</template>
-						<el-menu-item index="1-1">
-							<i class="flaticon-settings-1"></i>选项1</el-menu-item>
-						<el-menu-item index="1-2">
-							<i class="flaticon-settings-1"></i>选项2</el-menu-item>
-						<el-menu-item index="1-1">
-							<i class="flaticon-settings-1"></i>选项1</el-menu-item>
-						<el-menu-item index="1-3">
-							<i class="flaticon-settings-1"></i>选项2</el-menu-item>
+							<i class="el-icon-menu"></i>{{item.title}}</template>
+						<el-menu-item :index="'index'-'pageIndex'" v-for="(page ,pageIndex) in item.pages" :key="pageIndex">
+							<i class="flaticon-settings-1" :title="item.url"></i>{{page.title}}</el-menu-item>
 					</el-submenu>
-
 				</el-menu>
 			</div>
 		</div>
@@ -147,7 +140,7 @@
 
 <script>
 	import elDragDialog from '@/directive/el-dragDialog'
-	import { WIDGET_GETLIST_GET, WIDGET_CLASS_GET } from '@/service/api/apiUrl' // 引入Api接口常量
+	import { WIDGET_GETLIST_GET, WIDGET_CLASS_GET, SITEPAGE_GETSITEPAGELIST_GET } from '@/service/api/apiUrl' // 引入Api接口常量
 	export default {
 		name: 'layout-left',
 		directives: { elDragDialog },
@@ -158,6 +151,7 @@
 				moduleSearch: '',
 				viewModel: '',
 				widgetClass: '',
+				sitePageModel: '', // 站点URL
 				widgetClassId: 0, // 模块分类Id
 				showContent: 1
 			}
@@ -174,10 +168,17 @@
 				const para = {
 					query: 'RelationId=' + this.widgetClassId // 根据参数获取列表
 				}
-				console.info(this.eject)
+				// console.info(this.eject)
 				this.viewModel = await this.$api.get(WIDGET_GETLIST_GET, para)
-				console.info('widet数据', this.viewModel)
+				// console.info('widet数据', this.viewModel)
 				this.widgetClass = await this.$api.get(WIDGET_CLASS_GET)
+
+				const sitePageInput = {
+					siteId: '5b3f1f7cfaba2407e45af213',
+					clientType: '2'
+				}
+				this.sitePageModel = await this.$api.get(SITEPAGE_GETSITEPAGELIST_GET, sitePageInput)
+				console.info('页面数据', this.sitePageModel)
 			},
 			handleDrag () {
 				this.$refs.select.blur()
