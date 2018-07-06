@@ -120,46 +120,25 @@
 					<i class="page-box-close" @click="pageBox()">×</i>
 				</div>
 				<div class="page-top-right">
-					<ul>
-						<li class="top-right-item">
-							<x-icon src='tree.svg'></x-icon>
-						</li>
-						<li class="top-right-item">
-							<x-icon src='tree.svg'></x-icon>
-						</li>
-					</ul>
+					<a>
+						<i class="el-icon-plus"></i>新增页面</a>
 				</div>
 			</div>
 			<div class="page-center">
 				<el-menu :default-openeds="['1']">
 					<el-submenu index="1">
 						<template slot="title">
-							<i class="el-icon-message"></i>导航一</template>
-						<el-menu-item-group>
-							<template slot="title">分组一</template>
-							<el-menu-item index="1-1">选项1</el-menu-item>
-							<el-menu-item index="1-2">选项2</el-menu-item>
-						</el-menu-item-group>
-						<el-menu-item-group title="分组2">
-							<el-menu-item index="1-3">选项3</el-menu-item>
-						</el-menu-item-group>
+							<i class="el-icon-menu"></i>导航一</template>
+						<el-menu-item index="1-1">
+							<i class="flaticon-settings-1"></i>选项1</el-menu-item>
+						<el-menu-item index="1-2">
+							<i class="flaticon-settings-1"></i>选项2</el-menu-item>
+						<el-menu-item index="1-1">
+							<i class="flaticon-settings-1"></i>选项1</el-menu-item>
+						<el-menu-item index="1-3">
+							<i class="flaticon-settings-1"></i>选项2</el-menu-item>
 					</el-submenu>
-					<el-submenu index="2">
-						<template slot="title">
-							<i class="el-icon-menu"></i>导航二</template>
-						<el-menu-item-group>
-							<template slot="title">分组一</template>
-							<el-menu-item index="2-1">选项1</el-menu-item>
-							<el-menu-item index="2-2">选项2</el-menu-item>
-						</el-menu-item-group>
-						<el-menu-item-group title="分组2">
-							<el-menu-item index="2-3">选项3</el-menu-item>
-						</el-menu-item-group>
-						<el-submenu index="2-4">
-							<template slot="title">选项4</template>
-							<el-menu-item index="2-4-1">选项4-1</el-menu-item>
-						</el-submenu>
-					</el-submenu>
+
 				</el-menu>
 			</div>
 		</div>
@@ -233,95 +212,43 @@
 			display: flex;
 			height: 40px;
 			padding: 0 5px;
+			background-color: #bf2d46;
 			.page-top-left {
-				font-size: 16px;
-				color: #666c7a;
+				font-size: 12px;
+				color: #ffffff;
 				height: 100%;
 				line-height: 40px;
-				font-weight: bold;
+				font-weight: 400;
 				.page-box-close {
-					color: #9e9e9e;
+					color: #ffffff;
 					cursor: pointer;
 				}
 			}
 			.page-top-right {
 				flex: 1;
 				height: 40px;
-				padding: 5px 0;
-				ul {
-					width: 100%;
-					height: 100%;
-					display: flex;
-					justify-content: flex-end;
-					li.top-right-item {
-						width: 30px;
-						height: 30px;
-						border: 2px solid #e5e5e5;
-						border-radius: 5px;
-						margin-left: 5px;
-						cursor: pointer;
-						position: relative;
-						svg {
-							position: absolute;
-							top: 50%;
-							left: 50%;
-							transform: translate(-50%, -50%);
-							color: #484848;
-						}
-					}
+				display: flex;
+				font-size: 12px;
+				line-height: 40px;
+				justify-content: flex-end;
+				color: #ffffff;
+				i {
+					transform: translate(-50%, -50%);
 				}
 			}
 		}
 		.page-center {
-			.page-center-title {
-				width: 96%;
-				height: 40px;
-				margin-left: 2%;
-				border-top: 2px solid #e5e5e5;
-				border-bottom: 2px solid #e5e5e5;
-				background: #eeeeee;
-				display: flex;
-				.title-left {
-					height: 40px;
-					line-height: 40px;
-					color: #926754;
-					padding-left: 30px;
-				}
-				.title-right {
-					flex: 1;
-					height: 40px;
-					display: flex;
-					justify-content: flex-end;
-					align-items: center;
-					padding-right: 10px;
-					color: #555555;
-					.title-right-btn {
-						height: 20px;
-						background: #74ca73;
-						line-height: 20px;
-						padding: 0 5px;
-						color: white;
-						font-size: 14px;
-						margin-right: 10px;
-					}
-				}
+			.el-submenu .el-menu-item {
+				height: 35px;
+				line-height: 35px;
 			}
-			.page-show {
-				width: 100%;
-				font-size: 15px;
-				font-weight: bold;
-				color: #848482;
-				text-align: center;
-				padding: 40px 0;
+			.el-submenu__title {
+				padding: 0px;
 			}
-			.page-hint {
-				width: 90%;
-				margin-left: 5%;
-				border-radius: 5px;
-				border: 2px solid #dcdcdc;
-				padding: 30px;
-				color: #929091;
-				font-size: 15px;
+			.el-menu-item i {
+				float: right;
+				justify-content: flex-end;
+				margin-right: -25px;
 			}
 		}
 	}
