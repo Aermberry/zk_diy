@@ -3,7 +3,7 @@
     <layout-left></layout-left>
     <el-container>
       <el-header class="app-header" height="55">
-        <el-row>
+        <el-row class="app-nav">
           <el-col :span="16">
             <el-menu class="el-menu-demo" mode="horizontal">
               <el-menu-item index="1">
@@ -55,7 +55,9 @@
         <div class="main-content">
           <div class="content-left">
             <div class="content-phone">
-              <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl" class=" show-iframe"></iframe>
+              <div class="innerbox-phone">
+                <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=no :src="diyUrl" class=" show-iframe"></iframe>
+              </div>
             </div>
           </div>
           <div class="content-right">

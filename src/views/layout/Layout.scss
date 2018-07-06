@@ -8,6 +8,9 @@
          display: flex;
          overflow: hidden;
          background-color: #f2f3f8; // 左边
+         .app-nav {
+             width: 101.1%;
+         }
          .top-button {
              float: right;
              right: 0px;
@@ -31,23 +34,26 @@
              padding-left: 30%;
              .content-phone {
                  border-top-width: 30px;
-                 width: 100%;
                  background-position: center top;
                  background: url(../../../static/img/iphone8.png) no-repeat;
-                 width: 600px;
-                 background-color: #ff00ff;
+                 width: 555px;
+                 background-color: #F2F3F8;
                  background-origin: content-box;
                  background-position: center;
-                 background-size: 500px 800px;
-                 overflow: hidden;
-                 height: 800px;
+                 background-size: 427px 798px; //  overflow: hidden;
+                 height: 790px;
                  position: relative;
-                 .show-iframe {
-                     width: 300px;
-                     overflow-x: hidden;
-                     margin-top: 94px;
-                     height: 600px;
-                     overflow-y: auto;
+                 .innerbox-phone {
+                     //  overflow: hidden;
+                     //  width: 95px;
+                     .show-iframe {
+                         width: 332px;
+                         overflow-x: hidden;
+                         margin-top: 104px;
+                         height: 584px;
+                         margin-right: -5px;
+                         overflow-y: auto;
+                     }
                  }
              }
          }
