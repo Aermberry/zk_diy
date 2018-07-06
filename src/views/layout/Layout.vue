@@ -5,7 +5,7 @@
     <el-container>
       <el-header class="app-header" height="55">
         <el-row>
-          <el-col :span="20">
+          <el-col :span="16">
             <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
               <el-menu-item index="1">
                 <a href="/">
@@ -34,8 +34,22 @@
 
             </el-menu>
           </el-col>
-          <el-col :span="4">
-            <div class="grid-content bg-purple-light"></div>
+          <el-col :span="8">
+            <div class="top-hear"></div>
+            <div class="top-button">
+              <el-button-group>
+                <el-button> 预览
+                  <i class="el-icon-view el-icon--right"></i>
+                </el-button>
+                <el-button style='' type="success"> 保存
+                  <i class="el-icon-check el-icon--right"></i>
+                </el-button>
+                <el-button type="primary">发布
+                  <i class="el-icon-upload el-icon--right"></i>
+                </el-button>
+              </el-button-group>
+            </div>
+
           </el-col>
         </el-row>
       </el-header>
