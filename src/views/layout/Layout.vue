@@ -1,12 +1,11 @@
 <template>
-
   <el-container class="app-wrapper">
     <layout-left></layout-left>
     <el-container>
       <el-header class="app-header" height="55">
         <el-row>
           <el-col :span="16">
-            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+            <el-menu class="el-menu-demo" mode="horizontal">
               <el-menu-item index="1">
                 <a href="/">
                   <i class="flaticon-open-box "></i>模板中心</a>
@@ -58,7 +57,6 @@
             <div class="content-phone">
               <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl" class=" show-iframe"></iframe>
             </div>
-
           </div>
           <div class="content-right">
             <layout-right></layout-right>
@@ -68,14 +66,6 @@
       <layout-footer></layout-footer>
     </el-container>
   </el-container>
-  <!-- <el-container style="height: 500px; border: 1px solid #eee">
-    <header class="el-header" style="height: 60px;">Header</header>
-    <div class="app-wrapper">
-      <layout-right></layout-right>
-      <layout-footer></layout-footer>
-    </div>
-  </el-container> -->
-
 </template>
 <script>
   import { AppMain } from './widgets'
