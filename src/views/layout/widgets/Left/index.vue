@@ -1,130 +1,69 @@
 <template>
-
-	<el-aside width="55px" class="app-left m-aside-menu">
-		<div class="nav-logo">
-			<img src="../../../../assets/img/logo.png" alt="匠芯云DIY平台" class="logo-icon">
-			<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
-				<li class="m-menu__item  m-menu__item--active">
-					<a href="/" class="m-menu__link ">
-						<span class="m-menu__item-here"></span>
-						<i class="m-menu__link-icon flaticon-line-graph"></i>
-						<span class="m-menu__link-text">
-							页面
-						</span>
-					</a>
-				</li>
-				<li class="m-menu__item">
-					<a href="/" class="m-menu__link " title="添加模块">
-						<i class="m-menu__link-icon flaticon-app "></i>
-						<span class="m-menu__link-title">
-							<span class="m-menu__link-wrap">
-								<span class="m-menu__link-text" title="添加模块">
-									添加
+	<div>
+		<el-aside width="55px" class="app-left m-aside-menu">
+			<div class="nav-logo">
+				<img src="../../../../assets/img/logo.png" alt="匠芯云DIY平台" class="logo-icon">
+				<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
+					<li class="m-menu__item  m-menu__item--active">
+						<a class="m-menu__link " @click="pageBox()">
+							<span class="m-menu__item-here"></span>
+							<i class="m-menu__link-icon flaticon-line-graph"></i>
+							<span class="m-menu__link-text">
+								页面
+							</span>
+						</a>
+					</li>
+					<li class="m-menu__item">
+						<a @click="dialogTableVisible = true,pageBaxVisible = false" class="m-menu__link " title="添加模块">
+							<i class="m-menu__link-icon flaticon-app "></i>
+							<span class="m-menu__link-title">
+								<span class="m-menu__link-wrap">
+									<span class="m-menu__link-text" title="添加模块">
+										添加
+									</span>
 								</span>
 							</span>
-						</span>
-					</a>
-				</li>
-				<li class="m-menu__item">
-					<a href="/" class="m-menu__link " title="Api接口">
-						<i class="m-menu__link-icon flaticon-more-v2  "></i>
-						<span class="m-menu__link-title">
-							<span class="m-menu__link-wrap">
-								<span class="m-menu__link-text" title="添加模块">
-									Api
+						</a>
+					</li>
+					<li class="m-menu__item">
+						<a href="/" class="m-menu__link " title="Api接口">
+							<i class="m-menu__link-icon flaticon-more-v2  "></i>
+							<span class="m-menu__link-title">
+								<span class="m-menu__link-wrap">
+									<span class="m-menu__link-text" title="添加模块">
+										Api
+									</span>
 								</span>
 							</span>
-						</span>
-					</a>
-				</li>
-				<li class="m-menu__item">
-					<a href="/" class="m-menu__link " title="添加模块">
-						<i class="m-menu__link-icon flaticon-file-1  "></i>
-						<span class="m-menu__link-title">
-							<span class="m-menu__link-wrap">
-								<span class="m-menu__link-text" title="添加模块">
-									文件
+						</a>
+					</li>
+					<li class="m-menu__item">
+						<a href="/" class="m-menu__link " title="添加模块">
+							<i class="m-menu__link-icon flaticon-file-1  "></i>
+							<span class="m-menu__link-title">
+								<span class="m-menu__link-wrap">
+									<span class="m-menu__link-text" title="添加模块">
+										文件
+									</span>
 								</span>
 							</span>
-						</span>
-					</a>
-				</li>
-				<li class="m-menu__item">
-					<a href="/" class="m-menu__link " title="添加模块">
-						<i class="m-menu__link-icon flaticon-info "></i>
-						<span class="m-menu__link-title">
-							<span class="m-menu__link-wrap">
-								<span class="m-menu__link-text" title="添加模块">
-									帮助
+						</a>
+					</li>
+					<li class="m-menu__item">
+						<a href="/" class="m-menu__link " title="添加模块">
+							<i class="m-menu__link-icon flaticon-info "></i>
+							<span class="m-menu__link-title">
+								<span class="m-menu__link-wrap">
+									<span class="m-menu__link-text" title="添加模块">
+										帮助
+									</span>
 								</span>
 							</span>
-						</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</el-aside>
-	<!-- <div class="layout-left">
-		<div class="layout-left-nav">
-			<ul class="layout-left-item-box">
-				<li class="left-item">
-					<div @click="pageBox()">
-						<x-icon src='pages.svg'></x-icon>
-						<span class="left-item-text zk-active">
-							页面
-						</span>
-					</div>
-				</li>
-				<li class="left-item">
-					<div @click="dialogTableVisible = true,eject = false">
-						<x-icon src='new.svg'></x-icon>
-						<span class="left-item-text">
-							添加模块
-						</span>
-					</div>
-				</li>
-			</ul>
-			<div>
-
+						</a>
+					</li>
+				</ul>
 			</div>
-		</div>
-		<div class="popup-page-box" :class="{'eject':eject}">
-			<div class="page-top">
-				<div class="page-top-left">
-					页面设置
-					<i class="page-box-close" @click="pageBox()">×</i>
-				</div>
-				<div class="page-top-right">
-					<ul>
-						<li class="top-right-item">
-							<x-icon src='tree.svg'></x-icon>
-						</li>
-						<li class="top-right-item">
-							<x-icon src='tree.svg'></x-icon>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="page-center">
-				<div class="page-center-title">
-					<div class="title-left">
-						首页
-					</div>
-					<div class="title-right">
-						<div class="title-right-btn">
-							使用
-						</div>
-						<x-icon src='tree.svg'></x-icon>
-					</div>
-				</div>
-				<div class="page-show">
-					添加新页面
-				</div>
-				<div class="page-hint">
-					点击右上角的按钮,创建一个文件夹或页面。
-				</div>
-			</div>
-		</div>
+		</el-aside>
 		<el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="模块管理" :visible.sync="dialogTableVisible" class="popup-module">
 			<div class="module-nav">
 				<ul>
@@ -165,11 +104,48 @@
 			</div>
 			<div class="module-bottom">
 				<div class="bottom-sumbit">
-					<!-- <el-button style='' type="primary"> 提交</el-button> -->
-	<!-- </div>
+					<el-button style='' type="primary"> 提交</el-button>
+				</div>
 			</div>
 		</el-dialog>
-	</div> -->
+		<div class="popup-page-box" :class="{'page-box-visible':pageBaxVisible}">
+			<div class="page-top">
+				<div class="page-top-left">
+					页面设置
+					<i class="page-box-close" @click="pageBox()">×</i>
+				</div>
+				<div class="page-top-right">
+					<ul>
+						<li class="top-right-item">
+							<x-icon src='tree.svg'></x-icon>
+						</li>
+						<li class="top-right-item">
+							<x-icon src='tree.svg'></x-icon>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="page-center">
+				<div class="page-center-title">
+					<div class="title-left">
+						首页
+					</div>
+					<div class="title-right">
+						<div class="title-right-btn">
+							使用
+						</div>
+						<x-icon src='tree.svg'></x-icon>
+					</div>
+				</div>
+				<div class="page-show">
+					添加新页面
+				</div>
+				<div class="page-hint">
+					点击右上角的按钮,创建一个文件夹或页面。
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
@@ -180,8 +156,8 @@
 		directives: { elDragDialog },
 		data () {
 			return {
-				eject: false,
-				dialogTableVisible: false,
+				pageBaxVisible: false, // 页面窗口是否显示
+				dialogTableVisible: false, // 模块弹出窗口
 				moduleSearch: '',
 				viewModel: '',
 				widgetClass: '',
@@ -194,18 +170,17 @@
 		},
 		methods: {
 			async pageBox () {
-				this.eject = !this.eject
+				console.info('点击事假')
+				this.pageBaxVisible = !this.pageBaxVisible
 			},
 			async init () {
 				const para = {
 					query: 'RelationId=' + this.widgetClassId // 根据参数获取列表
 				}
+				console.info(this.eject)
 				this.viewModel = await this.$api.get(WIDGET_GETLIST_GET, para)
 				console.info('widet数据', this.viewModel)
 				this.widgetClass = await this.$api.get(WIDGET_CLASS_GET)
-			},
-			handleClickOutside () {
-				this.$store.dispatch('CloseSideBar', { withoutAnimation: false })
 			},
 			handleDrag () {
 				this.$refs.select.blur()
@@ -216,6 +191,125 @@
 
 <style rel="stylesheet/scss" lang="scss" scoped>
 	@import 'src/assets/styles/mixin.scss';
+	.popup-page-box {
+		position: absolute;
+		top: 57px;
+		left: -300px;
+		width: 300px;
+		height: 100vh;
+		background: white;
+		z-index: 50;
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+		-webkit-transform: translateY(0);
+		-moz-transform: translateY(0);
+		-ms-transform: translateY(0);
+		-o-transform: translateY(0);
+		transform: translateY(0);
+		-webkit-box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+		-moz-box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+		.page-top {
+			display: flex;
+			height: 40px;
+			padding: 0 5px;
+			.page-top-left {
+				font-size: 16px;
+				color: #666c7a;
+				height: 100%;
+				line-height: 40px;
+				font-weight: bold;
+				.page-box-close {
+					color: #9e9e9e;
+					cursor: pointer;
+				}
+			}
+			.page-top-right {
+				flex: 1;
+				height: 40px;
+				padding: 5px 0;
+				ul {
+					width: 100%;
+					height: 100%;
+					display: flex;
+					justify-content: flex-end;
+					li.top-right-item {
+						width: 30px;
+						height: 30px;
+						border: 2px solid #e5e5e5;
+						border-radius: 5px;
+						margin-left: 5px;
+						cursor: pointer;
+						position: relative;
+						svg {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+							color: #484848;
+						}
+					}
+				}
+			}
+		}
+		.page-center {
+			.page-center-title {
+				width: 96%;
+				height: 40px;
+				margin-left: 2%;
+				border-top: 2px solid #e5e5e5;
+				border-bottom: 2px solid #e5e5e5;
+				background: #eeeeee;
+				display: flex;
+				.title-left {
+					height: 40px;
+					line-height: 40px;
+					color: #926754;
+					padding-left: 30px;
+				}
+				.title-right {
+					flex: 1;
+					height: 40px;
+					display: flex;
+					justify-content: flex-end;
+					align-items: center;
+					padding-right: 10px;
+					color: #555555;
+					.title-right-btn {
+						height: 20px;
+						background: #74ca73;
+						line-height: 20px;
+						padding: 0 5px;
+						color: white;
+						font-size: 14px;
+						margin-right: 10px;
+					}
+				}
+			}
+			.page-show {
+				width: 100%;
+				font-size: 15px;
+				font-weight: bold;
+				color: #848482;
+				text-align: center;
+				padding: 40px 0;
+			}
+			.page-hint {
+				width: 90%;
+				margin-left: 5%;
+				border-radius: 5px;
+				border: 2px solid #dcdcdc;
+				padding: 30px;
+				color: #929091;
+				font-size: 15px;
+			}
+		}
+	}
+	.page-box-visible {
+		left: 55px;
+	}
 	.layout-left {
 		position: fixed;
 		top: 70px;
@@ -280,115 +374,6 @@
 					}
 				}
 			}
-		}
-		.popup-page-box {
-			position: absolute;
-			top: 70px;
-			left: -229px;
-			width: 300px;
-			height: 100vh;
-			background: white;
-			z-index: 9998;
-			border: 1px solid #e5e5e5;
-			transition: all 0.5s ease;
-			.page-top {
-				display: flex;
-				height: 40px;
-				padding: 0 5px;
-				.page-top-left {
-					font-size: 16px;
-					color: #666c7a;
-					height: 100%;
-					line-height: 40px;
-					font-weight: bold;
-					.page-box-close {
-						color: #9e9e9e;
-						cursor: pointer;
-					}
-				}
-				.page-top-right {
-					flex: 1;
-					height: 40px;
-					padding: 5px 0;
-					ul {
-						width: 100%;
-						height: 100%;
-						display: flex;
-						justify-content: flex-end;
-						li.top-right-item {
-							width: 30px;
-							height: 30px;
-							border: 2px solid #e5e5e5;
-							border-radius: 5px;
-							margin-left: 5px;
-							cursor: pointer;
-							position: relative;
-							svg {
-								position: absolute;
-								top: 50%;
-								left: 50%;
-								transform: translate(-50%, -50%);
-								color: #484848;
-							}
-						}
-					}
-				}
-			}
-			.page-center {
-				.page-center-title {
-					width: 96%;
-					height: 40px;
-					margin-left: 2%;
-					border-top: 2px solid #e5e5e5;
-					border-bottom: 2px solid #e5e5e5;
-					background: #eeeeee;
-					display: flex;
-					.title-left {
-						height: 40px;
-						line-height: 40px;
-						color: #926754;
-						padding-left: 30px;
-					}
-					.title-right {
-						flex: 1;
-						height: 40px;
-						display: flex;
-						justify-content: flex-end;
-						align-items: center;
-						padding-right: 10px;
-						color: #555555;
-						.title-right-btn {
-							height: 20px;
-							background: #74ca73;
-							line-height: 20px;
-							padding: 0 5px;
-							color: white;
-							font-size: 14px;
-							margin-right: 10px;
-						}
-					}
-				}
-				.page-show {
-					width: 100%;
-					font-size: 15px;
-					font-weight: bold;
-					color: #848482;
-					text-align: center;
-					padding: 40px 0;
-				}
-				.page-hint {
-					width: 90%;
-					margin-left: 5%;
-					border-radius: 5px;
-					border: 2px solid #dcdcdc;
-					padding: 30px;
-					color: #929091;
-					font-size: 15px;
-				}
-			}
-		}
-		.eject {
-			left: 80px;
 		}
 	}
 
@@ -521,16 +506,5 @@
 	.popup-module /deep/ .el-dialog {
 		width: 1600px;
 		z-index: 9999;
-	}
-	.popup-module /deep/ .el-dialog__header {
-		// padding:0;
-	}
-	.popup-module /deep/ .el-dialog__body {
-		padding: 0;
-		width: 1600px;
-	}
-	.errLog-container {
-		display: inline-block;
-		vertical-align: top;
 	}
 </style>
