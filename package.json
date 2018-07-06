@@ -1,5 +1,5 @@
 {
-  "name": "vue-admin-template",
+  "name": "zkopen_diy",
   "version": "3.6.0",
   "license": "MIT",
   "description": "A vue admin template with Element UI & axios & iconfont & permission control & lint",
@@ -13,7 +13,7 @@
     "test": "npm run lint"
   },
   "dependencies": {
-    "element-ui": "2.3.4",
+    "element-ui": "2.4.2",
     "flyio": "^0.5.9",
     "screenfull": "^3.3.2",
     "vue": "2.5.10",

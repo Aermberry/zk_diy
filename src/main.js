@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import '@/assets/styles/theme-src/index.scss' // 引入element-ui，尽可能不去修改
 import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 import '@/assets/styles/index.scss' // global css
 

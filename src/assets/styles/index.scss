@@ -5,7 +5,13 @@
 @import './sidebar.scss';
 @import './flaticon/css/flaticon.css';
 @import '/side-bar.scss';
-$--color-primary:red; // 主题颜色
+$--color-primary: red !default;
+/* ecf5ff */
+
+$--color-success: #67c23a !default;
+$--color-warning: #e6a23c !default;
+$--color-danger: #f56c6c !default;
+$--color-info: #909399 !default;
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
