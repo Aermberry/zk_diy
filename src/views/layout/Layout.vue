@@ -3,9 +3,37 @@
   <el-container class="app-wrapper">
     <layout-left></layout-left>
     <el-container>
-      <el-header class="app-header">
+      <el-header class="app-header" height="55">
         <el-row>
-          <el-col :span="20"></el-col>
+          <el-col :span="20">
+            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+              <el-menu-item index="1">
+                <a href="/">
+                  <i class="flaticon-open-box "></i>模板中心</a>
+              </el-menu-item>
+              <el-submenu index="2">
+                <template slot="title">
+                  <a href="/">
+                    <i class="flaticon-line-graph"></i>终端</a>
+                </template>
+                <el-menu-item index="2-1">
+                  <i class="flaticon-line-graph"></i>PC</el-menu-item>
+                <el-menu-item index="2-2">手机(H5)</el-menu-item>
+                <el-menu-item index="2-3">小程序</el-menu-item>
+                <el-menu-item index="2-3">苹果、安卓App</el-menu-item>
+              </el-submenu>
+              <el-submenu index="10">
+                <template slot="title">
+                  <a href="/">
+                    <i class="flaticon-cogwheel"></i>工具</a>
+                </template>
+                <el-menu-item index="10-1">
+                  <x-screenfull></x-screenfull>
+                </el-menu-item>
+              </el-submenu>
+
+            </el-menu>
+          </el-col>
           <el-col :span="4">
             <div class="grid-content bg-purple-light"></div>
           </el-col>

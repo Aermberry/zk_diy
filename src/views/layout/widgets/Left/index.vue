@@ -1,6 +1,6 @@
 <template>
 
-	<el-aside width="60px" class="app-left m-aside-menu">
+	<el-aside width="55px" class="app-left m-aside-menu">
 		<div class="nav-logo">
 			<img src="../../../../assets/img/logo.png" alt="匠芯云DIY平台" class="logo-icon">
 			<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
