@@ -55,12 +55,12 @@
           <div class="content-left">
             <div class="content-phone">
               <div class="innerbox-phone">
-                <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=no :src="diyUrl" class=" show-iframe"></iframe>
+                <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl" class=" show-iframe"></iframe>
               </div>
             </div>
           </div>
           <div class="content-right">
-            <layout-right  class="right-box"></layout-right>
+            <layout-right class="right-box"></layout-right>
           </div>
         </div>
       </el-main>
