@@ -125,12 +125,14 @@
 				</div>
 			</div>
 			<div class="page-center">
-				<el-menu :default-openeds="['0']">
+				<el-menu :default-openeds="[0]">
 					<el-submenu :index="index" v-for="(item ,index) in sitePageModel" :key="index">
 						<template slot="title">
 							<i class="el-icon-menu"></i>{{item.title}}</template>
 						<el-menu-item :index="'index'-'pageIndex'" v-for="(page ,pageIndex) in item.pages" :key="pageIndex">
-							<i class="flaticon-settings-1" :title="item.url"></i>{{page.title}}</el-menu-item>
+							<i class="flaticon-more-v4"></i>{{page.title}}
+							<i class="flaticon-settings-1 icon-right" :title="item.url"></i>
+						</el-menu-item>
 					</el-submenu>
 				</el-menu>
 			</div>
@@ -246,7 +248,7 @@
 			.el-submenu__title {
 				padding: 0px;
 			}
-			.el-menu-item i {
+			.el-menu-item .icon-right {
 				float: right;
 				justify-content: flex-end;
 				margin-right: -25px;
