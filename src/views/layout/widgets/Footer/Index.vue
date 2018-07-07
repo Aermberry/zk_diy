@@ -5,7 +5,7 @@
 				<el-breadcrumb separator-class="el-icon-arrow-right">
 					<el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
 					<el-breadcrumb-item>布局</el-breadcrumb-item>
-					<el-breadcrumb-item>组件</el-breadcrumb-item>
+					<el-breadcrumb-item>模块</el-breadcrumb-item>
 				</el-breadcrumb>
 			</el-col>
 			<el-col :span="4">
