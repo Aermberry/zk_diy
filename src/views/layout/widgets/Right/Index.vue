@@ -1,96 +1,116 @@
 <template>
-  <div class="layout-right">
-    <el-tabs v-model="tabModel">
-      <el-tab-pane name="property">
-        <span slot="label">
-          <i class="icon flaticon-interface-8"></i> 属性</span>
-        用户管理</el-tab-pane>
-      <el-tab-pane name="tree">
-        <span slot="label">
-          <i class="icon flaticon-map"></i> 树图</span>树图</el-tab-pane>
-      <el-tab-pane label="角色管理" name="history">
-        <span slot="label">
-          <i class="icon flaticon-time-2"></i> 历史</span>
-        <div class="tab-top-content-box">
-          <ul class="tab-top-content">
-            <li>Nemwwewewewewe</li>
-            <li>yuyuyuyuyuyuyuyu</li>
-          </ul>
-        </div>
-      </el-tab-pane>
-    </el-tabs>
-  </div>
+	<div class="layout-right">
+		<el-tabs v-model="tabModel" @tab-click="handleClick">
+			<el-tab-pane name="property">
+				<span slot="label">
+					<i class="icon flaticon-interface-8"></i> 属性</span>
+				用户管理</el-tab-pane>
+			<el-tab-pane name="tree">
+				<span slot="label">
+					<i class="icon flaticon-map"></i> 树图</span>树图</el-tab-pane>
+			<el-tab-pane label="角色管理" name="history">
+				<span slot="label">
+					<i class="icon flaticon-time-2"></i> 历史</span>
+				<div class="tab-top-content-box">
+					<el-alert title="点击查看历史版本，保存即可还原" type="success">
+					</el-alert>
+					<ul class="tab-top-content">
+						<li v-for="(item,index) in pageHistory" :key="index">
+							<a>{{item.clientUser.userName}}({{item.clientUser.name}})
+								<span>{{item.createTime}}</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</el-tab-pane>
+		</el-tabs>
+	</div>
 </template>
 
 <script>
-  export default {
-    components: {
-    },
-    data () {
-      return {
-        tabModel: 'property'
-      }
-    },
-    computed: {},
-    methods: {}
-  }
+	import { PAGEACTION_GETLIST_GET } from '@/service/api/apiUrl' // 引入Api接口常量
+	export default {
+		components: {
+		},
+		data () {
+			return {
+				tabModel: 'property',
+				sitePageId: '5b3f1f7cfaba2407e45af213',
+				pageHistory: '' // 历史记录
+			}
+		},
+		computed: {},
+		methods: {
+			async handleClick (tab) {
+				//	console.log(tab)
+				if (tab.name === 'history') {
+					this.getPageHistory()
+				}
+			},
+			// 页面历史记录
+			async	getPageHistory () {
+				const para = {
+					query: 'sitePageId=' + this.sitePageId
+				}
+				this.pageHistory = await this.$api.get(PAGEACTION_GETLIST_GET, para)
+			}
+		}
+	}
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
-  @import 'src/assets/styles/mixin.scss';
-  .layout-right {
-  	width: 270px;
-  	display: flex;
-  	margin-top: 80px;
-  	height: 100vh;
-  	flex-flow: column;
-  	.el-tabs__item .is-active {
-  		color: #716aca;
-  	}
-  	.el-tabs__nav {
-  		.el-tabs__active-bar {
-  			background: #716aca;
-  		}
-  	}
-
-  	.tab-top-content-box {
-  		.tab-top-content {
-  			li {
-  				height: 40px;
-  				line-height: 40px;
-  				color: #666c7a;
-  				padding-left: 40px;
-  				position: relative;
-  			}
-  			li:first-child::before {
-  				content: none;
-  			}
-  			li:after {
-  				content: '';
-  				position: absolute;
-  				width: 10px;
-  				height: 10px;
-  				border-radius: 50%;
-  				background: #ecedf2;
-  				top: 15px;
-  				left: 15px;
-  			}
-  			li:before {
-  				content: '';
-  				position: absolute;
-  				width: 2px;
-  				height: 35px;
-  				background: #ecedf2;
-  				top: -20px;
-  				left: 19px;
-  			}
-  		}
-  	}
-  	.tab-title {
-  		height: 60px;
-  		line-height: 80px;
-  		font-weight: bold;
-  		font-size: 12px;
-  		padding-left: 12px;
-  	}
-  }
+	@import 'src/assets/styles/mixin.scss';
+	.layout-right {
+		width: 270px;
+		display: flex;
+		margin-top: 80px;
+		height: 100vh;
+		flex-flow: column;
+		.el-tabs__item {
+			padding-left: 0px;
+		}
+		.tab-top-content-box {
+			.tab-top-content {
+				li {
+					height: 32px;
+					line-height: 32px;
+					color: #666c7a;
+					padding-left: 30px;
+					position: relative;
+					font-size: 12px;
+				}
+				li span {
+					color: #c0c4cc;
+				}
+				li:first-child::before {
+					content: none;
+				}
+				li:after {
+					content: '';
+					position: absolute;
+					width: 10px;
+					height: 10px;
+					border-radius: 50%;
+					background: #ecedf2;
+					top: 13px;
+					left: 8px;
+				}
+				li:before {
+					content: '';
+					position: absolute;
+					width: 2px;
+					height: 32px;
+					background: #ecedf2;
+					top: -16px;
+					left: 12px;
+				}
+			}
+		}
+		.tab-title {
+			height: 60px;
+			line-height: 80px;
+			font-weight: bold;
+			font-size: 12px;
+			padding-left: 12px;
+		}
+	}
 </style>
