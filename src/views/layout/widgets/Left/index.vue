@@ -187,6 +187,7 @@
 				moduleSearch: '',
 				viewModel: null,
 				widgetClass: '',
+				clientType: '2',
 				sitePageModel: null, // 站点URL
 				layoutModel: null, // 布局
 				widgetClassId: 0, // 模块分类Id
@@ -215,22 +216,21 @@
 				const para = {
 					relationId: this.widgetClassId // 根据参数获取列表
 				}
-				this.widgetClass = await this.$api.get(WIDGET_CLASS_GET)
-				this.viewModel = await this.$api.get(WIDGET_GETLIST_GET, para)
-				this.$local.setStore('ssssss', this.viewModel)
+				this.widgetClass = await this.$api.get(WIDGET_CLASS_GET, '', 'widget_class')
+				this.viewModel = await this.$api.get(WIDGET_GETLIST_GET, para, 'widget_list')
 
 				// 页面初始化
 				const sitePageInput = {
 					siteId: '5b4029cd3cb0ee4fdc47cfa5',
-					clientType: '2'
+					clientType: this.clientType
 				}
-				this.sitePageModel = await this.$api.get(SITEPAGE_GETSITEPAGELIST_GET, sitePageInput)
+				this.sitePageModel = await this.$api.get(SITEPAGE_GETSITEPAGELIST_GET, sitePageInput, 'sitePage_' + this.clientType)
 
 				// 布局
 				const layoutPara = {
-					clientType: '2'
+					clientType: this.clientType
 				}
-				this.layoutModel = await this.$api.get(LAYOUT_GETLIST_GET, layoutPara)
+				this.layoutModel = await this.$api.get(LAYOUT_GETLIST_GET, layoutPara, 'layout_list_' + this.clientType)
 			},
 			handleDrag () {
 				this.$refs.select.blur()
