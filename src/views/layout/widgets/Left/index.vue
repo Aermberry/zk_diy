@@ -151,9 +151,9 @@
 				pageBaxVisible: false, // 页面窗口是否显示
 				dialogTableVisible: false, // 模块弹出窗口
 				moduleSearch: '',
-				viewModel: '',
+				viewModel: null,
 				widgetClass: '',
-				sitePageModel: '', // 站点URL
+				sitePageModel: null, // 站点URL
 				widgetClassId: 0, // 模块分类Id
 				showContent: 1
 			}
@@ -167,19 +167,20 @@
 				this.pageBaxVisible = !this.pageBaxVisible
 			},
 			async init () {
-				const para = {
-					query: 'RelationId=' + this.widgetClassId // 根据参数获取列表
+				if (this.viewModel == null) {
+					const para = {
+						query: 'RelationId=' + this.widgetClassId // 根据参数获取列表
+					}
+					this.widgetClass = await this.$api.get(WIDGET_CLASS_GET)
+					this.viewModel = await this.$api.get(WIDGET_GETLIST_GET, para)
 				}
-				// console.info(this.eject)
-				this.viewModel = await this.$api.get(WIDGET_GETLIST_GET, para)
-				// console.info('widet数据', this.viewModel)
-				this.widgetClass = await this.$api.get(WIDGET_CLASS_GET)
-
-				const sitePageInput = {
-					siteId: '5b3f1f7cfaba2407e45af213',
-					clientType: '2'
+				if (this.sitePageModel == null) {
+					const sitePageInput = {
+						siteId: '5b4029cd3cb0ee4fdc47cfa5',
+						clientType: '2'
+					}
+					this.sitePageModel = await this.$api.get(SITEPAGE_GETSITEPAGELIST_GET, sitePageInput)
 				}
-				this.sitePageModel = await this.$api.get(SITEPAGE_GETSITEPAGELIST_GET, sitePageInput)
 			},
 			handleDrag () {
 				this.$refs.select.blur()
