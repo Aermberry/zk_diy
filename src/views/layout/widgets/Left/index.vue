@@ -182,7 +182,7 @@
 		data () {
 			return {
 				pageBoxVisible: false, // 页面窗口是否显示
-				layoutBoxVisible: true, // 页面窗口是否显示
+				layoutBoxVisible: false, // 页面窗口是否显示
 				dialogTableVisible: false, // 模块弹出窗口
 				moduleSearch: '',
 				viewModel: null,
@@ -217,6 +217,7 @@
 				}
 				this.widgetClass = await this.$api.get(WIDGET_CLASS_GET)
 				this.viewModel = await this.$api.get(WIDGET_GETLIST_GET, para)
+				this.$local.setStore('ssssss', this.viewModel)
 
 				// 页面初始化
 				const sitePageInput = {

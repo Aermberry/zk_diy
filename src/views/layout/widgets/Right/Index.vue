@@ -112,5 +112,8 @@
 			font-size: 12px;
 			padding-left: 12px;
 		}
+		.el-tabs__header {
+			margin-bottom: 0px;
+		}
 	}
 </style>
