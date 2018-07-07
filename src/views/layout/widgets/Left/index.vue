@@ -26,8 +26,20 @@
 						</a>
 					</li>
 					<li class="m-menu__item">
-						<a href="/" class="m-menu__link " title="Api接口">
-							<i class="m-menu__link-icon flaticon-more-v2  "></i>
+						<a @click="dialogTableVisible = true,pageBaxVisible = false" class="m-menu__link " title="添加布局">
+							<i class="m-menu__link-icon flaticon-browser "></i>
+							<span class="m-menu__link-title">
+								<span class="m-menu__link-wrap">
+									<span class="m-menu__link-text" title="添加布局">
+										布局
+									</span>
+								</span>
+							</span>
+						</a>
+					</li>
+					<li class="m-menu__item">
+						<a class="m-menu__link " title="Api接口">
+							<i class="m-menu__link-icon flaticon-multimedia-1  "></i>
 							<span class="m-menu__link-title">
 								<span class="m-menu__link-wrap">
 									<span class="m-menu__link-text" title="添加模块">
@@ -39,7 +51,7 @@
 					</li>
 					<li class="m-menu__item">
 						<a href="/" class="m-menu__link " title="添加模块">
-							<i class="m-menu__link-icon flaticon-file-1  "></i>
+							<i class="m-menu__link-icon flaticon-coins  "></i>
 							<span class="m-menu__link-title">
 								<span class="m-menu__link-wrap">
 									<span class="m-menu__link-text" title="添加模块">
@@ -215,7 +227,7 @@
 			display: flex;
 			height: 40px;
 			padding: 0 5px;
-			background-color: #bf2d46;
+			background-color: #716aca;
 			.page-top-left {
 				font-size: 12px;
 				color: #ffffff;
