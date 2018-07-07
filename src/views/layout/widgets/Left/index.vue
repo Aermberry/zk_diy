@@ -156,8 +156,18 @@
 					<i class="page-box-close" @click="layoutBox()">×</i>
 				</div>
 			</div>
-			<div class="page-center">
-				<el-alert title="点击查看历史版本，保存即可还原" type="success"></el-alert>
+			<div class="page-center layout-box">
+				<el-row>
+					<el-col :span="12" v-for="(item,index) in layoutModel" :key="index">
+						<el-card :body-style="{ padding: '2px' }">
+							<img src="http://localhost:5000/fileCenter/layout/layout.jpg">
+							<div style="padding: 2px;">
+								<span>{{item.name}}</span>
+							</div>
+						</el-card>
+					</el-col>
+
+				</el-row>
 			</div>
 		</div>
 	</div>
@@ -165,7 +175,7 @@
 
 <script>
 	import elDragDialog from '@/directive/el-dragDialog'
-	import { WIDGET_GETLIST_GET, WIDGET_CLASS_GET, SITEPAGE_GETSITEPAGELIST_GET } from '@/service/api/apiUrl' // 引入Api接口常量
+	import { WIDGET_GETLIST_GET, LAYOUT_GETLIST_GET, WIDGET_CLASS_GET, SITEPAGE_GETSITEPAGELIST_GET } from '@/service/api/apiUrl'
 	export default {
 		name: 'layout-left',
 		directives: { elDragDialog },
@@ -178,6 +188,7 @@
 				viewModel: null,
 				widgetClass: '',
 				sitePageModel: null, // 站点URL
+				layoutModel: null, // 布局
 				widgetClassId: 0, // 模块分类Id
 				showContent: 1
 			}
@@ -200,20 +211,25 @@
 				this.layoutBoxVisible = false
 			},
 			async init () {
-				if (this.viewModel == null) {
-					const para = {
-						query: 'RelationId=' + this.widgetClassId // 根据参数获取列表
-					}
-					this.widgetClass = await this.$api.get(WIDGET_CLASS_GET)
-					this.viewModel = await this.$api.get(WIDGET_GETLIST_GET, para)
+				// 模块、模块分类导入
+				const para = {
+					relationId: this.widgetClassId // 根据参数获取列表
 				}
-				if (this.sitePageModel == null) {
-					const sitePageInput = {
-						siteId: '5b4029cd3cb0ee4fdc47cfa5',
-						clientType: '2'
-					}
-					this.sitePageModel = await this.$api.get(SITEPAGE_GETSITEPAGELIST_GET, sitePageInput)
+				this.widgetClass = await this.$api.get(WIDGET_CLASS_GET)
+				this.viewModel = await this.$api.get(WIDGET_GETLIST_GET, para)
+
+				// 页面初始化
+				const sitePageInput = {
+					siteId: '5b4029cd3cb0ee4fdc47cfa5',
+					clientType: '2'
 				}
+				this.sitePageModel = await this.$api.get(SITEPAGE_GETSITEPAGELIST_GET, sitePageInput)
+
+				// 布局
+				const layoutPara = {
+					clientType: '2'
+				}
+				this.layoutModel = await this.$api.get(LAYOUT_GETLIST_GET, layoutPara)
 			},
 			handleDrag () {
 				this.$refs.select.blur()
@@ -360,7 +376,24 @@
 			}
 		}
 	}
-
+	.layout-box {
+		.el-card {
+			float: left;
+			width: 132px;
+			height: 170px;
+			border-radius: 5px;
+			margin: 8px;
+			overflow: hidden;
+		}
+		img {
+			width: 100%;
+			height: 132px;
+			margin-left: -2px;
+			margin-top: -2px;
+			width: 132px;
+			border-bottom: 2px solid #f1f1f1;
+		}
+	}
 	.popup-module {
 		padding: 0;
 		.module-title {

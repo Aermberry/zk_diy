@@ -1,6 +1,6 @@
 <template>
 	<div class="layout-right">
-		<el-tabs v-model="tabModel" @tab-click="handleClick">
+		<el-tabs v-model="tabModel" @tab-click="handleClick" class="is-always-shadow">
 			<el-tab-pane name="property">
 				<span slot="label">
 					<i class="icon flaticon-interface-8"></i> 属性</span>
