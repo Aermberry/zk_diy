@@ -14,7 +14,7 @@
 						</a>
 					</li>
 					<li class="m-menu__item">
-						<a @click="dialogTableVisible = true,pageBaxVisible = false" class="m-menu__link " title="添加模块">
+						<a @click="widgetClick()" class="m-menu__link " title="添加模块">
 							<i class="m-menu__link-icon flaticon-app "></i>
 							<span class="m-menu__link-title">
 								<span class="m-menu__link-wrap">
@@ -26,7 +26,7 @@
 						</a>
 					</li>
 					<li class="m-menu__item">
-						<a @click="dialogTableVisible = true,pageBaxVisible = false" class="m-menu__link " title="添加布局">
+						<a @click="layoutBox()" class="m-menu__link " title="添加布局">
 							<i class="m-menu__link-icon flaticon-browser "></i>
 							<span class="m-menu__link-title">
 								<span class="m-menu__link-wrap">
@@ -125,7 +125,7 @@
 				</div>
 			</div>
 		</el-dialog>
-		<div class="popup-page-box" :class="{'page-box-visible':pageBaxVisible}">
+		<div class="popup-page-box" :class="{'page-box-visible':pageBoxVisible}">
 			<div class="page-top">
 				<div class="page-top-left">
 					页面设置
@@ -149,6 +149,17 @@
 				</el-menu>
 			</div>
 		</div>
+		<div class="popup-page-box" :class="{'layout-box-visible':layoutBoxVisible}">
+			<div class="page-top">
+				<div class="page-top-left">
+					布局
+					<i class="page-box-close" @click="layoutBox()">×</i>
+				</div>
+			</div>
+			<div class="page-center">
+				<el-alert title="点击查看历史版本，保存即可还原" type="success"></el-alert>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -160,7 +171,8 @@
 		directives: { elDragDialog },
 		data () {
 			return {
-				pageBaxVisible: false, // 页面窗口是否显示
+				pageBoxVisible: false, // 页面窗口是否显示
+				layoutBoxVisible: true, // 页面窗口是否显示
 				dialogTableVisible: false, // 模块弹出窗口
 				moduleSearch: '',
 				viewModel: null,
@@ -175,8 +187,17 @@
 		},
 		methods: {
 			async pageBox () {
-				console.info('点击事假')
-				this.pageBaxVisible = !this.pageBaxVisible
+				this.pageBoxVisible = !this.pageBoxVisible
+				this.layoutBoxVisible = false
+			},
+			async layoutBox () {
+				this.layoutBoxVisible = !this.layoutBoxVisible
+				this.pageBoxVisible = false
+			},
+			async widgetClick () {
+				this.dialogTableVisible = !this.pageBoxVisible
+				this.pageBoxVisible = false
+				this.layoutBoxVisible = false
 			},
 			async init () {
 				if (this.viewModel == null) {
@@ -268,6 +289,9 @@
 		}
 	}
 	.page-box-visible {
+		left: 55px;
+	}
+	.layout-box-visible {
 		left: 55px;
 	}
 	.layout-left {
