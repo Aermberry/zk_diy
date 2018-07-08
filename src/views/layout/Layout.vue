@@ -100,7 +100,7 @@
         this.themePageInfo = {
           siteId: '5b4029cd3cb0ee4fdc47cfa5',
           themeId: '5b4167bfef73100fdc36cf68',
-          themePageId: '5b4167c3ef73100fdc36d05a',
+          themePageId: '5b421fd69015771b50cbf88d',
           clientType: '2',
           diyHost: 'http://www.yiqipingou.com', // http://localhost:2000/pages/index
           pageUrl: 'index',
@@ -133,41 +133,53 @@
               sortOrder: 1,
               widgets: [
                 {
-                  widgetId: '000000000000000000000000',
-                  CommpontPath: null,
-                  SortOrder: 0
+                  widgetId: '5b4034415fe6615188fe17f8',
+                  name: '图片',
+                  componentPath: '/common/zk-image',
+                  sortOrder: 1
                 },
                 {
-                  WidgetId: '000000000000000000000000',
-                  CommpontPath: null,
-                  SortOrder: 0
+                  widgetId: '5b4034415fe6615188fe17f8',
+                  name: '图片',
+                  componentPath: '/common/zk-image',
+                  sortOrder: 2
                 },
                 {
-                  WidgetId: '000000000000000000000000',
-                  CommpontPath: null,
-                  SortOrder: 0
+                  widgetId: '5b4034415fe6615188fe17f9',
+                  componentPath: '/core/zk-swiper',
+                  name: '轮播',
+                  sortOrder: 3
                 }
               ]
             },
             {
-              LayoutId: '000000000000000000000000',
-              Path: null,
+              LayoutId: '5b404486e638563c3c3732f8',
+              path: '/h5/layout-default',
               sortOrder: 2,
               Widgets: [
                 {
-                  WidgetId: '000000000000000000000000',
-                  CommpontPath: null,
-                  SortOrder: 0
+                  widgetId: '5b4034415fe6615188fe17f8',
+                  name: '图片',
+                  componentPath: '/common/zk-image',
+                  sortOrder: 1
                 },
                 {
-                  WidgetId: '000000000000000000000000',
-                  CommpontPath: null,
-                  SortOrder: 0
+                  widgetId: '5b4034415fe6615188fe17f9',
+                  componentPath: '/core/zk-swiper',
+                  name: '轮播',
+                  sortOrder: 2
                 },
                 {
-                  WidgetId: '000000000000000000000000',
-                  CommpontPath: null,
-                  SortOrder: 0
+                  widgetId: '5b4034415fe6615188fe17f8',
+                  name: '图片',
+                  componentPath: '/common/zk-image',
+                  sortOrder: 3
+                },
+                {
+                  widgetId: '5b4034415fe6615188fe17fb',
+                  name: 'cell导航',
+                  componentPath: '/core/zk-cell',
+                  sortOrder: 3
                 }
               ]
             }

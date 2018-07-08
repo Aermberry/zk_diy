@@ -104,7 +104,7 @@
 				</div>
 				<div class="content-right">
 					<el-row>
-						<el-col :span="4" v-for="(item ,index) in viewModel" :key="index" class="content-box">
+						<el-col :span="4" v-for="(item ,index) in viewModel" :key="index" class="content-box" :widget-id="item.id" :widget-componentPath="item.componentPath">
 							<el-card :body-style="{ padding: '2px' }">
 								<img src="https://img.alicdn.com/tfs/TB1oT8pAuOSBuNjy0FdXXbDnVXa-730-350.png">
 								<div style="padding: 5px;">
