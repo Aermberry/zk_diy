@@ -1,6 +1,6 @@
 <template>
   <el-container class="app-wrapper">
-    <layout-left></layout-left>
+    <layout-left :themePageInfo="themePageInfo" v-if="asyncFlag"></layout-left>
     <el-container>
       <el-header class="app-header" height="55">
         <el-row class="app-nav">
@@ -55,7 +55,7 @@
           <div class="content-left" :style="'width:'+(screenWidth-273-55)+'px; padding-left:'+((screenWidth-273-55-427)/2)+'px'">
             <div class="content-phone">
               <div class="innerbox-phone">
-                <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="sitePageInfo.diyHost+sitePageInfo.pageUrl" class=" show-iframe"></iframe>
+                <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="themePageInfo.diyHost+themePageInfo.pageUrl" class=" show-iframe"></iframe>
                 <!-- <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto src="/webs" class=" show-iframe"></iframe> -->
               </div>
             </div>
@@ -71,7 +71,7 @@
   </el-container>
 </template>
 <script>
-  import { SITEPAGE_SAVE_POST } from '@/service/api/apiUrl'
+  import { THEMEPAGE_SAVE_POST } from '@/service/api/apiUrl'
   import { AppMain } from './widgets'
   import Footer from './widgets/Footer'
   import Left from './widgets/Left'
@@ -87,7 +87,8 @@
     data () {
       return {
         screenWidth: '1100', // 屏幕宽度,
-        sitePageInfo: '', // 站点信息
+        themePageInfo: '', // 站点信息
+        asyncFlag: false,
         isSave: false // 保存状态
       }
     },
@@ -96,9 +97,9 @@
     },
     methods: {
       async init () {
-        this.sitePageInfo = {
+        this.themePageInfo = {
           siteId: '5b4029cd3cb0ee4fdc47cfa5',
-          themeId: '',
+          themeId: '5b4167bfef73100fdc36cf68',
           clientType: '2',
           diyHost: 'http://www.yiqipingou.com', // http://localhost:2000/pages/index
           pageUrl: '/index',
@@ -113,17 +114,18 @@
           ]
         }
         this.screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+        this.asyncFlag = true
       },
       // 保存Diy设置
       async save () {
         this.isSave = true
         var saveInput = {
-          siteId: this.sitePageInfo.siteId,
-          themeId: this.sitePageInfo.themeId,
-          diyHost: this.sitePageInfo.diyHost,
-          pageUrl: this.sitePageInfo.pageUrl,
-          pageId: this.sitePageInfo.pageId,
-          clientType: this.sitePageInfo.clientType,
+          siteId: this.themePageInfo.siteId,
+          themeId: this.themePageInfo.themeId,
+          diyHost: this.themePageInfo.diyHost,
+          pageUrl: this.themePageInfo.pageUrl,
+          pageId: this.themePageInfo.pageId,
+          clientType: this.themePageInfo.clientType,
           User: null,
           Layouts: [
             {
@@ -173,7 +175,7 @@
           ]
         }
         console.info('保存数据', saveInput)
-        await this.$api.post(SITEPAGE_SAVE_POST, saveInput, 'Diy保存')
+        await this.$api.post(THEMEPAGE_SAVE_POST, saveInput, 'Diy保存')
         this.isSave = false
       }
     }

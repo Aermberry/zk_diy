@@ -138,11 +138,11 @@
 			</div>
 			<div class="page-center">
 				<el-menu :default-openeds="['_0']">
-					<el-submenu :index="'_'+index" v-for="(item ,index) in themeModel" :key="index">
+					<el-submenu :index="'_'+index" v-for="(item ,index) in themePageModel" :key="index">
 						<template slot="title">
 							<i class="el-icon-menu"></i>{{item.title}}</template>
-						<el-menu-item :index="'_'+index+'_'+pageIndex" v-for="(page ,pageIndex) in item.pages" :key="pageIndex">
-							<i class="flaticon-more-v4"></i>{{page.title}}
+						<el-menu-item :index="'_'+index+'_'+pageIndex" v-for="(page ,pageIndex) in item.pages" :key="pageIndex" :page-id="page.id">
+							<i class="flaticon-more-v4"></i>{{page.title}} {{page.id}}
 							<i class="flaticon-settings-1 icon-right" :title="item.url"></i>
 						</el-menu-item>
 					</el-submenu>
@@ -179,6 +179,7 @@
 	export default {
 		name: 'layout-left',
 		directives: { elDragDialog },
+		props: ['themePageInfo'],
 		data () {
 			return {
 				pageBoxVisible: false, // 页面窗口是否显示
@@ -187,8 +188,7 @@
 				moduleSearch: '',
 				viewModel: null,
 				widgetClass: '',
-				clientType: '2',
-				themeModel: null, // 站点URL
+				themePageModel: null, // 站点URL
 				layoutModel: null, // 布局
 				widgetClassId: 0, // 模块分类Id
 				showContent: 1
@@ -221,16 +221,16 @@
 
 				// 页面初始化
 				const themeInput = {
-					siteId: '5b4029cd3cb0ee4fdc47cfa5',
-					clientType: this.clientType
+					themeId: this.themePageInfo.themeId,
+					clientType: this.themePageInfo.clientType
 				}
-				this.themeModel = await this.$api.get(THEMEPAGE_GETTHEMEPAGELIST_GET, themeInput, 'themePage_' + this.clientType)
+				this.themePageModel = await this.$api.get(THEMEPAGE_GETTHEMEPAGELIST_GET, themeInput, 'themePage_' + themeInput.themeId + '_' + themeInput.clientType)
 
 				// 布局
 				const layoutPara = {
-					clientType: this.clientType
+					clientType: this.themePageInfo.clientType
 				}
-				this.layoutModel = await this.$api.get(LAYOUT_GETLIST_GET, layoutPara, 'layout_list_' + this.clientType)
+				this.layoutModel = await this.$api.get(LAYOUT_GETLIST_GET, layoutPara, 'layout_list_' + this.themePageInfo.clientType)
 			},
 			handleDrag () {
 				this.$refs.select.blur()
