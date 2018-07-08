@@ -49,8 +49,9 @@
 			},
 			// 页面历史记录
 			async	getPageHistory () {
+				console.info(this.themePageInfo)
 				const para = {
-					themePageId: this.themePageInfo.themeId
+					themePageId: this.themePageInfo.themePageId
 				}
 				this.pageHistory = await this.$api.get(PAGEACTION_GETLIST_GET, para)
 			}

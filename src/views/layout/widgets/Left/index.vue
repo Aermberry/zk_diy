@@ -158,7 +158,7 @@
 			</div>
 			<div class="page-center layout-box">
 				<el-row>
-					<el-col :span="12" v-for="(item,index) in layoutModel" :key="index">
+					<el-col :span="12" v-for="(item,index) in layoutModel" :key="index" :layout-id="item.id" :layout-path="item.path">
 						<el-card :body-style="{ padding: '2px' }">
 							<img src="http://localhost:5000/fileCenter/layout/layout.jpg">
 							<div style="padding: 2px;">

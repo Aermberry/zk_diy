@@ -61,7 +61,7 @@
             </div>
           </div>
           <div class="content-right" style="width:273px">
-            <layout-right class="right-box"></layout-right>
+            <layout-right class="right-box" :themePageInfo="themePageInfo" v-if="asyncFlag"></layout-right>
           </div>
         </div>
       </el-main>
@@ -128,11 +128,12 @@
           User: this.themePageInfo.user,
           Layouts: [
             {
-              LayoutId: '000000000000000000000000',
-              Path: null,
-              Widgets: [
+              layoutId: '5b404486e638563c3c3732f7',
+              path: '/h5/layout-col',
+              sortOrder: 1,
+              widgets: [
                 {
-                  WidgetId: '000000000000000000000000',
+                  widgetId: '000000000000000000000000',
                   CommpontPath: null,
                   SortOrder: 0
                 },
@@ -146,12 +147,12 @@
                   CommpontPath: null,
                   SortOrder: 0
                 }
-              ],
-              SortOrder: 0
+              ]
             },
             {
               LayoutId: '000000000000000000000000',
               Path: null,
+              sortOrder: 2,
               Widgets: [
                 {
                   WidgetId: '000000000000000000000000',
@@ -168,8 +169,7 @@
                   CommpontPath: null,
                   SortOrder: 0
                 }
-              ],
-              SortOrder: 0
+              ]
             }
           ]
         }
