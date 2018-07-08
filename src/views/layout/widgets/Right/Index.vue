@@ -35,11 +35,11 @@
 		data () {
 			return {
 				tabModel: 'property',
-				sitePageId: '5b3f1f7cfaba2407e45af213',
 				pageHistory: '' // 历史记录
 			}
 		},
 		computed: {},
+		props: ['themePageInfo'],
 		methods: {
 			async handleClick (tab) {
 				//	console.log(tab)
@@ -50,7 +50,7 @@
 			// 页面历史记录
 			async	getPageHistory () {
 				const para = {
-					sitePageId: this.sitePageId
+					themePageId: this.themePageInfo.themeId
 				}
 				this.pageHistory = await this.$api.get(PAGEACTION_GETLIST_GET, para)
 			}

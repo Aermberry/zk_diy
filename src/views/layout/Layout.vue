@@ -55,7 +55,7 @@
           <div class="content-left" :style="'width:'+(screenWidth-273-55)+'px; padding-left:'+((screenWidth-273-55-427)/2)+'px'">
             <div class="content-phone">
               <div class="innerbox-phone">
-                <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="themePageInfo.diyHost+themePageInfo.pageUrl" class=" show-iframe"></iframe>
+                <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="themePageInfo.diyHost+'/'+themePageInfo.pageUrl" class=" show-iframe"></iframe>
                 <!-- <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto src="/webs" class=" show-iframe"></iframe> -->
               </div>
             </div>
@@ -100,18 +100,17 @@
         this.themePageInfo = {
           siteId: '5b4029cd3cb0ee4fdc47cfa5',
           themeId: '5b4167bfef73100fdc36cf68',
+          themePageId: '5b4167c3ef73100fdc36d05a',
           clientType: '2',
           diyHost: 'http://www.yiqipingou.com', // http://localhost:2000/pages/index
-          pageUrl: '/index',
-          user: [
-            {
-              id: 1,
-              userName: 'admin',
-              name: '管理员',
-              mobile: '13597894545',
-              email: 'admin@5ug.com'
-            }
-          ]
+          pageUrl: 'index',
+          user: {
+            id: 1,
+            userName: 'admin',
+            name: '管理员',
+            mobile: '13597894545',
+            email: 'admin@5ug.com'
+          }
         }
         this.screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
         this.asyncFlag = true
@@ -124,9 +123,9 @@
           themeId: this.themePageInfo.themeId,
           diyHost: this.themePageInfo.diyHost,
           pageUrl: this.themePageInfo.pageUrl,
-          pageId: this.themePageInfo.pageId,
+          themePageId: this.themePageInfo.themePageId,
           clientType: this.themePageInfo.clientType,
-          User: null,
+          User: this.themePageInfo.user,
           Layouts: [
             {
               LayoutId: '000000000000000000000000',

@@ -141,8 +141,8 @@
 					<el-submenu :index="'_'+index" v-for="(item ,index) in themePageModel" :key="index">
 						<template slot="title">
 							<i class="el-icon-menu"></i>{{item.title}}</template>
-						<el-menu-item :index="'_'+index+'_'+pageIndex" v-for="(page ,pageIndex) in item.pages" :key="pageIndex" :page-id="page.id">
-							<i class="flaticon-more-v4"></i>{{page.title}} {{page.id}}
+						<el-menu-item :index="'_'+index+'_'+pageIndex" v-for="(page ,pageIndex) in item.pages" :key="pageIndex" :page-id="page.id" :page-url="page.url">
+							<i class="flaticon-more-v4"></i>{{page.title}}
 							<i class="flaticon-settings-1 icon-right" :title="item.url"></i>
 						</el-menu-item>
 					</el-submenu>
