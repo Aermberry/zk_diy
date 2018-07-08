@@ -301,3 +301,13 @@ export const ACTIVITY_GETLIST_GET = 'Api/Activity/GetList' // 根据Url获取列
 export const ACTIVITY_ADD_POST = 'Api/Activity/Add' // 增加单条记录
 export const ACTIVITY_UPDATE_GET = 'Api/Activity/Update' // 修改单条记录
 export const ACTIVITY_DELETE_GET = 'Api/Activity/Delete' // 删除单条记录
+
+//  ThemePage相关的API接口
+export const THEMEPAGE_GETTHEMEPAGE_GET = 'Api/ThemePage/GetThemePage' // 获取当前页面的配置信息
+export const THEMEPAGE_GETTHEMEPAGELIST_GET = 'Api/ThemePage/GetThemePageList' // 获取当前终端的页面，构建左侧菜单
+export const THEMEPAGE_SAVE_POST = 'Api/ThemePage/Save' // Diy保存
+export const THEMEPAGE_GET_GET = 'Api/ThemePage/Get' // 根据Url获取单条记录
+export const THEMEPAGE_GETLIST_GET = 'Api/ThemePage/GetList' // 根据Url获取列表
+export const THEMEPAGE_ADD_POST = 'Api/ThemePage/Add' // 增加单条记录
+export const THEMEPAGE_UPDATE_GET = 'Api/ThemePage/Update' // 修改单条记录
+export const THEMEPAGE_DELETE_GET = 'Api/ThemePage/Delete' // 删除单条记录

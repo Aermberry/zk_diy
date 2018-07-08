@@ -138,7 +138,7 @@
 			</div>
 			<div class="page-center">
 				<el-menu :default-openeds="['_0']">
-					<el-submenu :index="'_'+index" v-for="(item ,index) in sitePageModel" :key="index">
+					<el-submenu :index="'_'+index" v-for="(item ,index) in themeModel" :key="index">
 						<template slot="title">
 							<i class="el-icon-menu"></i>{{item.title}}</template>
 						<el-menu-item :index="'_'+index+'_'+pageIndex" v-for="(page ,pageIndex) in item.pages" :key="pageIndex">
@@ -175,7 +175,7 @@
 
 <script>
 	import elDragDialog from '@/directive/el-dragDialog'
-	import { WIDGET_GETLIST_GET, LAYOUT_GETLIST_GET, WIDGET_CLASS_GET, SITEPAGE_GETSITEPAGELIST_GET } from '@/service/api/apiUrl'
+	import { WIDGET_GETLIST_GET, LAYOUT_GETLIST_GET, WIDGET_CLASS_GET, THEMEPAGE_GETTHEMEPAGELIST_GET } from '@/service/api/apiUrl'
 	export default {
 		name: 'layout-left',
 		directives: { elDragDialog },
@@ -188,7 +188,7 @@
 				viewModel: null,
 				widgetClass: '',
 				clientType: '2',
-				sitePageModel: null, // 站点URL
+				themeModel: null, // 站点URL
 				layoutModel: null, // 布局
 				widgetClassId: 0, // 模块分类Id
 				showContent: 1
@@ -220,11 +220,11 @@
 				this.viewModel = await this.$api.get(WIDGET_GETLIST_GET, para, 'widget_list')
 
 				// 页面初始化
-				const sitePageInput = {
+				const themeInput = {
 					siteId: '5b4029cd3cb0ee4fdc47cfa5',
 					clientType: this.clientType
 				}
-				this.sitePageModel = await this.$api.get(SITEPAGE_GETSITEPAGELIST_GET, sitePageInput, 'sitePage_' + this.clientType)
+				this.themeModel = await this.$api.get(THEMEPAGE_GETTHEMEPAGELIST_GET, themeInput, 'themePage_' + this.clientType)
 
 				// 布局
 				const layoutPara = {
