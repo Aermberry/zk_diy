@@ -1,5 +1,8 @@
 import request from './request'
 import local from '../core/local.js'
+import {
+  Notification
+} from 'element-ui'
 export default {
 
   //  Get方法：查
@@ -44,12 +47,33 @@ export default {
     return serviceData
   },
   //  Post方法 :增
-  async post (apiUrl, data) {
-    var response = await request.post(apiUrl, data)
-    if (response.data.status === 1) {
-      return response
-    } else {
-      this.toast(response.data.message)
+  async post (apiUrl, data, message = '') {
+    try {
+      var response = await request.post(apiUrl, data)
+      console.info('post结果', response)
+      if (response.status === 1) {
+        this.$notify({
+          title: '成功',
+          message: message + '操作成功',
+          type: 'success',
+          position: 'bottom-right'
+        })
+        return response
+      } else {
+        Notification({
+          title: '失败',
+          message: response.message,
+          type: 'error',
+          position: 'bottom-right'
+        })
+      }
+    } catch (err) {
+      Notification({
+        title: '异常',
+        message: err,
+        type: 'error',
+        position: 'bottom-right'
+      })
     }
   },
   //  Put方法：改

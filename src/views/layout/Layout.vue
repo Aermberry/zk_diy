@@ -39,8 +39,8 @@
                 <el-button> 预览
                   <i class="el-icon-view el-icon--right"></i>
                 </el-button>
-                <el-button style='' type="success"> 保存
-                  <i class="el-icon-check el-icon--right"></i>
+                <el-button style='' type="success" :loading="isSave" @click="save"> 保存
+                  <i class="el-icon-check el-icon--right" v-if="!isSave"></i>
                 </el-button>
                 <el-button type="primary">发布
                   <i class="el-icon-upload el-icon--right"></i>
@@ -55,7 +55,7 @@
           <div class="content-left" :style="'width:'+(screenWidth-273-55)+'px; padding-left:'+((screenWidth-273-55-427)/2)+'px'">
             <div class="content-phone">
               <div class="innerbox-phone">
-                <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="diyUrl" class=" show-iframe"></iframe>
+                <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="sitePageInfo.diyHost+sitePageInfo.pageUrl" class=" show-iframe"></iframe>
               </div>
             </div>
           </div>
@@ -70,6 +70,7 @@
   </el-container>
 </template>
 <script>
+  import { SITEPAGE_SAVE_POST } from '@/service/api/apiUrl'
   import { AppMain } from './widgets'
   import Footer from './widgets/Footer'
   import Left from './widgets/Left'
@@ -84,8 +85,9 @@
     },
     data () {
       return {
-        diyUrl: '', // 需要diy的网址
-        screenWidth: '1100' // 屏幕宽度
+        screenWidth: '1100', // 屏幕宽度,
+        sitePageInfo: '', // 站点信息
+        isSave: false // 保存状态
       }
     },
     mounted () {
@@ -93,9 +95,85 @@
     },
     methods: {
       async init () {
-        this.diyUrl = 'http://www.yiqipingou.com/'
+        this.sitePageInfo = {
+          siteId: '5b4029cd3cb0ee4fdc47cfa5',
+          themeId: '',
+          clientType: '2',
+          diyHost: 'http://www.yiqipingou.com', // http://localhost:2000/pages/index
+          pageUrl: '/index',
+          user: [
+            {
+              id: 1,
+              userName: 'admin',
+              name: '管理员',
+              mobile: '13597894545',
+              email: 'admin@5ug.com'
+            }
+          ]
+        }
         this.screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
-        // this.diyUrl = 'http://localhost:2000/pages/index'
+      },
+      // 保存Diy设置
+      async save () {
+        this.isSave = true
+        var saveInput = {
+          siteId: this.sitePageInfo.siteId,
+          themeId: this.sitePageInfo.themeId,
+          diyHost: this.sitePageInfo.diyHost,
+          pageUrl: this.sitePageInfo.pageUrl,
+          pageId: this.sitePageInfo.pageId,
+          clientType: this.sitePageInfo.clientType,
+          User: null,
+          Layouts: [
+            {
+              LayoutId: '000000000000000000000000',
+              Path: null,
+              Widgets: [
+                {
+                  WidgetId: '000000000000000000000000',
+                  CommpontPath: null,
+                  SortOrder: 0
+                },
+                {
+                  WidgetId: '000000000000000000000000',
+                  CommpontPath: null,
+                  SortOrder: 0
+                },
+                {
+                  WidgetId: '000000000000000000000000',
+                  CommpontPath: null,
+                  SortOrder: 0
+                }
+              ],
+              SortOrder: 0
+            },
+            {
+              LayoutId: '000000000000000000000000',
+              Path: null,
+              Widgets: [
+                {
+                  WidgetId: '000000000000000000000000',
+                  CommpontPath: null,
+                  SortOrder: 0
+                },
+                {
+                  WidgetId: '000000000000000000000000',
+                  CommpontPath: null,
+                  SortOrder: 0
+                },
+                {
+                  WidgetId: '000000000000000000000000',
+                  CommpontPath: null,
+                  SortOrder: 0
+                }
+              ],
+              SortOrder: 0
+            }
+          ]
+        }
+        console.info('保存数据', saveInput)
+        await this.$api.post(SITEPAGE_SAVE_POST, saveInput, 'Diy保存')
+        this.isSave = false
       }
     }
   }

@@ -50,7 +50,7 @@
 			// 页面历史记录
 			async	getPageHistory () {
 				const para = {
-					query: 'sitePageId=' + this.sitePageId
+					sitePageId: this.sitePageId
 				}
 				this.pageHistory = await this.$api.get(PAGEACTION_GETLIST_GET, para)
 			}
