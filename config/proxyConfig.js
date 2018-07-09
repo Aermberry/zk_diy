@@ -20,6 +20,13 @@ module.exports = {
       pathRewrite: {
         '^/index': 'index.html' //需要rewrite重写的,
       }
-    }
+    },
+    '/iframe': {
+      target: 'http://127.0.0.1:2000',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/iframe': ''
+      }
+    },
   }
 }

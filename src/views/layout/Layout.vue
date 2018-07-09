@@ -56,7 +56,7 @@
             <div class="content-phone">
               <div class="innerbox-phone">
                 <!--<iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="themePageInfo.diyHost+'/'+themePageInfo.pageUrl" class=" show-iframe"></iframe>-->
-                <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto src="/webs/index" class=" show-iframe"></iframe>
+                <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto src="/iframe#views/index" class=" show-iframe"></iframe>
               </div>
             </div>
           </div>
