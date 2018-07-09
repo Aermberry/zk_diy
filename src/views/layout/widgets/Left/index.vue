@@ -402,6 +402,9 @@
 			border-bottom: 2px solid #f1f1f1;
 		}
 	}
+	.el-dialog__wrapper .el-dialog .el-dialog__body {
+		padding: 0px;
+	}
 	.popup-module {
 		padding: 0;
 		.el-dialog__body {

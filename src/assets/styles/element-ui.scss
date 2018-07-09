@@ -29,4 +29,11 @@
    .el-dialog__title {
      color: $--color-white;
    }
+   .el-dialog__headerbtn .el-dialog__close {
+     color: $--color-white;
+   }
+ }
+
+ .el-dialog__body {
+   padding: 0px;
  }
