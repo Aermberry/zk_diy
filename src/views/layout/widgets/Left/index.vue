@@ -50,11 +50,11 @@
 						</a>
 					</li>
 					<li class="m-menu__item">
-						<a href="/" class="m-menu__link " title="添加模块">
+						<a @click="fileClick()" class="m-menu__link " title="文件管理">
 							<i class="m-menu__link-icon flaticon-coins  "></i>
 							<span class="m-menu__link-title">
 								<span class="m-menu__link-wrap">
-									<span class="m-menu__link-text" title="添加模块">
+									<span class="m-menu__link-text" title="文件管理">
 										文件
 									</span>
 								</span>
@@ -171,6 +171,7 @@
 				</el-row>
 			</div>
 		</div>
+		<zk-file></zk-file>
 	</div>
 </template>
 

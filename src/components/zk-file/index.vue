@@ -1,0 +1,415 @@
+<template>
+    <el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="文件管理" :visible.sync="dialogVisible" width="80%" class="popup-module">
+        <div class="module-nav">
+            <ul>
+                <li class="active">
+                    图片管理
+                </li>
+                <li>
+                    图标管理
+                </li>
+                <li>
+                    视频管理
+                </li>
+                <li>
+                    音频管理
+                </li>
+                <li>
+                    云空间
+                </li>
+            </ul>
+        </div>
+        <div class="module-search">
+            <div class="search-left">
+                双击模块，拖动到可视化区域
+            </div>
+            <div class="search-right">
+                <el-input style='width:222px;' placeholder="搜索" prefix-icon="el-icon-search" v-model="moduleSearch"></el-input>
+                <el-button style='' type="primary" icon="search"> 搜索</el-button>
+            </div>
+        </div>
+        <div class="module-content">
+            <div class="content-left">
+                <ul>
+                    <li v-for="(item, index) in widgetClass" :key="index">{{item.value}}</li>
+                </ul>
+            </div>
+            <div class="content-right">
+                <el-row>
+                    <el-col :span="4" v-for="(item ,index) in viewModel" :key="index" class="content-box" :widget-id="item.id" :widget-componentPath="item.componentPath">
+                        <el-card :body-style="{ padding: '2px' }">
+                            <img src="https://img.alicdn.com/tfs/TB1oT8pAuOSBuNjy0FdXXbDnVXa-730-350.png">
+                            <div style="padding: 5px;">
+                                <span>{{item.name}}</span>
+                                <div class="bottom clearfix">
+                                    <time class="time">{{ item.intro }}</time>
+                                    <el-button type="text" class="button" :click="addComponent(item)">添加</el-button>
+                                </div>
+                            </div>
+                        </el-card>
+                    </el-col>
+                </el-row>
+            </div>
+        </div>
+        <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogVisible = false">关 闭</el-button>
+            <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+        </span>
+    </el-dialog>
+</template>
+
+<script>
+    import elDragDialog from '@/directive/el-dragDialog'
+    import { WIDGET_GETLIST_GET, LAYOUT_GETLIST_GET, WIDGET_CLASS_GET, THEMEPAGE_GETTHEMEPAGELIST_GET } from '@/service/api/apiUrl'
+    export default {
+        name: 'layout-left',
+        directives: { elDragDialog },
+        props: ['themePageInfo'],
+        data () {
+            return {
+                pageBoxVisible: false, // 页面窗口是否显示
+                layoutBoxVisible: false, // 页面窗口是否显示
+                dialogVisible: true, // 弹出窗口
+                moduleSearch: '',
+                viewModel: null,
+                widgetClass: '',
+                themePageModel: null, // 站点URL
+                layoutModel: null, // 布局
+                widgetClassId: 0, // 模块分类Id
+                showContent: 1
+            }
+        },
+        mounted () {
+            this.init()
+        },
+        methods: {
+            async pageBox () {
+                this.pageBoxVisible = !this.pageBoxVisible
+                this.layoutBoxVisible = false
+            },
+            async layoutBox () {
+                this.layoutBoxVisible = !this.layoutBoxVisible
+                this.pageBoxVisible = false
+            },
+            async widgetClick () {
+                this.dialogVisible = !this.pageBoxVisible
+                this.pageBoxVisible = false
+                this.layoutBoxVisible = false
+            },
+            async init () {
+                // 模块、模块分类导入
+                const para = {
+                    relationId: this.widgetClassId // 根据参数获取列表
+                }
+                this.widgetClass = await this.$api.get(WIDGET_CLASS_GET, '', 'widget_class')
+                this.viewModel = await this.$api.get(WIDGET_GETLIST_GET, para, 'widget_list')
+
+                // 页面初始化
+                const themeInput = {
+                    themeId: this.themePageInfo.themeId,
+                    clientType: this.themePageInfo.clientType
+                }
+                this.themePageModel = await this.$api.get(THEMEPAGE_GETTHEMEPAGELIST_GET, themeInput, 'themePage_' + themeInput.themeId + '_' + themeInput.clientType)
+
+                // 布局
+                const layoutPara = {
+                    clientType: this.themePageInfo.clientType
+                }
+                this.layoutModel = await this.$api.get(LAYOUT_GETLIST_GET, layoutPara, 'layout_list_' + this.themePageInfo.clientType)
+            },
+            handleDrag () {
+                this.$refs.select.blur()
+            },
+            addComponent (item) {
+                var win = document.querySelector('#show-iframe').contentWindow
+                var newLi = document.createElement('li')
+                newLi.innerHTML = '第名'
+                win.document.body.append(newLi)
+            }
+        }
+    }
+</script>
+
+<style rel="stylesheet/scss" lang="scss" scoped>
+    @import 'src/assets/styles/mixin.scss';
+    .popup-page-box {
+    	position: absolute;
+    	top: 57px;
+    	left: -300px;
+    	width: 300px;
+    	height: 100vh;
+    	background: white;
+    	z-index: 50;
+    	-webkit-transition: all 0.3s ease;
+    	-moz-transition: all 0.3s ease;
+    	-ms-transition: all 0.3s ease;
+    	-o-transition: all 0.3s ease;
+    	transition: all 0.3s ease;
+    	-webkit-transform: translateY(0);
+    	-moz-transform: translateY(0);
+    	-ms-transform: translateY(0);
+    	-o-transform: translateY(0);
+    	transform: translateY(0);
+    	-webkit-box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+    	-moz-box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+    	.page-top {
+    		display: flex;
+    		height: 40px;
+    		padding: 0 5px;
+    		background-color: #716aca;
+    		.page-top-left {
+    			font-size: 12px;
+    			color: #ffffff;
+    			height: 100%;
+    			line-height: 40px;
+    			font-weight: 400;
+    			.page-box-close {
+    				color: #ffffff;
+    				cursor: pointer;
+    			}
+    		}
+    		.page-top-right {
+    			flex: 1;
+    			height: 40px;
+    			display: flex;
+    			font-size: 12px;
+    			line-height: 40px;
+    			justify-content: flex-end;
+    			color: #ffffff;
+    			i {
+    				transform: translate(-50%, 0%);
+    			}
+    		}
+    	}
+    	.page-center {
+    		.el-submenu .el-menu-item {
+    			height: 35px;
+    			line-height: 35px;
+    		}
+    		.el-submenu__title {
+    			padding: 0px;
+    		}
+    		.el-menu-item .icon-right {
+    			float: right;
+    			justify-content: flex-end;
+    			margin-right: -25px;
+    		}
+    	}
+    }
+    .page-box-visible {
+    	left: 55px;
+    }
+    .layout-box-visible {
+    	left: 55px;
+    }
+    .layout-left {
+    	position: fixed;
+    	top: 70px;
+    	left: 0;
+    	width: 69px;
+    	height: 100vh;
+    	display: flex;
+    	flex-flow: column;
+    	z-index: 9999;
+    	.layout-left-nav {
+    		width: 100%;
+    		flex: 1;
+    		padding: 0;
+    		position: relative;
+    		padding-top: 150px;
+    		ul.layout-left-item-box {
+    			width: 69px;
+    			height: 100%;
+    			position: absolute;
+    			top: 0px;
+    			padding-top: 40px;
+    			left: 0;
+    			background: #2c2e3d;
+    			z-index: 9999;
+    			li.left-item {
+    				width: 69px;
+    				height: 80px;
+    				a,
+    				div {
+    					position: relative;
+    					display: block;
+    					padding: 10px;
+    					width: 69px;
+    					height: 80px;
+    					cursor: pointer;
+    					i.left-item-icon {
+    						display: block;
+    						width: 30px;
+    						height: 30px;
+    						margin: 0 auto;
+    					}
+    					span.left-item-text {
+    						margin-top: 10px;
+    						font-size: 12px;
+    						font-weight: 1000;
+    						color: #515151;
+    						display: block;
+    						text-align: center;
+    					}
+
+    					span.left-item-text.zk-active {
+    						color: white;
+    					}
+
+    					.svg-icon {
+    						width: 30px !important;
+    						height: 30px !important;
+    						position: absolute;
+    						top: -14px;
+    						left: 20px;
+    					}
+    				}
+    			}
+    		}
+    	}
+    }
+    .layout-box {
+    	.el-card {
+    		float: left;
+    		width: 132px;
+    		height: 170px;
+    		border-radius: 5px;
+    		margin: 8px;
+    		overflow: hidden;
+    	}
+    	img {
+    		width: 100%;
+    		height: 132px;
+    		margin-left: -2px;
+    		margin-top: -2px;
+    		width: 132px;
+    		border-bottom: 2px solid #f1f1f1;
+    	}
+    }
+    .el-dialog__wrapper .el-dialog .el-dialog__body {
+    	padding: 0px;
+    }
+    .popup-module {
+    	padding: 0;
+    	.el-dialog__body {
+    		padding: 0px;
+    	}
+    	.module-title {
+    		height: 50px;
+    		line-height: 50px;
+    		color: #3899ed;
+    		padding-left: 20px;
+    		font-size: 18px;
+    	}
+    	.module-nav {
+    		height: 50px;
+    		border-top: 1px solid #d4ecfe;
+    		border-bottom: 1px solid #d4ecfe;
+    		background: #ebf7ff;
+    		ul {
+    			li {
+    				float: left;
+    				height: 50px;
+    				line-height: 50px;
+    				color: #0b5672;
+    				padding: 0 40px;
+    				border-right: 1px solid $--border-color-extra-light;
+    			}
+    			li.active {
+    				background: #fff;
+    			}
+    		}
+    	}
+    	.module-search {
+    		margin-top: 1px;
+    		height: 50px;
+    		display: flex;
+    		border-bottom: 1px solid $--border-color-extra-light;
+    		.search-left {
+    			height: 50px;
+    			flex: 1;
+    			line-height: 50px;
+    			color: #7d94a6;
+    			padding-left: 20px;
+    		}
+    		.search-right {
+    			height: 50px;
+    			display: flex;
+    			align-items: center;
+    			padding-right: 5px;
+    			.el-button {
+    				margin-left: 10px;
+    			}
+    		}
+    	}
+    	.module-content {
+    		height: 500px;
+    		display: flex;
+    		border-bottom: 1px solid $--border-color-extra-light;
+    		.content-left {
+    			width: 140px;
+    			height: 500px;
+    			border-right: 1px solid $--border-color-extra-light;
+    			ul {
+    				height: 500px;
+    				overflow: auto;
+    				li {
+    					height: 40px;
+    					line-height: 40px;
+    					padding-left: 30px;
+    					color: #29292a;
+    				}
+    				li.active {
+    					background: #3899ed;
+    					color: #fff;
+    				}
+    			}
+    		}
+    		.content-right {
+    			padding: 12px;
+    			height: 500px;
+    			flex: 1;
+    			.content-box {
+    				padding: 4px;
+    				height: 228px;
+    				overflow: hidden;
+    				.el-card__body {
+    					float: left;
+    					width: 260px;
+    					height: 200px;
+    					border-radius: 5px;
+    					border: 1px solid #f3f3f3;
+    					margin-right: 10px;
+    					margin-bottom: 10px;
+    					width: 100%;
+    					height: 500px;
+    					overflow: auto;
+    				}
+    				img {
+    					width: 100%;
+    					height: 150px;
+    					border-bottom: 2px solid #f1f1f1;
+    				}
+    				.time {
+    					font-size: 13px;
+    					color: #999;
+    				}
+    				.bottom {
+    					margin-top: 13px;
+    					line-height: 12px;
+    					padding: 0;
+    					float: right;
+    				}
+    				.clearfix:before,
+    				.clearfix:after {
+    					display: table;
+    					content: '';
+    				}
+    				.clearfix:after {
+    					clear: both;
+    				}
+    			}
+    		}
+    	}
+    }
+</style>
