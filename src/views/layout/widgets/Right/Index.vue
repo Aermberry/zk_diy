@@ -5,19 +5,10 @@
 				<span slot="label">
 					<i class="icon flaticon-interface-8"></i> 属性</span>
 				用户管理</el-tab-pane>
-			<el-tab-pane name="tree">
+			<el-tab-pane name="pageData">
 				<span slot="label">
-					<i class="icon flaticon-map"></i> 树图</span>
-				<el-menu :default-openeds="['_0']">
-					<el-submenu :index="'_'+index" v-for="(item ,index) in diyInfo.Layouts" :key="index" :layout-id="item.layoutId" :layout-path="item.path">
-						<template slot="title">
-							<i class="flaticon-browser"></i> {{item.name}}</template>
-						<el-menu-item :index="'_'+index+'_'+widgetIndex" v-for="(widget ,widgetIndex) in item.widgets" :key="widgetIndex" :widget-id="widget.id" :component-path="widget.componentPath">
-							<i class="flaticon-interface-7"></i> {{widget.name}}
-						</el-menu-item>
-					</el-submenu>
-				</el-menu>
-			</el-tab-pane>
+					<i class="icon flaticon-interface-8"></i> 云市场</span>
+				页面云市场</el-tab-pane>
 			<el-tab-pane label="角色管理" name="history">
 				<span slot="label">
 					<i class="icon flaticon-time-2"></i> 历史</span>
@@ -33,6 +24,20 @@
 					</ul>
 				</div>
 			</el-tab-pane>
+			<el-tab-pane name="tree">
+				<span slot="label">
+					<i class="icon flaticon-map"></i> 树图</span>
+				<el-menu :default-openeds="['_0']">
+					<el-submenu :index="'_'+index" v-for="(item ,index) in diyInfo.Layouts" :key="index" :layout-id="item.layoutId" :layout-path="item.path">
+						<template slot="title">
+							<i class="flaticon-browser"></i> {{item.name}}</template>
+						<el-menu-item :index="'_'+index+'_'+widgetIndex" v-for="(widget ,widgetIndex) in item.widgets" :key="widgetIndex" :widget-id="widget.id" :component-path="widget.componentPath">
+							<i class="flaticon-interface-7"></i> {{widget.name}}
+						</el-menu-item>
+					</el-submenu>
+				</el-menu>
+			</el-tab-pane>
+
 		</el-tabs>
 	</div>
 </template>

@@ -76,14 +76,16 @@
 				</ul>
 			</div>
 		</el-aside>
-		<el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="模块管理" :visible.sync="dialogTableVisible" class="popup-module">
+		<el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="模块管理" :visible.sync="dialogTableVisible" width="80%" class="popup-module">
 			<div class="module-nav">
 				<ul>
 					<li class="active">
 						我的模块
 					</li>
 					<li>
-						模块市场
+						<el-tooltip class="item" effect="dark" content="即将开通，敬请期待..." placement="bottom">
+							<span>模块市场</span>
+						</el-tooltip>
 					</li>
 				</ul>
 			</div>
@@ -119,11 +121,10 @@
 					</el-row>
 				</div>
 			</div>
-			<div class="module-bottom">
-				<div class="bottom-sumbit">
-					<el-button style='' type="primary"> 提交</el-button>
-				</div>
-			</div>
+			<span slot="footer" class="dialog-footer">
+				<el-button @click="dialogTableVisible = false">关 闭</el-button>
+				<el-button type="primary" @click="dialogTableVisible = false">确 定</el-button>
+			</span>
 		</el-dialog>
 		<div class="popup-page-box" :class="{'page-box-visible':pageBoxVisible}">
 			<div class="page-top">
@@ -239,7 +240,7 @@
 				var win = document.querySelector('#show-iframe').contentWindow
 				var newLi = document.createElement('li')
 				newLi.innerHTML = '第名'
-                win.document.body.append(newLi)
+				win.document.body.append(newLi)
 			}
 		}
 	}
@@ -293,7 +294,6 @@
 				color: #ffffff;
 				i {
 					transform: translate(-50%, 0%);
-
 				}
 			}
 		}
@@ -404,6 +404,9 @@
 	}
 	.popup-module {
 		padding: 0;
+		.el-dialog__body {
+			padding: 0px;
+		}
 		.module-title {
 			height: 50px;
 			line-height: 50px;
@@ -423,7 +426,7 @@
 					line-height: 50px;
 					color: #0b5672;
 					padding: 0 40px;
-					border-right: 1px solid #dae1e8;
+					border-right: 1px solid $--border-color-extra-light;
 				}
 				li.active {
 					background: #fff;
@@ -434,7 +437,7 @@
 			margin-top: 1px;
 			height: 50px;
 			display: flex;
-			border-bottom: 1px solid #dae1e8;
+			border-bottom: 1px solid $--border-color-extra-light;
 			.search-left {
 				height: 50px;
 				flex: 1;
@@ -446,7 +449,7 @@
 				height: 50px;
 				display: flex;
 				align-items: center;
-				padding-right: 50px;
+				padding-right: 5px;
 				.el-button {
 					margin-left: 10px;
 				}
@@ -455,10 +458,11 @@
 		.module-content {
 			height: 500px;
 			display: flex;
+			border-bottom: 1px solid $--border-color-extra-light;
 			.content-left {
 				width: 140px;
 				height: 500px;
-				border-right: 1px solid #dae1e8;
+				border-right: 1px solid $--border-color-extra-light;
 				ul {
 					height: 500px;
 					overflow: auto;
@@ -520,20 +524,5 @@
 				}
 			}
 		}
-		.module-bottom {
-			height: 50px;
-			border-top: 1px solid #d7d7d7;
-			position: relative;
-			.bottom-sumbit {
-				position: absolute;
-				top: 50%;
-				right: 50px;
-				transform: translateY(-50%);
-			}
-		}
-	}
-	.popup-module /deep/ .el-dialog {
-		width: 1600px;
-		z-index: 9999;
 	}
 </style>
