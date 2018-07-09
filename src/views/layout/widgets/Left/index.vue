@@ -237,8 +237,9 @@
 			},
 			addComponent (item) {
 				var win = document.querySelector('#show-iframe').contentWindow
-				win.document.write(item)
-				document.querySelector('#show-iframe').src = '/webs/index'
+				var newLi = document.createElement('li')
+				newLi.innerHTML = '第名'
+                win.document.body.append(newLi)
 			}
 		}
 	}
