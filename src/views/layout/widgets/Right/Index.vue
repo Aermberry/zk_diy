@@ -7,7 +7,17 @@
 				用户管理</el-tab-pane>
 			<el-tab-pane name="tree">
 				<span slot="label">
-					<i class="icon flaticon-map"></i> 树图</span>树图</el-tab-pane>
+					<i class="icon flaticon-map"></i> 树图</span>
+				<el-menu :default-openeds="['_0']">
+					<el-submenu :index="'_'+index" v-for="(item ,index) in diyInfo.Layouts" :key="index" :layout-id="item.layoutId" :layout-path="item.path">
+						<template slot="title">
+							<i class="flaticon-browser"></i> {{item.name}}</template>
+						<el-menu-item :index="'_'+index+'_'+widgetIndex" v-for="(widget ,widgetIndex) in item.widgets" :key="widgetIndex" :widget-id="widget.id" :component-path="widget.componentPath">
+							<i class="flaticon-interface-7"></i> {{widget.name}}
+						</el-menu-item>
+					</el-submenu>
+				</el-menu>
+			</el-tab-pane>
 			<el-tab-pane label="角色管理" name="history">
 				<span slot="label">
 					<i class="icon flaticon-time-2"></i> 历史</span>
@@ -39,7 +49,7 @@
 			}
 		},
 		computed: {},
-		props: ['themePageInfo'],
+		props: ['themePageInfo', 'diyInfo'],
 		methods: {
 			async handleClick (tab) {
 				//	console.log(tab)
@@ -49,7 +59,7 @@
 			},
 			// 页面历史记录
 			async	getPageHistory () {
-				console.info(this.themePageInfo)
+				console.info(this.diyInfo)
 				const para = {
 					themePageId: this.themePageInfo.themePageId
 				}

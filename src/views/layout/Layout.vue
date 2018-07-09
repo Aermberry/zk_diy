@@ -1,6 +1,6 @@
 <template>
   <el-container class="app-wrapper">
-    <layout-left :themePageInfo="themePageInfo" v-if="asyncFlag"></layout-left>
+    <layout-left :themePageInfo="themePageInfo" v-if="asyncFlag" :diyInfo="diyInfo"></layout-left>
     <el-container>
       <el-header class="app-header" height="55">
         <el-row class="app-nav">
@@ -61,7 +61,7 @@
             </div>
           </div>
           <div class="content-right" style="width:273px">
-            <layout-right class="right-box" :themePageInfo="themePageInfo" v-if="asyncFlag"></layout-right>
+            <layout-right class="right-box" :themePageInfo="themePageInfo" v-if="asyncFlag" :diyInfo="diyInfo"></layout-right>
           </div>
         </div>
       </el-main>
@@ -88,6 +88,7 @@
       return {
         screenWidth: '1100', // 屏幕宽度,
         themePageInfo: '', // 站点信息
+        diyInfo: '', // diy信息,用户编辑时候，随时记录diy信息
         asyncFlag: false,
         isSave: false // 保存状态
       }
@@ -112,13 +113,19 @@
             email: 'admin@5ug.com'
           }
         }
+        this.getSaveInfo()
         this.screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
         this.asyncFlag = true
       },
       // 保存Diy设置
       async save () {
         this.isSave = true
-        var saveInput = {
+
+        await this.$api.post(THEMEPAGE_SAVE_POST, this.diyInfo, 'Diy保存')
+        this.isSave = false
+      },
+      async getSaveInfo () {
+        this.diyInfo = {
           siteId: this.themePageInfo.siteId,
           themeId: this.themePageInfo.themeId,
           diyHost: this.themePageInfo.diyHost,
@@ -130,6 +137,7 @@
             {
               layoutId: '5b404486e638563c3c3732f7',
               path: '/h5/layout-col',
+              name: '列布局',
               sortOrder: 1,
               widgets: [
                 {
@@ -155,6 +163,7 @@
             {
               LayoutId: '5b404486e638563c3c3732f8',
               path: '/h5/layout-default',
+              name: '默认',
               sortOrder: 2,
               Widgets: [
                 {
@@ -185,9 +194,6 @@
             }
           ]
         }
-        console.info('保存数据', saveInput)
-        await this.$api.post(THEMEPAGE_SAVE_POST, saveInput, 'Diy保存')
-        this.isSave = false
       }
     }
   }
