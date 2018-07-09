@@ -111,7 +111,7 @@
 									<span>{{item.name}}</span>
 									<div class="bottom clearfix">
 										<time class="time">{{ item.intro }}</time>
-										<el-button type="text" class="button">添加</el-button>
+										<el-button type="text" class="button" :click="addComponent(item)">添加</el-button>
 									</div>
 								</div>
 							</el-card>
@@ -234,6 +234,11 @@
 			},
 			handleDrag () {
 				this.$refs.select.blur()
+			},
+			addComponent (item) {
+				var win = document.querySelector('#show-iframe').contentWindow
+				win.document.write(item)
+				document.querySelector('#show-iframe').src = '/webs/index'
 			}
 		}
 	}
