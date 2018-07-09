@@ -60,7 +60,7 @@
               </div>
             </div>
           </div>
-          <div class="content-right" style="width:273px">
+          <div class="content-right" style="width:272px">
             <layout-right class="right-box" :themePageInfo="themePageInfo" v-if="asyncFlag" :diyInfo="diyInfo"></layout-right>
           </div>
         </div>
