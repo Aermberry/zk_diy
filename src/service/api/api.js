@@ -50,9 +50,9 @@ export default {
   async post (apiUrl, data, message = '') {
     try {
       var response = await request.post(apiUrl, data)
-      console.info('post结果', response)
+      // console.info('post结果', response)
       if (response.status === 1) {
-        this.$notify({
+        Notification({
           title: '成功',
           message: message + '操作成功',
           type: 'success',

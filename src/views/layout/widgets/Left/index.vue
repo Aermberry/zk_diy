@@ -104,7 +104,7 @@
 				</div>
 				<div class="content-right">
 					<el-row>
-						<el-col :span="4" v-for="(item ,index) in viewModel" :key="index" class="content-box">
+						<el-col :span="4" v-for="(item ,index) in viewModel" :key="index" class="content-box" :widget-id="item.id" :widget-componentPath="item.componentPath">
 							<el-card :body-style="{ padding: '2px' }">
 								<img src="https://img.alicdn.com/tfs/TB1oT8pAuOSBuNjy0FdXXbDnVXa-730-350.png">
 								<div style="padding: 5px;">
@@ -158,7 +158,7 @@
 			</div>
 			<div class="page-center layout-box">
 				<el-row>
-					<el-col :span="12" v-for="(item,index) in layoutModel" :key="index">
+					<el-col :span="12" v-for="(item,index) in layoutModel" :key="index" :layout-id="item.id" :layout-path="item.path">
 						<el-card :body-style="{ padding: '2px' }">
 							<img src="http://localhost:5000/fileCenter/layout/layout.jpg">
 							<div style="padding: 2px;">

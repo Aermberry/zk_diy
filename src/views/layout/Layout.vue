@@ -1,6 +1,6 @@
 <template>
   <el-container class="app-wrapper">
-    <layout-left :themePageInfo="themePageInfo" v-if="asyncFlag"></layout-left>
+    <layout-left :themePageInfo="themePageInfo" v-if="asyncFlag" :diyInfo="diyInfo"></layout-left>
     <el-container>
       <el-header class="app-header" height="55">
         <el-row class="app-nav">
@@ -61,7 +61,7 @@
             </div>
           </div>
           <div class="content-right" style="width:273px">
-            <layout-right class="right-box"></layout-right>
+            <layout-right class="right-box" :themePageInfo="themePageInfo" v-if="asyncFlag" :diyInfo="diyInfo"></layout-right>
           </div>
         </div>
       </el-main>
@@ -88,6 +88,7 @@
       return {
         screenWidth: '1100', // 屏幕宽度,
         themePageInfo: '', // 站点信息
+        diyInfo: '', // diy信息,用户编辑时候，随时记录diy信息
         asyncFlag: false,
         isSave: false // 保存状态
       }
@@ -100,7 +101,7 @@
         this.themePageInfo = {
           siteId: '5b4029cd3cb0ee4fdc47cfa5',
           themeId: '5b4167bfef73100fdc36cf68',
-          themePageId: '5b4167c3ef73100fdc36d05a',
+          themePageId: '5b421fd69015771b50cbf88d',
           clientType: '2',
           diyHost: 'http://www.yiqipingou.com', // http://localhost:2000/pages/index
           pageUrl: 'index',
@@ -112,13 +113,19 @@
             email: 'admin@5ug.com'
           }
         }
+        this.getSaveInfo()
         this.screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
         this.asyncFlag = true
       },
       // 保存Diy设置
       async save () {
         this.isSave = true
-        var saveInput = {
+
+        await this.$api.post(THEMEPAGE_SAVE_POST, this.diyInfo, 'Diy保存')
+        this.isSave = false
+      },
+      async getSaveInfo () {
+        this.diyInfo = {
           siteId: this.themePageInfo.siteId,
           themeId: this.themePageInfo.themeId,
           diyHost: this.themePageInfo.diyHost,
@@ -128,54 +135,65 @@
           User: this.themePageInfo.user,
           Layouts: [
             {
-              LayoutId: '000000000000000000000000',
-              Path: null,
-              Widgets: [
+              layoutId: '5b404486e638563c3c3732f7',
+              path: '/h5/layout-col',
+              name: '列布局',
+              sortOrder: 1,
+              widgets: [
                 {
-                  WidgetId: '000000000000000000000000',
-                  CommpontPath: null,
-                  SortOrder: 0
+                  widgetId: '5b4034415fe6615188fe17f8',
+                  name: '图片',
+                  componentPath: '/common/zk-image',
+                  sortOrder: 1
                 },
                 {
-                  WidgetId: '000000000000000000000000',
-                  CommpontPath: null,
-                  SortOrder: 0
+                  widgetId: '5b4034415fe6615188fe17f8',
+                  name: '图片',
+                  componentPath: '/common/zk-image',
+                  sortOrder: 2
                 },
                 {
-                  WidgetId: '000000000000000000000000',
-                  CommpontPath: null,
-                  SortOrder: 0
+                  widgetId: '5b4034415fe6615188fe17f9',
+                  componentPath: '/core/zk-swiper',
+                  name: '轮播',
+                  sortOrder: 3
                 }
-              ],
-              SortOrder: 0
+              ]
             },
             {
-              LayoutId: '000000000000000000000000',
-              Path: null,
+              LayoutId: '5b404486e638563c3c3732f8',
+              path: '/h5/layout-default',
+              name: '默认',
+              sortOrder: 2,
               Widgets: [
                 {
-                  WidgetId: '000000000000000000000000',
-                  CommpontPath: null,
-                  SortOrder: 0
+                  widgetId: '5b4034415fe6615188fe17f8',
+                  name: '图片',
+                  componentPath: '/common/zk-image',
+                  sortOrder: 1
                 },
                 {
-                  WidgetId: '000000000000000000000000',
-                  CommpontPath: null,
-                  SortOrder: 0
+                  widgetId: '5b4034415fe6615188fe17f9',
+                  componentPath: '/core/zk-swiper',
+                  name: '轮播',
+                  sortOrder: 2
                 },
                 {
-                  WidgetId: '000000000000000000000000',
-                  CommpontPath: null,
-                  SortOrder: 0
+                  widgetId: '5b4034415fe6615188fe17f8',
+                  name: '图片',
+                  componentPath: '/common/zk-image',
+                  sortOrder: 3
+                },
+                {
+                  widgetId: '5b4034415fe6615188fe17fb',
+                  name: 'cell导航',
+                  componentPath: '/core/zk-cell',
+                  sortOrder: 3
                 }
-              ],
-              SortOrder: 0
+              ]
             }
           ]
         }
-        console.info('保存数据', saveInput)
-        await this.$api.post(THEMEPAGE_SAVE_POST, saveInput, 'Diy保存')
-        this.isSave = false
       }
     }
   }
