@@ -213,6 +213,7 @@
 				this.dialogWidgetVisible = !this.pageBoxVisible
 				this.pageBoxVisible = false
 				this.layoutBoxVisible = false
+				this.dialogFileVisible = false
 			},
 			async fileClick () {
 				this.dialogVisible = false
@@ -241,7 +242,7 @@
 				}
 				this.layoutModel = await this.$api.get(LAYOUT_GETLIST_GET, layoutPara, 'layout_list_' + this.themePageInfo.clientType)
 			},
-			handleDrag () {
+			async handleDrag () {
 				this.$refs.select.blur()
 			},
 			addComponent (item) {
