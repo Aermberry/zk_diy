@@ -76,7 +76,7 @@
 				</ul>
 			</div>
 		</el-aside>
-		<el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="模块管理" :visible.sync="dialogTableVisible" width="80%" class="popup-module">
+		<el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="模块管理" :visible.sync="dialogWidgetVisible" width="80%" class="popup-module">
 			<div class="module-nav">
 				<ul>
 					<li class="active">
@@ -122,8 +122,8 @@
 				</div>
 			</div>
 			<span slot="footer" class="dialog-footer">
-				<el-button @click="dialogTableVisible = false">关 闭</el-button>
-				<el-button type="primary" @click="dialogTableVisible = false">确 定</el-button>
+				<el-button @click="dialogWidgetVisible = false">关 闭</el-button>
+				<el-button type="primary" @click="dialogWidgetVisible = false">确 定</el-button>
 			</span>
 		</el-dialog>
 		<div class="popup-page-box" :class="{'page-box-visible':pageBoxVisible}">
@@ -171,7 +171,7 @@
 				</el-row>
 			</div>
 		</div>
-		<zk-file></zk-file>
+		<zk-file :dialogVisible="dialogFileVisible"></zk-file>
 	</div>
 </template>
 
@@ -186,7 +186,8 @@
 			return {
 				pageBoxVisible: false, // 页面窗口是否显示
 				layoutBoxVisible: false, // 页面窗口是否显示
-				dialogTableVisible: false, // 模块弹出窗口
+				dialogWidgetVisible: false, // 模块弹出窗口
+				dialogFileVisible: false, // 模块弹出窗口
 				moduleSearch: '',
 				viewModel: null,
 				widgetClass: '',
@@ -209,9 +210,15 @@
 				this.pageBoxVisible = false
 			},
 			async widgetClick () {
-				this.dialogTableVisible = !this.pageBoxVisible
+				this.dialogWidgetVisible = !this.pageBoxVisible
 				this.pageBoxVisible = false
 				this.layoutBoxVisible = false
+			},
+			async fileClick () {
+				this.dialogVisible = false
+				this.pageBoxVisible = false
+				this.layoutBoxVisible = false
+				this.dialogFileVisible = true
 			},
 			async init () {
 				// 模块、模块分类导入
