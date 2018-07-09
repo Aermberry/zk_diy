@@ -9,7 +9,7 @@
        overflow: hidden;
        background-color: #f2f3f8; // 左边
        .app-nav {
-         width: 101.1%;
+         width: 100%;
        }
        .top-button {
          float: right;
@@ -18,9 +18,13 @@
          width: 270px;
          margin-right: 0px;
          button {
-           height: 56px;
+           border: 0;
+           height: 55px;
            width: 90px;
            border-radius: 0px;
+           &:first-child{
+             border-left:1px solid #dcdfe6;
+           }
          }
        }
      }
