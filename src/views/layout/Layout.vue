@@ -40,7 +40,7 @@
           <el-col :span="8">
             <div class="top-button">
               <el-button-group>
-                <el-button :class="Show" @click="handlebuttonClick" v-html="text" :isActive="isActive">
+                <el-button @click="previewClick" v-html="previewText">
                 </el-button>
                 <el-button style='' type="success" :loading="isSave" @click="save"> 保存
                   <i class="el-icon-check el-icon--right" v-if="!isSave"></i>
@@ -95,7 +95,7 @@
         diyInfo: '', // diy信息,用户编辑时候，随时记录diy信息
         asyncFlag: false,
         isSave: false, // 保存状态
-        text: "预览<i class='el-icon-view el-icon--right'>",
+        previewText: "预览<i class='el-icon-view el-icon--right'>",
         isshow: false
       }
     },
@@ -201,8 +201,8 @@
           ]
         }
       },
-      handlebuttonClick () {
-        this.text = this.text === '预览<i class=\'el-icon-view el-icon--right\'>' ? '编辑' : '预览<i class=\'el-icon-view el-icon--right\'>'
+      previewClick () {
+        this.previewText = this.previewText === '预览<i class=\'el-icon-view el-icon--right\'>' ? '编辑<i class=\'el-icon-edit el-icon--right\'>' : '预览<i class=\'el-icon-view el-icon--right\'>'
         this.isshow = !this.isshow
       }
     }
