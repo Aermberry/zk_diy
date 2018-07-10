@@ -10,6 +10,8 @@ import App from './App'
 import router from './router'
 import XIcon from '@/elements/x-icon'
 import XScreenfull from '@/elements/x-screenfull'
+import ZkFile from '@/components/zk-file'
+import ZkWidgetData from '@/components/zk-widget-data'
 
 Vue.use(global)
 
@@ -18,6 +20,8 @@ Vue.use(ElementUI, {
 })
 Vue.component('x-icon', XIcon)
 Vue.component('x-screenfull', XScreenfull)
+Vue.component('zk-file', ZkFile)
+Vue.component('zk-widget-data', ZkWidgetData)
 Vue.config.productionTip = false
 
 // eslint-disable-next-line
