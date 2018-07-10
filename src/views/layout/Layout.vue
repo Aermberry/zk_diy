@@ -95,8 +95,8 @@
         diyInfo: '', // diy信息,用户编辑时候，随时记录diy信息
         asyncFlag: false,
         isSave: false, // 保存状态
-        text:"预览<i class='el-icon-view el-icon--right'>",
-        isshow:false
+        text: "预览<i class='el-icon-view el-icon--right'>",
+        isshow: false
       }
     },
     mounted () {
@@ -201,10 +201,9 @@
           ]
         }
       },
-      handlebuttonClick:function () {
-        this.text=this.text=="预览<i class='el-icon-view el-icon--right'>"?"编辑":"预览<i class='el-icon-view el-icon--right'>";
-        this.isshow=!this.isshow;
-
+      handlebuttonClick () {
+        this.text = this.text === '预览<i class=\'el-icon-view el-icon--right\'>' ? '编辑' : '预览<i class=\'el-icon-view el-icon--right\'>'
+        this.isshow = !this.isshow
       }
     }
   }
