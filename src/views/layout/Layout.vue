@@ -40,8 +40,7 @@
           <el-col :span="8">
             <div class="top-button">
               <el-button-group>
-                <el-button> 预览
-                  <i class="el-icon-view el-icon--right"></i>
+                <el-button :class="Show" @click="handlebuttonClick" v-html="text" :isActive="isActive">
                 </el-button>
                 <el-button style='' type="success" :loading="isSave" @click="save"> 保存
                   <i class="el-icon-check el-icon--right" v-if="!isSave"></i>
@@ -65,7 +64,7 @@
             </div>
           </div>
           <div class="content-right" style="width:272px">
-            <layout-right class="right-box" :themePageInfo="themePageInfo" v-if="asyncFlag" :diyInfo="diyInfo"></layout-right>
+            <layout-right class="right-box" :themePageInfo="themePageInfo" v-if="asyncFlag" :diyInfo="diyInfo" :style="{showed:isshow}"></layout-right>
           </div>
         </div>
       </el-main>
@@ -95,7 +94,9 @@
         themePageInfo: '', // 站点信息
         diyInfo: '', // diy信息,用户编辑时候，随时记录diy信息
         asyncFlag: false,
-        isSave: false // 保存状态
+        isSave: false, // 保存状态
+        text:"预览<i class='el-icon-view el-icon--right'>",
+        isshow:false
       }
     },
     mounted () {
@@ -199,6 +200,11 @@
             }
           ]
         }
+      },
+      handlebuttonClick:function () {
+        this.text=this.text=="预览<i class='el-icon-view el-icon--right'>"?"编辑":"预览<i class='el-icon-view el-icon--right'>";
+        this.isshow=!this.isshow;
+
       }
     }
   }
