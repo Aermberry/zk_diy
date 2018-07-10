@@ -1,23 +1,8 @@
 <template>
-    <el-table :data="tableData4" v-loading="loading" style="width: 100%" max-height="580">
-        <el-table-column fixed prop="date" label="日期" width="150">
+    <el-table :data="tableData4" v-loading="loading" style="width: 100%" max-height="580" v-if="asyncFlag">
+        <el-table-column fixed :prop="item.name" :label="item.name" :width="item.width" v-for="(item,index) in tableViewData" :key="index">
         </el-table-column>
-        <el-table-column prop="name" label="姓名" width="120">
-        </el-table-column>
-        <el-table-column prop="province" label="省份" width="120">
-        </el-table-column>
-        <el-table-column prop="city" label="市区" width="120">
-        </el-table-column>
-        <el-table-column prop="address" label="地址" width="300">
-        </el-table-column>
-        <el-table-column prop="zip" label="邮编" width="120">
-        </el-table-column>
-        <el-table-column align="center" label="Drag" width="80">
-            <template slot-scope="scope">
-                <i class="el-icon-upload el-icon--right"></i>
-            </template>
-        </el-table-column>
-        <el-table-column fixed="right" label="操作" width="200">
+        <el-table-column fixed="right" label="操作" width="150">
             <template slot-scope="scope">
                 <el-button type="primary" icon="el-icon-edit" circle size="mini"></el-button>
                 <el-button @click.native.prevent="deleteRow(scope.$index, tableData4)" type="danger" icon="el-icon-delete" circle size="mini"></el-button>
@@ -37,30 +22,41 @@
                 rows.splice(index, 1)
             },
             init () {
-                this.oldList = this.list.map(v => v.id)
-                this.newList = this.oldList.slice()
-                this.$nextTick(() => {
-                    this.setSort()
-                })
-                this.loading = true
-            }
-        },
-        filters: {
-            statusFilter (status) {
-                const statusMap = {
-                    published: 'success',
-                    draft: 'info',
-                    deleted: 'danger'
+                this.loading = false
+                this.tableViewData = [{
+                    label: '日期',
+                    prop: 'date',
+                    width: '150'
+                }, {
+                    label: 'name',
+                    prop: 'name',
+                    width: '150'
+                }, {
+                    label: 'province',
+                    prop: 'province',
+                    width: '150'
+                }, {
+                    label: 'city',
+                    prop: 'city',
+                    width: '150'
+                }, {
+                    label: 'address',
+                    prop: 'address',
+                    width: '300'
+                }, {
+                    label: 'zip',
+                    prop: 'zip',
+                    width: '150'
                 }
-                return statusMap[status]
+                ]
+                this.asyncFlag = true
             }
         },
         data () {
             return {
-                oldList: [],
                 loading: false,
-                sortable: null,
-                newList: [],
+                asyncFlag: false,
+                tableViewData: '', // 构建表格的数据
                 tableData4: [{
                     date: '2016-05-03',
                     name: '王小虎',
