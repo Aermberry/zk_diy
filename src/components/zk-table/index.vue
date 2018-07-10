@@ -1,6 +1,6 @@
 <template>
     <el-table :data="tableData4" v-loading="loading" style="width: 100%" max-height="580" v-if="asyncFlag">
-        <el-table-column fixed :prop="item.name" :label="item.name" :width="item.width" v-for="(item,index) in tableViewData" :key="index">
+        <el-table-column fixed :prop="item.prop" :label="item.label" :width="item.width" v-for="(item,index) in tableViewData" :key="index">
         </el-table-column>
         <el-table-column fixed="right" label="操作" width="150">
             <template slot-scope="scope">
