@@ -13,6 +13,7 @@ import XScreenfull from '@/elements/x-screenfull'
 import ZkFile from '@/components/zk-file'
 import ZkTable from '@/components/zk-table'
 import ZkWidgetData from '@/components/zk-widget-data'
+import ZkAutoForm from '@/components/zk-auto-form'
 
 Vue.use(global)
 
@@ -24,6 +25,7 @@ Vue.component('x-screenfull', XScreenfull)
 Vue.component('zk-table', ZkTable)
 Vue.component('zk-file', ZkFile)
 Vue.component('zk-widget-data', ZkWidgetData)
+Vue.component('zk-auto-form', ZkAutoForm)
 Vue.config.productionTip = false
 
 // eslint-disable-next-line

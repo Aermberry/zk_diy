@@ -5,7 +5,8 @@
 
             <el-row :gutter="10">
                 <el-col :span="21">
-                    <zk-table></zk-table>
+                    <zk-table :viewPropertys="viewModel.propertys" v-if="viewModel.pageType===2"></zk-table>
+                    <zk-auto-form :viewForm="viewModel.AutoForm" v-if="viewModel.pageType===1"></zk-auto-form>
                 </el-col>
                 <el-col :span="3" class="content-right">
                     <el-alert title="双击使用历史数据" :closable="false" type="success" class="widget-alert">
@@ -36,14 +37,16 @@
 
 <script>
     import elDragDialog from '@/directive/el-dragDialog'
-    import { WIDGET_GETLIST_GET, WIDGET_CLASS_GET } from '@/service/api/apiUrl'
+    import { WIDGETDATA_GETVIEW_GET } from '@/service/api/apiUrl'
     export default {
         name: 'layout-left',
         directives: { elDragDialog },
-        props: ['themePageInfo', 'dialogVisible'],
+        props: ['themePageInfo', 'dialogVisible', 'widgetId'],
         data () {
             return {
                 viewModel: null,
+                asyncFlag: false,
+                loading: false,
                 title: 'Cell(导航管理)',
                 themePageModel: null // 站点URL
             }
@@ -53,12 +56,12 @@
         },
         methods: {
             async init () {
-                // 文件、文件分类导入
-                const para = {
-                    relationId: this.fileClassId // 根据参数获取列表
-                }
-                this.fileClass = await this.$api.get(WIDGET_CLASS_GET, '', 'widget_class')
-                this.viewModel = await this.$api.get(WIDGET_GETLIST_GET, para, 'widget_list')
+                this.loading = true
+                this.widgetId = '5b45350e55f7b54a285630b4'
+                this.viewModel = await this.$api.get(WIDGETDATA_GETVIEW_GET, 'widgetId=' + this.widgetId)
+                console.info('表格数据', this.viewModel)
+                this.loading = false
+                this.asyncFlag = true
             },
             handleDrag () {
                 this.$refs.select.blur()
