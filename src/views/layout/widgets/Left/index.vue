@@ -187,7 +187,7 @@
 			return {
 				pageBoxVisible: false, // 页面窗口是否显示
 				layoutBoxVisible: false, // 页面窗口是否显示
-				dialogDataVisible: false, // 首次添加模块、双击模块、编辑模块时弹出的窗口
+				dialogDataVisible: true, // 首次添加模块、双击模块、编辑模块时弹出的窗口
 				dialogWidgetVisible: false, // 模块弹出窗口
 				dialogFileVisible: false, // 模块弹出窗口
 				moduleSearch: '',

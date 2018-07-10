@@ -1,5 +1,5 @@
 <template>
-    <el-table :data="tableData4" style="width: 100%" max-height="580">
+    <el-table :data="tableData4" v-loading="loading" style="width: 100%" max-height="580">
         <el-table-column fixed prop="date" label="日期" width="150">
         </el-table-column>
         <el-table-column prop="name" label="姓名" width="120">
@@ -19,12 +19,8 @@
         </el-table-column>
         <el-table-column fixed="right" label="操作" width="200">
             <template slot-scope="scope">
-                <el-button @click.native.prevent="deleteRow(scope.$index, tableData4)" type="info" size="small">
-                    编辑
-                </el-button>
-                <el-button @click.native.prevent="deleteRow(scope.$index, tableData4)" type="danger" size="small">
-                    移除
-                </el-button>
+                <el-button type="primary" icon="el-icon-edit" circle size="mini"></el-button>
+                <el-button @click.native.prevent="deleteRow(scope.$index, tableData4)" type="danger" icon="el-icon-delete" circle size="mini"></el-button>
                 <i class="el-icon-upload el-icon--right"></i>
             </template>
         </el-table-column>
@@ -33,9 +29,20 @@
 <script>
     import Sortable from 'sortablejs'
     export default {
+        mounted () {
+            this.init()
+        },
         methods: {
             deleteRow (index, rows) {
                 rows.splice(index, 1)
+            },
+            init () {
+                this.oldList = this.list.map(v => v.id)
+                this.newList = this.oldList.slice()
+                this.$nextTick(() => {
+                    this.setSort()
+                })
+                this.loading = true
             }
         },
         filters: {
@@ -51,6 +58,8 @@
         data () {
             return {
                 oldList: [],
+                loading: false,
+                sortable: null,
                 newList: [],
                 tableData4: [{
                     date: '2016-05-03',
