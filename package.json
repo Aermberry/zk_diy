@@ -16,6 +16,7 @@
     "element-ui": "2.4.2",
     "flyio": "^0.5.9",
     "screenfull": "^3.3.2",
+    "sortablejs": "^1.7.0",
     "vue": "2.5.10",
     "vue-router": "3.0.1",
     "vuex": "3.0.1"
