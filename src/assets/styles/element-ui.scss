@@ -25,6 +25,9 @@
  }
 
  .el-dialog__header {
+   padding: 20px;
+   padding-bottom: 10px;
+   height: 50px;
    background-color: $--color-primary;
    .el-dialog__title {
      color: $--color-white;
