@@ -128,10 +128,7 @@
 			font-weight: bold;
 			font-size: 12px;
 			padding-left: 12px;
-		}
-		.is-always-shadow {
-      margin-bottom: 0px;
-		}
+    }
 	}
 </style>
 
