@@ -71,7 +71,7 @@
       </el-main>
       <layout-footer></layout-footer>
     </el-container>
-    <zk-widget-data :dialogVisible="dialogWidgetVisible"></zk-widget-data>
+    <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="asyncFlag"></zk-widget-data>
   </el-container>
 </template>
 <script>
@@ -91,7 +91,7 @@
     data () {
       return {
         screenWidth: '1100', // 屏幕宽度,
-        dialogWidgetVisible: true, // 首次添加模块、双击模块、编辑模块时弹出的窗口
+        dialogWidgetDataVisible: false, // 首次添加模块、双击模块、编辑模块时弹出的窗口
         themePageInfo: '', // 站点信息
         diyInfo: '', // diy信息,用户编辑时候，随时记录diy信息
         asyncFlag: false,

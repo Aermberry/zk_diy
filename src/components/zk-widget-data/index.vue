@@ -1,29 +1,44 @@
 <template>
-    <el-dialog v-el-drag-dialog @dragDialog="handleDrag" :title="title" :visible.sync="dialogVisible" width="80%" class="zk-widget-data">
+    <el-dialog v-el-drag-dialog @dragDialog="handleDrag" :title="title" :visible.sync="dialogVisible" width="60%" class="zk-widget-data">
 
         <div class="module-content">
             <div class="content-left">
-                <el-table :data="gridData">
+                <el-table>
                     <el-table-column property="date" label="日期" width="150"></el-table-column>
                     <el-table-column property="name" label="姓名" width="200"></el-table-column>
                     <el-table-column property="address" label="地址"></el-table-column>
                 </el-table>
             </div>
             <div class="content-right">
-                <ul>
-                    <li>数据一</li>
-                    <li>数据一</li>
-                    <li>数据一</li>
-                    <li>数据一</li>
-                    <li>数据一</li>
-                </ul>
+                <el-collapse v-model="activeNames" @change="historyDataChange">
+                    <el-collapse-item title="一致性" name="1">
+                        <div>与现实生活一致：与现实生活的流程、</div>
+                        <div class="time">2018-7-10 08:26:53</div>
+                    </el-collapse-item>
+                    <el-collapse-item title="反馈 " name="2">
+                        <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
+                        <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+                    </el-collapse-item>
+                    <el-collapse-item title="效率" name="3">
+                        <div>简化流程：设计简洁直观的操作流程；</div>
+                    </el-collapse-item>
+                    <el-collapse-item title="可控" name="4">
+                        <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
+                    </el-collapse-item>
+                </el-collapse>
             </div>
 
         </div>
 
         <span slot="footer" class="dialog-footer">
             <el-button @click="dialogVisible = false">关 闭</el-button>
-            <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+            <el-dropdown split-button type="primary">
+                保存
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>保存并另存</el-dropdown-item>
+                    <el-dropdown-item>另存为</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
         </span>
     </el-dialog>
 </template>
@@ -38,6 +53,7 @@
         data () {
             return {
                 viewModel: null,
+                activeNames: '1',
                 title: 'Cell(导航管理)',
                 themePageModel: null // 站点URL
             }
@@ -56,6 +72,10 @@
             },
             handleDrag () {
                 this.$refs.select.blur()
+            },
+            // 改变历史数据
+            historyDataChange () {
+
             }
         }
     }
@@ -88,21 +108,29 @@
     	border-bottom: 1px solid $--border-color-extra-light;
     	.content-right {
     		width: 140px;
-    		height: 500px;
+    		height: 445px;
     		border-left: 1px solid $--border-color-extra-light;
     		ul {
-    			height: 500px;
     			overflow: auto;
+    			overflow-x: hidden;
     			li {
-    				height: 40px;
-    				line-height: 40px;
-    				padding-left: 30px;
+    				height: 35px;
+    				line-height: 35px;
+    				padding-left: 5px;
     				color: #29292a;
     			}
     			li.active {
     				background: #3899ed;
     				color: #fff;
     			}
+    		}
+    		.el-alert {
+    			margin-bottom: 0px;
+    			overflow: hidden;
+    			width: 138px;
+    		}
+    		div {
+    			padding: 8px 0px;
     		}
     	}
     	.content-left {

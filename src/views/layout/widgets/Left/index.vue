@@ -62,11 +62,11 @@
 						</a>
 					</li>
 					<li class="m-menu__item">
-						<a href="/" class="m-menu__link " title="添加模块">
+						<a @click="openDataDialog()" class="m-menu__link " title="帮助">
 							<i class="m-menu__link-icon flaticon-info "></i>
 							<span class="m-menu__link-title">
 								<span class="m-menu__link-wrap">
-									<span class="m-menu__link-text" title="添加模块">
+									<span class="m-menu__link-text" title="帮助">
 										帮助
 									</span>
 								</span>
@@ -172,6 +172,7 @@
 			</div>
 		</div>
 		<zk-file :dialogVisible="dialogFileVisible"></zk-file>
+		<zk-widget-data :dialogVisible="dialogDataVisible" :themePageInfo="themePageInfo"></zk-widget-data>
 	</div>
 </template>
 
@@ -186,6 +187,7 @@
 			return {
 				pageBoxVisible: false, // 页面窗口是否显示
 				layoutBoxVisible: false, // 页面窗口是否显示
+				dialogDataVisible: false, // 首次添加模块、双击模块、编辑模块时弹出的窗口
 				dialogWidgetVisible: false, // 模块弹出窗口
 				dialogFileVisible: false, // 模块弹出窗口
 				moduleSearch: '',
@@ -250,6 +252,15 @@
 				var newLi = document.createElement('li')
 				newLi.innerHTML = '第名'
 				win.document.body.append(newLi)
+				//	this.dialogWidgetVisible = !this.dialogWidgetVisible // 关闭模块管理
+			},
+			// 打开模块数据管理窗口,双击模块、拖进模块后操作
+			openDataDialog () {
+				this.dialogDataVisible = true // 弹出模块添加窗口
+				this.dialogVisible = false
+				this.pageBoxVisible = false
+				this.layoutBoxVisible = false
+				this.dialogFileVisible = false
 			}
 		}
 	}
