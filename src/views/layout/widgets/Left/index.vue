@@ -133,7 +133,7 @@
           <i class="page-box-close" @click="pageBox()">×</i>
         </div>
         <div class="page-top-right">
-          <a>
+          <a @click="newpages()">
             <i class="el-icon-plus"></i>新增页面</a>
         </div>
       </div>
@@ -173,16 +173,21 @@
     </div>
     <zk-file :dialogVisible="dialogFileVisible"></zk-file>
     <zk-widget-data :dialogVisible="dialogDataVisible" :themePageInfo="themePageInfo"></zk-widget-data>
+    <zk-newpage class="popup-newpage" :class="{'page-newpage-visible':newpageVisible}"></zk-newpage>
   </div>
 </template>
 
 <script>
   import elDragDialog from '@/directive/el-dragDialog'
+  import NewPage from './NewPage'
   import { WIDGET_GETLIST_GET, LAYOUT_GETLIST_GET, WIDGET_CLASS_GET, THEMEPAGE_GETTHEMEPAGELIST_GET } from '@/service/api/apiUrl'
   export default {
     name: 'layout-left',
     directives: { elDragDialog },
     props: ['themePageInfo'],
+    components: {
+      'zk-newpage': NewPage
+    },
     data () {
       return {
         pageBoxVisible: true, // 页面窗口是否显示
@@ -190,6 +195,7 @@
         dialogDataVisible: false, // 首次添加模块、双击模块、编辑模块时弹出的窗口
         dialogWidgetVisible: false, // 模块弹出窗口
         dialogFileVisible: false, // 模块弹出窗口
+        newpageVisible: false, // 新建模块
         moduleSearch: '',
         viewModel: null,
         widgetClass: '',
@@ -210,6 +216,9 @@
       async layoutBox () {
         this.layoutBoxVisible = !this.layoutBoxVisible
         this.pageBoxVisible = false
+      },
+      async newpages () {
+        this.newpageVisible = !this.newpageVisible
       },
       async widgetClick () {
         this.dialogWidgetVisible = !this.pageBoxVisible
@@ -318,16 +327,21 @@
       }
     }
     .page-center {
-      overflow:auto;
+      overflow: auto;
       height: 86vh;
+      .el-menu {
+        height: 100%;
+      }
       .el-submenu .el-menu-item {
         height: 35px;
         line-height: 35px;
+
+        >>> .el-submenu__title {
+          height: 35px;
+          line-height: 35px;
+        }
       }
-      .el-submenu__title {
-        height: 40px;
-        padding: 0px;
-      }
+
       .el-menu-item .icon-right {
         float: right;
         justify-content: flex-end;
@@ -335,8 +349,17 @@
       }
     }
   }
+  .popup-newpage {
+    position: absolute;
+    top: 56px;
+    left: -150%;
+    z-index: 50;
+  }
   .page-box-visible {
     left: 55px;
+  }
+  .page-newpage-visible {
+    left: 355px;
   }
   .layout-box-visible {
     left: 55px;
