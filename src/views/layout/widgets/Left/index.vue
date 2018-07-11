@@ -319,12 +319,13 @@
     }
     .page-center {
       overflow:auto;
-      height: 300px;
+      height: 86vh;
       .el-submenu .el-menu-item {
         height: 35px;
         line-height: 35px;
       }
       .el-submenu__title {
+        height: 40px;
         padding: 0px;
       }
       .el-menu-item .icon-right {
