@@ -275,7 +275,6 @@
     width: 300px;
     height: 100vh;
     background: white;
-    z-index: 50;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
