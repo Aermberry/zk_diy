@@ -71,6 +71,7 @@
       <layout-footer></layout-footer>
     </el-container>
     <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="asyncFlag"></zk-widget-data>
+    <global-setting></global-setting>
   </el-container>
 </template>
 <script>
@@ -78,6 +79,7 @@
   import { AppMain } from './widgets'
   import Footer from './widgets/Footer'
   import Left from './widgets/Left'
+  import globalsetting from './widgets/top/global-setting'
   import Right from './widgets/Right'
   export default {
     name: 'layout',
@@ -85,6 +87,7 @@
       'layout-footer': Footer,
       'layout-left': Left,
       'layout-right': Right,
+      'global-setting': globalsetting,
       AppMain
     },
     data () {
