@@ -270,10 +270,11 @@
   @import 'src/assets/styles/mixin.scss';
   .popup-page-box {
     position: absolute;
+    z-index: 50;
     top: 57px;
     left: -300px;
     width: 300px;
-    height: 100vh;
+    height: 40px;
     background: white;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -317,6 +318,8 @@
       }
     }
     .page-center {
+      overflow:auto;
+      height: 300px;
       .el-submenu .el-menu-item {
         height: 35px;
         line-height: 35px;
