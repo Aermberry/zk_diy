@@ -331,15 +331,14 @@
       height: 86vh;
       .el-menu {
         height: 100%;
+        .el-submenu /deep/ .el-submenu__title {
+          height: 35px;
+          line-height: 35px;
+        }
       }
       .el-submenu .el-menu-item {
         height: 35px;
         line-height: 35px;
-
-        >>> .el-submenu__title {
-          height: 35px;
-          line-height: 35px;
-        }
       }
 
       .el-menu-item .icon-right {

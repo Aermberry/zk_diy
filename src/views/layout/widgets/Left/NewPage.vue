@@ -39,7 +39,7 @@
         <el-form-item label="内容">
           <el-checkbox-group v-model="form.type">
             <el-checkbox label="选项" name="type"></el-checkbox>
-            <el-checkbox label="" name="type"></el-checkbox>
+            <el-checkbox label="选项" name="type"></el-checkbox>
             <el-checkbox label="选项" name="type"></el-checkbox>
             <el-checkbox label="选项" name="type"></el-checkbox>
           </el-checkbox-group>
