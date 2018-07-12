@@ -1,10 +1,10 @@
 <template>
-  <div class="zk-newpage">
+  <div class="zk-newpage" :class="{'page-setting-closed':pagesettingclosed}">
     <div class="page_name">
       <span class="page_title">
         <i class="flaticon-cogwheel-2"></i>
         Page Settings</span>
-      <el-button class="page_close">
+      <el-button class="page_close" @click="Pagesetting_close()">
         <i class="flaticon-close el-icon--left"></i>
         close
       </el-button>
@@ -75,12 +75,17 @@
           type: [],
           resource: '',
           desc: ''
-        }
+        },
+        pagesettingclosed: false
+
       }
     },
     methods: {
       onSubmit () {
         console.log('submit!')
+      },
+      async Pagesetting_close () {
+        this.pagesettingclosed = true
       }
     }
   }
@@ -95,14 +100,11 @@
     .page_name {
       padding: 20px 0;
       padding-left: 12px;
-      // background-color: red;
       display: flex;
       line-height: 40px;
-      // padding-bottom: 24px;
       justify-content: flex-start;
       border-bottom: 20px solid #eeeeee;
       .page_title {
-        // background-color: #fff;
         font-weight: 900;
         flex-basis: 569px;
       }
@@ -110,6 +112,13 @@
     .page_setting {
       padding: 20px 50px;
     }
+  }
+
+  .page-setting-closed {
+    position: absolute;
+    top: 56px;
+    left: -150%;
+    z-index: 50;
   }
 </style>
 

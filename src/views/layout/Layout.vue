@@ -55,7 +55,7 @@
       </el-header>
       <el-main class="zk-main">
         <div class="main-content">
-          <div class="content-left" :style="'width:'+(screenWidth-273-55)+'px; padding-left:'+((screenWidth-273-55-427)/2)+'px'">
+          <div class="content-left">
             <div class="content-phone">
               <div class="innerbox-phone">
                 <!--<iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="themePageInfo.diyHost+'/'+themePageInfo.pageUrl" class=" show-iframe"></iframe>-->

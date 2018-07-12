@@ -218,7 +218,7 @@
         this.pageBoxVisible = false
       },
       async newpages () {
-        this.newpageVisible = !this.newpageVisible
+        this.newpageVisible = true
       },
       async widgetClick () {
         this.dialogWidgetVisible = !this.pageBoxVisible
