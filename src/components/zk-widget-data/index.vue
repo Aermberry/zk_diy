@@ -5,7 +5,7 @@
 
             <el-row :gutter="10" v-if="asyncFlag">
                 <el-col :span="21">
-                    <zk-table :viewPropertys="viewModel.propertys" v-if="viewModel.pageType===2" v-loading="loading"></zk-table>
+                    <zk-table :viewPropertys="viewModel.propertys" :dataValues="viewModel.values" v-if="viewModel.pageType===2" v-loading="loading"></zk-table>
                     <zk-auto-form :viewForm="viewModel.AutoForm" v-if="viewModel.pageType===1"></zk-auto-form>
                 </el-col>
                 <el-col :span="3" class="content-right">
