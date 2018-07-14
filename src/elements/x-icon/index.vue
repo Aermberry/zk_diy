@@ -1,5 +1,5 @@
 <template>
-  <img class="svg-icon" :src="imageUrl" @click="onClick" :style="'width:'+fontSize+';height:'+fontSize">
+  <img class="svg-icon" :src="src" @click="onClick" :style="'width:'+size+'px;height:'+size+'px'">
 </template>
 
 <script>
@@ -12,7 +12,7 @@
       link: [String, Object],
       size: {
         type: String,
-        default: '18px'
+        default: '18'
       }
     },
     created () {
@@ -20,15 +20,14 @@
     },
     data () {
       return {
-        fontSize: this.size,
-        imageUrl: '',
         Iclass: this.class
       }
     },
     methods: {
       init () {
+        console.info('x-icon', this.src)
         if (this.src.indexOf('/') <= 0) {
-          this.imageUrl = 'src/assets/svg/' + this.src
+          this.src = 'src/assets/svg/' + this.src
         }
       },
       onClick () {

@@ -1,13 +1,14 @@
 <template>
     <el-table :data="dataValues" style="width: 100%" max-height="580">
         <el-table-column fixed :prop="item.field" :label="item.name" :width="item.width" v-for="(item,index) in viewPropertys" :key="index">
-            <!-- <template slot-scope="scope" v-if="item.type===10">
-                <x-icon :src="scope.row"></x-icon>
+            <template slot-scope="scope">
+                <template v-if="item.type===10">
+                    <x-icon :src="scope.row[item.field]" size="30"></x-icon>
+                </template>
+                <template v-if="item.type!==10">
+                    <span>{{ scope.row[item.field]}}</span>
+                </template>
             </template>
-            <template slot-scope="scope" v-if="item.type!==10">
-                <i class="el-icon-time"></i>
-                <span>{{ scope.row["Name"]}}</span>
-            </template> -->
         </el-table-column>
         <el-table-column fixed="right" label="操作" width="150">
             <template slot-scope="scope">
