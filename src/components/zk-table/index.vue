@@ -36,7 +36,6 @@
                 rows.splice(index, 1)
             },
             async init () {
-
             }
         }
     }

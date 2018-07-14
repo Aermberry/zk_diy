@@ -25,7 +25,7 @@
     },
     methods: {
       init () {
-        console.info('x-icon', this.src)
+        // console.info('x-icon', this.src)
         if (this.src.indexOf('/') <= 0) {
           this.src = 'src/assets/svg/' + this.src
         }

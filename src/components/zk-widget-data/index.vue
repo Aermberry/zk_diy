@@ -24,11 +24,10 @@
 
         <span slot="footer" class="dialog-footer">
             <el-button @click="dialogVisible = false">关 闭</el-button>
-            <el-dropdown split-button type="primary" @click="saveClick">
+            <el-dropdown split-button type="primary" @click="saveClick(1)" @command="saveClick(2)">
                 保存
                 <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item>保存并另存</el-dropdown-item>
-                    <el-dropdown-item>另存为</el-dropdown-item>
+                    <el-dropdown-item @command="saveClick(2)">保存并另存</el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
         </span>
@@ -37,7 +36,7 @@
 
 <script>
     import elDragDialog from '@/directive/el-dragDialog'
-    import { WIDGETDATA_GETVIEW_GET } from '@/service/api/apiUrl'
+    import { WIDGETDATA_GETVIEW_GET, WIDGETDATA_SAVE_POST } from '@/service/api/apiUrl'
     export default {
         name: 'layout-left',
         directives: { elDragDialog },
@@ -65,8 +64,17 @@
             handleDrag () {
                 this.$refs.select.blur()
             },
-            async saveClick () {
-
+            async saveClick (type) {
+                const savePara = {
+                    widgetId: this.widgetId,
+                    themeId: this.themePageInfo.themeId,
+                    widgetDataId: '',
+                    themePageId: this.themePageInfo.themePageId,
+                    saveType: type
+                }
+                console.info('保存参数', savePara)
+                var result = this.$api.post(WIDGETDATA_SAVE_POST, savePara)
+                console.info('保存结果', result)
             }
         }
     }
