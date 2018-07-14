@@ -1,5 +1,5 @@
 <template>
-    <el-table :data="tableData" v-loading="loading" style="width: 100%" max-height="580">
+    <el-table :data="tableData" style="width: 100%" max-height="580">
         <el-table-column fixed :prop="item.field" :label="item.name" :width="item.width" v-for="(item,index) in viewPropertys" :key="index">
         </el-table-column>
         <el-table-column fixed="right" label="操作" width="150">

@@ -3,9 +3,9 @@
 
         <div class="module-content">
 
-            <el-row :gutter="10">
+            <el-row :gutter="10" v-if="asyncFlag">
                 <el-col :span="21">
-                    <zk-table :viewPropertys="viewModel.propertys" v-if="viewModel.pageType===2"></zk-table>
+                    <zk-table :viewPropertys="viewModel.propertys" v-if="viewModel.pageType===2" v-loading="loading"></zk-table>
                     <zk-auto-form :viewForm="viewModel.AutoForm" v-if="viewModel.pageType===1"></zk-auto-form>
                 </el-col>
                 <el-col :span="3" class="content-right">
@@ -57,7 +57,6 @@
         methods: {
             async init () {
                 this.loading = true
-                this.widgetId = '5b45350e55f7b54a285630b4'
                 this.viewModel = await this.$api.get(WIDGETDATA_GETVIEW_GET, 'widgetId=' + this.widgetId)
                 console.info('表格数据', this.viewModel)
                 this.loading = false
