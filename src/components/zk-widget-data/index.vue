@@ -24,7 +24,7 @@
 
         <span slot="footer" class="dialog-footer">
             <el-button @click="dialogVisible = false">关 闭</el-button>
-            <el-dropdown split-button type="primary" @click="saveClick(1)" @command="saveClick(2)">
+            <el-dropdown split-button type="primary" :loading="saveLoading" @click="saveClick(1)" @command="saveClick(2)">
                 保存
                 <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item @command="saveClick(2)">保存并另存</el-dropdown-item>
@@ -45,6 +45,7 @@
             return {
                 viewModel: null,
                 asyncFlag: false,
+                saveLoading: false,
                 loading: false,
                 title: 'Cell(导航管理)',
                 themePageModel: null // 站点URL
@@ -73,7 +74,9 @@
                     saveType: type
                 }
                 console.info('保存参数', savePara)
+                this.saveLoading = true
                 var result = this.$api.post(WIDGETDATA_SAVE_POST, savePara)
+                this.saveLoading = false
                 console.info('保存结果', result)
             }
         }
