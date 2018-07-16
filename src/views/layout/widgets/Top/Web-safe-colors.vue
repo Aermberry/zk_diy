@@ -1,5 +1,4 @@
 <template>
-    import func from './vue-temp/vue-editor-bridge';
     <div class="zk-websafecolor">
         <header>
             <div class="header-box">
@@ -18,76 +17,6 @@
                         </template>
                     </div>
                 </li>
-                <!-- <li>
-                    <ul>
-                        <span>#000099</span>
-                        <span>#0000CC</span>
-                        <span>#0000FF</span>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <span>#003300</span>
-                        <span>#003333</span>
-                        <span>#003366</span>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <span>#003399</span>
-                        <span>#0033CC</span>
-                        <span>#0033FF</span>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <span>#006600</span>
-                        <span>#006633</span>
-                        <span>#006666</span>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <span>#006699</span>
-                        <span>#0066CC</span>
-                        <span>#0066FF</span>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <span>#009900</span>
-                        <span>#009933</span>
-                        <span>#009966</span>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <span>#009999</span>
-                        <span>#0099CC</span>
-                        <span>#0099FF</span>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <span>#00CC00</span>
-                        <span>#00CC33</span>
-                        <span>#00CC66</span>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <span>#00CC99</span>
-                        <span>#00CCCC</span>
-                        <span>#00CCFF</span>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <span>#00FF00</span>
-                        <span>#00FF33</span>
-                        <span>#000066</span>
-                    </ul>
-                </li> -->
             </ul>
         </body>
     </div>
