@@ -32,6 +32,39 @@
 			<div class="content-left">
 				<ul>
 					<li v-for="(item, index) in fileClass" :key="index">{{item.value}}</li>
+          <li>
+            <x-icon src="example" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="eye" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="form" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="modules" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="new" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="pages" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="password" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="phone" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="table" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="tree" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="user" size="100"></x-icon>
+          </li>
 				</ul>
 			</div>
 			<div class="content-right">
@@ -161,10 +194,15 @@
 					height: 500px;
 					overflow: auto;
 					li {
-						height: 40px;
-						line-height: 40px;
-						padding-left: 30px;
-						color: #29292a;
+						height: 140px;
+						line-height: 140px;
+						// padding-left: 30px;
+            color: #29292a;
+            text-align: center;
+            border:1px solid #e5e5e5;
+            img{
+              vertical-align: middle;
+            }
 					}
 					li.active {
 						background: #3899ed;

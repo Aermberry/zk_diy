@@ -173,7 +173,7 @@
     </div>
     <zk-file :dialogVisible="dialogFileVisible"></zk-file>
     <zk-widget-data :dialogVisible="dialogDataVisible" :themePageInfo="themePageInfo" :widgetId="widgetId"></zk-widget-data>
-    <zk-newpage class="popup-newpage" :class="{'page-newpage-visible':newpageVisible}"></zk-newpage>
+    <zk-newpage ref="zk_newpage" class="popup-newpage" :class="{'page-newpage-visible':newpageVisible}"></zk-newpage>
   </div>
 </template>
 
@@ -219,13 +219,14 @@
         this.pageBoxVisible = false
       },
       async newpages () {
-        this.newpageVisible = true
+        this.newpageVisible = !this.newpageVisible
+        this.$refs.zk_newpage.$emit('child', this.newpageVisible) // 监听销售属性事件
       },
       async widgetClick () {
         this.dialogWidgetVisible = !this.pageBoxVisible
         this.pageBoxVisible = false
         this.layoutBoxVisible = false
-        this.dialogFileVisible = false
+        this.dialogFileVisible = true
       },
       async fileClick () {
         this.dialogVisible = false
