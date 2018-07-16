@@ -1,14 +1,22 @@
 import wx from 'wx'
 import Fly from 'flyio'
-
+import {
+  apiBaseUrl,
+  projectId,
+  key,
+  privateKey
+} from '@/service/api/config'
 const request = new Fly()
+const timestamp = Math.round(new Date().getTime() / 1000)
 request.interceptors.request.use((config, promise) => {
-  // 给所有请求添加自定义header
-  config.headers['X-Tag'] = 'flyio'
+  config.headers['zk-project-id'] = projectId
+  config.headers['zk-key'] = key
+  config.headers['zk-private-key'] = privateKey
+  config.headers['zk-timestamp'] = timestamp
   return config
 })
 // 配置请求基地址
-request.config.baseURL = 'http://localhost:5000'
+request.config.baseURL = apiBaseUrl
 
 request.interceptors.request.use((request) => {
   wx.showNavigationBarLoading()
