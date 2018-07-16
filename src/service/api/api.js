@@ -36,7 +36,7 @@ export default {
     if (response.status === 1) {
       return response.result
     } else {
-      this.toast(response.result.message)
+      // this.toast(response.result.message)
     }
   },
 
