@@ -259,9 +259,22 @@
       },
       addComponent (item) {
         var win = document.querySelector('#show-iframe').contentWindow
-        var newLi = document.createElement('li')
-        newLi.innerHTML = '第名'
-        win.document.body.append(newLi)
+        var newComponent = {
+          name: item.name,
+          key: item.componentPath
+        }
+        var text = win.localStorage.tempComponent
+        console.log('====' + text)
+        if (text === undefined) {
+          text = '[]'
+        }
+        var items = JSON.parse(text)
+        if (items === null) {
+          items = []
+        }
+        items.push(newComponent)
+        win.localStorage.setItem('tempComponent', JSON.stringify(items))
+        win.refresh()
         //	this.dialogWidgetVisible = !this.dialogWidgetVisible // 关闭模块管理
       },
       // 打开模块数据管理窗口,双击模块、拖进模块后操作
