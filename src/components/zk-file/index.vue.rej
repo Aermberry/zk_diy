@@ -1,0 +1,41 @@
+diff a/src/components/zk-file/index.vue b/src/components/zk-file/index.vue	(rejected hunks)
+@@ -32,6 +32,39 @@
+ 			<div class="content-left">
+ 				<ul>
+ 					<li v-for="(item, index) in fileClass" :key="index">{{item.value}}</li>
++          <li>
++            <x-icon src="example" size="100"></x-icon>
++          </li>
++          <li>
++            <x-icon src="eye" size="100"></x-icon>
++          </li>
++          <li>
++            <x-icon src="form" size="100"></x-icon>
++          </li>
++          <li>
++            <x-icon src="modules" size="100"></x-icon>
++          </li>
++          <li>
++            <x-icon src="new" size="100"></x-icon>
++          </li>
++          <li>
++            <x-icon src="pages" size="100"></x-icon>
++          </li>
++          <li>
++            <x-icon src="password" size="100"></x-icon>
++          </li>
++          <li>
++            <x-icon src="phone" size="100"></x-icon>
++          </li>
++          <li>
++            <x-icon src="table" size="100"></x-icon>
++          </li>
++          <li>
++            <x-icon src="tree" size="100"></x-icon>
++          </li>
++          <li>
++            <x-icon src="user" size="100"></x-icon>
++          </li>
+ 				</ul>
+ 			</div>
+ 			<div class="content-right">
