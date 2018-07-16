@@ -137,6 +137,7 @@ export const THEME_ADD_POST = 'Api/Theme/Add' // 增加单条记录
 export const THEME_UPDATE_GET = 'Api/Theme/Update' // 修改单条记录
 export const THEME_DELETE_GET = 'Api/Theme/Delete' // 删除单条记录
 export const THEME_GETLINK_GET = 'Api/Theme/GetLink' // 链接
+export const THEME_GETPAGE_GET = 'Api/Theme/GetPage' // 获取页面配置
 
 //  Site相关的API接口
 export const SITE_GET_GET = 'Api/Site/Get' // 根据Url获取单条记录
@@ -358,3 +359,20 @@ export const OPENTHEME_GETLIST_GET = 'Api/OpenTheme/GetList' // 根据Url获取�
 export const OPENTHEME_ADD_POST = 'Api/OpenTheme/Add' // 增加单条记录
 export const OPENTHEME_UPDATE_GET = 'Api/OpenTheme/Update' // 修改单条记录
 export const OPENTHEME_DELETE_GET = 'Api/OpenTheme/Delete' // 删除单条记录
+export const OPENTHEME_GETTHEME_GET = 'Api/OpenTheme/GetTheme' // 获取模板
+export const OPENTHEME_GETTHEMEPAGE_GET = 'Api/OpenTheme/GetThemePage' // 获取模板
+
+//  WidgetHistory相关的API接口
+export const WIDGETHISTORY_GET_GET = 'Api/WidgetHistory/Get' // 根据Url获取单条记录
+export const WIDGETHISTORY_GETLIST_GET = 'Api/WidgetHistory/GetList' // 根据Url获取列表
+export const WIDGETHISTORY_ADD_POST = 'Api/WidgetHistory/Add' // 增加单条记录
+export const WIDGETHISTORY_UPDATE_GET = 'Api/WidgetHistory/Update' // 修改单条记录
+export const WIDGETHISTORY_DELETE_GET = 'Api/WidgetHistory/Delete' // 删除单条记录
+
+//  ThemePageWidget相关的API接口
+export const THEMEPAGEWIDGET_SAVEASYNC_POST = 'Api/ThemePageWidget/SaveAsync' // 保存模块
+export const THEMEPAGEWIDGET_GET_GET = 'Api/ThemePageWidget/Get' // 根据Url获取单条记录
+export const THEMEPAGEWIDGET_GETLIST_GET = 'Api/ThemePageWidget/GetList' // 根据Url获取列表
+export const THEMEPAGEWIDGET_ADD_POST = 'Api/ThemePageWidget/Add' // 增加单条记录
+export const THEMEPAGEWIDGET_UPDATE_GET = 'Api/ThemePageWidget/Update' // 修改单条记录
+export const THEMEPAGEWIDGET_DELETE_GET = 'Api/ThemePageWidget/Delete' // 删除单条记录
