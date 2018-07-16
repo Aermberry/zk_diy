@@ -4,7 +4,6 @@
 </template>
 
 <script>
-  import { DIY_GETLINK_GET } from '@/service/api/apiUrl' // 引入Api接口常量
   export default {
     name: 'zk-auto-form',
     data () {
@@ -18,10 +17,7 @@
     },
     methods: {
       async  init () {
-        const para = {
-          diyKey: 'grid_index'
-        }
-        this.viewModel = await this.$api.get(DIY_GETLINK_GET, para)
+
       }
     }
   }

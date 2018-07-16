@@ -161,10 +161,15 @@
 					height: 500px;
 					overflow: auto;
 					li {
-						height: 40px;
-						line-height: 40px;
-						padding-left: 30px;
-						color: #29292a;
+						height: 140px;
+						line-height: 140px;
+						// padding-left: 30px;
+            color: #29292a;
+            text-align: center;
+            border:1px solid #e5e5e5;
+            img{
+              vertical-align: middle;
+            }
 					}
 					li.active {
 						background: #3899ed;
