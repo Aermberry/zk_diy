@@ -72,6 +72,7 @@
     </el-container>
     <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="asyncFlag" :widgetId="widgetId"></zk-widget-data>
     <global-setting></global-setting>
+    <web-safe-colors></web-safe-colors>
   </el-container>
 </template>
 <script>
@@ -80,6 +81,7 @@
   import Footer from './widgets/Footer'
   import Left from './widgets/Left'
   import globalsetting from './widgets/top/global-setting'
+  import websafecolor from './widgets/top/Web-safe-colors'
   import Right from './widgets/Right'
   export default {
     name: 'layout',
@@ -88,6 +90,7 @@
       'layout-left': Left,
       'layout-right': Right,
       'global-setting': globalsetting,
+      'web-safe-colors': websafecolor,
       AppMain
     },
     data () {
