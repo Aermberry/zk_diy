@@ -298,7 +298,7 @@
         screenWidth: '1100', // 屏幕宽度,
         dialogWidgetDataVisible: true, // 首次添加模块、双击模块、编辑模块时弹出的窗口
         themePageInfo: '', // 站点信息
-        widgetId: '5b4c9e0c9f7de61d7c4a4ea7',
+        widgetId: '5b4c9e0c9f7de61d7c4a4ea6',
         diyInfo: '', // diy信息,用户编辑时候，随时记录diy信息
         asyncFlag: false,
         isSave: false, // 保存状态

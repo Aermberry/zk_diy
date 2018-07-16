@@ -194,7 +194,7 @@
         layoutBoxVisible: false, // 页面窗口是否显示
         dialogDataVisible: true, // 首次添加模块、双击模块、编辑模块时弹出的窗口
         dialogWidgetVisible: false, // 模块弹出窗口
-        widgetId: '5b4c9e0c9f7de61d7c4a4ea7',
+        widgetId: '5b4c9e0c9f7de61d7c4a4ea6',
         dialogFileVisible: false, // 模块弹出窗口
         newpageVisible: false, // 新建模块
         moduleSearch: '',
