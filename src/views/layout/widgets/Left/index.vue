@@ -172,7 +172,7 @@
       </div>
     </div>
     <zk-file :dialogVisible="dialogFileVisible"></zk-file>
-    <!-- <zk-widget-data :dialogVisible="dialogDataVisible" :themePageInfo="themePageInfo" :widgetId="widgetId"></zk-widget-data> -->
+    <zk-widget-data :dialogVisible="dialogDataVisible" :themePageInfo="themePageInfo" :widgetId="widgetId"></zk-widget-data>
     <zk-newpage ref="zk_newpage" class="popup-newpage" :class="{'page-newpage-visible':newpageVisible}"></zk-newpage>
   </div>
 </template>
