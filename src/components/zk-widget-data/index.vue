@@ -3,7 +3,7 @@
 
         <div class="module-content">
 
-            <el-row :gutter="10" v-if="asyncFlag">
+            <el-row :gutter="10" v-if="asyncFlag" style="width:100%">
                 <el-col :span="21">
                     <zk-table :viewPropertys="viewModel.propertys" :dataValues="viewModel.values" v-if="viewModel.pageType===2" v-loading="loading"></zk-table>
                     <zk-auto-form :viewForm="viewModel.AutoForm" v-if="viewModel.pageType===1"></zk-auto-form>
@@ -86,53 +86,52 @@
 <style rel="stylesheet/scss" lang="scss" scoped>
     @import 'src/assets/styles/mixin.scss';
     .module-nav {
-    	height: 50px;
-    	border-top: 1px solid #d4ecfe;
-    	border-bottom: 1px solid #d4ecfe;
-    	background: #ebf7ff;
-    	ul {
-    		li {
-    			float: left;
-    			height: 50px;
-    			line-height: 50px;
-    			color: #0b5672;
-    			padding: 0 40px;
-    			border-right: 1px solid $--border-color-extra-light;
-    		}
-    		li.active {
-    			background: #fff;
-    		}
-    	}
+      height: 50px;
+      border-top: 1px solid #d4ecfe;
+      border-bottom: 1px solid #d4ecfe;
+      background: #ebf7ff;
+      ul {
+        li {
+          float: left;
+          height: 50px;
+          line-height: 50px;
+          color: #0b5672;
+          padding: 0 40px;
+          border-right: 1px solid $--border-color-extra-light;
+        }
+        li.active {
+          background: #fff;
+        }
+      }
     }
     .module-content {
-    	padding-left: 5px;
-    	height: 500px;
-    	display: flex;
-    	border-bottom: 1px solid $--border-color-extra-light;
-    	.content-right {
-    		border-left: 1px solid $--border-color-extra-light;
-    		ul {
-    			overflow: auto;
-    			overflow-x: hidden;
-    			li {
-    				height: 35px;
-    				line-height: 35px;
-    				padding-left: 5px;
-    				color: #29292a;
-    			}
-    			li.active {
-    				background: #3899ed;
-    				color: #fff;
-    			}
-    		}
-    		.el-alert {
-    			margin-bottom: 0px;
-    			overflow: hidden;
-    			width: 100%;
-    		}
-    		div {
-    			padding: 8px 0px;
-    		}
-    	}
+      padding-left: 5px;
+      display: flex;
+      border-bottom: 1px solid $--border-color-extra-light;
+      .content-right {
+        border-left: 1px solid $--border-color-extra-light;
+        ul {
+          overflow: auto;
+          overflow-x: hidden;
+          li {
+            height: 35px;
+            line-height: 35px;
+            padding-left: 5px;
+            color: #29292a;
+          }
+          li.active {
+            background: #3899ed;
+            color: #fff;
+          }
+        }
+        .el-alert {
+          margin-bottom: 0px;
+          overflow: hidden;
+          width: 100%;
+        }
+        div {
+          padding: 8px 0px;
+        }
+      }
     }
 </style>
