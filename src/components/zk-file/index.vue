@@ -2,19 +2,19 @@
 	<el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="文件管理" :visible.sync="dialogVisible" width="80%" class="zk-file">
 		<div class="module-nav">
 			<ul>
-				<li class="active">
+				<li @click="showContent=1" :class="{'active':showContent===1}" >
 					图片管理
 				</li>
-				<li>
+				<li @click="showContent=2" :class="{'active':showContent===2}">
 					图标管理
 				</li>
-				<li>
+				<li @click="showContent=3" :class="{'active':showContent===3}">
 					视频管理
 				</li>
-				<li>
+				<li @click="showContent=4" :class="{'active':showContent===4}">
 					音频管理
 				</li>
-				<li>
+				<li @click="showContent=5" :class="{'active':showContent===5}">
 					云空间
 				</li>
 			</ul>
@@ -28,7 +28,137 @@
 				<el-button style='' type="primary" icon="search"> 搜索</el-button>
 			</div>
 		</div>
-		<div class="module-content">
+    <!-- 图片管理 -->
+		<div class="module-content" v-if="showContent===1">
+			<div class="content-left">
+				<ul>
+					<li v-for="(item, index) in fileClass" :key="index">{{item.value}}</li>
+				</ul>
+			</div>
+			<div class="content-right">
+				<el-row>
+					<el-col :span="4" v-for="(item ,index) in viewModel" :key="index" class="content-box" :widget-id="item.id" :widget-componentPath="item.componentPath">
+						<el-card :body-style="{ padding: '2px' }">
+							<img src="https://img.alicdn.com/tfs/TB1oT8pAuOSBuNjy0FdXXbDnVXa-730-350.png">
+							<div style="padding: 5px;">
+								<span>{{item.name}}</span>
+								<div class="bottom clearfix">
+									<time class="time">{{ item.intro }}</time>
+									<el-button type="text" class="button">添加</el-button>
+								</div>
+							</div>
+						</el-card>
+					</el-col>
+				</el-row>
+			</div>
+		</div>
+    <!-- 图标管理 -->
+		<div class="module-content" v-if="showContent===2">
+			<div class="content-left">
+				<ul>
+					<li v-for="(item, index) in fileClass" :key="index">{{item.value}}</li>
+          <li>
+            <x-icon src="example" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="eye" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="form" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="modules" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="new" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="pages" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="password" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="phone" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="table" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="tree" size="100"></x-icon>
+          </li>
+          <li>
+            <x-icon src="user" size="100"></x-icon>
+          </li>
+				</ul>
+			</div>
+			<div class="content-right">
+				<el-row>
+					<el-col :span="4" v-for="(item ,index) in viewModel" :key="index" class="content-box" :widget-id="item.id" :widget-componentPath="item.componentPath">
+						<el-card :body-style="{ padding: '2px' }">
+							<img src="https://img.alicdn.com/tfs/TB1oT8pAuOSBuNjy0FdXXbDnVXa-730-350.png">
+							<div style="padding: 5px;">
+								<span>{{item.name}}</span>
+								<div class="bottom clearfix">
+									<time class="time">{{ item.intro }}</time>
+									<el-button type="text" class="button">添加</el-button>
+								</div>
+							</div>
+						</el-card>
+					</el-col>
+				</el-row>
+			</div>
+		</div>
+    <!-- 视频管理 -->
+		<div class="module-content" v-if="showContent===3">
+			<div class="content-left">
+				<ul>
+					<li v-for="(item, index) in fileClass" :key="index">{{item.value}}</li>
+				</ul>
+			</div>
+			<div class="content-right">
+				<el-row>
+					<el-col :span="4" v-for="(item ,index) in viewModel" :key="index" class="content-box" :widget-id="item.id" :widget-componentPath="item.componentPath">
+						<el-card :body-style="{ padding: '2px' }">
+							<img src="https://img.alicdn.com/tfs/TB1oT8pAuOSBuNjy0FdXXbDnVXa-730-350.png">
+							<div style="padding: 5px;">
+								<span>{{item.name}}</span>
+								<div class="bottom clearfix">
+									<time class="time">{{ item.intro }}</time>
+									<el-button type="text" class="button">添加</el-button>
+								</div>
+							</div>
+						</el-card>
+					</el-col>
+				</el-row>
+			</div>
+		</div>
+    <!-- 音频管理 -->
+		<div class="module-content" v-if="showContent===4">
+			<div class="content-left">
+				<ul>
+					<li v-for="(item, index) in fileClass" :key="index">{{item.value}}</li>
+				</ul>
+			</div>
+			<div class="content-right">
+				<el-row>
+					<el-col :span="4" v-for="(item ,index) in viewModel" :key="index" class="content-box" :widget-id="item.id" :widget-componentPath="item.componentPath">
+						<el-card :body-style="{ padding: '2px' }">
+							<img src="https://img.alicdn.com/tfs/TB1oT8pAuOSBuNjy0FdXXbDnVXa-730-350.png">
+							<div style="padding: 5px;">
+								<span>{{item.name}}</span>
+								<div class="bottom clearfix">
+									<time class="time">{{ item.intro }}</time>
+									<el-button type="text" class="button">添加</el-button>
+								</div>
+							</div>
+						</el-card>
+					</el-col>
+				</el-row>
+			</div>
+		</div>
+    <!-- 云空间 -->
+		<div class="module-content" v-if="showContent===5">
 			<div class="content-left">
 				<ul>
 					<li v-for="(item, index) in fileClass" :key="index">{{item.value}}</li>
@@ -71,7 +201,8 @@
 				viewModel: null,
 				fileClass: '',
 				themePageModel: null, // 站点URL
-				fileClassId: 0 // 文件分类Id
+				fileClassId: 0, // 文件分类Id
+        showContent: 1
 			}
 		},
 		mounted () {
@@ -120,7 +251,8 @@
 					line-height: 50px;
 					color: #0b5672;
 					padding: 0 40px;
-					border-right: 1px solid $--border-color-extra-light;
+          border-right: 1px solid $--border-color-extra-light;
+          cursor: pointer;
 				}
 				li.active {
 					background: #fff;
