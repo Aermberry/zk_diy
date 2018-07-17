@@ -34,7 +34,7 @@
                 <el-menu-item index="10-1">
                   <x-screenfull></x-screenfull>
                 </el-menu-item>
-                <el-menu-item index="10-2">web安全色</el-menu-item>
+                <el-menu-item index="10-2" @click="safeWebcolors">web安全色</el-menu-item>
               </el-submenu>
             </el-menu>
           </el-col>
@@ -81,6 +81,7 @@
     <!-- <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="asyncFlag" :widgetId="widgetId"></zk-widget-data> -->
     <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="false" :widgetId="widgetId"></zk-widget-data>
     <global-setting v-if="showEntireSet"></global-setting>
+    <Web-safecolors v-show="safeWebcolorsVisible"></Web-safecolors>
   </el-container>
 </template>
 <script>
@@ -89,6 +90,7 @@
   import Footer from './widgets/Footer'
   import Left from './widgets/Left'
   import globalsetting from './widgets/top/global-setting'
+  import websafecolors from './widgets/top/Web-safe-colors'
   import Right from './widgets/Right'
   export default {
     name: 'layout',
@@ -97,6 +99,7 @@
       'layout-left': Left,
       'layout-right': Right,
       'global-setting': globalsetting,
+      'Web-safecolors': websafecolors,
       AppMain
     },
     data () {
@@ -110,7 +113,8 @@
         isSave: false, // 保存状态
         previewText: "预览<i class='el-icon-view el-icon--right'>",
         isshow: false,
-        showEntireSet: false
+        showEntireSet: false,
+        safeWebcolorsVisible: false
       }
     },
     mounted () {
@@ -218,12 +222,15 @@
       previewClick () {
         this.previewText = this.previewText === '预览<i class=\'el-icon-view el-icon--right\'>' ? '编辑<i class=\'el-icon-edit el-icon--right\'>' : '预览<i class=\'el-icon-view el-icon--right\'>'
         this.isshow = !this.isshow
+      },
+      async safeWebcolors () {
+        this.safeWebcolorsVisible = true
       }
+
     }
   }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   @import './Layout.scss'; // 便于调试，css写到layout.css中
-
 </style>
