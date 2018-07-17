@@ -1,11 +1,14 @@
 <template>
-    <div class="zk-websafecolor">
+    <div class="zk-websafecolor" v-show="closed">
         <header>
             <div class="header-box">
                 <template v-for="(item,index) of wordColor">
                     <span :key="index" :style="item.color">{{item.word}}</span>
                 </template>
             </div>
+            <span class="closed" @click="isshow">
+                <i class="flaticon-circle el-icon--left"></i> 关闭
+            </span>
         </header>
 
         <body>
@@ -387,9 +390,25 @@
                             { color: '#FFFFFF' }
                         ]
                     }
-                ]
+                ],
+                closed: true
             }
+        },
+        mounted () {
+            this.$nextTick(function () {
+                this.$on('child', function (safeWebcolorsVisible) {
+                    console.log('safeWebcolorsVisible2', safeWebcolorsVisible)
+                    this.closed = safeWebcolorsVisible
+                })
+            })
+        },
+        methods: {
+            isshow () {
+                this.closed = false
+            }
+
         }
+
     }
 </script>
 
@@ -408,6 +427,7 @@
       border-radius: 10px;
       background-color: #ffffff;
       header {
+        position: relative;
         .header-box {
           padding: 0px 20px;
           border-bottom: 1px solid #cccccc;
@@ -415,6 +435,15 @@
             font-size: 53.45px;
             font-weight: 700;
           }
+        }
+
+        .closed {
+          cursor: pointer;
+          position: absolute;
+          top: 10px;
+          right: 13px;
+          font-size: 20px;
+          font-weight: 400;
         }
       }
       body {

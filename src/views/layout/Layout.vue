@@ -81,7 +81,7 @@
     <!-- <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="asyncFlag" :widgetId="widgetId"></zk-widget-data> -->
     <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="false" :widgetId="widgetId"></zk-widget-data>
     <global-setting v-if="showEntireSet"></global-setting>
-    <Web-safecolors v-show="safeWebcolorsVisible"></Web-safecolors>
+    <Web-safecolors v-show="safeWebcolorsVisible" ref="web_safecolors"></Web-safecolors>
   </el-container>
 </template>
 <script>
@@ -225,6 +225,8 @@
       },
       async safeWebcolors () {
         this.safeWebcolorsVisible = true
+        console.log('safeWebcolorsVisible1', this.safeWebcolorsVisible)
+        this.$refs.web_safecolors.$emit('child', this.safeWebcolorsVisible)
       }
 
     }
