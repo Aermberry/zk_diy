@@ -273,6 +273,7 @@
         </div>
       </div>
     </div>
+    <web-safe-colors></web-safe-colors>
   </el-container>
 </template>
 <script>
