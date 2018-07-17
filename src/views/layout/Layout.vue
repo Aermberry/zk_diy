@@ -80,199 +80,7 @@
     </el-container>
     <!-- <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="asyncFlag" :widgetId="widgetId"></zk-widget-data> -->
     <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="false" :widgetId="widgetId"></zk-widget-data>
-    <global-setting></global-setting>
-    <div class="entire-set" v-if="showEntireSet">
-      <div class="page_setting">
-        <div class="entire-set-box">
-          <div class="main-item">
-            <div class="main-item_title">
-              主色
-            </div>
-            <div class="main-item_content">
-              <el-color-picker v-model="color.main"></el-color-picker>
-            </div>
-          </div>
-          <div class="minor-item">
-            <div class="minor-item_title">
-              辅助色
-            </div>
-            <div class="minor-item_content-box">
-              <ul>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    brand
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="color.brand"></el-color-picker>
-                  </div>
-                </li>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    metal
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="color.metal"></el-color-picker>
-                  </div>
-                </li>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    light
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="color.light"></el-color-picker>
-                  </div>
-                </li>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    accent
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="color.accent"></el-color-picker>
-                  </div>
-                </li>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    focus
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="color.focus"></el-color-picker>
-                  </div>
-                </li>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    primary
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="color.primary"></el-color-picker>
-                  </div>
-                </li>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    success
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="color.success"></el-color-picker>
-                  </div>
-                </li>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    info
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="color.info"></el-color-picker>
-                  </div>
-                </li>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    warning
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="color.warning"></el-color-picker>
-                  </div>
-                </li>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    danger
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="color.danger"></el-color-picker>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="minor-item">
-            <div class="minor-item_title">
-              中性色
-            </div>
-            <div class="minor-item_content-box">
-              <ul>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    主要文字
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="fontColeor.main"></el-color-picker>
-                  </div>
-                </li>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    常规文字
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="fontColeor.common"></el-color-picker>
-                  </div>
-                </li>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    次要文字
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="fontColeor.minor"></el-color-picker>
-                  </div>
-                </li>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    占位字体
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="fontColeor.placeholder"></el-color-picker>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="minor-item">
-            <div class="minor-item_title">
-              边框颜色
-            </div>
-            <div class="minor-item_content-box">
-              <ul>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    一级边框
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="borderColor.one"></el-color-picker>
-                  </div>
-                </li>
-                <li class="content-tiem">
-                  <div class="content-tiem-left">
-                    二级边框
-                  </div>
-                  <div class="content-tiem-right">
-                    <el-color-picker v-model="borderColor.two"></el-color-picker>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="minor-btn">
-            <el-button style='' type="primary">
-              <i class="flaticon-open-box "></i>
-              保存
-            </el-button>
-          </div>
-        </div>
-        <div class="past-records">
-          <div class="past-records_title">
-            历史记录
-          </div>
-          <div class="past-records_content">
-            <ul>
-              <li class="content-item">
-                历史纪录1
-              </li>
-              <li class="content-item">
-                历史记录2
-                <x-icon src="src/assets/svg/eye.svg"></x-icon>
-                <x-icon src="eye"></x-icon>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    <global-setting v-if="showEntireSet"></global-setting>
   </el-container>
 </template>
 <script>
@@ -281,7 +89,6 @@
   import Footer from './widgets/Footer'
   import Left from './widgets/Left'
   import globalsetting from './widgets/top/global-setting'
-  import websafecolor from './widgets/top/Web-safe-colors'
   import Right from './widgets/Right'
   export default {
     name: 'layout',
@@ -290,7 +97,6 @@
       'layout-left': Left,
       'layout-right': Right,
       'global-setting': globalsetting,
-      'web-safe-colors': websafecolor,
       AppMain
     },
     data () {
@@ -298,36 +104,13 @@
         screenWidth: '1100', // 屏幕宽度,
         dialogWidgetDataVisible: true, // 首次添加模块、双击模块、编辑模块时弹出的窗口
         themePageInfo: '', // 站点信息
-        widgetId: '5b4c9e0c9f7de61d7c4a4ea6',
+        widgetId: '5b45350e55f7b54a285630b4',
         diyInfo: '', // diy信息,用户编辑时候，随时记录diy信息
         asyncFlag: false,
         isSave: false, // 保存状态
         previewText: "预览<i class='el-icon-view el-icon--right'>",
         isshow: false,
-        showEntireSet: false,
-        color: {
-          main: '#409EFF',
-          brand: '#409EFF',
-          metal: '#575962',
-          light: '#ffffff',
-          accent: '#00c5dc',
-          focus: '#9816f4',
-          primary: '#5867dd',
-          success: '#34bfa3',
-          info: '#36a3f7',
-          warning: '#ffb822',
-          danger: '#f4516c'
-        },
-        fontColeor: {
-          main: '#303133',
-          common: '#606266',
-          minor: '#909399',
-          placeholder: '#dcdfe6'
-        },
-        borderColor: {
-          one: '#dcdfe6',
-          two: '#f2f6fc'
-        }
+        showEntireSet: false
       }
     },
     mounted () {
@@ -442,4 +225,5 @@
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   @import './Layout.scss'; // 便于调试，css写到layout.css中
+
 </style>

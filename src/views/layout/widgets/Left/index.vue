@@ -172,7 +172,7 @@
       </div>
     </div>
     <zk-file :dialogVisible="dialogFileVisible"></zk-file>
-    <zk-widget-data :dialogVisible="dialogDataVisible" :themePageInfo="themePageInfo" :widgetId="widgetId"></zk-widget-data>
+    <!-- <zk-widget-data :dialogVisible="dialogDataVisible" :themePageInfo="themePageInfo" :widgetId="widgetId"></zk-widget-data> -->
     <zk-newpage ref="zk_newpage" class="popup-newpage" :class="{'page-newpage-visible':newpageVisible}"></zk-newpage>
   </div>
 </template>
@@ -213,12 +213,15 @@
       async pageBox () {
         this.pageBoxVisible = !this.pageBoxVisible
         this.layoutBoxVisible = false
+        this.dialogFileVisible = false
       },
       async layoutBox () {
         this.layoutBoxVisible = !this.layoutBoxVisible
-        this.pageBoxVisible = false
+        // this.pageBoxVisible = false
+        this.dialogFileVisible = false
       },
       async newpages () {
+        this.dialogFileVisible = false
         this.newpageVisible = !this.newpageVisible
         this.$refs.zk_newpage.$emit('child', this.newpageVisible) // 监听销售属性事件
       },
@@ -226,13 +229,14 @@
         this.dialogWidgetVisible = !this.pageBoxVisible
         this.pageBoxVisible = false
         this.layoutBoxVisible = false
-        this.dialogFileVisible = true
+        this.dialogFileVisible = false
+        // this.dialogFileVisible = true
       },
       async fileClick () {
         this.dialogDataVisible = false
         this.pageBoxVisible = false
         this.layoutBoxVisible = false
-        this.dialogFileVisible = true
+        this.dialogFileVisible = !this.dialogFileVisible
       },
       async init () {
         // 模块、模块分类导入
@@ -298,7 +302,6 @@
   	top: 57px;
   	left: -300px;
   	width: 300px;
-  	height: 40px;
   	background: white;
   	-webkit-transition: all 0.3s ease;
   	-moz-transition: all 0.3s ease;
