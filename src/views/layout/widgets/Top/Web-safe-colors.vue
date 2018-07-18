@@ -1,5 +1,6 @@
 <template>
-    <div class="zk-websafecolor" v-show="closed">
+<el-dialog title="收货地址" :visible.sync="dialogTableVisible" v-show="closed" class="zk-websafecolor">
+    <div  slot="footer">
         <header>
             <div class="header-box">
                 <template v-for="(item,index) of wordColor">
@@ -7,10 +8,8 @@
                 </template>
             </div>
             <span class="closed" @click="isshow">
-                <i class="flaticon-circle el-icon--left"></i> 关闭
             </span>
         </header>
-
         <body>
             <ul class="color-boxs">
                 <li v-for="(item,index) of basecolor" :key="index">
@@ -23,6 +22,7 @@
             </ul>
         </body>
     </div>
+</el-dialog>
 </template>
 
 <script>
@@ -37,13 +37,13 @@
                         }
                     },
                     {
-                        word: 'Safe',
+                        word: '安全',
                         color: {
                             color: '#666666'
                         }
                     },
                     {
-                        word: 'Color',
+                        word: '色',
                         color: {
                             color: '#333333'
                         }
@@ -431,6 +431,7 @@
         .header-box {
           padding: 0px 20px;
           border-bottom: 1px solid #cccccc;
+          display: flex;
           span {
             font-size: 53.45px;
             font-weight: 700;
