@@ -1,5 +1,5 @@
 <template>
-<el-dialog title='Web安全色' :visible.sync='dialogTableVisible' v-show='closed' class='zk-websafecolor' :before-close='handleClose'>
+<el-dialog title='Web安全色' :visible.sync='dialogTableVisible' v-show='closed' class='zk-websafecolor' :before-close='handleClose' width="54%">
     <div slot='footer'>
         <body slot='footer' >
             <ul class='color-boxs'>
@@ -459,7 +459,7 @@ export default {
     padding: 2px 10px;
     .color-boxs {
       margin-top: 1px;
-      width: auto;
+      width: 500px;
       overflow: hidden;
       li {
         .colors {
@@ -469,11 +469,11 @@ export default {
             cursor: pointer;
             color: #e6e6e6;
             display: inline-block;
-            width: 100px;
-            height: 40px;
+            width: 200px;
+            height: 30px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            line-height: 40px;
+            line-height: 30px;
             text-align: center;
           }
         }
