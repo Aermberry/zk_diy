@@ -13,6 +13,7 @@
     "test": "npm run lint"
   },
   "dependencies": {
+    "clipboard": "^2.0.1",
     "element-ui": "2.4.2",
     "flyio": "^0.5.9",
     "screenfull": "^3.3.2",

@@ -1,21 +1,12 @@
 <template>
-<el-dialog title="Web安全色" :visible.sync="dialogTableVisible" v-show="closed" class="zk-websafecolor">
+<el-dialog title="Web安全色" :visible.sync="dialogTableVisible" v-show="closed" class="zk-websafecolor" :before-close="handleClose">
     <div slot="footer">
-        <!-- <header>
-            <div class="header-box">
-                <template v-for="(item,index) of wordColor">
-                    <span :key="index" :style="item.color">{{item.word}}</span>
-                </template>
-            </div>
-            <span class="closed" @click="isshow">
-            </span>
-        </header> -->
         <body slot="footer" >
             <ul class="color-boxs">
                 <li v-for="(item,index) of basecolor" :key="index">
                     <div class="colors">
                         <template v-for="(item,index) of item.colors">
-                            <span :key="index" :style="{backgroundColor:item.color}">{{item.color}}</span>
+                            <span :key="index" :style="{backgroundColor:item.color}" @click="copyed" v-html="item.color" :data-clipboard-text="item.color" class="color"></span>
                         </template>
                     </div>
                 </li>
@@ -26,6 +17,7 @@
 </template>
 
 <script>
+import Clipboard from 'clipboard'
     export default {
         data () {
             return {
@@ -405,8 +397,20 @@
         methods: {
             isshow () {
                 this.closed = false
-            }
-
+            },
+    handleClose (done) {
+        this.$confirm('确认关闭？')
+          .then(_ => {
+            done(this.closed = false)
+          })
+          .catch(_ => {})
+      },
+      copyed (e) {
+        let color = e.target.innerText//获取当前文本内容
+        const btnCopy = new Clipboard('.color')//
+        console.log(btnCopy)
+        console.log(color)
+      }
         }
 
     }
@@ -427,7 +431,6 @@
         height: 300px;
         border: 1px solid #ccc;
         padding: 2px 10px;
-        // background-color: red;
         .color-boxs {
           margin-top: 1px;
           width: auto;
@@ -437,6 +440,7 @@
               display: flex;
               justify-content: space-around;
               span {
+                cursor: pointer;
                 color: #ffffff;
                 display: inline-block;
                 width: 100px;
