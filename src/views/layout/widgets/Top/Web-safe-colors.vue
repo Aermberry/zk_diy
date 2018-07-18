@@ -1,7 +1,7 @@
 <template>
-<el-dialog title="收货地址" :visible.sync="dialogTableVisible" v-show="closed" class="zk-websafecolor">
-    <div  slot="footer">
-        <header>
+<el-dialog title="Web安全色" :visible.sync="dialogTableVisible" v-show="closed" class="zk-websafecolor">
+    <div slot="footer">
+        <!-- <header>
             <div class="header-box">
                 <template v-for="(item,index) of wordColor">
                     <span :key="index" :style="item.color">{{item.word}}</span>
@@ -9,8 +9,8 @@
             </div>
             <span class="closed" @click="isshow">
             </span>
-        </header>
-        <body>
+        </header> -->
+        <body slot="footer" >
             <ul class="color-boxs">
                 <li v-for="(item,index) of basecolor" :key="index">
                     <div class="colors">
@@ -421,61 +421,29 @@
       margin-left: -636px;
       margin-top: -380px;
       width: 1073px;
-      height: 670px;
-      border: 1px solid #cccccc;
-      padding: 30px 50px;
-      border-radius: 10px;
-      background-color: #ffffff;
-      header {
-        position: relative;
-        .header-box {
-          padding: 0px 20px;
-          border-bottom: 1px solid #cccccc;
-          display: flex;
-          span {
-            font-size: 53.45px;
-            font-weight: 700;
-          }
-        }
-
-        .closed {
-          cursor: pointer;
-          position: absolute;
-          top: 10px;
-          right: 13px;
-          font-size: 20px;
-          font-weight: 400;
-        }
-      }
+      padding: 30px 0px;
       body {
         margin-top: 30px;
-        height: 500px;
+        height: 300px;
         border: 1px solid #ccc;
         padding: 2px 10px;
+        // background-color: red;
         .color-boxs {
+          margin-top: 1px;
           width: auto;
-          //   height: 400px;
-
           overflow: hidden;
           li {
-            &:first-child {
-              margin-top: -50px;
-            }
-
             .colors {
               display: flex;
               justify-content: space-around;
-
               span {
                 color: #ffffff;
                 display: inline-block;
-                width: 155px;
-                height: 60px;
-                margin-top: 50px;
-                //   background-color: aquamarine;
+                width: 100px;
+                height:40px;
                 border: 1px solid #ccc;
                 border-radius: 5px;
-                line-height: 60px;
+                line-height: 40px;
                 text-align: center;
               }
             }
