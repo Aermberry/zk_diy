@@ -6,7 +6,7 @@
                 <li v-for="(item,index) of basecolor" :key="index">
                     <div class="colors">
                         <template v-for="(item,index) of item.colors">
-                            <span :key="index" :style="{backgroundColor:item.color}" @click="copyed" v-html="item.color" :data-clipboard-text="item.color" class="color"></span>
+                            <span :key="index" :style="{backgroundColor:item.color}" @click="copyed" v-html="item.color" :data-clipboard-text="item.color" class="color"  ></span>
                         </template>
                     </div>
                 </li>
@@ -405,13 +405,20 @@ import Clipboard from 'clipboard'
           })
           .catch(_ => {})
       },
-      copyed (e) {
-        let color = e.target.innerText//获取当前文本内容
-        const btnCopy = new Clipboard('.color')//
+      copyed () {
+        const btnCopy = new Clipboard('.color')
         console.log(btnCopy)
-        console.log(color)
+         if (btnCopy) {
+        this.open2()
       }
-        }
+      },
+      open2 () {
+        this.$message({
+          message: '成功复制',
+          type: 'success'
+        })
+      }
+    }
 
     }
 </script>
