@@ -174,19 +174,23 @@
     <zk-file :dialogVisible="dialogFileVisible"></zk-file>
     <zk-widget-data :dialogVisible="dialogDataVisible" :themePageInfo="themePageInfo" :widgetId="widgetId"></zk-widget-data>
     <zk-newpage ref="zk_newpage" class="popup-newpage" :class="{'page-newpage-visible':newpageVisible}"></zk-newpage>
+  <zk-imagemanagement></zk-imagemanagement>
+
   </div>
 </template>
 
 <script>
   import elDragDialog from '@/directive/el-dragDialog'
   import NewPage from './NewPage'
+  import ImageManagement from './Imagemanagement.vue'
   import { WIDGET_GETLIST_GET, LAYOUT_GETLIST_GET, WIDGET_CLASS_GET, THEMEPAGE_GETTHEMEPAGELIST_GET } from '@/service/api/apiUrl'
   export default {
     name: 'layout-left',
     directives: { elDragDialog },
     props: ['themePageInfo'],
     components: {
-      'zk-newpage': NewPage
+      'zk-newpage': NewPage,
+      'zk-imagemanagement': ImageManagement
     },
     data () {
       return {
