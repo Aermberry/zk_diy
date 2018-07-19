@@ -2,97 +2,25 @@
 <div class="zk-image">
 <el-tabs type="border-card">
   <el-tab-pane label="图片管理">
-<el-row>
-  <el-col :span="4">
-    <div class="grid-content bg-purple">
-      <span>
-        <img src="" alt="">
-        </span>
-    </div>
-    </el-col>
-  <el-col :span="4">
-    <div class="grid-content bg-purple-light">
-      <span>
-        <img src="" alt="">
-        </span>
-    </div>
-    </el-col>
-  <el-col :span="4">
-    <div class="grid-content bg-purple">
-      <span>
-        <img src="" alt="">
-        </span>
-    </div>
-    </el-col>
-  <el-col :span="4">
-    <div class="grid-content bg-purple-light">
-      <span>
-        <img src="" alt="">
-        </span>
-    </div>
-    </el-col>
-  <el-col :span="4">
-    <div class="grid-content bg-purple">
-      <span>
-        <img src="" alt="">
-        </span>
-    </div>
-    </el-col>
-  <el-col :span="4">
-    <div class="grid-content bg-purple-light">
-      <span>
-        <img src="" alt="">
-        </span>
-    </div>
-    </el-col>
-</el-row>
-<el-row>
-  <el-col :span="4">
-    <div class="grid-content bg-purple">
-      <span>
-        <img src="" alt="">
-        </span>
-    </div>
-    </el-col>
-  <el-col :span="4">
-    <div class="grid-content bg-purple-light">
-      <span>
-        <img src="" alt="">
-        </span>
-    </div>
-    </el-col>
-  <el-col :span="4">
-    <div class="grid-content bg-purple">
-      <span>
-        <img src="" alt="">
-        </span>
-    </div>
-    </el-col>
-  <el-col :span="4">
-    <div class="grid-content bg-purple-light">
-      <span>
-        <img src="" alt="">
-        </span>
-    </div>
-    </el-col>
-  <el-col :span="4">
-    <div class="grid-content bg-purple">
-      <span>
-        <img src="" alt="">
-        </span>
-    </div>
-    </el-col>
-  <el-col :span="4">
-    <div class="grid-content bg-purple-light">
-      <span>
-        <img src="" alt="">
-        </span>
-    </div>
-    </el-col>
-</el-row>
+    <template v-for="(item,index) of images">
+       <el-row :key="index">
+
+         <template v-for="(item,index) of item.urls ">
+           <el-col :span="4" :key="index">
+            <div class="grid-content bg-purple">
+             <span>
+              <img src="item.url" alt="">
+             </span>
+            </div>
+           </el-col>
+         </template>
+       </el-row>
+
+    </template>
+
   </el-tab-pane>
 <el-tab-pane label="配置管理">
-  <el-row>
+<el-row>
   <el-col :span="4">
     <div class="grid-content bg-purple">
       <span>
@@ -199,6 +127,25 @@ export default {
             { url: '' },
             { url: '' },
             { url: '' },
+            { url: '' }
+          ]
+        },
+        {
+          urls: [
+            { url: '' },
+            { url: '' },
+            { url: '' },
+            { url: '' },
+            { url: '' },
+            { url: '' }
+          ]
+        },
+        {
+          urls: [
+            { url: '' },
+            { url: '' },
+            { url: '' },
+            { url: '' },
             { url: '' },
             { url: '' }
           ]
@@ -215,23 +162,22 @@ export default {
         },
         {
           urls: [
-            { urls: '' },
-            { urls: '' },
-            { urls: '' },
-            { urls: '' },
-            { urls: '' },
-            { urls: '' }
+            { url: '' },
+            { url: '' },
+            { url: '' },
+            { url: '' },
+            { url: '' },
+            { url: '' }
           ]
         },
         {
           urls: [
-            { urls: '' },
-            { urls: '' },
-            { urls: '' },
-            { urls: '' },
-            { urls: '' },
-            { urls: '' },
-            { urls: '' }
+            { url: '' },
+            { url: '' },
+            { url: '' },
+            { url: '' },
+            { url: '' },
+            { url: '' }
           ]
         }
       ]
@@ -243,7 +189,7 @@ export default {
 <style lang="scss" scoped>
 .zk-image {
   position: absolute;
-  top: 50%;
+  top: 10%;
   left: 30%;
   z-index: 5000;
   width: auto;
@@ -258,8 +204,6 @@ export default {
           border: 1px solid #cccccc;
           img {
             display: block;
-            vertical-align: bottom;
-            line-height: 0;
             width: 105px;
             height: 105px;
           }
