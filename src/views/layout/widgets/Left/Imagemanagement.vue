@@ -1,15 +1,15 @@
 <template>
-<div class="zk-image">
+<div class="zk-image" :style="width">
 <el-tabs type="border-card">
   <el-tab-pane label="图片管理">
-    <template v-for="(item,index) of images">
+    <template v-for="(items,index) of images">
        <el-row :key="index">
-
-         <template v-for="(item,index) of item.urls ">
+         <!-- :style="{width:width+'px'}" -->
+         <template v-for="(item,index) of items.urls ">
            <el-col :span="4" :key="index">
             <div class="grid-content bg-purple">
              <span>
-              <img src="item.url" alt="">
+              <img :src="{url:item.url}" alt="">
              </span>
             </div>
            </el-col>
@@ -122,17 +122,7 @@ export default {
       images: [
         {
           urls: [
-            { url: '' },
-            { url: '' },
-            { url: '' },
-            { url: '' },
-            { url: '' },
-            { url: '' }
-          ]
-        },
-        {
-          urls: [
-            { url: '' },
+            { url: require('./../../../../../static/img/Mobile end sample diagram.png') },
             { url: '' },
             { url: '' },
             { url: '' },
@@ -142,48 +132,60 @@ export default {
         },
         {
           urls: [
-            { url: '' },
-            { url: '' },
-            { url: '' },
-            { url: '' },
-            { url: '' },
-            { url: '' }
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' }
           ]
         },
         {
           urls: [
-            { url: '' },
-            { url: '' },
-            { url: '' },
-            { url: '' },
-            { url: '' },
-            { url: '' }
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' }
           ]
         },
         {
           urls: [
-            { url: '' },
-            { url: '' },
-            { url: '' },
-            { url: '' },
-            { url: '' },
-            { url: '' }
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' }
           ]
         },
         {
           urls: [
-            { url: '' },
-            { url: '' },
-            { url: '' },
-            { url: '' },
-            { url: '' },
-            { url: '' }
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' }
+          ]
+        },
+        {
+          urls: [
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' },
+            { url: 'javascript:void(0)' }
           ]
         }
-      ]
+      ],
+      width: 0,
+      url: ''
     }
   }
-}
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -196,9 +198,11 @@ export default {
   .el-row {
     padding: 0 10px;
     .el-col {
+      width: auto;
       .grid-content {
         padding: 0 10px;
         padding-top: 10px;
+        width: auto;
         span {
           display: inline-block;
           border: 1px solid #cccccc;
