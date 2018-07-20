@@ -1,4 +1,4 @@
-export const apiBaseUrl = 'http://localhost:5000/'
+export const apiBaseUrl = 'http://localhost:5005/'
 
 // 项目Id与秘钥，联系服务获取
 export const projectId = '3090C620-9D5F-4B95-8591-0305F9DE39B0'
