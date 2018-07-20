@@ -1,5 +1,5 @@
 <template>
-	<el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="文件管理" :visible.sync="dialogVisible" width="70%" class="zk-file">
+	<el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="文件管理" :visible.sync="dialogVisible" width="50%" class="zk-file">
 		<div class="module-nav">
 			<ul>
 				<li @click="showContent=1" :class="{'active':showContent===1}" >
@@ -21,6 +21,17 @@
 		</div>
 		<div class="module-search">
 			<div class="search-left">
+        <div class="upload">
+          <el-upload
+                class="upload-demo"
+                drag
+                action="https://jsonplaceholder.typicode.com/posts/"
+                multiple>
+                <i class="el-icon-upload"></i>
+                <span class="el-upload__text">将文件拖到此处，或<em>点击上传</em></span>
+                <span class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</span>
+            </el-upload>
+        </div>
 			</div>
 			<div class="search-right">
 				<el-input style='width:222px;' placeholder="搜索" prefix-icon="el-icon-search" v-model="moduleSearch"></el-input>
@@ -62,17 +73,6 @@
 <div class="zk-paginations">
   <zk-Pagination class="pagination"></zk-Pagination>
 </div>
-        </div>
-         <div class="upload">
-          <el-upload
-                class="upload-demo"
-                drag
-                action="https://jsonplaceholder.typicode.com/posts/"
-                multiple>
-                <i class="el-icon-upload"></i>
-                <span class="el-upload__text">将文件拖到此处，或<em>点击上传</em></span>
-                <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
-            </el-upload>
         </div>
 			</div>
 		</div>
@@ -302,6 +302,23 @@ export default {
 <style rel="stylesheet/scss" lang="scss" scoped>
 @import "src/assets/styles/mixin.scss";
 
+.upload-demo /deep/.el-upload-dragger {
+  // background-color: yellow;
+  height: 50px;
+  border: none;
+  // line-height: 50px;
+  position: relative;
+  .el-icon-upload {
+    position: absolute;
+    top: -15px;
+    left: 53px;
+    line-height: 0;
+    display: inline-block;
+    padding-bottom: 10px;
+    font-size: 30px;
+    vertical-align: top;
+  }
+}
 .zk-file {
   padding: 0;
   .el-dialog__body {
@@ -336,7 +353,7 @@ export default {
   }
   .module-search {
     margin-top: 1px;
-    height: 50px;
+    height: 60px;
     display: flex;
     border-bottom: 1px solid $--border-color-extra-light;
     .search-left {
@@ -345,6 +362,17 @@ export default {
       line-height: 50px;
       color: #7d94a6;
       padding-left: 20px;
+      .upload {
+        .upload-demo {
+          height: 100px;
+          .el-upload__tip {
+            position: absolute;
+            top: 113px;
+            left: 330px;
+            // background-color: green;
+          }
+        }
+      }
     }
     .search-right {
       height: 50px;
@@ -372,15 +400,15 @@ export default {
       height: 500px;
       border-right: 1px solid $--border-color-extra-light;
       .el-menu-item-group {
-          .el-menu-item {
-            height: 40px;
-            text-align: center;
-            line-height: 40px;
-            border-bottom: 1px solil black;
-            &:first-child {
-              margin-top: -14px;
-            }
+        .el-menu-item {
+          height: 40px;
+          text-align: center;
+          line-height: 40px;
+          border-bottom: 1px solil black;
+          &:first-child {
+            margin-top: -14px;
           }
+        }
       }
       .btn_create {
       }
@@ -424,7 +452,7 @@ export default {
         .pagination {
           position: absolute;
           top: 22px;
-          left: 14%;
+          left: 8%;
         }
       }
       .content-box {
@@ -471,3 +499,4 @@ export default {
   }
 }
 </style>
+
