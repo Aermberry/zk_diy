@@ -30,9 +30,17 @@
     <!-- 图片管理 -->
 		<div class="module-content" v-if="showContent===1">
 			<div class="content-left">
-				<ul>
-					<li v-for="(item, index) in fileClass" :key="index">{{item.value}}</li>
-				</ul>
+      <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+          <el-menu-item-group>
+            <el-menu-item index="1-1">未分类</el-menu-item>
+            </template>
+            <el-menu-item index="1-1">未分类</el-menu-item>
+            <el-menu-item index="1-2">网站广告图</el-menu-item>
+            <el-menu-item index="1-3">799</el-menu-item>
+            <el-menu-item index="1-4">网站装修</el-menu-item>
+            <el-menu-item index="1-5" @click="addTab(editableTabsValue2)" class="btn_create"><i class="flaticon-add-circular-button"></i></el-menu-item>
+          </el-menu-item-group>
+      </el-menu>
 			</div>
 			<div class="content-right">
         <div class="images">
@@ -362,23 +370,18 @@ export default {
       width: 140px;
       height: 500px;
       border-right: 1px solid $--border-color-extra-light;
-      ul {
-        height: 500px;
-        overflow: auto;
-        li {
-          height: 140px;
-          line-height: 140px;
-          color: #29292a;
-          text-align: center;
-          border: 1px solid #e5e5e5;
-          img {
-            vertical-align: middle;
+      .el-menu-item-group {
+          .el-menu-item {
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-bottom: 1px solil black;
+            &:first-child {
+              margin-top: -14px;
+            }
           }
-        }
-        li.active {
-          background: #3899ed;
-          color: #fff;
-        }
+      }
+      .btn_create {
       }
     }
     .content-right {
@@ -387,7 +390,7 @@ export default {
       width: 100%;
       display: flex;
       justify-content: space-around;
-      .upload{
+      .upload {
         padding-top: 10px;
         flex-grow: 2;
       }
