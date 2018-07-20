@@ -42,15 +42,14 @@
 		<div class="module-content" v-if="showContent===1">
 			<div class="content-left">
       <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-          <el-menu-item-group>
-            <template>
-            <el-menu-item index="1-1">未分类</el-menu-item>
+          <el-menu-item-group closable @tab-remove="removeTab">
+            <template v-for="item in editableTabs">
+              <el-menu-item :index="item.index"
+                            v-text="item.content"
+                            :key="item.index">
+            </el-menu-item>
             </template>
-            <el-menu-item index="1-1">未分类</el-menu-item>
-            <el-menu-item index="1-2">网站广告图</el-menu-item>
-            <el-menu-item index="1-3">799</el-menu-item>
-            <el-menu-item index="1-4">网站装修</el-menu-item>
-            <el-menu-item index="1-5" @click="addTab(editableTabsValue2)" class="btn_create"><i class="flaticon-add-circular-button"></i></el-menu-item>
+            <el-menu-item  @click="addTab(editableTabsValue2)" class="btn_create"><i class="flaticon-add-circular-button"></i></el-menu-item>
           </el-menu-item-group>
       </el-menu>
 			</div>
@@ -277,7 +276,26 @@ export default {
         }
       ],
       width: 0,
-      url: ''
+      url: '',
+      editableTabs: [
+        {
+          index: '1-1',
+          content: '未分类'
+        },
+        {
+          index: '1-2',
+          content: '网站广告图'
+        },
+        {
+          index: '1-3',
+          content: '799'
+        },
+        {
+          index: '1-4',
+          content: '网站装修'
+        }
+      ]
+
     }
   },
   mounted () {
@@ -294,6 +312,9 @@ export default {
     },
     handleDrag () {
       this.$refs.select.blur()
+    },
+    addTab (editableTabsValue2) {
+
     }
   }
 }
