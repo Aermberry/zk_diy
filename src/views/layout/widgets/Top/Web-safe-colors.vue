@@ -1,6 +1,7 @@
 <template>
   <el-dialog title='Web安全色' :visible.sync='dialogCloseVisible' v-show='closed' class='zk-websafecolor' :before-close='handleClose' width="60%">
-    <div class="">
+    <div class="color-box">
+      <span>dddd</span>
       <el-row :gutter="20" class='colors'>
         <el-col :span="6" v-for='(item,index) of basecolor' :key='index'>
           <span :key='index' :style='{backgroundColor:item.color}' @click='copyed' v-html='item.color' :data-clipboard-text='item.color' class='color'></span>
@@ -20,26 +21,6 @@
   export default {
     data () {
       return {
-        wordColor: [
-          {
-            word: 'Web',
-            color: {
-              color: '#999999'
-            }
-          },
-          {
-            word: '安全',
-            color: {
-              color: '#666666'
-            }
-          },
-          {
-            word: '色',
-            color: {
-              color: '#333333'
-            }
-          }
-        ],
         basecolor: [
           {
             colors: [
@@ -437,94 +418,23 @@
 </script>
 
 <style lang='scss' scoped>
-  .zk-websafecolor {
-    .color-boxs {
-      margin-top: 1px;
-      width: 500px;
-      overflow: hidden;
-      height: 1200px;
-      .colors {
-        display: flex;
-        justify-content: space-around;
-        span {
-          cursor: pointer;
-          color: #e6e6e6;
-          display: inline-block;
-          width: 200px;
-          height: 30px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          line-height: 30px;
-          text-align: center;
-        }
-      }
-    }
-    body {
-      margin-top: 30px;
-      height: 300px;
-      border: 1px solid #ccc;
-      padding: 2px 10px;
-      .color-boxs {
-        margin-top: 1px;
-        width: 500px;
-        overflow: hidden;
-        li {
-          &:nth-of-type(6) {
-            span {
-              color: black;
-            }
-          }
-          &:nth-of-type(12) {
-            span {
-              color: black;
-            }
-          }
-          &:nth-of-type(17) {
-            span {
-              color: black;
-            }
-          }
-          &:nth-of-type(18) {
-            span {
-              color: black;
-            }
-          }
-          &:nth-of-type(23) {
-            span {
-              color: black;
-            }
-          }
-          &:nth-last-of-type(12) {
-            span {
-              color: black;
-            }
-          }
-          &:nth-last-of-type(13) {
-            span {
-              color: black;
-            }
-          }
-          &:nth-last-of-type(8) {
-            span {
-              color: black;
-            }
-          }
-          &:nth-last-of-type(7) {
-            span {
-              color: black;
-            }
-          }
-          &:nth-last-of-type(2) {
-            span {
-              color: black;
-            }
-          }
-          &:last-of-type {
-            span {
-              color: black !important;
-            }
-          }
-        }
+  .color-box {
+    margin-top: 1px;
+    overflow: hidden;
+    height: 1200px;
+    .colors {
+      display: flex;
+      justify-content: space-around;
+      span {
+        cursor: pointer;
+        color: #e6e6e6;
+        display: inline-block;
+        width: 200px;
+        height: 30px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        line-height: 30px;
+        text-align: center;
       }
     }
   }
