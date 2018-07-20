@@ -32,6 +32,7 @@
 			<div class="content-left">
       <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
           <el-menu-item-group>
+            <template>
             <el-menu-item index="1-1">未分类</el-menu-item>
             </template>
             <el-menu-item index="1-1">未分类</el-menu-item>
