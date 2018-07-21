@@ -224,5 +224,5 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  @import './Layout.scss'; // 便于调试，css写到layout.css中
+  @import './layout.scss';
 </style>

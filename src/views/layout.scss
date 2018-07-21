@@ -1,0 +1,224 @@
+     @import 'src/assets/styles/variables.scss';
+     @import 'src/assets/styles/mixin.scss';
+     .app-wrapper {
+       @include clearfix;
+       position: relative;
+       height: 100%;
+       width: 100%;
+       display: flex;
+       overflow: hidden;
+       background-color: #f2f3f8;
+       .app-header {
+         padding-right: 0;
+       } // 左边
+       .app-nav {
+         width: 100%;
+       }
+       .top-button {
+         float: right;
+         text-align: right;
+         height: 55px;
+         button {
+           height: 55px;
+           border: 0px;
+         }
+       }
+       .top-right {
+         float: right;
+         right: 0px;
+         text-align: right;
+         width: 270px;
+         margin-right: 0px;
+         button {
+           border: 0;
+           height: 55px;
+           width: 90px;
+           border-radius: 0px;
+           &:first-child {
+             border-left: 1px solid #dcdfe6;
+           }
+         }
+       }
+     }
+
+     .zk-main {
+       position: relative;
+       padding: 0;
+       overflow: hidden; //  padding-top: 10px;
+       .content-right {
+         border-left: 1px solid #dcdfe6;
+         width: 280px;
+         position: absolute;
+         top: 1px;
+         right: -4px;
+       }
+     }
+
+     .main-content {
+       width: 100%;
+       height: 100%;
+       .content-left {
+         //  float: left;
+         text-align: center; //  display: table;
+         //  margin: auto;
+         //  margin-left: 100px;
+         transform: translate(50%, 50%);
+         margin-left: -630px;
+         margin-top: -346px;
+         .content-phone {
+           border-top-width: 30px;
+           background-position: center top; // background: url(../../../static/img/iphone8_black.png) no-repeat;
+           background-color: #F2F3F8;
+           background-origin: content-box;
+           background-position: center;
+           background-size: 427px 798px;
+           height: 790px;
+           width: 427px;
+           position: relative;
+           .innerbox-phone {
+             .show-iframe {
+               width: 340px;
+               overflow-x: hidden;
+               margin-top: 104px;
+               height: 581px;
+               margin-right: -1px;
+               overflow-y: auto;
+             }
+           }
+         }
+       }
+       .content-right {
+         position: absolute !important;
+         top: 2px;
+         margin-left: -1px;
+         background-color: #ffffff;
+         -webkit-transition: all 0.3s ease;
+         -moz-transition: all 0.3s ease;
+         -ms-transition: all 0.3s ease;
+         -o-transition: all 0.3s ease;
+         transition: all 0.3s ease;
+         -webkit-transform: translateY(0);
+         -moz-transform: translateY(0);
+         -ms-transform: translateY(0);
+         -o-transform: translateY(0);
+         transform: translateY(0);
+         -webkit-box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+         -moz-box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+         box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+         position: relative;
+         z-index: 10;
+         float: right;
+         background: #ffffff;
+         .right-box {
+           margin-top: 0;
+           overflow: hidden;
+         }
+         .showed {
+           display: none;
+         }
+       }
+     }
+
+     .entire-set {
+       position: fixed;
+       top: 55px;
+       right: 266px;
+       min-width: 400px;
+       min-height: 500px;
+       background: #fff;
+       box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+       .page_setting {
+         padding: 20px 50px;
+         display: flex;
+         .past-records {
+           width: 140px;
+           .past-records_title {
+             font-size: 14px;
+             color: #606266;
+             line-height: 44px;
+             padding-left: 12px;
+             -webkit-box-sizing: border-box;
+             box-sizing: border-box;
+             font-weight: 700;
+             border-bottom: 1px solid #e5e5e5;
+           }
+           .past-records_content {
+             ul {
+               margin-top: 20px;
+               .content-item {
+                 height: 30px;
+                 line-height: 30px;
+                 padding-left: 12px;
+                 font-size: 14px;
+                 color: #606266;
+                 font-weight: 700;
+                 cursor: pointer;
+               }
+             }
+           }
+         }
+         .entire-set-box {
+           width: 300px;
+           border-right: 1px solid #e5e5e5;
+           .main-item {
+             display: flex;
+             border-bottom: 1px solid #eeeeee;
+             margin-bottom: 20px;
+             position: relative;
+             .main-item_title {
+               width: 60px;
+               font-size: 14px;
+               color: #606266;
+               line-height: 40px;
+               padding: 0 12px 0 0;
+               -webkit-box-sizing: border-box;
+               box-sizing: border-box;
+               font-weight: 700;
+             }
+           }
+           .minor-item {
+             border-bottom: 1px solid #eeeeee;
+             .minor-item_title {
+               width: 92px;
+               font-size: 14px;
+               color: #606266;
+               line-height: 40px;
+               padding: 0 12px 0 0;
+               -webkit-box-sizing: border-box;
+               box-sizing: border-box;
+               font-weight: 700;
+             }
+             .minor-item_content-box {
+               ul {
+                 .content-tiem {
+                   float: left;
+                   width: 50%;
+                   height: 40px;
+                   line-height: 40px;
+                   padding: 0 12px;
+                   display: flex;
+                   .content-tiem-left {
+                     width: 70px;
+                     font-size: 14px;
+                     color: #606266;
+                     font-weight: 700;
+                     padding-right: 10px;
+                   }
+                 }
+               }
+               ul:after {
+                 content: '';
+                 display: block;
+                 clear: both;
+               }
+             }
+           }
+           .minor-btn {
+             text-align: right;
+             margin-top: 20px;
+             padding-right: 20px;
+           }
+         }
+         .past-records {}
+       }
+     }

@@ -21,6 +21,7 @@
     export default {
         data () {
             return {
+                dialogCloseVisible: false,
                 basecolor: [
                     {
                         colors: [
@@ -387,11 +388,11 @@
             }
         },
         mounted () {
-            this.$nextTick(function () {
-                this.$on('child', function (safeWebcolorsVisible) {
-                    this.dialogCloseVisible = safeWebcolorsVisible
-                })
-            })
+            // this.$nextTick(function () {
+            //     this.$on('child', function (safeWebcolorsVisible) {
+            //         this.dialogCloseVisible = safeWebcolorsVisible
+            //     })
+            // })
         },
         methods: {
             isshow () {
@@ -419,24 +420,24 @@
 
 <style lang='scss' scoped>
     .color-box {
-    	margin-top: 1px;
-    	overflow: hidden;
-    	height: 600px;
-    	.colors {
-    		display: flex;
-    		justify-content: space-around;
-    		span {
-    			cursor: pointer;
-    			color: #e6e6e6;
-    			display: inline-block;
-    			width: 200px;
-    			height: 30px;
-    			border: 1px solid #ccc;
-    			border-radius: 5px;
-    			line-height: 30px;
-    			text-align: center;
-    		}
-    	}
+      margin-top: 1px;
+      overflow: hidden;
+      height: 600px;
+      .colors {
+        display: flex;
+        justify-content: space-around;
+        span {
+          cursor: pointer;
+          color: #e6e6e6;
+          display: inline-block;
+          width: 200px;
+          height: 30px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          line-height: 30px;
+          text-align: center;
+        }
+      }
     }
 </style>
 
