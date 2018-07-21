@@ -22,6 +22,7 @@ import ZkFileVideo from '@/components/zk-file-video'
 import ZkFooter from '@/components/zk-footer'
 import ZkGlobalSetting from '@/components/zk-global-setting'
 import ZkLeft from '@/components/zk-left'
+import ZkPage from '@/components/zk-page'
 import ZkPageSetting from '@/components/zk-page-setting'
 import ZkPopupLayout from '@/components/zk-popup-layout'
 import ZkRight from '@/components/zk-right'
@@ -45,6 +46,7 @@ Vue.component('zk-file-video', ZkFileVideo)
 Vue.component('zk-footer', ZkFooter)
 Vue.component('zk-global-setting', ZkGlobalSetting)
 Vue.component('zk-left', ZkLeft)
+Vue.component('zk-page', ZkPage)
 Vue.component('zk-page-setting', ZkPageSetting)
 Vue.component('zk-popup-layout', ZkPopupLayout)
 Vue.component('zk-right', ZkRight)
