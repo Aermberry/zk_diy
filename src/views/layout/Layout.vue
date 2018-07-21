@@ -80,10 +80,9 @@
       </el-main>
       <zk-footer></zk-footer>
     </el-container>
-    <!-- <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="asyncFlag" :widgetId="widgetId"></zk-widget-data> -->
     <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="false" :widgetId="widgetId"></zk-widget-data>
     <zk-global-setting v-if="showEntireSet"></zk-global-setting>
-    <web-safecolors v-show="safeWebcolorsVisible" ref="web_safecolors"></web-safecolors>
+    <zk-safe-color v-show="safeWebcolorsVisible" ref="web_safecolors"></zk-safe-color>
   </el-container>
 </template>
 <script>
