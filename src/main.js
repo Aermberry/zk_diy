@@ -13,6 +13,8 @@ import {
 
 import ZkAutoForm from '@/components/zk-auto-form'
 import ZkFile from '@/components/zk-file'
+import ZkFooter from '@/components/zk-footer'
+import ZkGlobalSetting from '@/components/zk-global-setting'
 import ZkSafeColor from '@/components/zk-safe-color'
 import ZkTable from '@/components/zk-table'
 import ZkWidgetData from '@/components/zk-widget-data'
@@ -22,6 +24,8 @@ import XScreenfull from '@/elements/x-screenfull'
 
 Vue.component('zk-auto-form', ZkAutoForm)
 Vue.component('zk-file', ZkFile)
+Vue.component('zk-footer', ZkFooter)
+Vue.component('zk-global-setting', ZkGlobalSetting)
 Vue.component('zk-safe-color', ZkSafeColor)
 Vue.component('zk-table', ZkTable)
 Vue.component('zk-widget-data', ZkWidgetData)

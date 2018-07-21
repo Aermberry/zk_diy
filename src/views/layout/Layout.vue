@@ -76,7 +76,7 @@
           </div>
         </div>
       </el-main>
-      <layout-footer></layout-footer>
+      <zk-footer></zk-footer>
     </el-container>
     <!-- <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="asyncFlag" :widgetId="widgetId"></zk-widget-data> -->
     <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="false" :widgetId="widgetId"></zk-widget-data>
@@ -87,19 +87,13 @@
 <script>
   import { THEMEPAGE_SAVE_POST } from '@/service/api/apiUrl'
   import { AppMain } from './widgets'
-  import Footer from './widgets/Footer'
   import Left from './widgets/Left'
-  import globalsetting from './widgets/top/global-setting'
-  import websafecolors from './widgets/top/web-safe-colors'
   import Right from './widgets/Right'
   export default {
     name: 'layout',
     components: {
-      'layout-footer': Footer,
       'layout-left': Left,
       'layout-right': Right,
-      'global-setting': globalsetting,
-      'web-safecolors': websafecolors,
       AppMain
     },
     data () {
