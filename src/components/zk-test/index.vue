@@ -1,7 +1,7 @@
 <template>
-  <zk-dialog ref="ref_zk_dialog" title="文件管理">
-    <span slot="body">内容</span>
-    <el-button type="primary" slot="footer" @click="click">保存</el-button>
+  <zk-dialog ref="ref_zk_dialog" title="文件管理" width="70%">
+    <div slot="body" class="content-body">内容</div>
+    <el-button type="primary " slot="footer " @click="click ">保存</el-button>
   </zk-dialog>
 </template>
 
@@ -19,7 +19,7 @@
     mounted () {
       this.init()
       this.$nextTick(function () {
-        this.$on('child', function (dialogCloseVisible) {
+        this.$on('child', function () {
           // console.info('zk-test父组件点击')
           this.$refs.ref_zk_dialog.$emit('child', this.dialogCloseVisible)
         })

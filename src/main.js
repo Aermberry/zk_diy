@@ -54,7 +54,6 @@ Vue.config.productionTip = false
 Vue.prototype.$api = api
 Vue.prototype.$local = local
 Vue.prototype.$toast = local
-Vue.prototype.$message = local
 Vue.prototype.$loading = true
 // eslint-disable-next-line
 new Vue({

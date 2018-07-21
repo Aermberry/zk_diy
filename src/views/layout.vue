@@ -35,13 +35,12 @@
                 <el-menu-item index="10-1">
                   <x-screenfull></x-screenfull>
                 </el-menu-item>
-                <el-menu-item index="10-2" @click="safeWebcolors">
+                <el-menu-item index="10-2" @click="$refs.web_safecolors.$emit('child')">
                   <i class="flaticon-cogwheel"></i>web安全色</el-menu-item>
               </el-submenu>
             </el-menu>
           </el-col>
           <el-col :span="8">
-
             <div class="top-right">
               <el-button-group>
                 <el-button @click="previewClick" v-html="previewText">
@@ -82,7 +81,7 @@
     </el-container>
     <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="false" :widgetId="widgetId"></zk-widget-data>
     <zk-global-setting v-if="showEntireSet"></zk-global-setting>
-    <zk-safe-color :dialogModel="safeWebcolorsVisible" ref="web_safecolors"></zk-safe-color>
+    <zk-safe-color ref="web_safecolors"></zk-safe-color>
   </el-container>
 </template>
 <script>
@@ -212,12 +211,7 @@
       previewClick () {
         this.previewText = this.previewText === '预览<i class=\'el-icon-view el-icon--right\'>' ? '编辑<i class=\'el-icon-edit el-icon--right\'>' : '预览<i class=\'el-icon-view el-icon--right\'>'
         this.isshow = !this.isshow
-      },
-      async safeWebcolors () {
-        this.safeWebcolorsVisible = true
-        // this.$refs.web_safecolors.$emit('child', this.safeWebcolorsVisible)
       }
-
     }
   }
 </script>
