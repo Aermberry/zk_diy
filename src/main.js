@@ -12,6 +12,7 @@ import {
 } from '@/service/api'
 
 import ZkAutoForm from '@/components/zk-auto-form'
+import ZkDialog from '@/components/zk-dialog'
 import ZkFile from '@/components/zk-file'
 import ZkFooter from '@/components/zk-footer'
 import ZkGlobalSetting from '@/components/zk-global-setting'
@@ -27,6 +28,7 @@ import XIcon from '@/elements/x-icon'
 import XScreenfull from '@/elements/x-screenfull'
 
 Vue.component('zk-auto-form', ZkAutoForm)
+Vue.component('zk-dialog', ZkDialog)
 Vue.component('zk-file', ZkFile)
 Vue.component('zk-footer', ZkFooter)
 Vue.component('zk-global-setting', ZkGlobalSetting)
@@ -50,6 +52,7 @@ Vue.config.productionTip = false
 Vue.prototype.$api = api
 Vue.prototype.$local = local
 Vue.prototype.$toast = local
+Vue.prototype.$message = local
 Vue.prototype.$loading = true
 // eslint-disable-next-line
 new Vue({
@@ -57,3 +60,4 @@ new Vue({
   router,
   render: h => h(App)
 })
+

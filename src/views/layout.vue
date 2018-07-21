@@ -82,7 +82,7 @@
     </el-container>
     <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="false" :widgetId="widgetId"></zk-widget-data>
     <zk-global-setting v-if="showEntireSet"></zk-global-setting>
-    <zk-safe-color v-show="safeWebcolorsVisible" ref="web_safecolors"></zk-safe-color>
+    <zk-safe-color :dialogModel="safeWebcolorsVisible" ref="web_safecolors"></zk-safe-color>
   </el-container>
 </template>
 <script>
@@ -105,7 +105,7 @@
         previewText: "预览<i class='el-icon-view el-icon--right'>",
         isshow: false,
         showEntireSet: false,
-        safeWebcolorsVisible: true
+        safeWebcolorsVisible: false
       }
     },
     mounted () {
@@ -215,7 +215,7 @@
       },
       async safeWebcolors () {
         this.safeWebcolorsVisible = true
-        this.$refs.web_safecolors.$emit('child', this.safeWebcolorsVisible)
+        // this.$refs.web_safecolors.$emit('child', this.safeWebcolorsVisible)
       }
 
     }

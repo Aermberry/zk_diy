@@ -1,5 +1,5 @@
 <template>
-    <el-dialog title='Web安全色' :visible.sync='dialogCloseVisible' @dragDialog="handleDrag" class='zk-safe-color' :before-close='handleClose' width="60%">
+    <el-dialog title='Web安全色' :visible.sync='dialogCloseVisible' v-show="dialogModel" @dragDialog="handleDrag" class='zk-safe-color' :before-close='handleClose' width="60%">
         <div class="color-box">
             <el-row :gutter="6" class='colors' v-for='(item,index) in baseColors' :key='index'>
                 <el-col :span="4" v-for='(color,colorIndex) in item.colors' :key='colorIndex'>
@@ -22,9 +22,9 @@
     export default {
         directives: { elDragDialog },
         props: {
-            colorModel: {
+            dialogModel: {
                 type: Boolean,
-                default: false
+                default: true
             }
         },
         data () {
@@ -35,15 +35,16 @@
         },
         mounted () {
             this.init()
-            // this.$nextTick(function () {
-            //     this.$on('child', function (safeWebcolorsVisible) {
-            //         this.dialogCloseVisible = safeWebcolorsVisible
-            //     })
-            // })
+            this.$nextTick(function () {
+                this.$on('child', function (dialogCloseVisible) {
+                    this.dialogCloseVisible = dialogCloseVisible
+                })
+            })
         },
         methods: {
             init () {
-                this.dialogCloseVisible = this.colorModel
+                console.info('支持', this.dialogModel)
+                this.dialogCloseVisible = this.dialogModel
                 this.baseColors = safeColor
                 // console.info(this.baseColors)
             },
