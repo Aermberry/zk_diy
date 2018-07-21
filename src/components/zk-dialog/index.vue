@@ -1,20 +1,32 @@
 <template>
-  <div class="zk-dialog"  v-if="asyncflag">
- 
-  </div>
+  <el-dialog title="提示" :visible.sync="dialogVisible" :width="width" v-el-drag-dialog @dragDialog="handleDrag" :before-close="handleClose" class="zk-dialog">
+    <span>这是一段信息</span>
+    <span slot="footer" class="dialog-footer">
+      <el-button @click="dialogVisible = false">取 消</el-button>
+      <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+    </span>
+  </el-dialog>
 </template>
 
 <script>
-  import { THEME_GETVALUE_GET } from '@/service/api/apiUrl'
+  import elDragDialog from '@/directive/el-dragDialog'
   export default {
+    directives: { elDragDialog },
     name: 'zk-dialog',
     props: {
-      widget: {}
+      dialogModel: {
+        type: Boolean,
+        default: false
+      },
+      width: {
+        type: String,
+        default: '60%'
+      }
     },
     data () {
       return {
         viewModel: '',
-        asyncflag: false
+        dialogVisible: false
       }
     },
     mounted () {
@@ -22,13 +34,13 @@
     },
     methods: {
       async  init () {
-        this.asyncflag = true
-        const parameter = {
-          dataId: this.widget && this.widget.dataId,
-          defaultId: '5b406cddfef00000a0000001'
-        }
-        this.viewModel = await this.$api.get(THEME_GETVALUE_GET, parameter)
-        // console.info('zk-dialog数据',this.viewModel)
+        this.dialogVisible = this.dialogModel
+      },
+      handleDrag () {
+        this.$refs.select.blur()
+      },
+      handleClose () {
+        this.dialogVisible = false
       }
     }
   }
