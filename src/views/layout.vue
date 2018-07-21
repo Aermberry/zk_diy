@@ -135,7 +135,6 @@
       // 保存Diy设置
       async save () {
         this.isSave = true
-
         await this.$api.post(THEMEPAGE_SAVE_POST, this.diyInfo, 'Diy保存')
         this.isSave = false
       },
