@@ -1,6 +1,7 @@
 <template>
   <el-container class="app-wrapper">
-    <layout-left :themePageInfo="themePageInfo" v-if="asyncFlag" :diyInfo="diyInfo"></layout-left>
+    <zk-left :themePageInfo="themePageInfo" v-if="asyncFlag" :diyInfo="diyInfo">
+    </zk-left>
     <el-container>
       <el-header class="app-header" height="55">
         <el-row class="app-nav">
@@ -88,11 +89,9 @@
 <script>
   import { THEMEPAGE_SAVE_POST } from '@/service/api/apiUrl'
   import { AppMain } from './widgets'
-  import Left from './widgets/Left'
   export default {
     name: 'layout',
     components: {
-      'layout-left': Left,
       AppMain
     },
     data () {
