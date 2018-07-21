@@ -34,7 +34,8 @@
                 <el-menu-item index="10-1">
                   <x-screenfull></x-screenfull>
                 </el-menu-item>
-                <el-menu-item index="10-2" @click="safeWebcolors">web安全色</el-menu-item>
+                <el-menu-item index="10-2" @click="safeWebcolors">
+                  <i class="flaticon-cogwheel"></i>web安全色</el-menu-item>
               </el-submenu>
             </el-menu>
           </el-col>
@@ -66,7 +67,6 @@
           <div class="content-left">
             <div class="content-phone">
               <div class="innerbox-phone">
-                <!--<iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto :src="themePageInfo.diyHost+'/'+themePageInfo.pageUrl" class=" show-iframe"></iframe>-->
                 <iframe id="show-iframe" frameborder=0 name="showHere" scrolling=auto src="/pages/index" class=" show-iframe"></iframe>
               </div>
             </div>
@@ -81,7 +81,7 @@
     <!-- <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="asyncFlag" :widgetId="widgetId"></zk-widget-data> -->
     <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="false" :widgetId="widgetId"></zk-widget-data>
     <global-setting v-if="showEntireSet"></global-setting>
-    <Web-safecolors v-show="safeWebcolorsVisible" ref="web_safecolors"></Web-safecolors>
+    <web-safecolors v-show="safeWebcolorsVisible" ref="web_safecolors"></web-safecolors>
   </el-container>
 </template>
 <script>
@@ -90,7 +90,7 @@
   import Footer from './widgets/Footer'
   import Left from './widgets/Left'
   import globalsetting from './widgets/top/global-setting'
-  import websafecolors from './widgets/top/Web-safe-colors'
+  import websafecolors from './widgets/top/web-safe-colors'
   import Right from './widgets/Right'
   export default {
     name: 'layout',
@@ -99,13 +99,13 @@
       'layout-left': Left,
       'layout-right': Right,
       'global-setting': globalsetting,
-      'Web-safecolors': websafecolors,
+      'web-safecolors': websafecolors,
       AppMain
     },
     data () {
       return {
         screenWidth: '1100', // 屏幕宽度,
-        dialogWidgetDataVisible: true, // 首次添加模块、双击模块、编辑模块时弹出的窗口
+        dialogWidgetDataVisible: false, // 首次添加模块、双击模块、编辑模块时弹出的窗口
         themePageInfo: '', // 站点信息
         widgetId: '5b45350e55f7b54a285630b4',
         diyInfo: '', // diy信息,用户编辑时候，随时记录diy信息
@@ -114,7 +114,7 @@
         previewText: "预览<i class='el-icon-view el-icon--right'>",
         isshow: false,
         showEntireSet: false,
-        safeWebcolorsVisible: false
+        safeWebcolorsVisible: true
       }
     },
     mounted () {
@@ -225,7 +225,6 @@
       },
       async safeWebcolors () {
         this.safeWebcolorsVisible = true
-        console.log('safeWebcolorsVisible1', this.safeWebcolorsVisible)
         this.$refs.web_safecolors.$emit('child', this.safeWebcolorsVisible)
       }
 
