@@ -1,34 +1,35 @@
 <template>
-  <div class="zk-test"  v-if="asyncflag">
- 
-  </div>
+  <zk-dialog ref="ref_zk_dialog" title="文件管理">
+    <span slot="body">内容</span>
+    <el-button type="primary" slot="footer" @click="click">保存</el-button>
+  </zk-dialog>
 </template>
 
 <script>
-  import { THEME_GETVALUE_GET } from '@/service/api/apiUrl'
+  // import { THEME_GETVALUE_GET } from '@/service/api/apiUrl'
   export default {
     name: 'zk-test',
     props: {
-      widget: {}
+      dialogModel: {}
     },
     data () {
       return {
-        viewModel: '',
-        asyncflag: false
       }
     },
     mounted () {
       this.init()
+      this.$nextTick(function () {
+        this.$on('child', function (dialogCloseVisible) {
+          // console.info('zk-test父组件点击')
+          this.$refs.ref_zk_dialog.$emit('child', this.dialogCloseVisible)
+        })
+      })
     },
     methods: {
       async  init () {
-        this.asyncflag = true
-        const parameter = {
-          dataId: this.widget && this.widget.dataId,
-          defaultId: '5b406cddfef00000a0000001'
-        }
-        this.viewModel = await this.$api.get(THEME_GETVALUE_GET, parameter)
-        // console.info('zk-test数据',this.viewModel)
+      },
+      click () {
+        console.info('点击事件')
       }
     }
   }

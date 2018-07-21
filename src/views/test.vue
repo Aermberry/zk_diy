@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-button type="text" @click="click">点击打开 Dialog</el-button>
-        <zk-dialog :dialogModel="colorModel" ref="web_safecolors"></zk-dialog>
+        <zk-test :dialogModel="colorModel" ref="web_safecolors"></zk-test>
     </div>
 
 </template>

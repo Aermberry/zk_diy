@@ -1,9 +1,12 @@
 <template>
-  <el-dialog title="提示" :visible.sync="dialogVisible" :width="width" v-el-drag-dialog @dragDialog="handleDrag" :before-close="handleClose" class="zk-dialog">
-    <span>这是一段信息</span>
+  <el-dialog :title="title" :visible.sync="dialogVisible" :width="width" ref="ref_zkdialog" v-el-drag-dialog :before-close="handleClose" class="zk-dialog">
+    <div class="body-content">
+      <slot name="body"></slot>
+    </div>
     <span slot="footer" class="dialog-footer">
       <el-button @click="dialogVisible = false">取 消</el-button>
-      <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+      <slot name="footer" v-if="$slots.footer"></slot>
+      <el-button type="primary" v-if="!$slots.footer" @click="dialogVisible = false">关 闭</el-button>
     </span>
   </el-dialog>
 </template>
@@ -21,6 +24,10 @@
       width: {
         type: String,
         default: '60%'
+      },
+      title: {
+        type: String,
+        default: '视觉魔方'
       }
     },
     data () {
@@ -33,7 +40,7 @@
       this.init()
       this.$nextTick(function () {
         this.$on('child', function (dialogCloseVisible) {
-          console.info('父组件点击')
+          // console.info('父组件点击')
           this.dialogVisible = true
         })
       })
@@ -41,9 +48,6 @@
     methods: {
       async  init () {
         this.dialogVisible = this.dialogModel
-      },
-      handleDrag () {
-        this.$refs.select.blur()
       },
       handleClose () {
         this.dialogVisible = false
