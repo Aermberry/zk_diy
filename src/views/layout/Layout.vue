@@ -72,7 +72,8 @@
             </div>
           </div>
           <div class="content-right" style="width:272px">
-            <layout-right class="right-box" :themePageInfo="themePageInfo" v-if="asyncFlag" :diyInfo="diyInfo" :style="{showed:isshow}"></layout-right>
+            <zk-right class="right-box" :themePageInfo="themePageInfo" v-if="asyncFlag" :diyInfo="diyInfo" :style="{showed:isshow}">
+            </zk-right>
           </div>
         </div>
       </el-main>
@@ -88,12 +89,10 @@
   import { THEMEPAGE_SAVE_POST } from '@/service/api/apiUrl'
   import { AppMain } from './widgets'
   import Left from './widgets/Left'
-  import Right from './widgets/Right'
   export default {
     name: 'layout',
     components: {
       'layout-left': Left,
-      'layout-right': Right,
       AppMain
     },
     data () {

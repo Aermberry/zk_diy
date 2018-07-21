@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-right">
+  <div class="zk-right">
     <el-tabs v-model="tabModel" @tab-click="handleClick" class="is-always-shadow">
       <el-tab-pane name="property">
         <span slot="label">
@@ -75,61 +75,6 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  @import 'src/assets/styles/mixin.scss';
-  .layout-right {
-  	width: 270px;
-  	display: flex;
-  	margin-top: 80px;
-  	height: 100vh;
-  	flex-flow: column;
-  	.el-tabs__item {
-  		padding-left: 0px;
-  	}
-  	.tab-top-content-box {
-  		.tab-top-content {
-  			li {
-  				height: 32px;
-  				line-height: 32px;
-  				color: #666c7a;
-  				padding-left: 30px;
-  				position: relative;
-  				font-size: 12px;
-  			}
-  			li span {
-  				color: #c0c4cc;
-  			}
-  			li:first-child::before {
-  				content: none;
-  			}
-  			li:after {
-  				content: '';
-  				position: absolute;
-  				width: 10px;
-  				height: 10px;
-  				border-radius: 50%;
-  				background: #ecedf2;
-  				top: 13px;
-  				left: 8px;
-  			}
-  			li:before {
-  				content: '';
-  				position: absolute;
-  				width: 2px;
-  				height: 32px;
-  				background: #ecedf2;
-  				top: -16px;
-  				left: 12px;
-  			}
-  		}
-  	}
-  	.tab-title {
-  		height: 60px;
-  		line-height: 80px;
-  		font-weight: bold;
-  		font-size: 12px;
-  		padding-left: 12px;
-  	}
-  }
+  @import './style.scss';
 </style>
-
 
