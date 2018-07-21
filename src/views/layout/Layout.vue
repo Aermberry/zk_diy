@@ -34,7 +34,8 @@
                 <el-menu-item index="10-1">
                   <x-screenfull></x-screenfull>
                 </el-menu-item>
-                <el-menu-item index="10-2" @click="safeWebcolors"><i class="flaticon-cogwheel"></i>web安全色</el-menu-item>
+                <el-menu-item index="10-2" @click="safeWebcolors">
+                  <i class="flaticon-cogwheel"></i>web安全色</el-menu-item>
               </el-submenu>
             </el-menu>
           </el-col>
@@ -224,7 +225,6 @@
       },
       async safeWebcolors () {
         this.safeWebcolorsVisible = true
-        console.log('safeWebcolorsVisible1', this.safeWebcolorsVisible)
         this.$refs.web_safecolors.$emit('child', this.safeWebcolorsVisible)
       }
 
