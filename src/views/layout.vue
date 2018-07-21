@@ -135,7 +135,6 @@
       // 保存Diy设置
       async save () {
         this.isSave = true
-
         await this.$api.post(THEMEPAGE_SAVE_POST, this.diyInfo, 'Diy保存')
         this.isSave = false
       },
@@ -224,5 +223,5 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  @import './Layout.scss'; // 便于调试，css写到layout.css中
+  @import './layout.scss';
 </style>
