@@ -21,6 +21,7 @@
 		</div>
 		<div class="module-search">
 			<div class="search-left">
+        <!-- 上传区 -->
         <div class="upload">
           <el-upload
                 class="upload-demo"
@@ -41,6 +42,7 @@
     <!-- 图片管理 -->
 		<div class="module-content" v-if="showContent===1">
 			<div class="content-left">
+        <!-- 侧栏 -->
       <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
           <el-menu-item-group closable @tab-remove="removeTab">
             <template v-for="item in editableTabs">
@@ -54,6 +56,7 @@
       </el-menu>
 			</div>
 			<div class="content-right">
+        <!-- 图片渲染 -->
         <div class="images">
            <template v-for="(items,index) of images">
              <el-row :key="index">
@@ -63,6 +66,13 @@
                 <div class="grid-content bg-purple">
                  <span>
                  <img :src="{url:item.url}" alt="">
+                   <div class="card-management">
+                     <div class="card-mask">
+                       <a>编辑</a>
+                       <a>分类</a>
+                       <a>删除</a>
+                    </div>
+                   </div>
                  </span>
                  </div>
                  </el-col>
@@ -455,12 +465,42 @@ export default {
             padding-top: 10px;
             width: auto;
             span {
+              // overflow: hidden;
+              position: relative;
               display: inline-block;
               border: 1px solid #cccccc;
               img {
                 display: block;
                 width: 105px;
                 height: 105px;
+              }
+              .card-management {
+                cursor: pointer;
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 105px;
+                height: 105px;
+                background-color: rgba($--background-color-base, 0.3);
+                .card-mask {
+                  position: absolute;
+                  left: 0;
+                  bottom: 0;
+                  background: $--border-color-lighter;
+                  width: 100%;
+                  height: 30px;
+                  line-height: 30px;
+                  display: flex;
+                  justify-content: space-around;
+                  border-bottom: 2px solid $--border-color-hover;
+                  a {
+                    color: $--color-text-primary;
+                  }
+                }
+              }
+              &:hover .card-management {
+                display: block;
               }
             }
           }
