@@ -76,7 +76,7 @@
         </ul>
       </div>
     </el-aside>
-    <el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="模块管理" :visible.sync="dialogWidgetVisible" width="80%" class="popup-module">
+    <el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="模块管理" :visible.sync="dialogWidgetVisible" width="80%" class="widget__dialog">
       <div class="module-nav">
         <ul>
           <li class="active">

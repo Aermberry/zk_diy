@@ -7,11 +7,6 @@
         <el-row class="app-nav">
           <el-col :span="16">
             <el-menu class="el-menu-demo" mode="horizontal">
-              <el-menu-item index="1">
-                <a href="javascript:">
-                  <i class="flaticon-open-box "></i>全局设置
-                </a>
-              </el-menu-item>
               <el-menu-item index="3">
                 <a href="javascript:">
                   <i class="flaticon-open-box "></i>模板中心</a>
