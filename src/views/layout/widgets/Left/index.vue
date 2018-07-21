@@ -167,14 +167,13 @@
               </div>
             </el-card>
           </el-col>
-
         </el-row>
       </div>
     </div>
     <zk-file :dialogVisible="dialogFileVisible"></zk-file>
     <zk-widget-data :dialogVisible="dialogDataVisible" :themePageInfo="themePageInfo" :widgetId="widgetId"></zk-widget-data>
     <zk-newpage ref="zk_newpage" class="popup-newpage" :class="{'page-newpage-visible':newpageVisible}"></zk-newpage>
-  <zk-imagemanagement></zk-imagemanagement>
+  <!-- <zk-imagemanagement></zk-imagemanagement> -->
 
   </div>
 </template>
@@ -182,21 +181,19 @@
 <script>
   import elDragDialog from '@/directive/el-dragDialog'
   import NewPage from './NewPage'
-  import ImageManagement from './Imagemanagement.vue'
   import { WIDGET_GETLIST_GET, LAYOUT_GETLIST_GET, WIDGET_CLASS_GET, THEMEPAGE_GETTHEMEPAGELIST_GET } from '@/service/api/apiUrl'
   export default {
     name: 'layout-left',
     directives: { elDragDialog },
     props: ['themePageInfo'],
     components: {
-      'zk-newpage': NewPage,
-      'zk-imagemanagement': ImageManagement
+      'zk-newpage': NewPage
     },
     data () {
       return {
         pageBoxVisible: false, // 页面窗口是否显示
         layoutBoxVisible: false, // 页面窗口是否显示
-        dialogDataVisible: true, // 首次添加模块、双击模块、编辑模块时弹出的窗口
+        dialogDataVisible: false, // 首次添加模块、双击模块、编辑模块时弹出的窗口
         dialogWidgetVisible: false, // 模块弹出窗口
         widgetId: '5b4c9e0c9f7de61d7c4a4ea6',
         dialogFileVisible: false, // 模块弹出窗口

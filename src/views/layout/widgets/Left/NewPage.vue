@@ -75,6 +75,7 @@
 
 <script>
   export default {
+    name: 'newpage',
     data () {
       return {
         showBox: false,

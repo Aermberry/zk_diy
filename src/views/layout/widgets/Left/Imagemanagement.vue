@@ -15,9 +15,10 @@
            </el-col>
          </template>
        </el-row>
-
     </template>
-
+<div class="zk-paginations">
+  <zk-Pagination class="pagination"></zk-Pagination>
+</div>
   </el-tab-pane>
 <el-tab-pane label="配置管理">
 <el-row>
@@ -64,6 +65,9 @@
     </div>
     </el-col>
 </el-row>
+<div class="zk-paginations">
+  <zk-Pagination class="pagination"></zk-Pagination>
+</div>
 </el-tab-pane>
 <el-tab-pane label="角色管理">
   <el-row>
@@ -110,13 +114,21 @@
     </div>
     </el-col>
 </el-row>
+<div class="zk-paginations">
+  <zk-Pagination class="pagination"></zk-Pagination>
+</div>
 </el-tab-pane>
 </el-tabs>
 </div>
 </template>
 
 <script>
+import Pagination from './Pagination'
 export default {
+  name: 'Imagemanagement',
+  components: {
+    'zk-Pagination': Pagination
+  },
   data () {
     return {
       images: [
@@ -185,11 +197,12 @@ export default {
       url: ''
     }
   }
-  }
+}
 </script>
 
 <style lang="scss" scoped>
 .zk-image {
+  // opacity: 0;
   position: absolute;
   top: 10%;
   left: 30%;
@@ -213,6 +226,17 @@ export default {
           }
         }
       }
+    }
+  }
+
+  .zk-paginations {
+    // background-color: aqua;
+    position: relative;
+    height: 50px;
+    .pagination {
+      position: absolute;
+      top: 20px;
+      left: 17%;
     }
   }
 }
