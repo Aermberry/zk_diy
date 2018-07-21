@@ -22,6 +22,7 @@ import ZkRight from '@/components/zk-right'
 import ZkRightProperty from '@/components/zk-right-property'
 import ZkSafeColor from '@/components/zk-safe-color'
 import ZkTable from '@/components/zk-table'
+import ZkTest from '@/components/zk-test'
 import ZkWidgetData from '@/components/zk-widget-data'
 
 import XIcon from '@/elements/x-icon'
@@ -38,6 +39,7 @@ Vue.component('zk-right', ZkRight)
 Vue.component('zk-right-property', ZkRightProperty)
 Vue.component('zk-safe-color', ZkSafeColor)
 Vue.component('zk-table', ZkTable)
+Vue.component('zk-test', ZkTest)
 Vue.component('zk-widget-data', ZkWidgetData)
 
 Vue.component('x-icon', XIcon)

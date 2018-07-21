@@ -31,6 +31,12 @@
     },
     mounted () {
       this.init()
+      this.$nextTick(function () {
+        this.$on('child', function (dialogCloseVisible) {
+          console.info('父组件点击')
+          this.dialogVisible = true
+        })
+      })
     },
     methods: {
       async  init () {

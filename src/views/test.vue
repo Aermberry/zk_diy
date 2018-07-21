@@ -21,6 +21,7 @@
             },
             click () {
                 this.colorModel = true
+                this.$refs.web_safecolors.$emit('child', this.safeWebcolorsVisible)
                 console.info('点击')
             }
         }
