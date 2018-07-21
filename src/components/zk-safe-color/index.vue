@@ -1,5 +1,5 @@
 <template>
-    <el-dialog title='Web安全色' :visible.sync='dialogCloseVisible' v-show='dialogCloseVisible' class='zk-safe-color' :before-close='handleClose' width="60%">
+    <el-dialog title='Web安全色' :visible.sync='dialogCloseVisible' @dragDialog="handleDrag" class='zk-safe-color' :before-close='handleClose' width="60%">
         <div class="color-box">
             <el-row :gutter="6" class='colors' v-for='(item,index) in baseColors' :key='index'>
                 <el-col :span="4" v-for='(color,colorIndex) in item.colors' :key='colorIndex'>
@@ -21,11 +21,16 @@
     import elDragDialog from '@/directive/el-dragDialog'
     export default {
         directives: { elDragDialog },
+        props: {
+            colorModel: {
+                type: Boolean,
+                default: false
+            }
+        },
         data () {
             return {
                 dialogCloseVisible: false,
-                baseColors: '',
-                closed: true
+                baseColors: ''
             }
         },
         mounted () {
@@ -38,12 +43,15 @@
         },
         methods: {
             init () {
-                this.dialogCloseVisible = true
+                this.dialogCloseVisible = this.colorModel
                 this.baseColors = safeColor
                 // console.info(this.baseColors)
             },
             handleClose () {
                 this.dialogCloseVisible = false
+            },
+            handleDrag () {
+                this.$refs.select.blur()
             },
             copyed () {
                 const btnCopy = new Clipboard('.color')
