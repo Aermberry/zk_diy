@@ -496,6 +496,9 @@ export default {
                   border-bottom: 2px solid $--border-color-hover;
                   a {
                     color: $--color-text-primary;
+                    &:hover {
+                      color: #0b5672;
+                    }
                   }
                 }
               }
