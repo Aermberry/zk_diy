@@ -259,14 +259,14 @@
        flex: 1;
        .content-box {
          padding: 4px;
-         height: 228px;
+         height: 200px;
          overflow: hidden;
          .el-card__body {
            float: left;
            width: 260px;
            height: 200px;
            border-radius: 5px;
-           border: 1px solid #f3f3f3;
+           border: $--border-color-extra-light;
            margin-right: 10px;
            margin-bottom: 10px;
            width: 100%;

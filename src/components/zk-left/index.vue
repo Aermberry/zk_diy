@@ -50,7 +50,7 @@
             </a>
           </li>
           <li class="m-menu__item">
-            <a @click="fileClick()" class="m-menu__link " title="文件管理">
+            <a @click="$refs.ref_zkfiles.$emit('child')" class="m-menu__link" ref="ref_files" title="文件管理">
               <i class="m-menu__link-icon flaticon-coins  "></i>
               <span class="m-menu__link-title">
                 <span class="m-menu__link-wrap">
@@ -170,7 +170,7 @@
         </el-row>
       </div>
     </div>
-    <zk-file :dialogVisible="dialogFileVisible"></zk-file>
+    <zk-file ref="ref_zkfiles"></zk-file>
     <zk-widget-data :dialogVisible="dialogDataVisible" :themePageInfo="themePageInfo" :widgetId="widgetId"></zk-widget-data>
     <zk-page-setting ref="zk_newpage" class="popup-newpage" :class="{'page-newpage-visible':newpageVisible}"></zk-page-setting>
   </div>
@@ -190,7 +190,6 @@
         dialogDataVisible: false, // 首次添加模块、双击模块、编辑模块时弹出的窗口
         dialogWidgetVisible: false, // 模块弹出窗口
         widgetId: '5b4c9e0c9f7de61d7c4a4ea6',
-        dialogFileVisible: false, // 模块弹出窗口
         newpageVisible: false, // 新建模块
         moduleSearch: '',
         viewModel: null,
@@ -208,17 +207,14 @@
       async pageBox () {
         this.pageBoxVisible = !this.pageBoxVisible
         this.layoutBoxVisible = false
-        this.dialogFileVisible = false
         console.log('pageBoxVisible', this.pageBoxVisible)
       },
       async layoutBox () {
         this.layoutBoxVisible = !this.layoutBoxVisible
         // this.pageBoxVisible = false
-        this.dialogFileVisible = false
         console.log('layoutBoxVisible', this.layoutBoxVisible)
       },
       async newpages () {
-        this.dialogFileVisible = false
         this.newpageVisible = !this.newpageVisible
         console.log('newpageVisible', this.newpageVisible)
         this.$refs.zk_newpage.$emit('child', this.newpageVisible) // 监听销售属性事件
@@ -227,15 +223,6 @@
         this.dialogWidgetVisible = !this.pageBoxVisible
         this.pageBoxVisible = false
         this.layoutBoxVisible = false
-        this.dialogFileVisible = false
-        // this.dialogFileVisible = true
-      },
-      async fileClick () {
-        this.dialogDataVisible = false
-        this.pageBoxVisible = false
-        this.layoutBoxVisible = false
-        this.dialogFileVisible = !this.dialogFileVisible
-        console.log('dialogFileVisible', this.dialogFileVisible)
       },
       async init () {
         // 模块、模块分类导入
@@ -287,13 +274,10 @@
         this.dialogVisible = false
         this.pageBoxVisible = false
         this.layoutBoxVisible = false
-        this.dialogFileVisible = false
       }
     }
   }
 </script>
-
-
 
 
 <style rel="stylesheet/scss" lang="scss" scoped>
