@@ -1,5 +1,5 @@
 <template>
-  <div class="zk-global-setting"  v-if="asyncflag">
+  <div class="zk-left"  v-if="asyncflag">
  
   </div>
 </template>
@@ -7,7 +7,7 @@
 <script>
   import { THEME_GETVALUE_GET } from '@/service/api/apiUrl'
   export default {
-    name: 'zk-global-setting',
+    name: 'zk-left',
     props: {
       widget: {}
     },
@@ -28,7 +28,7 @@
           defaultId: '5b406cddfef00000a0000001'
         }
         this.viewModel = await this.$api.get(THEME_GETVALUE_GET, parameter)
-        // console.info('zk-global-setting数据',this.viewModel)
+        // console.info('zk-left数据',this.viewModel)
       }
     }
   }
