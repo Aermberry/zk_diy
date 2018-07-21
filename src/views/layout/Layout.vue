@@ -82,7 +82,7 @@
     </el-container>
     <!-- <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="asyncFlag" :widgetId="widgetId"></zk-widget-data> -->
     <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="false" :widgetId="widgetId"></zk-widget-data>
-    <global-setting v-if="showEntireSet"></global-setting>
+    <zk-global-setting v-if="showEntireSet"></zk-global-setting>
     <web-safecolors v-show="safeWebcolorsVisible" ref="web_safecolors"></web-safecolors>
   </el-container>
 </template>

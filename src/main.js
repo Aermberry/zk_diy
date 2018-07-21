@@ -18,6 +18,7 @@ import ZkGlobalSetting from '@/components/zk-global-setting'
 import ZkLeft from '@/components/zk-left'
 import ZkPageSetting from '@/components/zk-page-setting'
 import ZkRight from '@/components/zk-right'
+import ZkRightProperty from '@/components/zk-right-property'
 import ZkSafeColor from '@/components/zk-safe-color'
 import ZkTable from '@/components/zk-table'
 import ZkWidgetData from '@/components/zk-widget-data'
@@ -32,6 +33,7 @@ Vue.component('zk-global-setting', ZkGlobalSetting)
 Vue.component('zk-left', ZkLeft)
 Vue.component('zk-page-setting', ZkPageSetting)
 Vue.component('zk-right', ZkRight)
+Vue.component('zk-right-property', ZkRightProperty)
 Vue.component('zk-safe-color', ZkSafeColor)
 Vue.component('zk-table', ZkTable)
 Vue.component('zk-widget-data', ZkWidgetData)
