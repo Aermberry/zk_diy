@@ -322,10 +322,8 @@ export default {
 @import "src/assets/styles/mixin.scss";
 
 .upload-demo /deep/.el-upload-dragger {
-  // background-color: yellow;
   height: 50px;
   border: none;
-  // line-height: 50px;
   position: relative;
   .el-icon-upload {
     position: absolute;
@@ -386,7 +384,7 @@ export default {
           height: 100px;
           .el-upload__tip {
             position: absolute;
-            top: 113px;
+            top: 93px;
             left: 330px;
             // background-color: green;
           }
@@ -402,7 +400,6 @@ export default {
       .el-button {
         margin-left: 10px;
       }
-
       .upload {
         position: absolute;
         top: 80px;
