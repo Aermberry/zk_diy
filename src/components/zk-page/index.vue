@@ -1,6 +1,10 @@
 <template>
-  <div class="zk-page"  v-if="asyncflag">
- 
+  <div class="m-menu__link " @click="pageBox()">
+    <span class="m-menu__item-here"></span>
+    <i class="m-menu__link-icon flaticon-web "></i>
+    <span class="m-menu__link-text">
+      <x-popup label="页面"></x-popup>
+    </span>
   </div>
 </template>
 

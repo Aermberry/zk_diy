@@ -2,6 +2,7 @@
     <div>
         <el-button type="text" @click="click">点击打开 Dialog</el-button>
         <zk-test ref="web_safecolors"></zk-test>
+        <x-popup></x-popup>
     </div>
 
 </template>

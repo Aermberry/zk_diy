@@ -5,13 +5,7 @@
         <img src="../../assets/img/logo.png" alt="匠芯云DIY平台" class="logo-icon">
         <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
           <li class="m-menu__item  m-menu__item--active">
-            <a class="m-menu__link " @click="pageBox()">
-              <span class="m-menu__item-here"></span>
-              <i class="m-menu__link-icon flaticon-web "></i>
-              <span class="m-menu__link-text">
-                页面
-              </span>
-            </a>
+            <zk-page></zk-page>
           </li>
           <li class="m-menu__item">
             <a @click="widgetClick()" class="m-menu__link " title="添加模块">
