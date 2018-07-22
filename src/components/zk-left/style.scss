@@ -177,7 +177,7 @@
    padding: 0px;
  }
 
- .popup-module {
+ .widget__dialog {
    padding: 0;
    .el-dialog__body {
      padding: 0px;
@@ -231,16 +231,15 @@
      }
    }
    .module-content {
-     height: 500px;
+     height: 100%;
      display: flex;
      border-bottom: 1px solid $--border-color-extra-light;
      .content-left {
        width: 140px;
-       height: 500px;
+       max-height: 500px;
+       overflow-y: hidden;
        border-right: 1px solid $--border-color-extra-light;
        ul {
-         height: 500px;
-         overflow: auto;
          li {
            height: 40px;
            line-height: 40px;
@@ -255,18 +254,19 @@
      }
      .content-right {
        padding: 12px;
-       height: 500px;
+       max-height: 500px;
+       overflow-y: scroll;
        flex: 1;
        .content-box {
          padding: 4px;
-         height: 228px;
+         height: 200px;
          overflow: hidden;
          .el-card__body {
            float: left;
            width: 260px;
            height: 200px;
            border-radius: 5px;
-           border: 1px solid #f3f3f3;
+           border: $--border-color-extra-light;
            margin-right: 10px;
            margin-bottom: 10px;
            width: 100%;

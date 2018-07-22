@@ -7,11 +7,6 @@
         <el-row class="app-nav">
           <el-col :span="16">
             <el-menu class="el-menu-demo" mode="horizontal">
-              <el-menu-item index="1">
-                <a href="javascript:">
-                  <i class="flaticon-open-box "></i>全局设置
-                </a>
-              </el-menu-item>
               <el-menu-item index="3">
                 <a href="javascript:">
                   <i class="flaticon-open-box "></i>模板中心</a>
@@ -35,13 +30,12 @@
                 <el-menu-item index="10-1">
                   <x-screenfull></x-screenfull>
                 </el-menu-item>
-                <el-menu-item index="10-2" @click="safeWebcolors">
+                <el-menu-item index="10-2" @click="$refs.web_safecolors.$emit('child')">
                   <i class="flaticon-cogwheel"></i>web安全色</el-menu-item>
               </el-submenu>
             </el-menu>
           </el-col>
           <el-col :span="8">
-
             <div class="top-right">
               <el-button-group>
                 <el-button @click="previewClick" v-html="previewText">
@@ -82,7 +76,7 @@
     </el-container>
     <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="false" :widgetId="widgetId"></zk-widget-data>
     <zk-global-setting v-if="showEntireSet"></zk-global-setting>
-    <zk-safe-color v-show="safeWebcolorsVisible" ref="web_safecolors"></zk-safe-color>
+    <zk-safe-color ref="web_safecolors"></zk-safe-color>
   </el-container>
 </template>
 <script>
@@ -105,7 +99,7 @@
         previewText: "预览<i class='el-icon-view el-icon--right'>",
         isshow: false,
         showEntireSet: false,
-        safeWebcolorsVisible: true
+        safeWebcolorsVisible: false
       }
     },
     mounted () {
@@ -212,12 +206,7 @@
       previewClick () {
         this.previewText = this.previewText === '预览<i class=\'el-icon-view el-icon--right\'>' ? '编辑<i class=\'el-icon-edit el-icon--right\'>' : '预览<i class=\'el-icon-view el-icon--right\'>'
         this.isshow = !this.isshow
-      },
-      async safeWebcolors () {
-        this.safeWebcolorsVisible = true
-        this.$refs.web_safecolors.$emit('child', this.safeWebcolorsVisible)
       }
-
     }
   }
 </script>

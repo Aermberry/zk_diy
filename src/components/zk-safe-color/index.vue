@@ -1,61 +1,42 @@
 <template>
-    <el-dialog title='Web安全色'
-               :visible.sync='dialogCloseVisible'
-               @dragDialog="handleDrag"
-               class='zk-safe-color'
-               :before-close='handleClose'
-               width="60%">
-        <div class="color-box" slot="footer">
-            <el-row :gutter="6" class='colors' v-for='(item,index) in baseColors' :key='index'>
-                <el-col :span="4" v-for='(color,colorIndex) in item.colors' :key='colorIndex'>
-                    <span :style='{backgroundColor:color.color}' @click='copyed' v-html='color.color' :data-clipboard-text='color.color' class='color'></span>
-                </el-col>
-            </el-row>
+    <zk-dialog ref="ref_zk_dialog" title="web安全色" width="60%">
+        <div slot="body" class="zk-safe-color">
+            <div class="color-box">
+                <el-row :gutter="6" class='colors' v-for='(item,index) in baseColors' :key='index'>
+                    <el-col :span="4" v-for='(color,colorIndex) in item.colors' :key='colorIndex'>
+                        <span :style='{backgroundColor:color.color}' @click='copyed' v-html='color.color' :data-clipboard-text='color.color' class='color'></span>
+                    </el-col>
+                </el-row>
+            </div>
         </div>
-        <span slot="footer" class="dialog-footer">
-            <el-button @click="handleClose">取 消</el-button>
-            <el-button type="primary" @click="handleClose">关闭</el-button>
-        </span>
-    </el-dialog>
+    </zk-dialog>
 </template>
 
 <script>
     import Clipboard from 'clipboard'
     import safeColor from './color'
-    import elDragDialog from '@/directive/el-dragDialog'
     export default {
-        directives: { elDragDialog },
+        name: 'zk-safe-color',
         props: {
-            colorModel: {
-                type: Boolean,
-                default: false
-            }
+            dialogModel: {}
         },
         data () {
             return {
-                dialogCloseVisible: false,
                 baseColors: ''
             }
         },
         mounted () {
             this.init()
-            // this.$nextTick(function () {
-            //     this.$on('child', function (safeWebcolorsVisible) {
-            //         this.dialogCloseVisible = safeWebcolorsVisible
-            //     })
-            // })
+            this.$nextTick(function () {
+                this.$on('child', function (dialogCloseVisible) {
+                    // console.info('zk-test父组件点击')
+                    this.$refs.ref_zk_dialog.$emit('child', this.dialogCloseVisible)
+                })
+            })
         },
         methods: {
-            init () {
-                this.dialogCloseVisible = this.colorModel
+            async  init () {
                 this.baseColors = safeColor
-                // console.info(this.baseColors)
-            },
-            handleClose () {
-                this.dialogCloseVisible = false
-            },
-            handleDrag () {
-                this.$refs.select.blur()
             },
             copyed () {
                 const btnCopy = new Clipboard('.color')
