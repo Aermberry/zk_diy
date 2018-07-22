@@ -1,7 +1,7 @@
 <template>
   <div class="pc-x-popup" element-path="pc/x-popup">
     <el-popover :placement="placement" :width="width" :trigger="trigger">
-      <div class="popup-page-box " :style="'left:'+left+';top:'+top+''">
+      <div class="popup-page-box " :style="'left:'+left+';width:'+width+';top:'+top+''">
         <div class="page-top">
           <div class="page-top-left">
             {{title}}
@@ -44,6 +44,10 @@
         default: '页面标题'
       },
       width: {
+        type: String,
+        default: '300px'
+      },
+      height: {
         type: String,
         default: '300px'
       },
@@ -104,7 +108,7 @@
   		border-radius: 4px;
   		display: none;
   		padding: 12px;
-  		z-index: 2000;
+  		z-index: 20000;
   		color: #606266;
   		line-height: 1.4;
   		text-align: justify;
@@ -115,9 +119,7 @@
   }
   .popup-page-box {
   	position: absolute;
-  	left: -300px;
-  	width: 300px;
-  	z-index: 9999;
+  	z-index: 99999;
   	background: white;
   	-webkit-transition: all 0.3s ease;
   	-moz-transition: all 0.3s ease;

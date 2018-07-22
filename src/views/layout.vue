@@ -48,10 +48,7 @@
               </el-button-group>
             </div>
             <div class="top-button">
-              <el-button style='' @click="showEntireSet=!showEntireSet">
-                <i class="flaticon-open-box "></i>
-                全局设置
-              </el-button>
+              <zk-global-setting></zk-global-setting>
             </div>
           </el-col>
         </el-row>
@@ -74,7 +71,7 @@
       <zk-footer></zk-footer>
     </el-container>
     <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="false" :widgetId="widgetId"></zk-widget-data>
-    <zk-global-setting v-if="showEntireSet"></zk-global-setting>
+
     <zk-safe-color ref="web_safecolors"></zk-safe-color>
   </el-container>
 </template>
