@@ -108,9 +108,9 @@
     methods: {
       async init () {
         this.themePageInfo = {
-          siteId: '5b4029cd3cb0ee4fdc47cfa5',
-          themeId: '5b4167bfef73100fdc36cf68',
-          themePageId: '5b421fd69015771b50cbf88d',
+          siteId: '9f34d709c599efcd55b237ff',
+          themeId: '951ec7f823cd0269a1647346',
+          themePageId: 'e8cd4c389c50a35c262030b4',
           clientType: '2',
           diyHost: 'http://www.yiqipingou.com', // http://localhost:2000/pages/index
           pageUrl: 'index',

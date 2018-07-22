@@ -48,6 +48,7 @@
           clientType: this.themePageInfo.clientType
         }
         this.themePageModel = await this.$api.get(THEMEPAGE_GETTHEMEPAGELIST_GET, themeInput, 'themePage_' + themeInput.themeId + '_' + themeInput.clientType)
+        console.info('页面数据', this.themePageModel)
         this.asyncflag = true
       }
     }
