@@ -24,7 +24,7 @@ import ZkGlobalSetting from '@/components/zk-global-setting'
 import ZkLeft from '@/components/zk-left'
 import ZkPage from '@/components/zk-page'
 import ZkPageSetting from '@/components/zk-page-setting'
-import ZkPopupLayout from '@/components/zk-popup-layout'
+import ZkPopup from '@/components/zk-popup'
 import ZkRight from '@/components/zk-right'
 import ZkRightProperty from '@/components/zk-right-property'
 import ZkSafeColor from '@/components/zk-safe-color'
@@ -32,7 +32,9 @@ import ZkTable from '@/components/zk-table'
 import ZkTest from '@/components/zk-test'
 import ZkWidgetData from '@/components/zk-widget-data'
 
+import XDialog from '@/elements/x-dialog'
 import XIcon from '@/elements/x-icon'
+import XPopup from '@/elements/x-popup'
 import XScreenfull from '@/elements/x-screenfull'
 
 Vue.component('zk-auto-form', ZkAutoForm)
@@ -48,7 +50,7 @@ Vue.component('zk-global-setting', ZkGlobalSetting)
 Vue.component('zk-left', ZkLeft)
 Vue.component('zk-page', ZkPage)
 Vue.component('zk-page-setting', ZkPageSetting)
-Vue.component('zk-popup-layout', ZkPopupLayout)
+Vue.component('zk-popup', ZkPopup)
 Vue.component('zk-right', ZkRight)
 Vue.component('zk-right-property', ZkRightProperty)
 Vue.component('zk-safe-color', ZkSafeColor)
@@ -56,7 +58,9 @@ Vue.component('zk-table', ZkTable)
 Vue.component('zk-test', ZkTest)
 Vue.component('zk-widget-data', ZkWidgetData)
 
+Vue.component('x-dialog', XDialog)
 Vue.component('x-icon', XIcon)
+Vue.component('x-popup', XPopup)
 Vue.component('x-screenfull', XScreenfull)
 
 Vue.use(global)

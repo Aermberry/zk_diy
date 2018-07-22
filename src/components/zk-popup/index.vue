@@ -1,5 +1,5 @@
 <template>
-  <div class="zk-popup-layout"  v-if="asyncflag">
+  <div class="zk-popup"  v-if="asyncflag">
  
   </div>
 </template>
@@ -7,7 +7,7 @@
 <script>
   import { THEME_GETVALUE_GET } from '@/service/api/apiUrl'
   export default {
-    name: 'zk-popup-layout',
+    name: 'zk-popup',
     props: {
       widget: {}
     },
@@ -28,7 +28,7 @@
           defaultId: '5b406cddfef00000a0000001'
         }
         this.viewModel = await this.$api.get(THEME_GETVALUE_GET, parameter)
-        // console.info('zk-popup-layout数据',this.viewModel)
+        // console.info('zk-popup数据',this.viewModel)
       }
     }
   }
