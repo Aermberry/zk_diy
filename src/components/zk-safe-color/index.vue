@@ -1,6 +1,11 @@
 <template>
-    <el-dialog title='Web安全色' :visible.sync='dialogCloseVisible' @dragDialog="handleDrag" class='zk-safe-color' :before-close='handleClose' width="60%">
-        <div class="color-box">
+    <el-dialog title='Web安全色'
+               :visible.sync='dialogCloseVisible'
+               @dragDialog="handleDrag"
+               class='zk-safe-color'
+               :before-close='handleClose'
+               width="60%">
+        <div class="color-box" slot="footer">
             <el-row :gutter="6" class='colors' v-for='(item,index) in baseColors' :key='index'>
                 <el-col :span="4" v-for='(color,colorIndex) in item.colors' :key='colorIndex'>
                     <span :style='{backgroundColor:color.color}' @click='copyed' v-html='color.color' :data-clipboard-text='color.color' class='color'></span>
@@ -13,7 +18,6 @@
         </span>
     </el-dialog>
 </template>
-
 
 <script>
     import Clipboard from 'clipboard'
