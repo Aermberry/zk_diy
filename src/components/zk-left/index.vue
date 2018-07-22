@@ -4,7 +4,7 @@
       <div class="nav-logo">
         <img src="../../assets/img/logo.png" alt="匠芯云DIY平台" class="logo-icon">
         <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
-          <zk-page></zk-page>
+          <zk-page :themePageInfo="themePageInfo"></zk-page>
           <li class="m-menu__item">
             <a @click="widgetClick()" class="m-menu__link " title="添加模块">
               <i class="m-menu__link-icon flaticon-app "></i>
@@ -118,30 +118,6 @@
         <el-button type="primary" @click="dialogWidgetVisible = false">确 定</el-button>
       </span>
     </el-dialog>
-    <div class="popup-page-box" :class="{'page-box-visible':pageBoxVisible}">
-      <div class="page-top">
-        <div class="page-top-left">
-          页面设置
-          <i class="page-box-close" @click="pageBox()">×</i>
-        </div>
-        <div class="page-top-right">
-          <a @click="newpages()">
-            <i class="el-icon-plus"></i>新增页面</a>
-        </div>
-      </div>
-      <div class="page-center">
-        <el-menu :default-openeds="['_0']">
-          <el-submenu :index="'_'+index" v-for="(item ,index) in themePageModel" :key="index">
-            <template slot="title">
-              <i class="el-icon-menu"></i>{{item.title}}</template>
-            <el-menu-item :index="'_'+index+'_'+pageIndex" v-for="(page ,pageIndex) in item.pages" :key="pageIndex" :page-id="page.id" :page-url="page.url">
-              <i class="flaticon-more-v4"></i>{{page.title}}
-              <i class="flaticon-settings-1 icon-right" :title="item.url"></i>
-            </el-menu-item>
-          </el-submenu>
-        </el-menu>
-      </div>
-    </div>
     <div class="popup-page-box" :class="{'layout-box-visible':layoutBoxVisible}">
       <div class="page-top">
         <div class="page-top-left">
@@ -170,14 +146,13 @@
 
 <script>
   import elDragDialog from '@/directive/el-dragDialog'
-  import { WIDGET_GETLIST_GET, LAYOUT_GETLIST_GET, WIDGET_CLASS_GET, THEMEPAGE_GETTHEMEPAGELIST_GET } from '@/service/api/apiUrl'
+  import { WIDGET_GETLIST_GET, LAYOUT_GETLIST_GET, WIDGET_CLASS_GET } from '@/service/api/apiUrl'
   export default {
     name: 'layout-left',
     directives: { elDragDialog },
     props: ['themePageInfo'],
     data () {
       return {
-        pageBoxVisible: false, // 页面窗口是否显示
         layoutBoxVisible: false, // 页面窗口是否显示
         dialogDataVisible: false, // 首次添加模块、双击模块、编辑模块时弹出的窗口
         dialogWidgetVisible: false, // 模块弹出窗口
@@ -186,7 +161,6 @@
         moduleSearch: '',
         viewModel: null,
         widgetClass: '',
-        themePageModel: null, // 站点URL
         layoutModel: null, // 布局
         widgetClassId: 0, // 模块分类Id
         showContent: 1
@@ -196,14 +170,8 @@
       this.init()
     },
     methods: {
-      async pageBox () {
-        this.pageBoxVisible = !this.pageBoxVisible
-        this.layoutBoxVisible = false
-        console.log('pageBoxVisible', this.pageBoxVisible)
-      },
       async layoutBox () {
         this.layoutBoxVisible = !this.layoutBoxVisible
-        // this.pageBoxVisible = false
         console.log('layoutBoxVisible', this.layoutBoxVisible)
       },
       async newpages () {
@@ -212,9 +180,7 @@
         this.$refs.zk_newpage.$emit('child', this.newpageVisible) // 监听销售属性事件
       },
       async widgetClick () {
-        this.dialogWidgetVisible = !this.pageBoxVisible
-        this.pageBoxVisible = false
-        this.layoutBoxVisible = false
+        this.dialogWidgetVisible = true
       },
       async init () {
         // 模块、模块分类导入
@@ -223,13 +189,6 @@
         }
         this.widgetClass = await this.$api.get(WIDGET_CLASS_GET, '', 'widget_class')
         this.viewModel = await this.$api.get(WIDGET_GETLIST_GET, para, 'widget_list')
-
-        // 页面初始化
-        const themeInput = {
-          themeId: this.themePageInfo.themeId,
-          clientType: this.themePageInfo.clientType
-        }
-        this.themePageModel = await this.$api.get(THEMEPAGE_GETTHEMEPAGELIST_GET, themeInput, 'themePage_' + themeInput.themeId + '_' + themeInput.clientType)
 
         // 布局
         const layoutPara = {
@@ -264,7 +223,6 @@
       openDataDialog () {
         this.dialogDataVisible = true // 弹出模块添加窗口
         this.dialogVisible = false
-        this.pageBoxVisible = false
         this.layoutBoxVisible = false
       }
     }
