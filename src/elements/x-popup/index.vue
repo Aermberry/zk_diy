@@ -6,7 +6,10 @@
         <el-table-column width="100" property="name" label="姓名"></el-table-column>
         <el-table-column width="300" property="address" label="地址"></el-table-column>
       </el-table>
-      <a slot="reference">{{label}}</a>
+      <div slot="reference">
+        <slot name="reference" v-if="$slots.reference"></slot>
+        <a slot="reference" v-if="!$slots.reference">点击</a>
+      </div>
     </el-popover>
   </div>
 </template>

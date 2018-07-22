@@ -1,11 +1,15 @@
 <template>
-  <div class="m-menu__link " @click="pageBox()">
-    <span class="m-menu__item-here"></span>
-    <i class="m-menu__link-icon flaticon-web "></i>
-    <span class="m-menu__link-text">
-      <x-popup label="页面"></x-popup>
-    </span>
-  </div>
+  <x-popup>
+    <li class="m-menu__item  m-menu__item--active" slot="reference">
+      <a class="m-menu__link " @click="pageBox()">
+        <span class="m-menu__item-here"></span>
+        <i class="m-menu__link-icon flaticon-web "></i>
+        <span class="m-menu__link-text">
+          页面
+        </span>
+      </a>
+    </li>
+  </x-popup>
 </template>
 
 <script>

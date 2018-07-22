@@ -4,9 +4,7 @@
       <div class="nav-logo">
         <img src="../../assets/img/logo.png" alt="匠芯云DIY平台" class="logo-icon">
         <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
-          <li class="m-menu__item  m-menu__item--active">
-            <zk-page></zk-page>
-          </li>
+          <zk-page></zk-page>
           <li class="m-menu__item">
             <a @click="widgetClick()" class="m-menu__link " title="添加模块">
               <i class="m-menu__link-icon flaticon-app "></i>
