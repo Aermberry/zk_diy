@@ -17,18 +17,7 @@
               </span>
             </a>
           </li>
-          <li class="m-menu__item">
-            <a @click="layoutBox()" class="m-menu__link " title="添加布局">
-              <i class="m-menu__link-icon flaticon-browser "></i>
-              <span class="m-menu__link-title">
-                <span class="m-menu__link-wrap">
-                  <span class="m-menu__link-text" title="添加布局">
-                    布局
-                  </span>
-                </span>
-              </span>
-            </a>
-          </li>
+          <zk-left-layout :themePageInfo="themePageInfo"></zk-left-layout>
           <li class="m-menu__item">
             <a class="m-menu__link " title="Api接口">
               <i class="m-menu__link-icon flaticon-multimedia-1  "></i>
@@ -54,7 +43,7 @@
             </a>
           </li>
           <li class="m-menu__item">
-            <a @click="openDataDialog()" class="m-menu__link " title="帮助">
+            <a class="m-menu__link " title="帮助">
               <i class="m-menu__link-icon flaticon-info "></i>
               <span class="m-menu__link-title">
                 <span class="m-menu__link-wrap">
@@ -68,7 +57,7 @@
         </ul>
       </div>
     </el-aside>
-    <el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="模块管理" :visible.sync="dialogWidgetVisible" width="80%" class="widget__dialog">
+    <el-dialog v-el-drag-dialog title="模块管理" :visible.sync="dialogWidgetVisible" width="80%" class="widget__dialog">
       <div class="module-nav">
         <ul>
           <li class="active">
@@ -86,7 +75,7 @@
           双击模块，拖动到可视化区域
         </div>
         <div class="search-right">
-          <el-input style='width:222px;' placeholder="搜索" prefix-icon="el-icon-search" v-model="moduleSearch"></el-input>
+          <el-input style='width:222px;' placeholder="搜索" prefix-icon="el-icon-search"></el-input>
           <el-button style='' type="primary" icon="search"> 搜索</el-button>
         </div>
       </div>
@@ -118,67 +107,28 @@
         <el-button type="primary" @click="dialogWidgetVisible = false">确 定</el-button>
       </span>
     </el-dialog>
-    <div class="popup-page-box" :class="{'layout-box-visible':layoutBoxVisible}">
-      <div class="page-top">
-        <div class="page-top-left">
-          布局
-          <i class="page-box-close" @click="layoutBox()">×</i>
-        </div>
-      </div>
-      <div class="page-center layout-box">
-        <el-row>
-          <el-col :span="12" v-for="(item,index) in layoutModel" :key="index" :layout-id="item.id" :layout-path="item.path">
-            <el-card :body-style="{ padding: '2px' }">
-              <img src="http://localhost:5000/fileCenter/layout/layout.jpg">
-              <div style="padding: 2px;">
-                <span>{{item.name}}</span>
-              </div>
-            </el-card>
-          </el-col>
-        </el-row>
-      </div>
-    </div>
     <zk-file ref="ref_zkfiles"></zk-file>
-    <zk-widget-data :dialogVisible="dialogDataVisible" :themePageInfo="themePageInfo" :widgetId="widgetId"></zk-widget-data>
-    <zk-page-setting ref="zk_newpage" class="popup-newpage" :class="{'page-newpage-visible':newpageVisible}"></zk-page-setting>
   </div>
 </template>
-
 <script>
   import elDragDialog from '@/directive/el-dragDialog'
-  import { WIDGET_GETLIST_GET, LAYOUT_GETLIST_GET, WIDGET_CLASS_GET } from '@/service/api/apiUrl'
+  import { WIDGET_GETLIST_GET, WIDGET_CLASS_GET } from '@/service/api/apiUrl'
   export default {
     name: 'layout-left',
     directives: { elDragDialog },
     props: ['themePageInfo'],
     data () {
       return {
-        layoutBoxVisible: false, // 页面窗口是否显示
-        dialogDataVisible: false, // 首次添加模块、双击模块、编辑模块时弹出的窗口
         dialogWidgetVisible: false, // 模块弹出窗口
-        widgetId: '5b4c9e0c9f7de61d7c4a4ea6',
-        newpageVisible: false, // 新建模块
-        moduleSearch: '',
         viewModel: null,
         widgetClass: '',
-        layoutModel: null, // 布局
-        widgetClassId: 0, // 模块分类Id
-        showContent: 1
+        widgetClassId: 0 // 模块分类Id
       }
     },
     mounted () {
       this.init()
     },
     methods: {
-      async layoutBox () {
-        this.layoutBoxVisible = !this.layoutBoxVisible
-        console.log('layoutBoxVisible', this.layoutBoxVisible)
-      },
-      async newpages () {
-        this.newpageVisible = !this.newpageVisible
-        console.log('newpageVisible', this.newpageVisible)
-        this.$refs.zk_newpage.$emit('child', this.newpageVisible) // 监听销售属性事件
-      },
       async widgetClick () {
         this.dialogWidgetVisible = true
       },
@@ -189,16 +139,7 @@
         }
         this.widgetClass = await this.$api.get(WIDGET_CLASS_GET, '', 'widget_class')
         this.viewModel = await this.$api.get(WIDGET_GETLIST_GET, para, 'widget_list')
-
-        // 布局
-        const layoutPara = {
-          clientType: this.themePageInfo.clientType
-        }
-        this.layoutModel = await this.$api.get(LAYOUT_GETLIST_GET, layoutPara, 'layout_list_' + this.themePageInfo.clientType)
-      },
-      async handleDrag () {
-        this.$refs.select.blur()
-      },
+      }
       // addComponent (item) {
       //   var win = document.querySelector('#show-iframe').contentWindow
       //   var newComponent = {
@@ -220,11 +161,6 @@
       //   //	this.dialogWidgetVisible = !this.dialogWidgetVisible // 关闭模块管理
       // },
       // 打开模块数据管理窗口,双击模块、拖进模块后操作
-      openDataDialog () {
-        this.dialogDataVisible = true // 弹出模块添加窗口
-        this.dialogVisible = false
-        this.layoutBoxVisible = false
-      }
     }
   }
 </script>

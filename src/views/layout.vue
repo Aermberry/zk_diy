@@ -1,7 +1,6 @@
 <template>
   <el-container class="app-wrapper">
-    <zk-left :themePageInfo="themePageInfo" v-if="asyncFlag" :diyInfo="diyInfo">
-    </zk-left>
+    <zk-left :themePageInfo="themePageInfo" v-if="asyncFlag" :diyInfo="diyInfo"></zk-left>
     <el-container>
       <el-header class="app-header" height="55">
         <el-row class="app-nav">
@@ -49,10 +48,7 @@
               </el-button-group>
             </div>
             <div class="top-button">
-              <el-button style='' @click="showEntireSet=!showEntireSet">
-                <i class="flaticon-open-box "></i>
-                全局设置
-              </el-button>
+              <zk-global-setting></zk-global-setting>
             </div>
           </el-col>
         </el-row>
@@ -75,7 +71,7 @@
       <zk-footer></zk-footer>
     </el-container>
     <zk-widget-data :dialogVisible="dialogWidgetDataVisible" :themePageInfo="themePageInfo" v-if="false" :widgetId="widgetId"></zk-widget-data>
-    <zk-global-setting v-if="showEntireSet"></zk-global-setting>
+
     <zk-safe-color ref="web_safecolors"></zk-safe-color>
   </el-container>
 </template>
@@ -91,7 +87,7 @@
       return {
         screenWidth: '1100', // 屏幕宽度,
         dialogWidgetDataVisible: false, // 首次添加模块、双击模块、编辑模块时弹出的窗口
-        themePageInfo: '', // 站点信息
+        themePageInfo: {}, // 站点信息
         widgetId: '5b45350e55f7b54a285630b4',
         diyInfo: '', // diy信息,用户编辑时候，随时记录diy信息
         asyncFlag: false,
@@ -108,9 +104,9 @@
     methods: {
       async init () {
         this.themePageInfo = {
-          siteId: '5b4029cd3cb0ee4fdc47cfa5',
-          themeId: '5b4167bfef73100fdc36cf68',
-          themePageId: '5b421fd69015771b50cbf88d',
+          siteId: '9f34d709c599efcd55b237ff',
+          themeId: '951ec7f823cd0269a1647346',
+          themePageId: 'e8cd4c389c50a35c262030b4',
           clientType: '2',
           diyHost: 'http://www.yiqipingou.com', // http://localhost:2000/pages/index
           pageUrl: 'index',

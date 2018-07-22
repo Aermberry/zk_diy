@@ -1,7 +1,6 @@
 <template>
   <x-popup title="页面管理">
-    <a @click="newpages()" slot="rightMenu">
-      <i class="el-icon-plus"></i>新增页面</a>
+    <zk-page-setting title="新增页面" slot="rightMenu" trigger="click"></zk-page-setting>
     <el-menu :default-openeds="['_0']" slot="bodyContent">
       <el-submenu :index="'_'+index" v-for="(item ,index) in themePageModel" :key="index">
         <template slot="title">
@@ -13,7 +12,7 @@
       </el-submenu>
     </el-menu>
     <li class="m-menu__item  m-menu__item--active" slot="reference">
-      <a class="m-menu__link " @click="pageBox()">
+      <a class="m-menu__link ">
         <span class="m-menu__item-here"></span>
         <i class="m-menu__link-icon flaticon-web "></i>
         <span class="m-menu__link-text">
@@ -48,6 +47,7 @@
           clientType: this.themePageInfo.clientType
         }
         this.themePageModel = await this.$api.get(THEMEPAGE_GETTHEMEPAGELIST_GET, themeInput, 'themePage_' + themeInput.themeId + '_' + themeInput.clientType)
+        // console.info('页面数据', this.themePageModel)
         this.asyncflag = true
       }
     }

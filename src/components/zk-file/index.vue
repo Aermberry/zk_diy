@@ -42,8 +42,8 @@
       <div class="module-content" v-if="showContent===1">
         <div class="content-left">
           <!-- 侧栏 -->
-          <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-            <el-menu-item-group closable @tab-remove="removeTab">
+          <el-menu default-active="1-4-1" class="el-menu-vertical-demo">
+            <el-menu-item-group closable>
               <template v-for="item in editableTabs">
                 <el-menu-item :index="item.index" v-text="item.content" :key="item.index">
                 </el-menu-item>
