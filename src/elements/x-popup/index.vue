@@ -1,7 +1,7 @@
 <template>
   <div class="pc-x-popup" element-path="pc/x-popup">
     <el-popover :placement="placement" :width="width" :trigger="trigger">
-      <div class="popup-page-box " style="left:-13px;top:-24px">
+      <div class="popup-page-box " :style="'left:'+left+';top:'+top+''">
         <div class="page-top">
           <div class="page-top-left">
             {{title}}
@@ -30,6 +30,14 @@
       label: {
         type: String,
         default: '点击'
+      },
+      top: {
+        type: String,
+        default: '-24px'
+      },
+      left: {
+        type: String,
+        default: '-13px'
       },
       title: {
         type: String,

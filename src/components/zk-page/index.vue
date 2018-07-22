@@ -13,7 +13,7 @@
       </el-submenu>
     </el-menu>
     <li class="m-menu__item  m-menu__item--active" slot="reference">
-      <a class="m-menu__link " @click="pageBox()">
+      <a class="m-menu__link ">
         <span class="m-menu__item-here"></span>
         <i class="m-menu__link-icon flaticon-web "></i>
         <span class="m-menu__link-text">
@@ -48,7 +48,7 @@
           clientType: this.themePageInfo.clientType
         }
         this.themePageModel = await this.$api.get(THEMEPAGE_GETTHEMEPAGELIST_GET, themeInput, 'themePage_' + themeInput.themeId + '_' + themeInput.clientType)
-        console.info('页面数据', this.themePageModel)
+        // console.info('页面数据', this.themePageModel)
         this.asyncflag = true
       }
     }

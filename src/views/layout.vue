@@ -1,7 +1,6 @@
 <template>
   <el-container class="app-wrapper">
-    <zk-left :themePageInfo="themePageInfo" v-if="asyncFlag" :diyInfo="diyInfo">
-    </zk-left>
+    <zk-left :themePageInfo="themePageInfo" v-if="asyncFlag" :diyInfo="diyInfo"></zk-left>
     <el-container>
       <el-header class="app-header" height="55">
         <el-row class="app-nav">
