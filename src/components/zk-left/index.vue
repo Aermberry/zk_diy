@@ -43,7 +43,7 @@
             </a>
           </li>
           <li class="m-menu__item">
-            <a @click="openDataDialog()" class="m-menu__link " title="帮助">
+            <a class="m-menu__link " title="帮助">
               <i class="m-menu__link-icon flaticon-info "></i>
               <span class="m-menu__link-title">
                 <span class="m-menu__link-wrap">
@@ -57,7 +57,7 @@
         </ul>
       </div>
     </el-aside>
-    <el-dialog v-el-drag-dialog @dragDialog="handleDrag" title="模块管理" :visible.sync="dialogWidgetVisible" width="80%" class="widget__dialog">
+    <el-dialog v-el-drag-dialog title="模块管理" :visible.sync="dialogWidgetVisible" width="80%" class="widget__dialog">
       <div class="module-nav">
         <ul>
           <li class="active">
@@ -75,7 +75,7 @@
           双击模块，拖动到可视化区域
         </div>
         <div class="search-right">
-          <el-input style='width:222px;' placeholder="搜索" prefix-icon="el-icon-search" v-model="moduleSearch"></el-input>
+          <el-input style='width:222px;' placeholder="搜索" prefix-icon="el-icon-search"></el-input>
           <el-button style='' type="primary" icon="search"> 搜索</el-button>
         </div>
       </div>
@@ -108,11 +108,8 @@
       </span>
     </el-dialog>
     <zk-file ref="ref_zkfiles"></zk-file>
-    <zk-widget-data :dialogVisible="dialogDataVisible" :themePageInfo="themePageInfo" :widgetId="widgetId"></zk-widget-data>
-    <zk-page-setting ref="zk_newpage" class="popup-newpage" :class="{'page-newpage-visible':newpageVisible}"></zk-page-setting>
   </div>
 </template>
-
 <script>
   import elDragDialog from '@/directive/el-dragDialog'
   import { WIDGET_GETLIST_GET, WIDGET_CLASS_GET } from '@/service/api/apiUrl'
@@ -122,26 +119,16 @@
     props: ['themePageInfo'],
     data () {
       return {
-        dialogDataVisible: false, // 首次添加模块、双击模块、编辑模块时弹出的窗口
         dialogWidgetVisible: false, // 模块弹出窗口
-        widgetId: 'e6718a33f45ded4d37f58bec',
-        newpageVisible: false, // 新建模块
-        moduleSearch: '',
         viewModel: null,
         widgetClass: '',
-        widgetClassId: 0, // 模块分类Id
-        showContent: 1
+        widgetClassId: 0 // 模块分类Id
       }
     },
     mounted () {
       this.init()
     },
     methods: {
-      async newpages () {
-        this.newpageVisible = !this.newpageVisible
-        console.log('newpageVisible', this.newpageVisible)
-        this.$refs.zk_newpage.$emit('child', this.newpageVisible) // 监听销售属性事件
-      },
       async widgetClick () {
         this.dialogWidgetVisible = true
       },
@@ -152,7 +139,7 @@
         }
         this.widgetClass = await this.$api.get(WIDGET_CLASS_GET, '', 'widget_class')
         this.viewModel = await this.$api.get(WIDGET_GETLIST_GET, para, 'widget_list')
-      },
+      }
       // addComponent (item) {
       //   var win = document.querySelector('#show-iframe').contentWindow
       //   var newComponent = {
@@ -174,10 +161,6 @@
       //   //	this.dialogWidgetVisible = !this.dialogWidgetVisible // 关闭模块管理
       // },
       // 打开模块数据管理窗口,双击模块、拖进模块后操作
-      openDataDialog () {
-        this.dialogDataVisible = true // 弹出模块添加窗口
-        this.dialogVisible = false
-      }
     }
   }
 </script>

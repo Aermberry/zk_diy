@@ -90,7 +90,7 @@
       return {
         screenWidth: '1100', // 屏幕宽度,
         dialogWidgetDataVisible: false, // 首次添加模块、双击模块、编辑模块时弹出的窗口
-        themePageInfo: '', // 站点信息
+        themePageInfo: {}, // 站点信息
         widgetId: '5b45350e55f7b54a285630b4',
         diyInfo: '', // diy信息,用户编辑时候，随时记录diy信息
         asyncFlag: false,

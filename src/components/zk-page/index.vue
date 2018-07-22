@@ -1,7 +1,6 @@
 <template>
   <x-popup title="页面管理">
-    <a @click="newpages()" slot="rightMenu">
-      <i class="el-icon-plus"></i>新增页面</a>
+    <zk-page-setting title="新增页面" slot="rightMenu" trigger="click"></zk-page-setting>
     <el-menu :default-openeds="['_0']" slot="bodyContent">
       <el-submenu :index="'_'+index" v-for="(item ,index) in themePageModel" :key="index">
         <template slot="title">

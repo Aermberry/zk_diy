@@ -48,7 +48,7 @@
         }
         this.layoutModel = await this.$api.get(LAYOUT_GETLIST_GET, layoutPara, 'layout_list_' + this.themePageInfo.clientType)
         this.asyncflag = true
-        console.info('布局数据', this.layoutModel)
+        // console.info('布局数据', this.layoutModel)
       }
     }
   }
