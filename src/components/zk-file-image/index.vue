@@ -1,6 +1,5 @@
 <template>
   <div class="zk-file-image"  v-if="asyncflag">
- 
   </div>
 </template>
 
